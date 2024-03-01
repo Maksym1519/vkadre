@@ -1,4 +1,7 @@
-@import "./vars/colors.scss";
-.test {
-background: var(--white);
+body {
+  font-family: "Inter-400";
+}
+.container {
+    max-width: 1500px;
+    padding: 0 30px;
 }

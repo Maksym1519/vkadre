@@ -4,7 +4,6 @@ import HeroAbout from "./HeroAbout/HeroAbout";
 
 
 
-
 const About = () => {
     return (
         <div className="about">
