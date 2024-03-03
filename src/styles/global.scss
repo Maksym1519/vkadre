@@ -1,10 +1,12 @@
+@import "./vars/colors.scss";
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: "Inter-400";
-  font-size: 0.875rem
+  font-size: 0.875rem;
+  background: var(--white);
 }
 .container {
     max-width: 1250px;

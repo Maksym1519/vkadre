@@ -1,0 +1,101 @@
+@import "../../../styles/mixins/mediaBreakpoints.scss";
+@import "../../../styles/vars/colors.scss";
+@import "../../../styles/vars/variables.scss";
+
+.header {
+  max-width: 100%;
+  margin-top: 19px;
+
+  & .header-body {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 21px;
+    border-bottom: 1px solid var(--colorLine);
+  }
+
+  & .header-logo {
+    width: 100%;
+    max-width: 680px;
+    display: flex;
+    column-gap: 51px;
+   
+    & .header-logoDescription {
+      color: var(--textColor);
+      font-size: 1rem;
+      line-height: 180%;
+      text-transform: uppercase;
+      max-width: 227px;
+      white-space: wrap;
+    }
+  }
+
+  & .header-image {
+   cursor: pointer;
+  }
+
+  & .header-image:hover {
+   transform: scale(103%);
+ }
+
+  & .navigation,
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-right: 72px;
+    cursor: pointer;
+
+    & .contacts--margin {
+      margin-right: 113px;
+    }
+
+    & .navigation-item,
+    .contacts-item {
+      font-family: "Inter-500";
+      color: var(--textColor);
+      line-height: 140%;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+
+  & .navigation-item:hover, .contacts-item:hover {
+   //transform: scale(103%);
+   text-decoration: underline;
+   color: var(--blueLink);
+   //font-weight: 600;
+ }
+
+  & .profile {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+
+    & .profile-avatar {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    & .profile-avatar:hover {
+       transform: scale(103%);
+    }
+
+    & .profile-text {
+      font-family: "Inter-500";
+      color: var(--textColor);
+      line-height: 140%;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@mixin tablet() {
+}
+
+@mixin mobile() {
+}
