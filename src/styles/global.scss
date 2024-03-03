@@ -1,8 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Inter-400";
+  font-size: 0.875rem
 }
 .container {
-    max-width: 1440px;
-    padding: 0 88px;
+    max-width: 1250px;
+    padding: 0 15px;
     margin: 0 auto;
+    box-sizing: content-box;
 }

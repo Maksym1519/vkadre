@@ -1,6 +1,8 @@
+@import "../../../styles/vars/colors.scss";
+
 .home__wrapper {
-    background: red;
-    height: 100%;
+    background: var(--mainBG);
+    height: 100dvh;
 }
 
 @mixin tablet() {
