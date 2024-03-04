@@ -33,7 +33,6 @@ const initialState: HeaderState = {
 
     async function (_, { rejectWithValue }) {
         const response = await axios.get("http://localhost:1337/api/headers?populate=*");
-
          if (response.status !== 200) {
           return rejectWithValue("Server error !");
         } 

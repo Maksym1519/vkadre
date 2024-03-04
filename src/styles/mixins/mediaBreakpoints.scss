@@ -1,3 +1,6 @@
+@import '../vars/variables.scss';
+
+
 @mixin desctop() {
     @media (min-width: $breakpoint_1025) {
         @content

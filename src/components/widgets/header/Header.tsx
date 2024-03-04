@@ -4,15 +4,20 @@ import { useEffect } from "react";
 import { headerInfo } from "../../../store/slices/headerSlice";
 import logo from "../../../assets/images/Logo (1).svg";
 import avatar from "../../../assets/images/avatarIcon.svg";
+import Burger from "./Burger";
+import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   const dispatch = useAppDispatch();
   const reduxData = useAppSelector((state) => state.header.header);
+
   useEffect(() => {
     dispatch(headerInfo());
-    console.log(reduxData);
-  }, [dispatch]);
+    }, []);
 
+if (reduxData !== null) {
+  console.log(reduxData);
+}
   return (
     <header className="header">
       <div className="header-body">
@@ -39,6 +44,8 @@ const Header = () => {
           <img src={avatar} alt="avatar" className="profile-avatar"/>
           <p className="profile-text">личный кабинет</p>
         </div>
+        <Burger />
+        <MobileMenu />
       </div>
     </header>
   );
