@@ -9,8 +9,9 @@ import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   const dispatch = useAppDispatch();
-  const reduxData = useAppSelector((state) => state.header.header);
-
+  type reduxData = []
+  const reduxData =  useAppSelector((state) => state.header.header);
+   
   useEffect(() => {
     dispatch(headerInfo());
     }, []);
@@ -24,7 +25,7 @@ if (reduxData !== null) {
         <div className="header-logo">
           <img src={logo} alt="logo" className="header-image"/>
           <div className="header-logoDescription">
-            Качественные фотографии в кратчайшие сроки
+            {reduxData && reduxData[0].attributes.logoDescription}
           </div>
         </div>
 

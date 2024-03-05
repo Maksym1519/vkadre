@@ -2,7 +2,7 @@ import axios from "axios";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 
 //определяем типы данных для всех полей хедера
-  export type HeaderData = {
+  export type HeaderData = [{
   logo: string;
   avataricon: string;
   logoDescription: string;
@@ -13,7 +13,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
   facebook: string;
   email: string;
   attributes: any;
-   }
+   }]
 
 //определяем типы данных для состояния хедера и ассинхронного редакса
   type HeaderState = {
@@ -39,7 +39,7 @@ const initialState: HeaderState = {
 
       const responseData = response.data.data;
       return responseData;
-    }
+      }
   );
   
 
