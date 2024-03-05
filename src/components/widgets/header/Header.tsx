@@ -39,7 +39,7 @@ const contactsString = reduxData && reduxData[0].attributes.contact.split(",");
           <span className="contacts-item">{contactsString && contactsString[0]}</span>
           <span className="contacts-item">FB.com/vkadre</span>
           <span className="contacts-item">{contactsString && contactsString[2]}</span>
-        </div>
+         </div>
 
         <div className="profile">
           <img src={reduxData && reduxData[0].attributes.avatarIcon.data.attributes.url} alt="avatar" className="profile-avatar"/>

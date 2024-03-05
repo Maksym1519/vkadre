@@ -1,0 +1,23 @@
+@import "../../../styles/vars/colors.scss";
+@import "../../../styles/vars/variables.scss";
+@import "../../../styles/mixins/mediaBreakpoints.scss";
+
+.homeOrderPhotosession {
+    width: 100%;
+    margin-top: 83px;
+    display: grid;
+    grid-template-columns: minmax(auto, 501px) 1fr;
+    column-gap: 137px;
+
+    & .orderPhotoSession-description {
+        font-size: 50px
+    }
+}
+
+@mixin tablet() {
+    
+};
+
+@mixin mobile() {
+    
+};

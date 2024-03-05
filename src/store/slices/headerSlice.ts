@@ -30,7 +30,7 @@ const initialState: HeaderState = {
     "header/headerInfo",
 
     async function (_, { rejectWithValue }) {
-        const response = await axios.get("http://localhost:1337/api/headers?populate=*");
+        const response = await axios.get("https://vkadrestrapi.onrender.com/api/headers?populate=*");
          if (response.status !== 200) {
           return rejectWithValue("Server error !");
         } 

@@ -1,0 +1,70 @@
+@import "../../../styles/vars/colors.scss";
+@import "../../../styles/vars/variables.scss";
+@import "../../../styles/mixins/mediaBreakpoints.scss";
+
+.button {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 0;
+  color: var(--textColor);
+  font-family: "Inter-600";
+  font-size: 0.75rem;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid var(--textColor);
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(103%);
+} 
+
+@mixin tablet() {
+  .button {
+    width: 100%;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 0;
+    color: var(--textColor);
+    font-family: "Inter-600";
+    font-size: 0.75rem;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--textColor);
+    cursor: pointer;
+  }
+
+  .button:hover {
+    transform: scale(103%);
+  } 
+}
+
+@mixin mobile() {
+  .button {
+    width: 100%;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 0;
+    color: var(--textColor);
+    font-family: "Inter-600";
+    font-size: 0.75rem;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--textColor);
+    cursor: pointer;
+  }
+
+  .button:hover {
+    transform: scale(103%);
+  } 
+}
