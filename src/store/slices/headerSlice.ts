@@ -1,17 +1,13 @@
 import axios from "axios";
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 //определяем типы данных для всех полей хедера
   export type HeaderData = [{
   logo: string;
   avataricon: string;
   logoDescription: string;
-  portfolio: string;
-  services: string;
-  location: string;
-  phone: string;
-  facebook: string;
-  email: string;
+  navigation: string;
+  contact: string;
   attributes: any;
    }]
 
@@ -20,12 +16,14 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
   header: HeaderData | null;
   loading: boolean;
   error: string | null;
+  burger: boolean;
 }
 
 const initialState: HeaderState = {
   header: null,
   loading: false,
-  error: null
+  error: null,
+  burger: false
   };
 
   export const headerInfo = createAsyncThunk<HeaderData, undefined, { rejectValue: string }>(
@@ -48,8 +46,8 @@ const headerSlice = createSlice({
   name: "header",
   initialState,
   reducers: {
-    getHeaderInfo: (state,action: PayloadAction<HeaderData>) => {
-      state.header = action.payload
+    getBurgerInfo: (state,action) => {
+      state.burger = action.payload
     }
   }, 
 
@@ -67,5 +65,5 @@ const headerSlice = createSlice({
       },
 });
 
-
+export const {getBurgerInfo} = headerSlice.actions;
 export default headerSlice.reducer;
