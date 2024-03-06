@@ -3,21 +3,66 @@
 @import "../../../styles/mixins/mediaBreakpoints.scss";
 
 .homeOrderPhotosession {
-    width: 100%;
-    margin-top: 83px;
-    display: grid;
-    grid-template-columns: minmax(auto, 501px) 1fr;
-    column-gap: 137px;
+  width: 100%;
+  margin-top: 83px;
+  display: grid;
+  grid-template-columns: minmax(auto, 501px) 1fr;
+  column-gap: 137px;
 
-    & .orderPhotoSession-description {
-        font-size: 50px
+  & .mainImage {
+    width: 100%;
+    height: 100%;
+  }
+
+  & .mainImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  & .orderPhotoSession-description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    & .orderPhotoSession-description__title {
+      color: var(--textColor);
+      font-family: "Inter-600";
+      font-size: 3rem;
+      line-height: 140%;
+      text-transform: uppercase;
+      margin-bottom: 21px;
     }
+
+    & .description-terms {
+        display: flex;
+        align-items: center;
+        column-gap: 50px;
+        margin-bottom: 64px;
+
+        & .description-terms__item {
+            display: flex;
+            flex-direction: column;
+
+            & .terms__item__bold, .terms__item__light {
+                color: var(--textColor);
+                font-family: "Inter-600";
+                font-size: 0.875rem;
+                line-height: 140%;
+                letter-spacing: 0%;
+                text-transform: uppercase;
+            }
+
+            & .terms__item__light {
+               color: var(--textColorLight);
+            }
+        }
+    }
+  }
 }
 
 @mixin tablet() {
-    
-};
+}
 
 @mixin mobile() {
-    
-};
+}

@@ -1,0 +1,23 @@
+@import "../../../styles/vars/colors.scss";
+@import "../../../styles/vars/variables.scss";
+@import "../../../styles/mixins/mediaBreakpoints.scss";
+
+.homeOrderSlider {
+    max-width: 100%;
+    margin-top: 98px;
+
+    & .mySwiper {
+        max-width: 610px !important;
+
+        & .swiper-slide {
+            max-width: 100% !important;
+        }
+    }
+}
+
+@mixin tablet() {
+}
+
+@mixin mobile() {
+}
+
