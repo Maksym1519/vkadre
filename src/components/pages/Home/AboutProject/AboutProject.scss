@@ -1,0 +1,16 @@
+@import "../../../../styles/vars/colors.scss";
+@import "../../../../styles/vars/variables.scss";
+@import "../../../../styles/mixins/mediaBreakpoints.scss";
+
+
+@include desctop() {
+    .aboutProject {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+@include tablet() {
+}
+@include mobile() {
+}

@@ -18,3 +18,8 @@
         @content
     }
 };
+@mixin sliderAdaptive() {
+    @media (min-width: $breakpoint_769) and (max-width: $breakpoint_1280 ) {
+        @content
+    }
+};

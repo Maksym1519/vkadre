@@ -1,6 +1,6 @@
 import "./Home.scss";
 import Header from "../../widgets/header/Header";
-import HomeOrderPhotosession from "./HomeOrderPhotosession";
+import HomeOrderPhotosession from "./HomeOrderPhotosession/HomeOrderPhotosession";
 
 const Home = () => { 
  
