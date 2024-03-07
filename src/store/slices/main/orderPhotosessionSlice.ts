@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export type OrderPhotosessionData = [{
     mainImage: string;
     mainTitle: string;
-    sliderImage: Array<string>;
+    orderPhotosessionSlider: Array<string>;
     attributes: any;
 }]
 
