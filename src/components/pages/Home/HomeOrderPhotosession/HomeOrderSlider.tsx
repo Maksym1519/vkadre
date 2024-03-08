@@ -25,8 +25,12 @@ const HomeOrderSlider = () => {
         modules={[Navigation]}
         className="mySwiper"
         breakpoints={{
+          280: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
           768: {
-            slidesPerView: 1.2,
+            slidesPerView: 2,
             spaceBetween: 20,
           },
           1430: {
@@ -39,7 +43,7 @@ const HomeOrderSlider = () => {
             spaceBetween: 20
           }
         }}
-      >
+        >
         {sliderImages &&
           sliderImages.map((item: any, index: number) => (
             <SwiperSlide key={index}>

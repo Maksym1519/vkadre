@@ -6,7 +6,7 @@
   .header {
     max-width: 100%;
     margin-top: 19px;
-
+   
     & .header-body {
       width: 100%;
       display: flex;
@@ -209,6 +209,7 @@
     max-width: 100%;
     margin-top: 19px;
     position: relative;
+    z-index: 6;
 
     & .header-body {
       width: 100%;
@@ -356,8 +357,12 @@
   }
 
    .mobileMenu {
+    position: absolute;
+    top: 48px;
+    left: -15px;
+    padding: 0  0 40px 15px;
     margin-left: 0;
-    width: 100%;
+    width: 100vw;
     background: var(--white);
     padding-top: 63px;
     display: flex;
@@ -366,6 +371,7 @@
     opacity: 1;
     animation-duration: 1s;
     animation-name: fadeIn;
+    z-index: 3000;
    
     & .mobileNavigation {
       display: flex;
@@ -440,11 +446,5 @@
     to {
       opacity: 0;
     }
-  }
-
-    .mobileMenu {
-    position: absolute;
-    top: 48px;
-    left: 0;
   }
 }

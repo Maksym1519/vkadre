@@ -36,7 +36,7 @@ const reduxData = useAppSelector((state) => state.orderPhotosession.orderPhotose
           </div>
 
           <div className="description-terms__item">
-            <span className="terms__item__bold">Готовые фото на <br/>следующий день</span>
+            <span className="terms__item__bold">Готовые фото на следующий день</span>
           </div>
         </div>
 

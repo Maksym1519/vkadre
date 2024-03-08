@@ -6,7 +6,6 @@ import arrow from "../../../assets/images/mobileMenuArrow.svg";
 
 const MobileMenu = () => {
 const mobileMenuState = useAppSelector((state) => state.header.burger)
-console.log(mobileMenuState)
 
 const [activeIndex, setActiveIndex] = useState(0);
 const clickActiveIndex = (index: number) => {
