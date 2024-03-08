@@ -1,4 +1,5 @@
 @import "./vars/colors.scss";
+@import "./mixins/mediaBreakpoints.scss";
 * {
   box-sizing: border-box;
 }
@@ -8,9 +9,28 @@ body {
   font-size: 0.875rem;
   background: var(--white);
 }
-.container {
+
+@include desctop {
+  .container {
     max-width: 1248px;
+    padding: 0 96px;
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+}
+@include tablet {
+  .container {
+    max-width: 100%;
     padding: 0 15px;
     margin: 0 auto;
     box-sizing: content-box;
+}
+}
+@include mobile {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+    box-sizing: content-box;
+}
 }

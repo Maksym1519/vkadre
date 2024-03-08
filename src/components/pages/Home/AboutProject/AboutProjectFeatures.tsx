@@ -9,23 +9,25 @@ const AboutProjectFeatures = () => {
     dispatch(aboutProjectInfo());
   }, [dispatch]);
 
-  const reduxInfo = useAppSelector((state) => state.aboutProject.aboutProject);
-  const iconesArray = reduxInfo && reduxInfo[0].attributes.featuresIcon.data;
-  console.log(iconesArray && iconesArray);
+ const reduxInfo = useAppSelector((state) => state.aboutProject.aboutProject?.slice(0,4));
+   
+ const icones = reduxInfo && reduxInfo.map((item) => item.attributes.featuresIcon?.data?.attributes.url);
+  
+
 
   return (
     <div className="aboutProject-features">
-      {iconesArray &&
-        iconesArray.map((item: any, index: number) => (
+      {reduxInfo &&
+        reduxInfo.map((item: any, index: number) => (
           <div className="aboutProject-features-item" key={index}>
             <img
-              src={item.attributes.url}
+              src={icones && icones[index]}
               className="features-item__icon"
               alt="icon"
             />
             <div className="features-item__info">
-              <p className="features-item__title"></p>
-              <p className="features-item__text"></p>
+              <p className="features-item__title">{item.attributes.featuresTitle}</p>
+              <p className="features-item__text">{item.attributes.featuresInfo}</p>
             </div>
           </div>
         ))}

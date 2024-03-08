@@ -2,6 +2,7 @@
 
 .home__wrapper {
     height: 100dvh;
+    overflow-x: hidden
 }
 
 @mixin tablet() {

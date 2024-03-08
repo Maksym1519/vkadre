@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
 import { aboutProjectInfo } from '../../../../store/slices/main/aboutProjectSlice';
 import { useEffect } from 'react';
 import AboutProjectFeatures from './AboutProjectFeatures';
+import AboutProjectStatistics from './AboutProjectStatistics';
 
 
 const AboutProject = () => {
@@ -13,6 +14,7 @@ dispatch(aboutProjectInfo())
 
 const reduxInfo = useAppSelector((state) => state.aboutProject.aboutProject)
 
+
     return (
         <div className='aboutProject'>
             <div className='aboutProject-header'>
@@ -20,6 +22,8 @@ const reduxInfo = useAppSelector((state) => state.aboutProject.aboutProject)
                <p className='aboutProject-header__description'>{reduxInfo && reduxInfo[0].attributes.headerDescription}</p>
             </div>
             <AboutProjectFeatures />
+            <AboutProjectStatistics />
+            <img src={reduxInfo && reduxInfo[0].attributes?.blur?.data?.attributes.url} alt="blur" className='blur'/>
         </div>
     )
 }

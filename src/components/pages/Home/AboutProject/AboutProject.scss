@@ -7,6 +7,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 2;
 
     & .aboutProject-header {
       width: 100%;
@@ -32,31 +34,93 @@
         max-width: 715px;
       }
     }
-  }
 
-  .aboutProject-features {
-    width: 100%;
-    display: grid;
-    grid-template-columns: minmax(auto, 252px) minmax(auto, 252px) minmax(auto, 252px) minmax(auto, 252px);
-    column-gap: 80px;
-    justify-content: space-between;
-
-    & .aboutProject-features-item {
+    .aboutProject-features {
       width: 100%;
+      display: grid;
+      grid-template-columns:
+        minmax(auto, 252px) minmax(auto, 252px) minmax(auto, 252px)
+        minmax(auto, 252px);
+      column-gap: 80px;
+      justify-content: space-between;
+      padding-bottom: 100px;
+      border-bottom: 1px solid var(--colorLine);
+
+      & .aboutProject-features-item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+
+        & .features-item__icon {
+          width: 56px;
+          height: 56px;
+        }
+
+        & .features-item__info {
+          display: flex;
+          flex-direction: column;
+          row-gap: 8px;
+
+          .features-item__title {
+            color: var(--textColor);
+            font-family: "Inter-600";
+            font-size: 1.125rem;
+            line-height: 140%;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+          }
+
+          .features-item__text {
+            color: var(--textColor);
+            font-family: "Inter-400";
+            font-size: 1rem;
+            line-height: 160%;
+            }
+        }
+      }
+    }
+
+    .aboutProjectStatistics {
+      width: 100%;
+      padding-top: 61px;
       display: flex;
-      flex-direction: column;
-      row-gap: 40px;
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 24px;
 
-     & .features-item__icon {
-        width: 56px;
-        height: 56px;
-     }
-
-     & .features-item__info {
+      .statistics-item {
         display: flex;
         flex-direction: column;
         row-gap: 8px;
-     }
+
+        .statistics-item__title {
+          color: var(--textColor);
+          font-family: "Inter-600";
+          font-size: 3rem;
+          line-height: 140%;
+          text-transform: uppercase;
+        }
+
+        
+        .statistics-item__info {
+          color: var(--textColor);
+          font-family: "Inter-600";
+          font-size: 0.875rem;
+          line-height: 140%;
+          text-transform: uppercase;
+          max-width: 70%;
+        }
+      }
+    }
+
+    .blur {
+      position: absolute;
+      left: -450px;
+      top: 0%;
+      z-index: -1;
+      width: 992px;
+      height: 954px;
     }
   }
 }
