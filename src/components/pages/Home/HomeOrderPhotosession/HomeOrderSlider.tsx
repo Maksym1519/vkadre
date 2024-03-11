@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+//----------------------------------------------------------------
+
 
 const HomeOrderSlider = () => {
   const reduxData = useAppSelector(
@@ -51,7 +53,7 @@ const HomeOrderSlider = () => {
             </SwiperSlide>
           ))}
       </Swiper>
-
+      
       <div className="buttons-navigation">
         <div className="button-swiper">
           <div className="swiper-button-prev"></div>

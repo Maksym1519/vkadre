@@ -17,14 +17,14 @@ const reduxInfo = useAppSelector((state) => state.aboutProject.aboutProject)
 
 
     return (
-        <div className='aboutProject'>
-            <div className='aboutProject-header'>
-               <h3 className='aboutProject-header__title'>{reduxInfo && reduxInfo[0].attributes.mainTitle}</h3>
-               <p className='aboutProject-header__description'>{reduxInfo && reduxInfo[0].attributes.headerDescription}</p>
+        <div className='about-project'>
+            <div className='about-project__header'>
+               <h3 className='about-project__title'>{reduxInfo && reduxInfo[0].attributes.mainTitle}</h3>
+               <p className='about-project__description'>{reduxInfo && reduxInfo[0].attributes.headerDescription}</p>
             </div>
             <AboutProjectFeatures />
             <AboutProjectStatistics />
-            <img src={reduxInfo && reduxInfo[0].attributes?.blur?.data?.attributes.url} alt="blur" className='blur'/>
+            <img src={reduxInfo && reduxInfo[0].attributes?.blur?.data?.attributes.url} alt="blur" className='about-project__blur'/>
         </div>
     )
 }

@@ -1,139 +1,138 @@
-@import "../../../../styles/vars/colors.scss";
-@import "../../../../styles/vars/variables.scss";
-@import "../../../../styles/mixins/mediaBreakpoints.scss";
+@import "@/vars/colors.scss";
+@import "@/vars/variables.scss";
+@import "@/mixins/mediaBreakpoints.scss";
 
-@include desctop() {
-  .aboutProject {
+.about-project {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+
+  &__header {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 104px;
+    margin-bottom: 60px;
+  }
+  &__title {
+    color: var(--textColor);
+    font-family: "Inter-600";
+    font-size: 2rem;
+    line-height: 140%;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    color: var(--textColor);
+    font-family: "Inter-400";
+    font-size: 1rem;
+    line-height: 160%;
+    max-width: 715px;
+  }
+
+  &__blur {
+    position: absolute;
+    left: -450px;
+    top: 0%;
+    z-index: -1;
+    width: 992px;
+    height: 954px;
+  }
+}
+
+.features {
+  width: 100%;
+
+  &__body {
+    padding-bottom: 100px;
+    border-bottom: 1px solid var(--colorLine);
+    display: grid;
+    grid-template-columns:
+      minmax(auto, 252px) minmax(auto, 252px) minmax(auto, 252px)
+      minmax(auto, 252px);
+    column-gap: 80px;
+    justify-content: space-between;
+  }
+
+  .features-item {
     width: 100%;
     display: flex;
     flex-direction: column;
-    position: relative;
-    z-index: 2;
+    row-gap: 40px;
 
-    & .aboutProject-header {
-      width: 100%;
+    &__icon {
+      width: 56px;
+      height: 56px;
+    }
+
+    &__info {
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-top: 104px;
-      margin-bottom: 60px;
-
-        &__title {
-        color: var(--textColor);
-        font-family: "Inter-600";
-        font-size: 2rem;
-        line-height: 140%;
-        text-transform: uppercase;
-      }
-
-      & .aboutProject-header__description {
-        color: var(--textColor);
-        font-family: "Inter-400";
-        font-size: 1rem;
-        line-height: 160%;
-        max-width: 715px;
-      }
+      flex-direction: column;
+      row-gap: 8px;
     }
 
-    .aboutProject-features {
-      width: 100%;
-      display: grid;
-      grid-template-columns:
-        minmax(auto, 252px) minmax(auto, 252px) minmax(auto, 252px)
-        minmax(auto, 252px);
-      column-gap: 80px;
-      justify-content: space-between;
-      padding-bottom: 100px;
-      border-bottom: 1px solid var(--colorLine);
-
-      & .aboutProject-features-item {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        row-gap: 40px;
-
-        & .features-item__icon {
-          width: 56px;
-          height: 56px;
-        }
-
-        & .features-item__info {
-          display: flex;
-          flex-direction: column;
-          row-gap: 8px;
-
-          .features-item__title {
-            color: var(--textColor);
-            font-family: "Inter-600";
-            font-size: 1.125rem;
-            line-height: 140%;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-          }
-
-          .features-item__text {
-            color: var(--textColor);
-            font-family: "Inter-400";
-            font-size: 1rem;
-            line-height: 160%;
-            }
-        }
-      }
+    &__title {
+      color: var(--textColor);
+      font-family: "Inter-600";
+      font-size: 1.125rem;
+      line-height: 140%;
+      text-transform: uppercase;
+      margin-bottom: 8px;
     }
 
-    .aboutProjectStatistics {
-      width: 100%;
-      padding-top: 61px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      column-gap: 24px;
-
-      .statistics-item {
-        display: flex;
-        flex-direction: column;
-        row-gap: 8px;
-
-        .statistics-item__title {
-          color: var(--textColor);
-          font-family: "Inter-600";
-          font-size: 3rem;
-          line-height: 140%;
-          text-transform: uppercase;
-        }
-
-        
-        .statistics-item__info {
-          color: var(--textColor);
-          font-family: "Inter-600";
-          font-size: 0.875rem;
-          line-height: 140%;
-          text-transform: uppercase;
-          max-width: 70%;
-        }
-      }
-    }
-
-    .blur {
-      position: absolute;
-      left: -450px;
-      top: 0%;
-      z-index: -1;
-      width: 992px;
-      height: 954px;
+    &__text {
+      color: var(--textColor);
+      font-family: "Inter-400";
+      font-size: 1rem;
+      line-height: 160%;
     }
   }
 }
 
+.statistics {
+  width: 100%;
+  padding-top: 61px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 24px;
+}
+
+.statistics-item {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  &__title {
+    color: var(--textColor);
+    font-family: "Inter-600";
+    font-size: 3rem;
+    line-height: 140%;
+    text-transform: uppercase;
+  }
+
+  &__info {
+    color: var(--textColor);
+    font-family: "Inter-600";
+    font-size: 0.875rem;
+    line-height: 140%;
+    text-transform: uppercase;
+    max-width: 70%;
+  }
+}
+
 @include tablet() {
-  .aboutProject {
+  .about-project {
     width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
     z-index: 2;
 
-    & .aboutProject-header {
+    &__header {
       width: 100%;
       display: flex;
       align-items: flex-start;
@@ -142,15 +141,15 @@
       margin-bottom: 60px;
       column-gap: 32px;
 
-      & .aboutProject-header__title {
+      &__title {
         color: var(--textColor);
         font-family: "Inter-600";
         font-size: 2rem;
         line-height: 140%;
         text-transform: uppercase;
-        }
+      }
 
-      & .aboutProject-header__description {
+      &__description {
         color: var(--textColor);
         font-family: "Inter-400";
         font-size: 1rem;
@@ -159,92 +158,7 @@
       }
     }
 
-    .aboutProject-features {
-      width: 100%;
-      display: grid;
-      grid-template-columns:
-        minmax(auto, 252px) minmax(auto, 252px);
-      column-gap: 32px;
-      row-gap: 32px;
-      justify-content: space-between;
-      padding-bottom: 100px;
-      border-bottom: 1px solid var(--colorLine);
-
-      & .aboutProject-features-item {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        row-gap: 40px;
-
-        & .features-item__icon {
-          width: 56px;
-          height: 56px;
-        }
-
-        & .features-item__info {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          row-gap: 8px;
-
-          .features-item__title {
-            color: var(--textColor);
-            font-family: "Inter-600";
-            font-size: 1.125rem;
-            line-height: 140%;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-          }
-
-          .features-item__text {
-            color: var(--textColor);
-            font-family: "Inter-400";
-            font-size: 1rem;
-            line-height: 160%;
-            text-align: center;
-            }
-        }
-      }
-    }
-
-    .aboutProjectStatistics {
-      width: 100%;
-      padding-top: 61px;
-      display: grid;
-      grid-template-columns: repeat(3,auto);
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      column-gap: 32px;
-      row-gap: 32px;
-
-      .statistics-item {
-        display: flex;
-        flex-direction: column;
-        row-gap: 8px;
-
-        .statistics-item__title {
-          color: var(--textColor);
-          font-family: "Inter-600";
-          font-size: 3rem;
-          line-height: 140%;
-          text-transform: uppercase;
-        }
-
-        
-        .statistics-item__info {
-          color: var(--textColor);
-          font-family: "Inter-600";
-          font-size: 0.875rem;
-          line-height: 140%;
-          text-transform: uppercase;
-          max-width: 70%;
-        }
-      }
-    }
-
-    .blur {
+    &__blur {
       position: absolute;
       left: -450px;
       top: 0%;
@@ -253,15 +167,102 @@
       height: 954px;
     }
   }
+
+  .features {
+    width: 100%;
+
+    &__body {
+      display: grid;
+      grid-template-columns: minmax(auto, 252px) minmax(auto, 252px);
+      column-gap: 32px;
+      row-gap: 32px;
+      justify-content: space-between;
+      padding-bottom: 100px;
+      border-bottom: 1px solid var(--colorLine);
+    }
+
+    .features-item {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 40px;
+
+      &__icon {
+        width: 56px;
+        height: 56px;
+      }
+
+      &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 8px;
+
+        &__title {
+          color: var(--textColor);
+          font-family: "Inter-600";
+          font-size: 1.125rem;
+          line-height: 140%;
+          text-transform: uppercase;
+          margin-bottom: 8px;
+        }
+
+        &__text {
+          color: var(--textColor);
+          font-family: "Inter-400";
+          font-size: 1rem;
+          line-height: 160%;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .statistics {
+    width: 100%;
+    padding-top: 61px;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 32px;
+    row-gap: 32px;
+  }
+
+  .statistics-item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+
+    &__title {
+      color: var(--textColor);
+      font-family: "Inter-600";
+      font-size: 3rem;
+      line-height: 140%;
+      text-transform: uppercase;
+    }
+
+    &__info {
+      color: var(--textColor);
+      font-family: "Inter-600";
+      font-size: 0.875rem;
+      line-height: 140%;
+      text-transform: uppercase;
+      max-width: 70%;
+    }
+  }
 }
+
 @include mobile() {
-  .aboutProject {
+  .about-project {
     width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
 
-      & .aboutProject-header {
+    &__header {
       width: 100%;
       display: flex;
       flex-direction: column;
@@ -270,26 +271,39 @@
       margin-top: 40px;
       margin-bottom: 40px;
       z-index: 11;
-     
-      & .aboutProject-header__title {
+
+      &__title {
         color: var(--textColor);
         font-family: "Inter-600";
         font-size: 1.5rem;
         line-height: 140%;
         text-transform: uppercase;
-        }
+      }
 
-      & .aboutProject-header__description {
+      &__description {
         color: var(--textColor);
         font-family: "Inter-400";
         font-size: 0.875rem;
         line-height: 160%;
         max-width: 100%;
       }
+
+      &__blur {
+        position: absolute;
+        left: -450px;
+        top: 0%;
+        z-index: -1;
+        width: 992px;
+        height: 954px;
+        opacity: 0.4;
+      }
     }
 
-    .aboutProject-features {
+    .features {
       width: 100%;
+    }
+
+    &__body {
       display: flex;
       flex-direction: column;
       row-gap: 24px;
@@ -297,86 +311,75 @@
       padding-bottom: 40px;
       border-bottom: 1px solid var(--colorLine);
       z-index: 12;
-
-      & .aboutProject-features-item {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        column-gap: 24px;
-
-        & .features-item__icon {
-          width: 56px;
-          height: 56px;
-        }
-
-        & .features-item__info {
-          display: flex;
-          flex-direction: column;
-          row-gap: 8px;
-
-          .features-item__title {
-            color: var(--textColor);
-            font-family: "Inter-600";
-            font-size: 1.125rem;
-            line-height: 140%;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-          }
-
-          .features-item__text {
-            color: var(--textColor);
-            font-family: "Inter-400";
-            font-size: 1rem;
-            line-height: 160%;
-            }
-        }
-      }
     }
 
-    .aboutProjectStatistics {
+    .features-item {
       width: 100%;
-      padding-top: 61px;
-      display: grid;
-      grid-template-columns: repeat(2,auto);
+      display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      column-gap: 60px;
-      row-gap: 32px;
+      column-gap: 24px;
 
-      .statistics-item {
+      &__icon {
+        width: 56px;
+        height: 56px;
+      }
+
+      &__info {
         display: flex;
         flex-direction: column;
         row-gap: 8px;
 
-        .statistics-item__title {
+        &__title {
           color: var(--textColor);
           font-family: "Inter-600";
-          font-size: 2rem;
+          font-size: 1.125rem;
           line-height: 140%;
           text-transform: uppercase;
+          margin-bottom: 8px;
         }
 
-        
-        .statistics-item__info {
+        &__text {
           color: var(--textColor);
-          font-family: "Inter-600";
-          font-size: 0.875rem;
-          line-height: 140%;
-          text-transform: uppercase;
-          max-width: 70%;
+          font-family: "Inter-400";
+          font-size: 1rem;
+          line-height: 160%;
         }
       }
     }
+  }
 
-    .blur {
-      position: absolute;
-      left: -450px;
-      top: 0%;
-      z-index: -1;
-      width: 992px;
-      height: 954px;
-      opacity: 0.4;
+  .statistics {
+    width: 100%;
+    padding-top: 61px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 60px;
+    row-gap: 32px;
+  }
+
+  .statistics-item {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+
+    &__title {
+      color: var(--textColor);
+      font-family: "Inter-600";
+      font-size: 2rem;
+      line-height: 140%;
+      text-transform: uppercase;
+    }
+
+    &__info {
+      color: var(--textColor);
+      font-family: "Inter-600";
+      font-size: 0.875rem;
+      line-height: 140%;
+      text-transform: uppercase;
+      max-width: 70%;
     }
   }
 }

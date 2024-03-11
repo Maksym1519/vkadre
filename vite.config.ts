@@ -15,7 +15,8 @@ export default defineConfig({
       utils: "/src/utils",
       "@": path.resolve(__dirname,"src/styles"),
       "@mixins": path.resolve(__dirname,"src/styles/mixins/"),
-      "@vars": path.resolve(__dirname,"src/styles/vars/")
+      "@vars": path.resolve(__dirname,"src/styles/vars/"),
+      "@assets": path.resolve(__dirname,"src/assets/fonts/")
     }
   }
 })

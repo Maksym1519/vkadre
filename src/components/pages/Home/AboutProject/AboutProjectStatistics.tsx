@@ -12,7 +12,7 @@ const AboutProjectStatistics = () => {
   const reduxInfo = useAppSelector((state) => state.aboutProject.aboutProject);
 
   return (
-    <div className="aboutProjectStatistics">
+    <div className="statistics">
       {reduxInfo &&
         reduxInfo.map((item, index) => (
           <div className="statistics-item" key={index}>
