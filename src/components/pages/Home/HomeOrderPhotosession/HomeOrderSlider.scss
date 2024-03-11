@@ -1,6 +1,7 @@
-@import "../../../../styles/vars/colors.scss";
-@import "../../../../styles/vars/variables.scss";
-@import "../../../../styles/mixins/mediaBreakpoints.scss";
+@import "@vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+
 
 @include desctop() {
   .homeOrderSlider {
@@ -181,7 +182,7 @@
 
       & .swiper-slide {
         width: 90.37% !important;
-        max-width: 100%;
+        max-width: 100% !important;
         cursor: pointer;
       }
 

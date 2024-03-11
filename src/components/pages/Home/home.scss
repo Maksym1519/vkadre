@@ -1,9 +1,8 @@
 @import "../../../styles/vars/colors.scss";
 
-.home__wrapper {
+.home {
     height: 100dvh;
-    overflow-x: hidden
-}
+    }
 
 @mixin tablet() {
     

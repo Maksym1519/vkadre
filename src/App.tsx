@@ -1,15 +1,12 @@
-import "./styles/reset.scss";
 import "./styles/global.scss";
-import "./styles/mixins/mediaBreakpoints.scss";
-import "./styles/vars/variables.scss";
-import "./styles/fonts.scss";
 import Home from "./components/pages/Home/Home";
-
+import Header from "./components/widgets/header/Header";
 
 function App() {
   return (
     <>
-     <Home />
+       <Header />
+        <Home />
     </>
   );
 }

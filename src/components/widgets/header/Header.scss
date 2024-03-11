@@ -6,8 +6,8 @@
   .header {
     max-width: 100%;
     margin-top: 19px;
-   
-    & .header-body {
+
+    &__body {
       width: 100%;
       display: flex;
       align-items: flex-start;
@@ -16,13 +16,21 @@
       border-bottom: 1px solid var(--colorLine);
     }
 
-    & .header-logo {
+    .logo {
       width: 100%;
       max-width: 588px;
       display: flex;
       column-gap: 51px;
 
-      & .header-logoDescription {
+      & img {
+        cursor: pointer;
+      }
+
+      & img:hover {
+        transform: scale(103%);
+      }
+
+      &__description {
         color: var(--textColor);
         font-size: 1rem;
         line-height: 180%;
@@ -30,16 +38,9 @@
         max-width: 227px;
         white-space: wrap;
       }
-      & .header-image {
-        cursor: pointer;
-      }
-
-      & .header-image:hover {
-        transform: scale(103%);
-      }
     }
 
-    & .navigation,
+    .navigation,
     .contacts {
       display: flex;
       flex-direction: column;
@@ -48,44 +49,45 @@
       padding-top: 5px;
       cursor: pointer;
 
-       & .navigation-item,
-      .contacts-item {
+      &__item {
         font-family: "Inter-500";
         color: var(--textColor);
         line-height: 140%;
         text-decoration: none;
         text-transform: uppercase;
       }
-    }
 
-    & .contacts--margin {
+      &__item:hover,
+      &__item:hover {
+        text-decoration: underline;
+        color: var(--blueLink);
+      }
+
+      &__margin {
         transform: translateX(-19px);
+      }
     }
 
-    & .navigation-item:hover,
-    .contacts-item:hover {
-      text-decoration: underline;
-      color: var(--blueLink);
-    }
+  
 
     & .profile {
       display: flex;
       flex-direction: column;
       row-gap: 16px;
       padding-top: 8px;
+      cursor: pointer;
 
-      & .profile-avatar {
+      &__avatar {
         width: 40px;
         height: 40px;
         object-fit: cover;
-        cursor: pointer;
       }
 
-      & .profile-avatar:hover {
+      &__avatar:hover {
         transform: scale(103%);
       }
 
-      & .profile-text {
+      &__text {
         font-family: "Inter-500";
         color: var(--textColor);
         line-height: 140%;
@@ -93,7 +95,7 @@
         text-transform: uppercase;
       }
     }
-    }
+  }
 
   .burger {
     display: none;
@@ -109,7 +111,7 @@
     max-width: 100%;
     margin-top: 19px;
 
-    & .header-body {
+    &__body {
       width: 100%;
       display: flex;
       align-items: flex-start;
@@ -118,13 +120,13 @@
       border-bottom: 1px solid var(--colorLine);
     }
 
-    & .header-logo {
+    .logo {
       width: 100%;
       max-width: 680px;
       display: flex;
       column-gap: 51px;
 
-      & .header-logoDescription {
+      &__description {
         color: var(--textColor);
         font-size: 1rem;
         line-height: 180%;
@@ -132,16 +134,16 @@
         max-width: 227px;
         white-space: wrap;
       }
-      & .header-image {
+      & img {
         cursor: pointer;
       }
 
-      & .header-image:hover {
+      & img:hover {
         transform: scale(103%);
       }
     }
 
-    & .navigation,
+    .navigation,
     .contacts {
       display: flex;
       flex-direction: column;
@@ -149,43 +151,44 @@
       margin-right: 72px;
       cursor: pointer;
 
-      & .contacts--margin {
+      &__margin {
         margin-right: 113px;
       }
 
-      & .navigation-item,
-      .contacts-item {
+      &__item {
         font-family: "Inter-500";
         color: var(--textColor);
         line-height: 140%;
         text-decoration: none;
         text-transform: uppercase;
       }
+
+      &__item:hover {
+        text-decoration: underline;
+        color: var(--blueLink);
+      }
     }
 
-    & .navigation-item:hover,
-    .contacts-item:hover {
-      text-decoration: underline;
-      color: var(--blueLink);
-    }
+    
 
-    & .profile {
+      .profile {
       display: flex;
       flex-direction: column;
       row-gap: 16px;
+      cursor: pointer;
 
-      & .profile-avatar {
+      &__avatar {
         width: 48px;
         height: 48px;
         object-fit: cover;
         cursor: pointer;
       }
 
-      & .profile-avatar:hover {
+      &__avatar:hover {
         transform: scale(103%);
       }
 
-      & .profile-text {
+      &__text {
         font-family: "Inter-500";
         color: var(--textColor);
         line-height: 140%;
@@ -210,8 +213,8 @@
     margin-top: 19px;
     position: relative;
     z-index: 6;
-
-    & .header-body {
+   
+    &__body {
       width: 100%;
       display: flex;
       align-items: flex-start;
@@ -221,13 +224,13 @@
       column-gap: 18px;
     }
 
-    & .header-logo {
+    .logo {
       width: 100%;
       max-width: 233px;
       display: flex;
       column-gap: 24px;
 
-      & .header-logoDescription {
+      &__description {
         color: var(--textColor);
         font-size: 12px;
         line-height: 120%;
@@ -235,19 +238,19 @@
         max-width: 171px;
         white-space: wrap;
       }
-      & .header-image {
+      & img {
         width: 38px;
         height: 40px;
         object-fit: cover;
         cursor: pointer;
       }
 
-      & .header-image:hover {
+      & img:hover {
         transform: scale(103%);
       }
     }
 
-    & .navigation,
+    .navigation,
     .contacts {
       display: none;
       flex-direction: column;
@@ -255,43 +258,43 @@
       margin-right: 72px;
       cursor: pointer;
 
-      & .contacts--margin {
+      &__margin {
         margin-right: 113px;
       }
 
-      & .navigation-item,
-      .contacts-item {
+      &__item {
         font-family: "Inter-500";
         color: var(--textColor);
         line-height: 140%;
         text-decoration: none;
         text-transform: uppercase;
       }
+
+      &__item:hover {
+        text-decoration: underline;
+        color: var(--blueLink);
+      }
+  
     }
 
-    & .navigation-item:hover,
-    .contacts-item:hover {
-      text-decoration: underline;
-      color: var(--blueLink);
-    }
-
-    & .profile {
+   
+      .profile {
       display: none;
       flex-direction: column;
       row-gap: 16px;
 
-      & .profile-avatar {
+      &__avatar {
         width: 48px;
         height: 48px;
         object-fit: cover;
         cursor: pointer;
       }
 
-      & .profile-avatar:hover {
+      &__avatar:hover {
         transform: scale(103%);
       }
 
-      & .profile-text {
+      &__text {
         font-family: "Inter-500";
         color: var(--textColor);
         line-height: 140%;
@@ -299,8 +302,7 @@
         text-transform: uppercase;
       }
     }
-  }
-
+  
   .burger {
     position: relative;
     width: 40px;
@@ -356,15 +358,14 @@
     }
   }
 
-   .mobileMenu {
+  .mobile-menu {
     position: absolute;
     top: 48px;
     left: -15px;
-    padding: 0  0 40px 15px;
+    padding: 63px 0 40px 30px;
     margin-left: 0;
     width: 100vw;
     background: var(--white);
-    padding-top: 63px;
     display: flex;
     flex-direction: column;
     animation: none;
@@ -372,21 +373,21 @@
     animation-duration: 1s;
     animation-name: fadeIn;
     z-index: 3000;
-   
-    & .mobileNavigation {
+  }
+    .navigation-mobile {
       display: flex;
       flex-direction: column;
       row-gap: 32px;
       padding-bottom: 86px;
       border-bottom: 1px solid var(--colorLine);
 
-      & .mobileNavigation-link-wrapper {
+      &__item {
         display: flex;
         align-items: center;
         column-gap: 13px;
       }
 
-      & .mobileNavigation-link {
+      &__link {
         color: var(--textColor);
         font-family: "Inter-600";
         font-weight: 600;
@@ -398,13 +399,13 @@
       }
     }
 
-    & .mobileMenu-contacts {
+      .mobile-menu-contacts {
       display: flex;
       flex-direction: column;
       row-gap: 10px;
       padding-top: 40px;
 
-      & .mobileMenu-contacts-link {
+      &__link {
         color: var(--textColor);
         font-size: 0.875rem;
         font-family: "Inter-500";
@@ -414,8 +415,7 @@
         cursor: pointer;
       }
     }
-  }
-
+  
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -425,7 +425,7 @@
     }
   }
 
-  .mobileMenuOff {
+  .menu-none {
     margin-left: -500px;
     width: 100%;
     background: var(--white);
@@ -447,4 +447,5 @@
       opacity: 0;
     }
   }
+}
 }

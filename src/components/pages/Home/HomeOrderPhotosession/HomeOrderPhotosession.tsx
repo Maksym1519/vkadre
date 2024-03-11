@@ -16,37 +16,37 @@ const reduxData = useAppSelector((state) => state.orderPhotosession.orderPhotose
 
 
   return (
-    <div className="homeOrderPhotosession">
-      <div className="mainImage">
+    <div className="home-order">
+      <div className="home-order__image">
         <img src={reduxData && reduxData[0].attributes.mainImage.data.attributes.url} alt="mainImg" />
       </div>
 
-      <div className="orderPhotoSession-description">
-        <h2 className="orderPhotoSession-description__title">{reduxData && reduxData[0].attributes.mainTitle}</h2>
+      <div className="home-order__description">
+        <h2 className="home-order__title">{reduxData && reduxData[0].attributes.mainTitle}</h2>
 
-        <div className="description-terms">
-          <div className="description-terms__item">
-            <span className="terms__item__light">10 мин - 10 фото</span>
-            <span className="terms__item__bold">990 ГРН.</span>
+        <div className="features">
+          <div className="features__item">
+            <span className="features__item-title">10 мин - 10 фото</span>
+            <span className="features__item-bottom">990 ГРН.</span>
           </div>
 
-          <div className="description-terms__item">
-            <span className="terms__item__light">20 мин - 20 фото</span>
-            <span className="terms__item__bold">1990 ГРН.</span>
+          <div className="features__item">
+            <span className="features__item-title">20 мин - 20 фото</span>
+            <span className="features__item-bottom">1990 ГРН.</span>
           </div>
 
-          <div className="description-terms__item">
-            <span className="terms__item__bold">Готовые фото на следующий день</span>
+          <div className="features__item">
+            <span className="features__item-bottom">Готовые фото на следующий день</span>
           </div>
         </div>
 
-        <div className="orderPhotoSession-description__buttonWrapper">
+        <div className="home-order__button-wrapper">
           <Button maxWidth="366px" text="Заказать Экспресс-фотосессию" />
         </div>
 
         <HomeOrderSlider />
       </div>
-      <img src={reduxData && reduxData[0].attributes.blur.data.attributes.url} alt="blur" className="blur"/>
+      <img src={reduxData && reduxData[0].attributes.blur.data.attributes.url} alt="blur" className="home-order__blur"/>
       </div>
   );
 };

@@ -1,14 +1,26 @@
 @import '../vars/variables.scss';
+$breakpoint_3845: 3845px;
+$breakpoint_1280: 1280px;
+$breakpoint_1025: 1025px;
+$breakpoint_1024: 1024px;
+$breakpoint_769: 769px;
+$breakpoint_768: 768px;
+$breakpoint_767: 767px;
 
 
 @mixin desctop() {
-    @media (min-width: $breakpoint_1025) {
+    @media (max-width: $breakpoint_3845) {
+        @content
+    }
+};
+@mixin sliderAdaptive() {
+    @media (max-width: $breakpoint_1280 ) {
         @content
     }
 };
 
 @mixin tablet() {
-    @media (min-width: $breakpoint_768) and (max-width: $breakpoint_1024 ) {
+    @media (max-width: $breakpoint_1024 ) {
         @content
     }
 };
@@ -18,8 +30,5 @@
         @content
     }
 };
-@mixin sliderAdaptive() {
-    @media (min-width: $breakpoint_768) and (max-width: $breakpoint_1280 ) {
-        @content
-    }
-};
+
+

@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "@strapi/provider-upload-cloudinary": "^4.20.3",
     "axios": "^1.6.7",
+    "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.3",
