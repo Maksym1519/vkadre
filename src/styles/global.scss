@@ -3,13 +3,16 @@
 @import "./fonts.scss";
 @import "./reset.scss";
 
+
+//tags----------------------------------------------------------
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Inter-400";
+  font-family: "Inter";
   font-size: 0.875rem;
+  font-weight: 600;
   background: var(--white);
   overflow-x: hidden;
  }
@@ -18,15 +21,19 @@ body {
   caret-color: var(--textColor);
  }
 
-@include desctop {
-  .container {
-    max-width: 1248px;
-    padding: 0 96px;
-    margin: 0 auto;
-    box-sizing: content-box;
-    }
-}
-
+  button:hover {
+  border: 1px solid var(--black);
+  background: var(--textColorLight);
+  color: var(--white)
+ }
+//layout-------------------------------------------------------
+ .container {
+  max-width: 1248px;
+  padding: 0 96px;
+  margin: 0 auto;
+  box-sizing: content-box;
+  }
+//@media----------------------------------------------------------
 @include tablet {
   .container {
     max-width: 100%;

@@ -32,6 +32,7 @@
 
       &__description {
         color: var(--textColor);
+        font-weight: 500;
         font-size: 1rem;
         line-height: 180%;
         text-transform: uppercase;
@@ -49,14 +50,21 @@
       padding-top: 5px;
       cursor: pointer;
 
-      &__item {
-        font-family: "Inter-500";
+      &__item, &__item-active {
+        font-family: "Inter";
+        font-weight: 500;
         color: var(--textColor);
         line-height: 140%;
         text-decoration: none;
         text-transform: uppercase;
       }
 
+      &__item-active {
+      color: var(--blueLink);
+      font-weight: 500;
+      }
+
+      
       &__item:hover,
       &__item:hover {
         text-decoration: underline;
@@ -66,7 +74,16 @@
       &__margin {
         transform: translateX(-19px);
       }
-    }
+
+       .navigation-item, .navigation-item-active{
+        font-family: "Inter";
+        font-weight: 500;
+        color: var(--textColor);
+        line-height: 140%;
+        text-decoration: none;
+        text-transform: uppercase;
+       }
+   }
 
   
 
@@ -88,7 +105,8 @@
       }
 
       &__text {
-        font-family: "Inter-500";
+        font-family: "Inter";
+        font-weight: 500;
         color: var(--textColor);
         line-height: 140%;
         text-decoration: none;
@@ -155,13 +173,20 @@
         margin-right: 113px;
       }
 
-      &__item {
-        font-family: "Inter-500";
+      &__item, &__item-active {
+        font-family: "Inter";
+        font-weight: 500;
         color: var(--textColor);
         line-height: 140%;
         text-decoration: none;
         text-transform: uppercase;
       }
+
+      &__item-active {
+      color: var(--blueLink);
+      font-weight: 500;
+      }
+
 
       &__item:hover {
         text-decoration: underline;
@@ -189,7 +214,8 @@
       }
 
       &__text {
-        font-family: "Inter-500";
+        font-family: "Inter";
+        font-weight: 500;
         color: var(--textColor);
         line-height: 140%;
         text-decoration: none;
@@ -262,13 +288,20 @@
         margin-right: 113px;
       }
 
-      &__item {
-        font-family: "Inter-500";
+      &__item, &__item-active {
+        font-family: "Inter";
+        font-weight: 500;
         color: var(--textColor);
         line-height: 140%;
         text-decoration: none;
         text-transform: uppercase;
       }
+
+      &__item-active {
+      color: var(--blueLink);
+      font-weight: 500;
+      }
+
 
       &__item:hover {
         text-decoration: underline;
@@ -295,7 +328,8 @@
       }
 
       &__text {
-        font-family: "Inter-500";
+        font-family: "Inter";
+        font-weight: 500;
         color: var(--textColor);
         line-height: 140%;
         text-decoration: none;
@@ -389,8 +423,7 @@
 
       &__link {
         color: var(--textColor);
-        font-family: "Inter-600";
-        font-weight: 600;
+        font-family: "Inter";
         font-size: 1.5rem;
         line-height: 140%;
         text-transform: uppercase;
@@ -408,7 +441,8 @@
       &__link {
         color: var(--textColor);
         font-size: 0.875rem;
-        font-family: "Inter-500";
+        font-family: "Inter";
+        font-weight: 500;
         line-height: 140%;
         text-transform: uppercase;
         text-decoration: none;

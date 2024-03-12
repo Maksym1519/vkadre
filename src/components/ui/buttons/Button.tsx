@@ -5,9 +5,9 @@ const Button = (props: any) => {
     maxWidth: props.maxWidth,
   };
   return (
-    <div className="button" style={styled}>
+    <button type="button" className="button" style={styled}>
       {props.text}
-    </div>
+    </button>
   );
 };
 export default Button;

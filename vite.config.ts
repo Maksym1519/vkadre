@@ -13,10 +13,12 @@ export default defineConfig({
       store: "/src/store",
       types: "/src/types",
       utils: "/src/utils",
+      layouts: "/src/layouts",
       "@": path.resolve(__dirname,"src/styles"),
       "@mixins": path.resolve(__dirname,"src/styles/mixins/"),
       "@vars": path.resolve(__dirname,"src/styles/vars/"),
-      "@assets": path.resolve(__dirname,"src/assets/fonts/")
+      "@assets": path.resolve(__dirname,"src/assets/fonts/"),
+      "@img": path.resolve(__dirname,"src/assets/images/"),
     }
   }
 })

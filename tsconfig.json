@@ -21,6 +21,7 @@
       "styles/*":["styles/*"],
       "types/*":["types/*"],
       "utils/*":["utils/*"],
+      "layouts/*":["layouts/*"]
       },
 
     /* Linting */

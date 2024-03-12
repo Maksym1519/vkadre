@@ -1,9 +1,11 @@
 import "./Header.scss";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import { headerInfo } from "../../../store/slices/headerSlice";
 import Burger from "./Burger";
 import MobileMenu from "./MobileMenu";
+import HeaderNavigation from "./HeaderNavigation";
 
 const Header = () => {
   const dispatch = useAppDispatch();
@@ -19,34 +21,28 @@ const Header = () => {
   const contactsString =
     reduxData && reduxData[0].attributes.contact.split(",");
 
+
+
   return (
     <header className="header">
-      <div className="container">
        <div className="header__body">
-          <div className="logo">
-            <img
-              src={
-                reduxData && reduxData[0].attributes.logo.data.attributes.url
-              }
-              alt="logo"
-              className="header-image"
-            />
-            <div className="logo__description">
-              {reduxData && reduxData[0].attributes.logoDescription}
+          
+          <NavLink to={"/"}>
+            <div className="logo">
+              <img
+                src={
+                  reduxData && reduxData[0].attributes.logo.data.attributes.url
+                }
+                alt="logo"
+                className="header-image"
+              />
+              <div className="logo__description">
+                {reduxData && reduxData[0].attributes.logoDescription}
+              </div>
             </div>
-          </div>
+          </NavLink>
 
-          <nav className="navigation">
-            <a href="#" className="navigation__item">
-              {navigationString && navigationString[0]}
-            </a>
-            <a href="#" className="navigation__item">
-              {navigationString && navigationString[1]}
-            </a>
-            <a href="#" className="navigation__item">
-              {navigationString && navigationString[2]}
-            </a>
-          </nav>
+         <HeaderNavigation navigationString={navigationString}/>
 
           <div className="contacts contacts--margin">
             <span className="contacts__item">
@@ -71,7 +67,6 @@ const Header = () => {
           </div>
           <Burger />
           <MobileMenu />
-        </div>
         </div>
      </header>
   );
