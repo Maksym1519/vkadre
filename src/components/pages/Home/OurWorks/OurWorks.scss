@@ -1,0 +1,11 @@
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+@import "@vars/colors.scss";
+
+.our-works {
+    position: relative;
+    width: 100%;
+    color: red;
+    font-size: 3rem;
+    z-index: 5;
+}

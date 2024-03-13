@@ -1,6 +1,6 @@
-@import "../../../styles/vars/variables.scss";
-@import "../../../styles/mixins/mediaBreakpoints.scss";
-@import "../../../styles/vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+@import "@vars/colors.scss";
 
 @include desctop() {
   .header {
@@ -41,7 +41,35 @@
       }
     }
 
-    .navigation,
+      & .profile {
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+      padding-top: 8px;
+      cursor: pointer;
+
+      &__avatar {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+      }
+
+      &__avatar:hover {
+        transform: scale(103%);
+      }
+
+      &__text {
+        font-family: "Inter";
+        font-weight: 500;
+        color: var(--textColor);
+        line-height: 140%;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .navigation,
     .contacts {
       display: flex;
       flex-direction: column;
@@ -85,35 +113,6 @@
        }
    }
 
-  
-
-    & .profile {
-      display: flex;
-      flex-direction: column;
-      row-gap: 16px;
-      padding-top: 8px;
-      cursor: pointer;
-
-      &__avatar {
-        width: 40px;
-        height: 40px;
-        object-fit: cover;
-      }
-
-      &__avatar:hover {
-        transform: scale(103%);
-      }
-
-      &__text {
-        font-family: "Inter";
-        font-weight: 500;
-        color: var(--textColor);
-        line-height: 140%;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
-    }
-  }
 
   .burger {
     display: none;
