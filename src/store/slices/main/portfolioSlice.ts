@@ -11,6 +11,20 @@ export type PortfolioData = [{
           url: string
         }
       }
+    },
+    blur1: {
+      data: {
+        attributes: {
+          url: any
+        }
+      }
+    },
+    blur2: {
+      data: {
+        attributes: {
+          url: any
+        }
+      }
     }
     }
    }]

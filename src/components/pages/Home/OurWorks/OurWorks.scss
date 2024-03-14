@@ -14,4 +14,25 @@
     text-transform: uppercase;
     margin: 100px 0 60px 0;
     }
+
+    &__blur-right {
+      position: absolute;
+      top: -60%;
+      right: -146px;
+      width: 692px;
+      height: 654px;
+      transform: rotate(180deg);
+      object-fit: cover;
+      z-index: -1;
+    }
+    &__blur-left {
+      position: absolute;
+      bottom: -70%;
+      left: -544px;
+      max-width: 1348px;
+      max-height: 1274px;
+      transform: rotate(180deg);
+      object-fit: cover;
+      z-index: -1;
+    }
 }

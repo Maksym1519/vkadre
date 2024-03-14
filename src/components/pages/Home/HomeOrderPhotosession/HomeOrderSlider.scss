@@ -24,7 +24,12 @@
         max-width: 100% !important;
         max-height: 140px !important;
         object-fit: cover;
+        transition: all 0.3s ease-in-out;
       }
+      & .swiper-slide img:hover {
+        box-shadow: 0 0 10px #000;
+      }
+      
     }
 
     & .button-swiper {

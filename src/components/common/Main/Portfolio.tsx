@@ -20,9 +20,9 @@ const Portfolio = () => {
   const gallery =
     reduxData &&
     reduxData.map((item) => item.attributes.photo.data.attributes.url);
-  
 
-  const sliderIndex = [1, 2, 3];
+    const sliderIndex = [1, 2, 3];
+
   return (
     <div className="portfolio-wrapper">
       <Swiper
