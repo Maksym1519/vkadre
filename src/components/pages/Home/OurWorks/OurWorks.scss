@@ -3,9 +3,15 @@
 @import "@vars/colors.scss";
 
 .our-works {
-    position: relative;
-    width: 100%;
-    color: red;
-    font-size: 3rem;
-    z-index: 5;
+  position: relative;
+  width: 100%;
+  z-index: 5;
+
+  &__title {
+    color: var(--textColor);
+    font-size: 2rem;
+    line-height: 140%;
+    text-transform: uppercase;
+    margin: 100px 0 60px 0;
+    }
 }

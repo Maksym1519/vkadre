@@ -22,6 +22,7 @@
 
 .button:hover {
   transform: scale(103%);
+  transition: all 0.1s ease-in-out;
 } 
 
 @mixin tablet() {
