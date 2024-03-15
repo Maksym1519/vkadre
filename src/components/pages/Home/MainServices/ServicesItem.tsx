@@ -6,10 +6,7 @@ import arrow from "@img/mobileMenuArrow.svg";
 
 const ServicesItem = () => {
   const reduxData = useAppSelector((state) => state.mainServices.mainServices);
-  const array = reduxData
-    ?.flatMap((item) => item.attributes.serviceNavigation)
-    ?.flatMap((item) => item.children)
-    ?.map((item) => item.text);
+  const array = reduxData ?.flatMap((item) => item.attributes.serviceNavigation)?.flatMap((item) => item.children).map((item) => item.text);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const clickIndex = (index: number) => {

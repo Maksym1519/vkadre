@@ -4,17 +4,24 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export type ServicesData = [
   {
     attributes: {
-     title: string,
-     text1: string,
-     text2: string,
+     title: string;
+     text1: string;
+     text2: string;
      serviceNavigation: [{
      children: [{
       text: string
      }]
-     }]
+     }],
+     image: {
+      data: [{
+        attributes: {
+          url: string
+        }
+      }]
+     }
     };
   }
-];
+  ];
 
 
 

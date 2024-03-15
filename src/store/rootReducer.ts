@@ -4,6 +4,7 @@ import orderPhotosessionReducer from "./slices/main/orderPhotosessionSlice";
 import aboutProjectReducer from "./slices/main/aboutProjectSlice";
 import portfolioReducer from "./slices/main/portfolioSlice";
 import mainServicesReducer from "./slices/main/mainServicesSlice";
+import priceReducer from "./slices/main/priceSlice";
 
 
 const rootReducer = combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = combineReducers({
    orderPhotosession: orderPhotosessionReducer,
    aboutProject: aboutProjectReducer,
    portfolio: portfolioReducer,
-   mainServices: mainServicesReducer
+   mainServices: mainServicesReducer,
+   price: priceReducer
  });
 
 export default rootReducer;
