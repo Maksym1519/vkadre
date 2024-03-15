@@ -21,7 +21,7 @@
 }
 
 .button:hover {
-  transform: scale(103%);
+  border: none;
   transition: all 0.1s ease-in-out;
 } 
 
@@ -45,8 +45,9 @@
   }
 
   .button:hover {
-    transform: scale(103%);
-  } 
+    border: none;
+    transition: all 0.1s ease-in-out;
+    } 
 }
 
 @mixin mobile() {
@@ -69,6 +70,7 @@
     }
 
   .button:hover {
-    transform: scale(103%);
-  } 
+    border: none;
+    transition: all 0.1s ease-in-out;
+    } 
 }

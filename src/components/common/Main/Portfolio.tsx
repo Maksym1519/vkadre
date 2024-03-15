@@ -48,8 +48,8 @@ const Portfolio = () => {
         }}
       >
         {sliderIndex.map((index) => (
-          <SwiperSlide className="portfolio-slider__slide">
-            <div className="portfolio-slider__item" key={index}>
+          <SwiperSlide className="portfolio-slider__slide" key={index}>
+            <div className="portfolio-slider__item" >
               {gallery &&
                 gallery.map((item, index) => (
                   <img

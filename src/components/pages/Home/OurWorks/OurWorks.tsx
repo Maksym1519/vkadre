@@ -7,7 +7,7 @@ const reduxData = useAppSelector((state) => state.portfolio.portfolio);
 
 const blur1: string  = reduxData && reduxData[0].attributes.blur1.data.attributes.url;
 const blur2: string = reduxData && reduxData[0].attributes.blur2.data.attributes.url;
-console.log(blur1)
+
     return (
         <div className="our-works">
            <h3 className="our-works__title">наши работы</h3>
