@@ -18,7 +18,7 @@ const AboutProjectStatistics = () => {
           <div className="statistics-item" key={index}>
             <span className="statistics-item__title">
               {item.attributes.statisticsTitle}
-              <span className="statistics-item__info">{index === 4 ? "года" : ""}</span>
+              <span className="statistics-item__info_size">{index === 4 ? "года" : ""}</span>
             </span>
             <span className="statistics-item__info">
               {item.attributes.statisticsInfo}

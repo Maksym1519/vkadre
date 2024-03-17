@@ -1,0 +1,9 @@
+@import "@vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+
+.main-locations {
+    display: flex;
+    flex-direction: column;
+    row-gap: 60px;
+}

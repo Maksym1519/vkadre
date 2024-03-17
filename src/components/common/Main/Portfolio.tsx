@@ -21,7 +21,7 @@ const Portfolio = () => {
     reduxData &&
     reduxData.map((item) => item.attributes.photo.data.attributes.url);
 
-    const sliderIndex = [1, 2, 3];
+  const sliderIndex = [1, 2, 3];
 
   return (
     <div className="portfolio-wrapper">
@@ -38,7 +38,7 @@ const Portfolio = () => {
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           1240: {
@@ -49,7 +49,7 @@ const Portfolio = () => {
       >
         {sliderIndex.map((index) => (
           <SwiperSlide className="portfolio-slider__slide" key={index}>
-            <div className="portfolio-slider__item" >
+            <div className="portfolio-slider__item">
               {gallery &&
                 gallery.map((item, index) => (
                   <img
@@ -64,9 +64,11 @@ const Portfolio = () => {
         ))}
       </Swiper>
 
-      <div className="buttons-navigation">
-        <Button text="Смотреть все Портфолио" maxWidth="300px" />
-        <div className="button-swiper">
+       <div className="buttons-navigation">
+        <div className="portfolio-button-wrapper">
+        <Button text="Смотреть все Портфолио" width="100%" />
+        </div>
+         <div className="button-swiper">
           <div className="swiper-button-prev"></div>
           <div className="swiper-button-next"></div>
         </div>

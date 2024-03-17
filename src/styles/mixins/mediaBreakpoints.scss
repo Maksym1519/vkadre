@@ -7,11 +7,7 @@ $breakpoint_768: 768px;
 $breakpoint_767: 767px;
 
 
-@mixin desctop() {
-    @media (max-width: $breakpoint_3845) {
-        @content
-    }
-};
+
 @mixin sliderAdaptive() {
     @media (max-width: $breakpoint_1280 ) {
         @content

@@ -44,7 +44,7 @@ const ContentService = () => {
       <Price />
       
       <div className="content-service-button">
-        <Button text="Заказать фотосессию" maxWidth="276px" />
+        <Button text="Заказать фотосессию" width="100%" />
       </div>
     </div>
   );

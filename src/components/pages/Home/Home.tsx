@@ -3,6 +3,7 @@ import HomeOrderPhotosession from "./HomeOrderPhotosession/HomeOrderPhotosession
 import AboutProject from "./AboutProject/AboutProject";
 import OurWorks from "./OurWorks/OurWorks";
 import MainServices from "./MainServices/MainSeervices";
+import MainLocations from "./MainLocations/MainLocations";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <AboutProject />
      <OurWorks />
      <MainServices />
+     <MainLocations />
     </div>
   );
 };
