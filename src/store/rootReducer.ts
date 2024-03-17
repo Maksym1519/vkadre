@@ -5,6 +5,7 @@ import aboutProjectReducer from "./slices/main/aboutProjectSlice";
 import portfolioReducer from "./slices/main/portfolioSlice";
 import mainServicesReducer from "./slices/main/mainServicesSlice";
 import priceReducer from "./slices/main/priceSlice";
+import mainLocationsReducer from "./slices/main/mainLocationsSlice";
 
 
 const rootReducer = combineReducers({
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
    aboutProject: aboutProjectReducer,
    portfolio: portfolioReducer,
    mainServices: mainServicesReducer,
-   price: priceReducer
+   price: priceReducer,
+   mainLocations: mainLocationsReducer
  });
 
 export default rootReducer;

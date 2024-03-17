@@ -16,7 +16,10 @@ font-size: 1.5rem;
 line-height: 140%;
 text-transform: uppercase;
 }
-@mixin tablet() {
+@include tablet() {
 }
-@mixin mobile() {
+@include mobile() {
+    .title {
+        font-size: 1.5rem;
+    }
 }

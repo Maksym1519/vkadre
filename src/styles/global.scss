@@ -14,7 +14,7 @@ body {
   font-size: 0.875rem;
   font-weight: 600;
   background: var(--white);
-  overflow-x: hidden;
+  //overflow-x: hidden;
  }
 
  input {
@@ -37,18 +37,18 @@ body {
 @include tablet {
   .container {
     max-width: 100%;
-    padding: 0 15px;
+    padding: 0 25px;
     margin: 0 auto;
-    box-sizing: content-box;
+    box-sizing: border-box;
     overflow-x: hidden;
     }
 }
 @include mobile {
   .container {
     max-width: 100%;
-    padding: 0 15px;
+    padding: 0 25px;
     margin: 0 auto;
-    box-sizing: content-box;
+    box-sizing: border-box;
     overflow-x: hidden;
     }
 }

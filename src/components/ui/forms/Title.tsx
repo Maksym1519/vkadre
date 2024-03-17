@@ -1,7 +1,7 @@
 import "./Title.scss";
 
 interface PropsText {
-    text: string
+    text: string | null
 }
 
 const Title = (props:PropsText) => {
