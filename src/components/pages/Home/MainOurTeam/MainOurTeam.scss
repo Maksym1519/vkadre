@@ -1,0 +1,68 @@
+@import "@vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+
+
+.main-our-team {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 60px;
+    position: relative;
+    padding: 100px 0 85px;
+    border-bottom: 1px solid var(--colorLine);
+
+    .buttons-navigation {
+        position: absolute;
+        transform: translateY(0px);
+        right: 0;
+        z-index: 1002;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        column-gap: 32px;
+        max-width: 100%;
+       
+        .portfolio-button-wrapper {
+          width: 100%;
+          max-width: 276px;
+        }
+      }
+    
+      .button-swiper {
+        width: 190px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    
+        .swiper-button-prev,
+        .swiper-button-next {
+          top: unset !important;
+          left: unset !important;
+          right: unset !important;
+          bottom: unset !important;
+          position: unset !important;
+          width: auto !important;
+          z-index: 1003 !important;
+        }
+    
+        .swiper-button-prev {
+          width: 100%;
+          max-width: 83px;
+          content: url("@img/left.svg") !important;
+        }
+    
+        .swiper-button-next {
+          width: 100%;
+          max-width: 83px;
+          content: url("@img/left.svg") !important;
+          transform: rotate(180deg);
+        }
+      }
+}
+
+.our-team-slider__slide {
+    max-width: 288px;
+}
+
