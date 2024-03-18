@@ -5,6 +5,7 @@ import OurWorks from "./OurWorks/OurWorks";
 import MainServices from "./MainServices/MainSeervices";
 import MainLocations from "./MainLocations/MainLocations";
 import MainOurTeam from "./MainOurTeam/MainOurTeam";
+import Feedback from "./Feedback/Feedback";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
      <MainServices />
      <MainLocations />
      <MainOurTeam />
+     <Feedback />
     </div>
   );
 };
