@@ -12,14 +12,14 @@
   cursor: pointer;
 
   .feedback-slider {
-    .swiper-wrapper {
-      max-width: 100%;
-      //max-height: 486px;
-    }
+   
+     .swiper-wrapper {
+      width: 100% !important;
+     }
 
     &__slide {
       width: 100% !important;
-    }
+      }
   }
 
   .buttons-navigation {
@@ -113,5 +113,41 @@
   &__city {
     color: var(--textColorLight);
     line-height: 1.6;
+  }
+}
+
+@include mobile {
+  .feedback {
+     padding: 24px 0 16px;
+
+    .feedback-slider {
+      max-width: 100%;
+
+        &__slide {
+        max-width: 86%;
+        }
+    }
+   
+  
+    .button-swiper {
+      display: none;
+     }
+  }
+  
+  .feedback-slide {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-height: auto;
+    max-width: 100%;
+  
+    &__image {
+     display: none;
+    }
+  
+   
+    &__quote {
+      margin-bottom: 16px;
+      }
+   
   }
 }

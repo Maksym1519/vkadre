@@ -39,7 +39,7 @@ const MainOurTeam = () => {
               spaceBetween: 20,
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 1.2,
               spaceBetween: 20,
             },
             1240: {

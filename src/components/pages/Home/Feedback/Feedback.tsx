@@ -19,12 +19,8 @@ const Feedback = () => {
 
   const reduxData = useAppSelector((state) => state.feedback.feedback);
 
-  const imagesArray =
-    reduxData &&
-    reduxData.map((item) => item.attributes.image.data.attributes.url);
-
-  console.log(reduxData && reduxData);
-
+  
+ 
   return (
     <div className="feedback">
       <Title text="Отзывы клиентов" />
@@ -39,11 +35,11 @@ const Feedback = () => {
         breakpoints={{
           280: {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 16,
           },
-          768: {
+            768: {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 16,
           },
           1240: {
             slidesPerView: 1,

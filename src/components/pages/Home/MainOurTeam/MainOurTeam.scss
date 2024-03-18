@@ -97,11 +97,12 @@
 }
 
 @include mobile {
-  .our-team-slider__slide {
-    max-width: 94.8%;
-  }
+   .main-our-team {
+    
+    .our-team-slider__slide {
+      max-width: 97.4%;
+    }
 
-  .main-our-team {
     &__blur {
       width: 1050px;
       height: 992px;
