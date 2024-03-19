@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { feedBackInfo } from "store/slices/main/feedBackSlice";
 import FeedbackSlide from "./FeedbackSlide";
+import Button from "components/ui/buttons/Button";
 
 //my-Swiper-----------------------------------------------------
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,10 +20,8 @@ const Feedback = () => {
 
   const reduxData = useAppSelector((state) => state.feedback.feedback);
 
-  
- 
   return (
-    <div className="feedback">
+    <section className="feedback">
       <Title text="Отзывы клиентов" />
 
       <Swiper
@@ -37,7 +36,7 @@ const Feedback = () => {
             slidesPerView: 1,
             spaceBetween: 16,
           },
-            768: {
+          768: {
             slidesPerView: 1,
             spaceBetween: 16,
           },
@@ -66,8 +65,11 @@ const Feedback = () => {
           <div className="swiper-button-prev"></div>
           <div className="swiper-button-next"></div>
         </div>
+        <div className="buttons-navigation__button-wrapper">
+          <Button text="Оставить  отзыв" />
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 export default Feedback;

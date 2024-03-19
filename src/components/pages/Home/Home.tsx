@@ -6,6 +6,7 @@ import MainServices from "./MainServices/MainSeervices";
 import MainLocations from "./MainLocations/MainLocations";
 import MainOurTeam from "./MainOurTeam/MainOurTeam";
 import Feedback from "./Feedback/Feedback";
+import Questions from "./Questions/Questions";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
      <MainLocations />
      <MainOurTeam />
      <Feedback />
+     <Questions />
     </div>
   );
 };

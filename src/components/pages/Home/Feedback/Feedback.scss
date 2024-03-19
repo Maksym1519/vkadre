@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 60px;
-  padding: 100px 0 60px;
+  padding: 100px 0 120px;
   position: relative;
   z-index: 21;
   cursor: pointer;
@@ -26,14 +26,19 @@
     position: absolute;
     transform: translateY(0px);
     right: 0;
-    bottom: 0;
+    bottom: 80px;
     z-index: 1002;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-end;
-    column-gap: 32px;
+    column-gap: 165px;
     max-width: 100%;
+
+    &__button-wrapper {
+      width: 100%;
+      max-width: 285px;
+    }
   }
 
   .button-swiper {
@@ -116,6 +121,15 @@
   }
 }
 
+@include tablet {
+  .feedback {
+    .buttons-navigation {
+      bottom: 20px;
+      justify-content: space-between;
+    }
+  }
+  }
+
 @include mobile {
   .feedback {
      padding: 24px 0 16px;
@@ -128,6 +142,12 @@
         }
     }
    
+    .buttons-navigation {
+
+       &__button-wrapper {
+        display: none;
+      }
+    }
   
     .button-swiper {
       display: none;
