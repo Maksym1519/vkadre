@@ -7,18 +7,20 @@ import MainLocations from "./MainLocations/MainLocations";
 import MainOurTeam from "./MainOurTeam/MainOurTeam";
 import Feedback from "./Feedback/Feedback";
 import Questions from "./Questions/Questions";
+import ContactForm from "./ContactForm/ContactForm";
 
 const Home = () => {
   return (
     <div className="home">
       <HomeOrderPhotosession />
       <AboutProject />
-     <OurWorks />
-     <MainServices />
-     <MainLocations />
-     <MainOurTeam />
-     <Feedback />
-     <Questions />
+      <OurWorks />
+      <MainServices />
+      <MainLocations />
+      <MainOurTeam />
+      <Feedback />
+      <Questions />
+      <ContactForm />
     </div>
   );
 };

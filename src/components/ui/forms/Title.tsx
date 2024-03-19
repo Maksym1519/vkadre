@@ -1,11 +1,11 @@
 import "./Title.scss";
 
 interface PropsText {
-    text: string | null
-}
+    text: string | null;
+   }
 
 const Title = (props:PropsText) => {
-    return (
+        return (
         <h3 className="title">{props.text}</h3>
     )
 }

@@ -1,0 +1,101 @@
+@import "@vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 84px;
+  padding: 100px 0 100px;
+  border-top: 1px solid var(--colorLine);
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    row-gap: 46px;
+  }
+
+  &__title {
+    color: var(--textColor);
+    font-size: 3rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+}
+
+.media-contacts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+
+  &__item {
+    color: var(--textColor);
+    font-size: 1.125rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__item:hover {
+    text-decoration: underline;
+    transform: scale(101%);
+  }
+}
+
+.contact-inputs {
+  width: 100%;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 48px;
+  border: 1px solid var(--colorLine);
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      border: none;
+      padding: 24px 0 24px;
+      color: var(--textColor);
+      font-size: 1.125rem;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+  }
+
+  &__wrapper input::placeholder {
+    color: var(--menuItem);
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  &__wrapper input:first-child {
+    margin-top: 40px;
+  }
+
+  &__wrapper input:nth-child(2) {
+    border-top: 1px solid var(--colorLine);
+    border-bottom: 1px solid var(--colorLine);
+  }
+
+ 
+  &__service-input {
+    position: relative;
+    
+    input {
+        width: 100%;
+        margin-top: 0 !important;
+        border-bottom: 1px solid var(--colorLine);
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+}

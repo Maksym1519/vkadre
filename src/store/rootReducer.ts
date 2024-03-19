@@ -8,6 +8,7 @@ import priceReducer from "./slices/main/priceSlice";
 import mainLocationsReducer from "./slices/main/mainLocationsSlice";
 import mainOurTeamReducer from "./slices/main/mainOurTeamSlice";
 import feedBackReducer from "./slices/main/feedBackSlice";
+import questionsReducer from "./slices/main/questionsSlice";
 
 
 const rootReducer = combineReducers({
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
    price: priceReducer,
    mainLocations: mainLocationsReducer,
    mainTeam: mainOurTeamReducer,
-   feedback: feedBackReducer
+   feedback: feedBackReducer,
+   questions: questionsReducer
  });
 
 export default rootReducer;
