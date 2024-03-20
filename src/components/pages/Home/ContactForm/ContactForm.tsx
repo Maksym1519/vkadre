@@ -1,9 +1,11 @@
 import "./ContactForm.scss";
 import MediaContacts from "./MediaContacts";
 import ContactInputs from "./ContactInputs";
-import Blur from "@img/Splines  00039.webp"
+import Blur from "@img/Splines  00039.webp";
+
 
 const ContactForm = () => {
+    
    return (
     <section className="contact-form">
       <div className="contact-form__contacts">
