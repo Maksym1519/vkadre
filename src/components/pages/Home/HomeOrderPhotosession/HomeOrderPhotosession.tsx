@@ -47,6 +47,7 @@ const reduxData = useAppSelector((state) => state.orderPhotosession.orderPhotose
         <HomeOrderSlider />
       </div>
       <img src={reduxData && reduxData[0].attributes.blur.data.attributes.url} alt="blur" className="home-order__blur"/>
+      {/* <div className="home-order__blur"></div> */}
       </div>
   );
 };

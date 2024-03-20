@@ -52,12 +52,27 @@
 
     &__blur {
       position: absolute;
-      top: 7%;
-      right: 0;
+      top: 15%;
+      right: 150px;
       z-index: 4;
-      max-width: 692px;
-      max-height: 654px;
+      width: 692px;
+      height: 654px;
+      animation: blur 3s ease-in-out infinite;
+      transform-origin: center;
       }
+
+      @keyframes blur {
+        0% {
+          transform: translateY(-20%) translateX(350px);
+        }
+        50% {
+          transform: rotate(180deg) translateY(350px); 
+        }
+        100% {
+          transform: translateY(-30%) translateX(350px); 
+        }
+      }
+      
 
     .features {
       display: flex;
@@ -135,14 +150,29 @@
 
     &__blur {
       position: absolute;
-      top: 7%;
-      right: 0;
+      top: 15%;
+      right: 100px;
       z-index: 4;
       max-width: 692px;
       max-height: 654px;
-      transform: rotate(180deg);
       object-fit: cover;
+      animation: blur 3s ease-in-out infinite;
+      transform-origin: center;
+      transition: all 3s;
     }
+
+    @keyframes blur {
+      0% {
+        transform: translateY(-20%) translateX(250px);
+      }
+      50% {
+        transform: rotate(180deg) translateY(250px); 
+      }
+      100% {
+        transform: translateY(-30%) translateX(250px); 
+      }
+    }
+    
 
     .features {
       display: flex;
@@ -225,15 +255,30 @@
 
     &__blur {
       position: absolute;
-      top: -20%;
-      right: -200px;
+      top: 10%;
+      right: 0;
       z-index: 4;
       max-width: 692px;
       max-height: 654px;
-      transform: rotate(180deg);
       object-fit: cover;
       opacity: 0.4;
+      animation: blur 3s ease-in-out infinite;
+      transform-origin: center;
+      transition: all 3s;
     }
+
+    @keyframes blur {
+      0% {
+        transform: translateY(-20%) translateX(150px);
+      }
+      50% {
+        transform: rotate(180deg) translateY(150px); 
+      }
+      100% {
+        transform: translateY(-30%) translateX(150px); 
+      }
+    }
+    
 
     .features {
       order: 3;

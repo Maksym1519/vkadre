@@ -10,20 +10,18 @@
   justify-content: center;
   padding: 18px 0;
   color: var(--textColor);
-  font-family: "Inter";
-  font-weight: 600;
   font-size: 0.75rem;
   line-height: 16px;
   letter-spacing: 2px;
   text-transform: uppercase;
   border: 1px solid var(--textColor);
   cursor: pointer;
+  transition: all 0.2s;
 }
 
 .button:hover {
-  border: none;
-  transition: all 0.1s ease-in-out;
-} 
+  border: 1px solid transparent;
+}
 
 @mixin tablet() {
   .button {
@@ -34,20 +32,18 @@
     justify-content: center;
     padding: 18px 0;
     color: var(--textColor);
-    font-family: "Inter";
-    font-weight: 600;
     font-size: 0.75rem;
     line-height: 16px;
     letter-spacing: 2px;
     text-transform: uppercase;
     border: 1px solid var(--textColor);
     cursor: pointer;
+    transition: all 0.2s;
   }
 
   .button:hover {
-    border: none;
-    transition: all 0.1s ease-in-out;
-    } 
+    border: 1px solid transparent;
+  }
 }
 
 @mixin mobile() {
@@ -59,18 +55,16 @@
     justify-content: center;
     padding: 18px 0;
     color: var(--textColor);
-    font-family: "Inter";
-    font-weight: 600;
     font-size: 0.75rem;
     line-height: 16px;
     letter-spacing: 2px;
     text-transform: uppercase;
     border: 1px solid var(--textColor);
     cursor: pointer;
-    }
+    transition: all 0.2s;
+  }
 
   .button:hover {
-    border: none;
-    transition: all 0.1s ease-in-out;
-    } 
+    border: 1px solid transparent;
+  }
 }

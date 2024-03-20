@@ -3,16 +3,14 @@
 @import "@/mixins/mediaBreakpoints.scss";
 
 .footer {
-  position: relative;
-  margin-top: 100%;
   width: 100%;
-  height: 100px;
-  z-index: 5000 !important;
-
+  padding: 80px 0 62px;
+ 
+ 
   &__body,
   &__navigation {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
   }
 
@@ -30,16 +28,12 @@
 
 @include tablet() {
     .footer {
-        position: relative;
-        margin-top: 100%;
-        width: 100%;
-        height: 100px;
-        z-index: 5000 !important;
+         padding: 80px 0 62px;
       
         &__body,
         &__navigation {
           display: flex;
-          align-items: center;
+          align-items: flex-end;
           justify-content: space-between;
         }
       
@@ -57,20 +51,23 @@
 }
 @include mobile() {
     .footer {
-        position: relative;
-        margin-top: 100%;
-        width: 100%;
-        height: 100px;
-        z-index: 5000 !important;
-      
-        &__body {
+          padding: 40px 0;
+
+          &__body {
           display: flex;
-          align-items: center;
-          justify-content: space-between;
+          flex-direction: column;
+          align-items: flex-start;
         }
       
         &__navigation {
-          display: none;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          row-gap: 40px;
+          padding-bottom: 40px;
+          margin-bottom: 40px;
+          border-bottom: 1px solid var(--colorLine);
         }
       
         &__date {

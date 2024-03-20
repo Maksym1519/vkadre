@@ -12,12 +12,28 @@
   z-index: 16;
 
   .location-blur {
-    width: 1348px;
+    width: 692px;
     height: 1274px;
     position: absolute;
-    bottom: -10%;
-    left: -524px;
+    bottom: -40%;
+    left: 0;
+    z-index: -1;
+    animation: blur 5s ease-in-out infinite;
+    transform-origin: center;
   }
+
+  @keyframes blur {
+    0% {
+      transform: translateY(10%) translateX(350px);
+    }
+    50% {
+      transform: rotate(180deg) translateY(350px); 
+    }
+    100% {
+      transform: translateY(10%) translateX(350px); 
+    }
+  }
+  
 }
 
 .locations-slider-wrapper {
@@ -85,12 +101,27 @@
 
     .location-blur {
         width: 500px;
-        height: 1600px;
+        height: 800px;
         position: absolute;
         top: -60%;
         left: -500px;
         z-index: -1;
+        animation: blur 5s ease-in-out infinite;
+        transform-origin: center;
       }
+
+      @keyframes blur {
+        0% {
+          transform: translateY(-20%) translateX(250px);
+        }
+        50% {
+          transform: rotate(180deg) translateY(250px); 
+        }
+        100% {
+          transform: translateY(10%) translateX(250px); 
+        }
+      }
+      
   }
 
   .locations-slider-wrapper {

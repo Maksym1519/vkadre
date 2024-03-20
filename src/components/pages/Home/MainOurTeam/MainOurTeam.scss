@@ -16,13 +16,26 @@
   &__blur {
     display: block;
     position: absolute;
-    bottom: -50%;
-    right: -146px;
+    top: 10%;
+    left: -100px;
     width: 892px;
     height: 854px;
-    transform: rotate(180deg);
     object-fit: cover;
     z-index: -1;
+    animation: blur 3s ease-in-out infinite;
+    transform-origin: center;
+    }
+
+    @keyframes blur {
+      0% {
+        transform: translateY(-20%) translateX(350px);
+      }
+      50% {
+        transform: rotate(180deg) translateY(350px); 
+      }
+      100% {
+        transform: translateY(-30%) translateX(350px); 
+      }
     }
 
     .swiper {
@@ -110,7 +123,22 @@
       bottom: -70%;
       right: 0;
       filter: blur(540px);
+      animation: blur 3s ease-in-out infinite;
+      transform-origin: center;
     }
+
+    @keyframes blur {
+      0% {
+        transform: translateY(-20%) translateX(150px);
+      }
+      50% {
+        transform: rotate(180deg) translateY(150px); 
+      }
+      100% {
+        transform: translateY(-30%) translateX(150px); 
+      }
+    }
+
 
     .button-swiper {
       display: none;

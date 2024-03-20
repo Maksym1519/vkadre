@@ -4,6 +4,7 @@ import QuestionsItem from "./QuestionsItem";
 import Blur from "@img/Splines  00039.webp";
 
 const Questions = () => {
+  
   return (
     <section className="questions">
       <div className="questions-title">

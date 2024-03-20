@@ -5,7 +5,7 @@ import {
   Route,
   createRoutesFromElements,
   RouterProvider,
-} from "react-router-dom";
+  } from "react-router-dom";
 import RootLayout from "layouts/RootLayout";
 import Home from "./components/pages/Home/Home";
 import Portfolio from "components/pages/Portfolio/Portfolio";
@@ -19,7 +19,7 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="/Portfolio" index element={<Portfolio />} />
       </Route>
-    </>
+      </>
   )
 );
 

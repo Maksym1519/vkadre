@@ -34,11 +34,25 @@
 
   &__blur {
     position: absolute;
-    left: -450px;
+    left: -600px;
     top: 0%;
     z-index: -1;
     width: 992px;
     height: 954px;
+    animation: blur 6s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  @keyframes blur {
+    0% {
+      transform: translateY(-20%) translateX(350px);
+    }
+    50% {
+      transform: rotate(180deg) translateY(350px); 
+    }
+    100% {
+      transform: translateY(-30%) translateX(350px); 
+    }
   }
 }
 
@@ -161,6 +175,20 @@
       z-index: -1;
       width: 992px;
       height: 954px;
+      animation: blur 6s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes blur {
+      0% {
+        transform: translateY(-20%) translateX(350px);
+      }
+      50% {
+        transform: rotate(180deg) translateY(350px); 
+      }
+      100% {
+        transform: translateY(-30%) translateX(350px); 
+      }
     }
   }
 
@@ -286,6 +314,20 @@
         width: 992px;
         height: 954px;
         opacity: 0.4;
+        animation: blur 6s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      @keyframes blur {
+        0% {
+          transform: translateY(-20%) translateX(150px);
+        }
+        50% {
+          transform: rotate(180deg) translateY(150px); 
+        }
+        100% {
+          transform: translateY(-30%) translateX(150px); 
+        }
       }
     }
 
