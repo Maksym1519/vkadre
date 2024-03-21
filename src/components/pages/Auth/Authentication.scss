@@ -16,15 +16,19 @@
 
   .MuiInputBase-input {
     color: var(--textColorLight) !important;
-   }
+    margin-bottom: 10px !important;
+  }
 
+  
   &__body {
+    width: 100%;
+    max-width: 454px;
     display: flex;
     flex-direction: column;
     position: relative;
   }
 
-   &__cross {
+  &__cross {
     position: absolute;
     top: 24px;
     right: 24px;
@@ -43,26 +47,53 @@
     column-gap: 16px;
     margin-bottom: 32px;
     font-size: 2rem;
-    }
+  }
 
-&__header-enter-active {
+  &__header-enter-active {
     display: flex;
     column-gap: 16px;
     align-items: center;
     cursor: pointer;
     line-height: 1.6;
     border-bottom: 1px solid;
-    }
+  }
 
-&__header-enter-passive  {
+  &__header-enter-passive {
     color: var(--textColorLight);
     cursor: pointer;
-}
+  }
 
-&__header-slash {
+  &__header-slash {
     font-size: 2rem;
-}
+  }
+
+  &__input-password {
+    position: relative;
+    margin-bottom: 17px;
+  }
+
+  &__eye {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  &__forgot-password {
+    display: flex;
+    justify-content: flex-end;
+    color: var(--textColor);
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 60px;
+    cursor: pointer;
+  }
+
+  &__forgot-password:hover {
+    text-decoration: underline;
+  }
 }
 
 //material-ui-------------------------------------
-

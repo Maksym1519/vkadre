@@ -2,11 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 type AuthState = {
-    authForm: boolean
+    authForm: boolean;
+    index: number
 }
 
 const initialState: AuthState = {
-    authForm: false
+    authForm: false,
+    index: 0
 }
 
 const authSlice = createSlice({
@@ -15,9 +17,12 @@ const authSlice = createSlice({
     reducers: {
         setAuthState: (state,action) => {
            state.authForm = action.payload
+        },
+        setAuthIndex: (state,action) => {
+            state.index = action.payload
         }
     }
 })
-export const {setAuthState} = authSlice.actions;
+export const {setAuthState, setAuthIndex} = authSlice.actions;
 export default authSlice.reducer
 

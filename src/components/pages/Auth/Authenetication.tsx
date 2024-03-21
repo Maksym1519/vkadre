@@ -1,29 +1,30 @@
 import "./Authentication.scss";
 import Cross from "@img/cross.svg";
 import AuthNavigation from "./AuthNavigation";
-import { useAppDispatch } from "store/hooks";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 import { setAuthState } from "store/slices/auth/authSlice";
-import { TextField } from "@mui/material";
+import AuthEnter from "./AuthEnter";
+import AuthReg from "./AuthReg";
+
 
 const Authentication = () => {
   const dispatch = useAppDispatch();
 
-  //active-index-----------------------------------------------
-  
+  const authIndexRedux = useAppSelector((state) => state.auth.index)
   return (
     <div className="auth">
       <div className="auth__body">
-         <AuthNavigation />
-         <TextField id="standard-basic"  label="Электронная почта" variant="standard" placeholder="Электронная почта" className="auth__input-email"/>
-        <TextField id="standard-basic"  label="Пароль" variant="standard" placeholder="Пароль"/>
-        </div>
+        <AuthNavigation />
+        {authIndexRedux === 0 ?  <AuthEnter /> : <AuthReg />}
+      
+      </div>
       <img
         src={Cross}
         alt="cross"
         className="auth__cross"
         onClick={() => dispatch(setAuthState(false))}
       />
-    </div>
+     </div>
   );
 };
 

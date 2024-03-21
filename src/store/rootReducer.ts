@@ -10,6 +10,7 @@ import mainOurTeamReducer from "./slices/main/mainOurTeamSlice";
 import feedBackReducer from "./slices/main/feedBackSlice";
 import questionsReducer from "./slices/main/questionsSlice";
 import authReducer from "./slices/auth/authSlice";
+import authSliceReducer from "./slices/auth/authSliceApi";
 
 
 const rootReducer = combineReducers({
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
    mainTeam: mainOurTeamReducer,
    feedback: feedBackReducer,
    questions: questionsReducer,
-   auth: authReducer
+   auth: authReducer,
+   authApi: authSliceReducer
  });
 
 export default rootReducer;
