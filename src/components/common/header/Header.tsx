@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "store/hooks";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 import { headerInfo } from "store/slices/headerSlice";
+import { setAuthState } from "store/slices/auth/authSlice";
 import Burger from "./Burger";
 import MobileMenu from "./MobileMenu";
 import HeaderNavigation from "./HeaderNavigation";
@@ -21,6 +22,11 @@ const Header = () => {
     reduxData && reduxData[0].attributes.navigation.split(",");
   const contactsString =
     reduxData && reduxData[0].attributes.contact.split(",");
+
+  //set-auth-info--------------------------------------
+  const clickSetAuth = () => {
+    dispatch(setAuthState(true))
+  }  
 
   return (
     <header className="header">
@@ -44,7 +50,7 @@ const Header = () => {
 
         <HeaderContacts contactsString={contactsString}/>
 
-        <div className="profile">
+        <div className="profile" onClick={() => clickSetAuth()}>
           <img
             src={
               reduxData &&
@@ -54,7 +60,7 @@ const Header = () => {
             className="profile__avatar"
           />
           <p className="profile__text">личный кабинет</p>
-        </div>
+         </div>
         <Burger />
         <MobileMenu />
       </div>

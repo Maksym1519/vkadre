@@ -8,8 +8,13 @@ import MainOurTeam from "./MainOurTeam/MainOurTeam";
 import Feedback from "./Feedback/Feedback";
 import Questions from "./Questions/Questions";
 import ContactForm from "./ContactForm/ContactForm";
+import Authentication from "../Auth/Authenetication";
+
+import { useAppSelector } from "store/hooks";
 
 const Home = () => {
+  const authInfo = useAppSelector((state) => state.auth.authForm);
+
   return (
     <div className="home">
       <HomeOrderPhotosession />
@@ -21,6 +26,7 @@ const Home = () => {
       <Feedback />
       <Questions />
       <ContactForm />
+      {authInfo && <Authentication />}
     </div>
   );
 };

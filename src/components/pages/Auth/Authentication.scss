@@ -1,0 +1,68 @@
+@import "@/vars/colors.scss";
+@import "@/vars/variables.scss";
+@import "@/mixins/mediaBreakpoints.scss";
+
+.auth {
+  width: 552px;
+  display: flex;
+  padding: 24px 48px;
+  background: var(--white);
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3001;
+  border: 1px solid var(--colorLine);
+
+  .MuiInputBase-input {
+    color: var(--textColorLight) !important;
+   }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+   &__cross {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  &__cross:hover {
+    transform: scale(120%);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    margin-bottom: 32px;
+    font-size: 2rem;
+    }
+
+&__header-enter-active {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+    cursor: pointer;
+    line-height: 1.6;
+    border-bottom: 1px solid;
+    }
+
+&__header-enter-passive  {
+    color: var(--textColorLight);
+    cursor: pointer;
+}
+
+&__header-slash {
+    font-size: 2rem;
+}
+}
+
+//material-ui-------------------------------------
+

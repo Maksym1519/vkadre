@@ -1,13 +1,12 @@
-@import "../../../styles/vars/colors.scss";
+@import "@vars/colors.scss";
 
 .home {
-    height: 100%;
-    }
+  height: 100%;
+  position: relative;
+}
 
 @mixin tablet() {
-    
-};
+}
 
 @mixin mobile() {
-    
-};
+}
