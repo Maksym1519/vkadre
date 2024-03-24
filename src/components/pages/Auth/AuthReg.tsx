@@ -5,6 +5,10 @@ import Eye from "@img/eyeClosed.svg";
 import Button from "components/ui/buttons/Button";
 import { useAppDispatch } from "store/hooks";
 import { setAuthApiData } from "store/slices/auth/authSliceApi";
+import { setAuthState } from "store/slices/auth/authSlice";
+import axios from "axios";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const AuthReg = () => {
   //hide/show-password-------------------------------------------------
@@ -14,55 +18,87 @@ const AuthReg = () => {
   };
 
   //------------------------------------------------------------------
-  const [formData, setFormData] = useState({
-    name: null,
-    email: null,
-    password: null
-  })
-   
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const initialUser = {
+    username: "",
+    email: "",
+    password: "",
+  }
+  const [user, setUser] = useState(initialUser);
+
+  const handleChange = (e: React.SyntheticEvent) => {
+    const { name, value } = e.target as HTMLInputElement;
+    setUser({ ...user, [name]: value });
   };
-//dispatch-formData-------------------------------------
-const dispatch = useAppDispatch();
-const dispatchFormData = () => {
-  dispatch(setAuthApiData(formData))
-}
-  
+
+  //dispatch-formData-------------------------------------
+  const dispatch = useAppDispatch();
+  const dispatchFormData = () => {
+    dispatch(setAuthApiData(user));
+  };
+
+  //submit-data-------------------------------------------
+    const handleSubmit = async (e: any) => {
+    e.preventDefault();
+      
+    try {
+        const response = await axios.post(
+        "https://vkadrestrapi.onrender.com/api/auth/local/register",
+        user
+      );
+      if (response.status === 200) {
+        setUser(initialUser)
+        toast.info("Success")
+        setTimeout(() => {
+          dispatch(setAuthState(false))
+        },3000)
+      }
+      return response;
+    } catch (error: any) {
+      toast.error(error.message, {
+        hideProgressBar: true
+      })
+    }
+  };
+
   return (
-    <form action="submit">
+    <form onSubmit={handleSubmit}>
       <TextField
         id="standard-basic"
-        label="ИМЯ"
+        placeholder="ИМЯ"
         variant="standard"
-        placeholder="имя"
         className="auth__input-name"
         style={{ minWidth: "100%", textTransform: "uppercase" }}
         type="text"
-        name="name"
+        name="username"
+        value={user.username}
         onChange={(e) => handleChange(e)}
       />
+
       <TextField
         id="standard-basic"
-        label="Электронная почта"
+        placeholder="Электронная почта"
         variant="standard"
-        placeholder="ЭЛЕКТРОННАЯ ПОЧТА"
         className="auth__input-email"
-        style={{ minWidth: "100%",textTransform: "uppercase"}}
+        style={{ minWidth: "100%", textTransform: "uppercase" }}
         name="email"
-        type="email"
+        type="text"
+        value={user.email}
         onChange={(e) => handleChange(e)}
       />
+
       <div className="auth__input-password">
         <TextField
           id="standard-basic"
-          label="ПАРОЛЬ"
+          placeholder="пароль"
           variant="standard"
-          placeholder="Пароль"
           type={password ? "text" : "password"}
           name="password"
-          style={{ minWidth: "100%", textTransform: "uppercase",marginBottom: "24px" }}
+          style={{
+            minWidth: "100%",
+            textTransform: "uppercase",
+            marginBottom: "24px",
+          }}
+          value={user.password}
           onChange={(e) => handleChange(e)}
         />
         <img
@@ -72,7 +108,12 @@ const dispatchFormData = () => {
           onClick={() => clickPassword()}
         />
       </div>
-     <Button text="Зарегистрироваться" onClick={() => dispatchFormData()}/>
+
+      <Button
+        type="submit"
+        text="Зарегистрироваться"
+        onClick={() => dispatchFormData}
+      />
     </form>
   );
 };

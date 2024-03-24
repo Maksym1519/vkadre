@@ -6,7 +6,7 @@ const Button = (props: any) => {
     width: props.width
   };
   return (
-    <button type="button" className="button" style={styled}>
+    <button type={props.type} className="button" style={styled} onClick={props.onClick}>
       {props.text}
     </button>
   );

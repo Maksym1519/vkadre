@@ -9,6 +9,7 @@ import Feedback from "./Feedback/Feedback";
 import Questions from "./Questions/Questions";
 import ContactForm from "./ContactForm/ContactForm";
 import Authentication from "../Auth/Authenetication";
+import { ToastContainer } from "react-toastify";
 
 import { useAppSelector } from "store/hooks";
 
@@ -27,6 +28,7 @@ const Home = () => {
       <Questions />
       <ContactForm />
       {authInfo && <Authentication />}
+      <ToastContainer />
     </div>
   );
 };

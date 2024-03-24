@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, RefObject } from "react";
 
-const clickOutside = (menuRef: React.RefObject<HTMLDivElement>, callback: () => void) => {
+
+const clickOutside = (menuRef: RefObject<HTMLDivElement>, callback: () => void) => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {

@@ -3,6 +3,7 @@ import Header from "components/common/Header/Header";
 import Footer from "components/common/Footer/Footer";
 import { Outlet } from "react-router-dom";
 
+
 //redux--------------------------------------------------------
 import { useAppSelector } from "store/hooks";
 
@@ -14,7 +15,7 @@ export default function RootLayout() {
     <div className="root-layout container">
       <Header />
       <main className="outlet">
-        <Outlet />
+         <Outlet />
       </main>
       <Footer />
       <div className={authInfo ? "root-layout__overlay" : ""}></div>

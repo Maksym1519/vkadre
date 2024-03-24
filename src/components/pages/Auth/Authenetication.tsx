@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "store/hooks";
 import { setAuthState } from "store/slices/auth/authSlice";
 import AuthEnter from "./AuthEnter";
 import AuthReg from "./AuthReg";
+//import { ToastContainer } from "react-toastify";
 
 
 const Authentication = () => {
@@ -24,6 +25,7 @@ const Authentication = () => {
         className="auth__cross"
         onClick={() => dispatch(setAuthState(false))}
       />
+      {/* <ToastContainer /> */}
      </div>
   );
 };

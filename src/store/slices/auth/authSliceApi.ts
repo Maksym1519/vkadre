@@ -1,11 +1,14 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-//import { useAppSelector } from "store/hooks";
 
 
-export type AuthApiData = [{
-  formData: null
-    }]
+export type AuthApiData = {
+    authApi: {
+    name: string,
+    email: string,
+    password: string | number
+  }
+    }
 
 type AuthApiState = {
   formData: null;
@@ -20,15 +23,15 @@ const initialState: AuthApiState = {
     loading: false,
     error: null
 }
-// const reduxData = useAppSelector((state) => state.authApi.formData)
-//       console.log(reduxData)
+
+
 export const authApiInfo = createAsyncThunk<AuthApiData, undefined, { rejectValue: string }>(
     "authApi/authApiInfo",
 
     async function (_, { rejectWithValue }) {
-      
-      const response = await axios.get(
-        "https://vkadrestrapi.onrender.com/api/clients?sort=id&populate=*"
+           
+        const response = await axios.post(
+          "https://vkadrestrapi.onrender.com/api/clients?sort=id&populate=*"
         );
       
          if (response.status !== 200) {
