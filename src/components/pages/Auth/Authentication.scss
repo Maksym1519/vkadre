@@ -4,6 +4,7 @@
 
 .auth {
   width: 552px;
+  min-height: 450px;
   display: flex;
   padding: 24px 48px;
   background: var(--white);
@@ -18,6 +19,10 @@
     color: var(--textColorLight) !important;
     padding: 24px 0 !important;
    }
+   .css-1eed5fa-MuiInputBase-root-MuiInput-root::after {
+    height: 100px !important;
+    border-bottom: 1px solid var(--colorLine) !important;
+    }
 
 .MuiInputBase-input::placeholder {
   text-transform: uppercase !important;

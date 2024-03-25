@@ -1,13 +1,16 @@
 import "./Header.scss";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { NavLink } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { headerInfo } from "store/slices/headerSlice";
-import { setAuthState } from "store/slices/auth/authSlice";
 import Burger from "./Burger";
 import MobileMenu from "./MobileMenu";
+import ProfileMenu from "./ProfileMenu";
 import HeaderNavigation from "./HeaderNavigation";
 import HeaderContacts from "./HeaderContacts";
+import { userData } from "hooks/localStorageData";
+import clickOutside from "hooks/clickOutside";
+import { setProfileMenu } from "store/slices/auth/authSlice";
 
 const Header = () => {
   const dispatch = useAppDispatch();
@@ -23,11 +26,27 @@ const Header = () => {
   const contactsString =
     reduxData && reduxData[0].attributes.contact.split(",");
 
-  //set-auth-info--------------------------------------
-  const clickSetAuth = () => {
-    dispatch(setAuthState(true))
-  }  
+  //close-popup-outside----------------------------------
+  const [isActive, setIsActive] = useState(false);
+  console.log(isActive)
+  useEffect(() => {
+    setIsActive(false)
+  },[])
+  const menuRef = useRef<HTMLDivElement>(null);
 
+  clickOutside(menuRef, () => setIsActive(false));
+
+  //show-profile-menu--------------------------------------------------
+  const showProfileMenu = () => {
+    setIsActive(true);
+    dispatch(setProfileMenu(true));
+  };
+  //get-user-data-localstorage-------------------------------------------
+  const userInfo = userData();
+  //----------------------------------------------------------------------
+  const closeMenu = () => {
+    setIsActive(false)
+  }
   return (
     <header className="header">
       <div className="header__body">
@@ -48,9 +67,9 @@ const Header = () => {
 
         <HeaderNavigation navigationString={navigationString} />
 
-        <HeaderContacts contactsString={contactsString}/>
+        <HeaderContacts contactsString={contactsString} />
 
-        <div className="profile" onClick={() => clickSetAuth()}>
+        <div className="profile" onClick={showProfileMenu} ref={menuRef}>
           <img
             src={
               reduxData &&
@@ -59,8 +78,11 @@ const Header = () => {
             alt="avatar"
             className="profile__avatar"
           />
-          <p className="profile__text">личный кабинет</p>
-         </div>
+          <p className="profile__text">
+            {userInfo.username ? userInfo.username : "Личный кабинет"}
+          </p>
+          {isActive && <ProfileMenu closeMenu={closeMenu}/>}
+        </div>
         <Burger />
         <MobileMenu />
       </div>

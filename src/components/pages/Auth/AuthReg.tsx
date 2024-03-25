@@ -60,8 +60,22 @@ const AuthReg = () => {
     }
   };
 
+  //check-input----------------------------------------------
+ const [emailDirty, setEmailDirty] = useState(false);
+ const [passwordDirty, setPasswordDirty] = useState(false);
+ const [emailError, setEmailError] = useState("Поле не может быть пустым")
+ const [passwordError, setPasswordError] = useState("Поле не может быть пустым")
+
+ const leaveInput = (e: any) => {
+  switch (e.target.name) {
+   case "email": 
+   setEmailDirty(true)
+  }
+ }
+
   return (
     <form onSubmit={handleSubmit}>
+      {emailDirty && emailError && <div style={{color: "red"}}>{emailError}</div>}
       <TextField
         id="standard-basic"
         placeholder="ИМЯ"
@@ -86,21 +100,19 @@ const AuthReg = () => {
         onChange={(e) => handleChange(e)}
       />
 
-      <div className="auth__input-password">
+      
+<div className="auth__input-password">
         <TextField
           id="standard-basic"
           placeholder="пароль"
           variant="standard"
           type={password ? "text" : "password"}
+          style={{ minWidth: "100%", textTransform: "uppercase" }}
           name="password"
-          style={{
-            minWidth: "100%",
-            textTransform: "uppercase",
-            marginBottom: "24px",
-          }}
           value={user.password}
           onChange={(e) => handleChange(e)}
         />
+
         <img
           src={Eye}
           alt="hidePassword"
@@ -108,6 +120,7 @@ const AuthReg = () => {
           onClick={() => clickPassword()}
         />
       </div>
+
 
       <Button
         type="submit"

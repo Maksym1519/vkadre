@@ -1,5 +1,5 @@
 import "./Authentication.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TextField } from "@mui/material";
 import Eye from "@img/eyeClosed.svg";
 import Button from "components/ui/buttons/Button";
@@ -8,6 +8,8 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useAppDispatch } from "store/hooks";
 import { setAuthState } from "store/slices/auth/authSlice";
+import { setUserData } from "store/slices/auth/authSlice";
+import { storeUser } from "hooks/localStorageData";
 
 const AuthEnter = () => {
   //hide/show-password-------------------------------------------------
@@ -19,7 +21,7 @@ const AuthEnter = () => {
   //dispatch----------------------------------------------------------
   const dispatch = useAppDispatch()
   //send=data-to-server-------------------------------------------------
-  const initialUser = { email: "", password: "" };
+  const initialUser = {identifier: "", password: "" };
 
   const [user, setUser] = useState(initialUser);
   
@@ -35,21 +37,24 @@ const AuthEnter = () => {
         "https://vkadrestrapi.onrender.com/api/auth/local",
         user
       );
-      console.log(data)
+            
       if (data.jwt) {
         setUser(initialUser);
-        toast.info("Success")
+        storeUser(data)
+        dispatch(setUserData(data));
+        toast.info(`Привет ${data.user.username} ! Вы успешно вошли на сайт`, {hideProgressBar: true})
+      
         setTimeout(() => {
           dispatch(setAuthState(false))
         },3000)
       }
     } catch (error: any) {
-      toast.error(error.message, {
+      toast.error("Вы ввели неправильный логин или пароль", {
         hideProgressBar: true
       })
     }
   };
-
+  
   return (
     <form onSubmit={handleSubmitLogin}>
       <TextField
@@ -58,8 +63,8 @@ const AuthEnter = () => {
         variant="standard"
         className="auth__input-email"
         style={{ minWidth: "100%", textTransform: "uppercase" }}
-        name="email"
-        value={user.email}
+        name="identifier"
+        value={user.identifier}
         onChange={(e) => handleChange(e)}
       />
 

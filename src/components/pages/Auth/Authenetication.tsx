@@ -2,7 +2,7 @@ import "./Authentication.scss";
 import Cross from "@img/cross.svg";
 import AuthNavigation from "./AuthNavigation";
 import { useAppDispatch, useAppSelector } from "store/hooks";
-import { setAuthState } from "store/slices/auth/authSlice";
+import { setAuthState, setAuthIndex } from "store/slices/auth/authSlice";
 import AuthEnter from "./AuthEnter";
 import AuthReg from "./AuthReg";
 //import { ToastContainer } from "react-toastify";
@@ -11,7 +11,12 @@ import AuthReg from "./AuthReg";
 const Authentication = () => {
   const dispatch = useAppDispatch();
 
-  const authIndexRedux = useAppSelector((state) => state.auth.index)
+  const authIndexRedux = useAppSelector((state) => state.auth.index);
+
+  const clickClose = () => {
+    dispatch(setAuthState(false))
+    dispatch(setAuthIndex(0))
+  }
   return (
     <div className="auth">
       <div className="auth__body">
@@ -23,9 +28,8 @@ const Authentication = () => {
         src={Cross}
         alt="cross"
         className="auth__cross"
-        onClick={() => dispatch(setAuthState(false))}
+        onClick={() => dispatch(clickClose)}
       />
-      {/* <ToastContainer /> */}
      </div>
   );
 };
