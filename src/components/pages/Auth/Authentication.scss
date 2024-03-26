@@ -4,12 +4,13 @@
 
 .auth {
   width: 552px;
-  min-height: 450px;
+  min-height: 582px;
+  height: auto;
   display: flex;
   padding: 24px 48px;
   background: var(--white);
   position: fixed;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3001;
@@ -18,18 +19,19 @@
   .MuiInputBase-input {
     color: var(--textColorLight) !important;
     padding: 24px 0 !important;
-   }
-   .css-1eed5fa-MuiInputBase-root-MuiInput-root::after {
+  }
+  .css-1eed5fa-MuiInputBase-root-MuiInput-root::after {
     height: 100px !important;
     border-bottom: 1px solid var(--colorLine) !important;
-    }
+  }
 
-.MuiInputBase-input::placeholder {
-  text-transform: uppercase !important;
-  color: var(--textColorLight) !important;
-}
-  
+  .MuiInputBase-input::placeholder {
+    text-transform: uppercase !important;
+    color: var(--textColorLight) !important;
+  }
+
   &__body {
+    height: auto;
     width: 100%;
     max-width: 454px;
     display: flex;
@@ -78,8 +80,7 @@
 
   &__input-password {
     position: relative;
-    margin-bottom: 17px;
-  }
+    }
 
   &__eye {
     position: absolute;
@@ -103,6 +104,55 @@
   &__forgot-password:hover {
     text-decoration: underline;
   }
+
+  &__button {
+    margin-top: 32px;
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+  }
 }
 
-//material-ui-------------------------------------
+@include mobile {
+  .auth {
+    max-width: 90%;
+    min-height: 400px;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 48px 12px 24px;
+
+    &__header {
+      font-size: 1.125em;
+      margin-bottom: 32px;
+    }
+
+    &__header-slash {
+      font-size: 1.5rem;
+    }
+
+    &__body {
+      position: relative;
+      justify-content: flex-start;
+    }
+
+    .MuiInputBase-input {
+     padding: 16px 0 !important;
+    }
+
+    .MuiInputBase-input::placeholder {
+     font-size: 12px !important;
+    }
+
+    &__forgot-password {
+      margin-bottom: 0;
+    }
+
+    &__button {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+}

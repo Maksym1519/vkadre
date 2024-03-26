@@ -30,10 +30,10 @@ export const authApiInfo = createAsyncThunk<AuthApiData, undefined, { rejectValu
 
     async function (_, { rejectWithValue }) {
            
-        const response = await axios.post(
-          "https://vkadrestrapi.onrender.com/api/clients?sort=id&populate=*"
+        const response = await axios.get(
+          "https://vkadrestrapi.onrender.com/api/users?sort=id&populate=*"
         );
-      
+      console.log(response)
          if (response.status !== 200) {
           return rejectWithValue("Server error !");
         } 

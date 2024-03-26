@@ -1,8 +1,9 @@
 import "./Authentication.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TextField } from "@mui/material";
 import Eye from "@img/eyeClosed.svg";
 import Button from "components/ui/buttons/Button";
+import { setAuthIndex } from "store/slices/auth/authSlice";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -88,9 +89,9 @@ const AuthEnter = () => {
         />
       </div>
 
-      <div className="auth__forgot-password">Забыли пароль?</div>
-
-      <Button text="Войти" type="submit" />
+      <div className="auth__forgot-password" onClick={() => dispatch(setAuthIndex(2))}>Забыли пароль?</div>
+      <div className="auth__button"><Button text="Войти" type="submit"/></div>
+      
     </form>
   );
 };

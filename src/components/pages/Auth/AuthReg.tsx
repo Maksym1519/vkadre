@@ -8,7 +8,8 @@ import { setAuthApiData } from "store/slices/auth/authSliceApi";
 import { setAuthState } from "store/slices/auth/authSlice";
 import axios from "axios";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import { useForm } from "react-hook-form";
 
 const AuthReg = () => {
   //hide/show-password-------------------------------------------------
@@ -22,13 +23,8 @@ const AuthReg = () => {
     username: "",
     email: "",
     password: "",
-  }
-  const [user, setUser] = useState(initialUser);
-
-  const handleChange = (e: React.SyntheticEvent) => {
-    const { name, value } = e.target as HTMLInputElement;
-    setUser({ ...user, [name]: value });
   };
+  const [user, setUser] = useState(initialUser);
 
   //dispatch-formData-------------------------------------
   const dispatch = useAppDispatch();
@@ -37,45 +33,54 @@ const AuthReg = () => {
   };
 
   //submit-data-------------------------------------------
-    const handleSubmit = async (e: any) => {
-    e.preventDefault();
-      
+  type UserFetch = {
+    username: string;
+    email: string;
+    password: string;
+  };
+  const onSubmit = async (data: UserFetch) => {
+    const fetchUser = data;
+    setUser(fetchUser);
+
     try {
-        const response = await axios.post(
+      const response = await axios.post(
         "https://vkadrestrapi.onrender.com/api/auth/local/register",
-        user
+        fetchUser
       );
       if (response.status === 200) {
-        setUser(initialUser)
-        toast.info("Success")
+        setUser(initialUser);
+        toast.info("Вы успешно зарегистрировались !");
         setTimeout(() => {
-          dispatch(setAuthState(false))
-        },3000)
+          dispatch(setAuthState(false));
+        }, 1000);
       }
       return response;
     } catch (error: any) {
       toast.error(error.message, {
-        hideProgressBar: true
-      })
+        hideProgressBar: true,
+      });
     }
   };
 
   //check-input----------------------------------------------
- const [emailDirty, setEmailDirty] = useState(false);
- const [passwordDirty, setPasswordDirty] = useState(false);
- const [emailError, setEmailError] = useState("Поле не может быть пустым")
- const [passwordError, setPasswordError] = useState("Поле не может быть пустым")
+  type FormValues = {
+    username: string;
+    email: string;
+    password: string;
+  };
+  const form = useForm<FormValues>({
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+    },
+  });
 
- const leaveInput = (e: any) => {
-  switch (e.target.name) {
-   case "email": 
-   setEmailDirty(true)
-  }
- }
+  const { register, handleSubmit, formState } = form;
+  const { errors } = formState;
 
   return (
-    <form onSubmit={handleSubmit}>
-      {emailDirty && emailError && <div style={{color: "red"}}>{emailError}</div>}
+    <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
         id="standard-basic"
         placeholder="ИМЯ"
@@ -83,9 +88,9 @@ const AuthReg = () => {
         className="auth__input-name"
         style={{ minWidth: "100%", textTransform: "uppercase" }}
         type="text"
-        name="username"
-        value={user.username}
-        onChange={(e) => handleChange(e)}
+        {...register("username", { required: "Username is required" })}
+        error={!!errors.username}
+        helperText={errors.username?.message}
       />
 
       <TextField
@@ -94,23 +99,28 @@ const AuthReg = () => {
         variant="standard"
         className="auth__input-email"
         style={{ minWidth: "100%", textTransform: "uppercase" }}
-        name="email"
         type="text"
-        value={user.email}
-        onChange={(e) => handleChange(e)}
+        {...register("email", { required: "Email is required" })}
+        error={!!errors.email}
+        helperText={errors.email?.message}
       />
 
-      
-<div className="auth__input-password">
+      <div className="auth__input-password">
         <TextField
           id="standard-basic"
-          placeholder="пароль"
+          placeholder="пароль (минимум 6символов)"
           variant="standard"
           type={password ? "text" : "password"}
           style={{ minWidth: "100%", textTransform: "uppercase" }}
-          name="password"
-          value={user.password}
-          onChange={(e) => handleChange(e)}
+          {...register("password", {
+            required: "Password is required",
+            minLength: {
+              value: 6,
+              message: "Password is required at least 6 characters",
+            },
+          })}
+          error={!!errors.password}
+          helperText={errors.password?.message}
         />
 
         <img
@@ -121,12 +131,13 @@ const AuthReg = () => {
         />
       </div>
 
-
-      <Button
-        type="submit"
-        text="Зарегистрироваться"
-        onClick={() => dispatchFormData}
-      />
+      <div className="auth__button">
+        <Button
+          type="submit"
+          text="Зарегистрироваться"
+          onClick={() => dispatchFormData}
+        />
+      </div>
     </form>
   );
 };
