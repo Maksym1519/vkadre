@@ -39,19 +39,27 @@
     z-index: -1;
     width: 992px;
     height: 954px;
-    animation: blur 6s ease-in-out infinite;
-    transform-origin: center;
+    animation: blur infinite alternate;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
 
   @keyframes blur {
     0% {
-      transform: translateY(-20%) translateX(350px);
+      transform: translateX(50%) translateY(50%);
+    }
+    25% {
+      transform: translateX(-50%);
     }
     50% {
-      transform: rotate(180deg) translateY(350px); 
+      transform: translateX(0%) translateY(0%); 
+    }
+    75% {
+      transform: translateX(-50%) translateY(-50%); 
     }
     100% {
-      transform: translateY(-30%) translateX(350px); 
+      transform: translateX(25%) translateY(25%); 
     }
   }
 }
@@ -125,7 +133,8 @@
     text-transform: uppercase;
   }
 
-  &__info, &__info_size {
+  &__info,
+  &__info_size {
     font-size: 0.875rem;
     color: var(--textColor);
     font-weight: 400;
@@ -175,19 +184,27 @@
       z-index: -1;
       width: 992px;
       height: 954px;
-      animation: blur 6s ease-in-out infinite;
-      transform-origin: center;
+      animation: blur infinite alternate;
+      animation-duration: 5s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
     }
 
     @keyframes blur {
       0% {
-        transform: translateY(-20%) translateX(350px);
+        transform: translateX(50%) translateY(50%);
+      }
+      25% {
+        transform: translateX(-50%);
       }
       50% {
-        transform: rotate(180deg) translateY(350px); 
+        transform: translateX(0%) translateY(0%); 
+      }
+      75% {
+        transform: translateX(-50%) translateY(-50%); 
       }
       100% {
-        transform: translateY(-30%) translateX(350px); 
+        transform: translateX(25%) translateY(25%); 
       }
     }
   }
@@ -314,19 +331,27 @@
         width: 992px;
         height: 954px;
         opacity: 0.4;
-        animation: blur 6s ease-in-out infinite;
-        transform-origin: center;
+        animation: blur infinite alternate;
+        animation-duration: 5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
       }
 
       @keyframes blur {
         0% {
-          transform: translateY(-20%) translateX(150px);
+          transform: translateX(50%) translateY(50%);
+        }
+        25% {
+          transform: translateX(-50%);
         }
         50% {
-          transform: rotate(180deg) translateY(150px); 
+          transform: translateX(0%) translateY(0%); 
+        }
+        75% {
+          transform: translateX(-50%) translateY(-50%); 
         }
         100% {
-          transform: translateY(-30%) translateX(150px); 
+          transform: translateX(25%) translateY(25%); 
         }
       }
     }

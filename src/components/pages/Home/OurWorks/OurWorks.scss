@@ -23,8 +23,10 @@
       height: 654px;
       object-fit: cover;
       z-index: -1;
-      animation: blur 3s ease-in-out infinite;
-      transform-origin: center;
+      animation: blur infinite alternate;
+      animation-duration: 3s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
     }
     &__blur-left {
       position: absolute;
@@ -34,19 +36,27 @@
       max-height: 1274px;
       object-fit: cover;
       z-index: -1;
-      animation: blur 4s ease-in-out infinite;
-      transform-origin: center;
+      animation: blur infinite alternate;
+      animation-duration: 3s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
     }
 
     @keyframes blur {
       0% {
-        transform: translateY(-20%) translateX(250px);
+        transform: translateX(50%) translateY(50%);
+      }
+      25% {
+        transform: translateX(-50%);
       }
       50% {
-        transform: rotate(180deg) translateY(250px); 
+        transform: translateX(0%) translateY(0%); 
+      }
+      75% {
+        transform: translateX(-50%) translateY(-50%); 
       }
       100% {
-        transform: translateY(-30%) translateX(250px); 
+        transform: translateX(25%) translateY(25%); 
       }
     }
 }

@@ -18,22 +18,29 @@
     bottom: -40%;
     left: 0;
     z-index: -1;
-    animation: blur 5s ease-in-out infinite;
-    transform-origin: center;
+    animation: blur infinite alternate;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
   }
 
   @keyframes blur {
     0% {
-      transform: translateY(10%) translateX(350px);
+      transform: translateX(0%) translateY(50%);
+    }
+    25% {
+      transform: translateX(-10%);
     }
     50% {
-      transform: rotate(180deg) translateY(350px); 
+      transform: translateX(0%) translateY(0%); 
+    }
+    75% {
+      transform: translateX(-10%) translateY(-50%); 
     }
     100% {
-      transform: translateY(10%) translateX(350px); 
+      transform: translateX(15%) translateY(25%); 
     }
-  }
-  
+  }    
 }
 
 .locations-slider-wrapper {
@@ -100,28 +107,35 @@
     padding: 40px 0 140px;
 
     .location-blur {
-        width: 500px;
-        height: 800px;
-        position: absolute;
-        top: -60%;
-        left: -500px;
-        z-index: -1;
-        animation: blur 5s ease-in-out infinite;
-        transform-origin: center;
-      }
+      width: 500px;
+      height: 800px;
+      position: absolute;
+      top: -60%;
+      left: -500px;
+      z-index: -1;
+      animation: blur infinite alternate;
+      animation-duration: 5s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
 
-      @keyframes blur {
-        0% {
-          transform: translateY(-20%) translateX(250px);
-        }
-        50% {
-          transform: rotate(180deg) translateY(250px); 
-        }
-        100% {
-          transform: translateY(10%) translateX(250px); 
-        }
+    @keyframes blur {
+      0% {
+        transform: translateX(0%) translateY(50%);
       }
-      
+      25% {
+        transform: translateX(-10%);
+      }
+      50% {
+        transform: translateX(0%) translateY(0%); 
+      }
+      75% {
+        transform: translateX(-10%) translateY(-50%); 
+      }
+      100% {
+        transform: translateX(15%) translateY(25%); 
+      }
+    }    
   }
 
   .locations-slider-wrapper {

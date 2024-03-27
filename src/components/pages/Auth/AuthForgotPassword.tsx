@@ -24,6 +24,9 @@ const AuthForgotPassword = () => {
   }, [dispatch]);
   const reduxUsers = useAppSelector((state) => state.authApi.authApi);
   console.log(reduxUsers);
+
+  //find-current-user--------------------------------------------------------
+   
   //----------------------------------------------------------------------
   // type EmailFetch = {
   //   email: string;
@@ -53,19 +56,19 @@ const AuthForgotPassword = () => {
   // };
   //submit-data-------------------------------------------
   type UserFetch = {
-    identifier: string,
-    password: string,
-    newPassword: string,
-    confirmPassword: string
+    email: string;
+    url: string;
   };
 
   const onSubmit = async (data: UserFetch) => {
     const fetchUser = data;
-
+    const newPassword = {
+      password: "999999",
+    };
     try {
-      const response = await axios.post(
-        "https://vkadrestrapi.onrender.com/api/auth/change-password",
-        fetchUser
+      const response = await axios.put(
+        `https://vkadrestrapi.onrender.com/api/users/${9}`,
+        newPassword
       );
       if (response.status === 200) {
         toast.info("Ваш пароль успешно изменен !");
@@ -80,19 +83,15 @@ const AuthForgotPassword = () => {
 
   //validation------------------------------------------------------------
   type FormValues = {
-    identifier: string;
-    password: string;
-    newPassword: string,
-    confirmPassword: string
+    email: string;
+    url: string;
   };
 
   const form = useForm<FormValues>({
     defaultValues: {
-      identifier: "",
-      password: "",
-      newPassword: "",
-      confirmPassword: ""
-      },
+      email: "",
+      url: "https://vkadrestrapi.onrender.com/admin/plugins/users-permissions/auth/reset-password",
+    },
   });
 
   const { register, handleSubmit, formState } = form;
@@ -113,27 +112,27 @@ const AuthForgotPassword = () => {
           className="auth__input-email"
           style={{ minWidth: "100%", textTransform: "uppercase" }}
           type="text"
-          {...register("identifier", { required: "Email is required" })}
-          error={!!errors.identifier}
-          helperText={errors.identifier?.message}
+          {...register("email", { required: "Email is required" })}
+          error={!!errors.email}
+          helperText={errors.email?.message}
         />
 
-        <div className="auth__input-password">
+        {/* <div className="auth__input-password">
           <TextField
             id="standard-basic"
-            placeholder="введите пароль"
+            placeholder="текущий пароль"
             variant="standard"
             type={password ? "text" : "password"}
             style={{ minWidth: "100%", textTransform: "uppercase" }}
-            {...register("password", {
+            {...register("email", {
               required: "Password is required",
               minLength: {
                 value: 6,
                 message: "Password is required at least 6 characters",
               },
             })}
-            error={!!errors.password}
-            helperText={errors.password?.message}
+            error={!!errors.email}
+            helperText={errors.email?.message}
           />
           <img
             src={Eye}
@@ -141,56 +140,7 @@ const AuthForgotPassword = () => {
             className="auth__eye"
             onClick={() => clickPassword()}
           />
-        </div>
-
-        <div className="auth__input-password">
-          <TextField
-            id="standard-basic"
-            placeholder="введите новый пароль"
-            variant="standard"
-            type={password ? "text" : "password"}
-            style={{ minWidth: "100%", textTransform: "uppercase" }}
-            {...register("newPassword", {
-              required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password is required at least 6 characters",
-              },
-            })}
-            error={!!errors.newPassword}
-            helperText={errors.newPassword?.message}
-          />
-          <img
-            src={Eye}
-            alt="hidePassword"
-            className="auth__eye"
-            onClick={() => clickPassword()}
-          />
-        </div>
-        <div className="auth__input-password">
-          <TextField
-            id="standard-basic"
-            placeholder="повторите пароль"
-            variant="standard"
-            type={password ? "text" : "password"}
-            style={{ minWidth: "100%", textTransform: "uppercase" }}
-            {...register("confirmPassword", {
-              required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password is required at least 6 characters",
-              },
-            })}
-            error={!!errors.confirmPassword}
-            helperText={errors.confirmPassword?.message}
-          />
-          <img
-            src={Eye}
-            alt="hidePassword"
-            className="auth__eye"
-            onClick={() => clickPassword()}
-          />
-        </div>
+        </div> */}
 
         <div className="auth__button">
           <Button text="Восстановить пароль" type="submit" />

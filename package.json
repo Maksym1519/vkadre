@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.14",
     "@reduxjs/toolkit": "^1.9.7",
+    "@strapi/plugin-email": "^4.21.0",
     "@strapi/provider-upload-cloudinary": "^4.20.3",
     "axios": "^1.6.7",
     "emailjs": "^4.0.3",
