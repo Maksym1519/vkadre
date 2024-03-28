@@ -11,6 +11,7 @@ import feedBackReducer from "./slices/main/feedBackSlice";
 import questionsReducer from "./slices/main/questionsSlice";
 import authReducer from "./slices/auth/authSlice";
 import authSliceReducer from "./slices/auth/authSliceApi";
+import portfolioPageReducer from "./slices/portfolio/portfolioPageSlice";
 
 
 const rootReducer = combineReducers({
@@ -25,7 +26,8 @@ const rootReducer = combineReducers({
    feedback: feedBackReducer,
    questions: questionsReducer,
    auth: authReducer,
-   authApi: authSliceReducer
+   authApi: authSliceReducer,
+   portfolioPage: portfolioPageReducer
  });
 
 export default rootReducer;

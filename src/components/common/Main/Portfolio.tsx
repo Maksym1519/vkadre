@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "store/hooks";
 import { useEffect } from "react";
 import { portfolioInfo } from "store/slices/main/portfolioSlice";
 import Button from "components/ui/buttons/Button";
+import PortfolioItem from "./PortfolioItem";
 //my-Swiper-----------------------------------------------------
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -16,12 +17,12 @@ const Portfolio = () => {
     dispatch(portfolioInfo());
   }, [dispatch]);
 
-  const reduxData = useAppSelector((state) => state.portfolio.portfolio);
-  const gallery =
-    reduxData &&
-    reduxData.map((item) => item.attributes.photo.data.attributes.url);
+   const sliderIndex = [1, 2, 3];
 
-  const sliderIndex = [1, 2, 3];
+   const reduxData = useAppSelector((state) => state.portfolio.portfolio);
+   const gallery =
+     reduxData &&
+     reduxData.map((item) => item.attributes.photo.data.attributes.url);
 
   return (
     <div className="portfolio-wrapper">
@@ -49,26 +50,16 @@ const Portfolio = () => {
       >
         {sliderIndex.map((index) => (
           <SwiperSlide className="portfolio-slider__slide" key={index}>
-            <div className="portfolio-slider__item">
-              {gallery &&
-                gallery.map((item, index) => (
-                  <img
-                    src={item}
-                    alt="photo"
-                    key={index}
-                    className="portfolio-slider__item-image"
-                  />
-                ))}
-            </div>
+            <PortfolioItem images={gallery}/>
           </SwiperSlide>
         ))}
       </Swiper>
 
-       <div className="buttons-navigation">
+      <div className="buttons-navigation">
         <div className="portfolio-button-wrapper">
-        <Button text="Смотреть все Портфолио" width="100%" />
+          <Button text="Смотреть все Портфолио" width="100%" />
         </div>
-         <div className="button-swiper">
+        <div className="button-swiper">
           <div className="swiper-button-prev"></div>
           <div className="swiper-button-next"></div>
         </div>

@@ -8,7 +8,7 @@ import {
   } from "react-router-dom";
 import RootLayout from "layouts/RootLayout";
 import Home from "./components/pages/Home/Home";
-import Portfolio from "components/pages/Portfolio/Portfolio";
+import PortfolioPage from "components/pages/Portfolio/Portfolio";
 
 const rootLayout = React.createElement(RootLayout);
 
@@ -17,7 +17,7 @@ const router = createBrowserRouter(
     <>
       <Route path="/" element={rootLayout}>
         <Route index element={<Home />} />
-        <Route path="/Portfolio" index element={<Portfolio />} />
+        <Route path="/Portfolio" index element={<PortfolioPage />} />
         <Route path="/Auth" index element={<Home />} />
         </Route>
       </>

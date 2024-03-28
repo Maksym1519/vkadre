@@ -1,0 +1,98 @@
+@import "@vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  padding: 68px 0 88px;
+
+  &__subtitle {
+    color: var(--textColor);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 4px 0 60px;
+  }
+}
+
+.portfolio-navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--colorLine);
+  position: relative;
+  margin-bottom: 40px;
+
+  &__items {
+    display: flex;
+    column-gap: 30px;
+  }
+
+  &__item-active,
+  &__item-passive {
+    color: var(--textColor);
+    line-height: 1.4;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+  }
+
+  &__item-passive {
+    color: var(--menuItem);
+  }
+
+  &__more {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__more img {
+    cursor: pointer;
+  }
+}
+
+.portfolio-popup {
+  width: 353px;
+  max-width: 353px;
+  max-height: 367px;
+  padding: 19px 0 11px;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--white);
+  z-index: 29;
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    padding: 9px 0;
+    color: var(--textColor);
+    font-size: 1.125rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__item:hover {
+    color: var(--black);
+    background: var(--textColorLight);
+  }
+
+  &__item-content {
+    padding-left: 28px;
+  }
+}
+
+.portfolio-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 22px;
+}
