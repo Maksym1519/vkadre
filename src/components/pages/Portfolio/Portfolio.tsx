@@ -2,6 +2,8 @@ import "./Portfolio.scss";
 import Title from "components/ui/forms/Title";
 import PortfolioNavigation from "./PortfolioNavigation";
 import PortfolioItem from "components/common/Main/PortfolioItem";
+import OrderPhoto from "components/common/Portfolio/OrderPhoto";
+import Blur from "@img/blur.webp";
 import { useAppSelector } from "store/hooks";
 
 const PortfolioPage = () => {
@@ -19,26 +21,61 @@ const PortfolioPage = () => {
   });
 
   const expressGallery: string[] = gallery ? [...gallery] : [];
-  
+  expressGallery.reverse();
+
+  let individualGallery: string[] = gallery ? [...gallery] : [];
+  individualGallery = allGallery
+    .filter((_, index) => index % 2 === 0)
+    .concat(allGallery.filter((_, index) => index % 2 !== 0));
 
   //get-active-portfolio-index--------------------------------
   const portfolioIndex = useAppSelector(
     (state) => state.portfolioPage.activeIndex
   );
+  //-----------------------------------------------------------
+  const contentArray = [
+    <section className="portfolio-content">
+      <PortfolioItem images={gallery} />
+      <PortfolioItem images={allGallery} />
+    </section>,
+    <section className="portfolio-content">
+      <PortfolioItem images={expressGallery} />
+      <PortfolioItem images={allGallery} />
+    </section>,
+    <section className="portfolio-content">
+      <PortfolioItem images={individualGallery} />
+      <PortfolioItem images={allGallery} />
+    </section>,
+    <section className="portfolio-content">
+      <PortfolioItem images={gallery} />
+      <PortfolioItem images={allGallery} />
+    </section>,
+    <section className="portfolio-content">
+      <PortfolioItem images={expressGallery} />
+      <PortfolioItem images={allGallery} />
+    </section>,
+    <section className="portfolio-content">
+      <PortfolioItem images={individualGallery} />
+      <PortfolioItem images={allGallery} />
+    </section>,
+  ];
+  const activeContent = contentArray[portfolioIndex];
 
   return (
     <div className="portfolio">
+
       <Title text="Портфолио" />
+      
       <h4 className="portfolio__subtitle">
         За 3 года работы мы организовали более 10 000 фотосессий в Одессе
       </h4>
+
       <PortfolioNavigation />
-      {portfolioIndex === 0 && (
-        <section className="portfolio-content">
-          <PortfolioItem images={gallery} />
-          <PortfolioItem images={allGallery} />
-        </section>
-      )}
+      {activeContent}
+      <div className="portfolio-order-photo"></div>
+      <OrderPhoto />
+
+      <img src={Blur} alt="blur" className="portfolio__blur"/>
     </div>
   );
 };

@@ -1,19 +1,25 @@
 import { useState, useEffect, useRef } from "react";
-import { useAppDispatch } from "store/hooks";
+import { useAppDispatch, useAppSelector } from "store/hooks";
 import { setPortfolioIndex } from "store/slices/portfolio/portfolioPageSlice";
+import { useMatchMedia } from "hooks/use-match-media";
 import "./Portfolio.scss";
 import Dots from "@img/dots.svg";
+import Arrow from "@img/inputArrow.svg";
 import PortfolioPopup from "./PortfolioPopup";
 import clickOutside from "hooks/clickOutside";
 
+
 const PortfolioNavigation = () => {
-  const navItems: Array<string> = [
+   //select-city------------------------------------------
+   const selectedCity = useAppSelector((state) => state.portfolioPage.city)
+    
+  const navItems: Array<string | React.ReactNode >= [
     "Все",
     "Экспресс",
     "Индивидуальная фотосессия",
     "Экспресс-видеосъемка",
     "Семейная фотосессия",
-    "Фотосессии в ОДЕССЕ",
+    <div>{selectedCity}</div>,
   ];
   //activeIndex----------------------------------------------------------------
   const [activeIndex, setActiveIndex] = useState(0);
@@ -41,10 +47,14 @@ const PortfolioNavigation = () => {
   //setActiveIndex-------------------------------------------
   const dispatch = useAppDispatch()
 
+ //useMatchMedia-------------------------------------------
+ const isMobile = useMatchMedia()
+ console.log(isMobile)
+
   return (
     <div className="portfolio-navigation" ref={menuRef}>
       <div className="portfolio-navigation__items">
-        {navItems.map((item, index) => (
+        {isMobile.isMobile ? navItems[0] : navItems.map((item, index) => (
           <div
             className={
               activeIndex === index
@@ -60,7 +70,7 @@ const PortfolioNavigation = () => {
       </div>
       <div className="portfolio-navigation__more">
         <img
-          src={Dots}
+          src={isMobile.isMobile ? Arrow : Dots}
           alt="dots"
           onClick={() => {
             setIsActive(true), togglePopup();

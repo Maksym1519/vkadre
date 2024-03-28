@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 type PortfolioState = {
-    activeIndex: number
+    activeIndex: number,
+    city: string
 }
 
 const initialState: PortfolioState = {
-    activeIndex: 0
+    activeIndex: 0,
+    city: 'фотосессии в одессе'
 }
 
 const portfolioPageSlice = createSlice({
@@ -14,8 +16,11 @@ const portfolioPageSlice = createSlice({
     reducers: {
         setPortfolioIndex: (state,action) => {
             state.activeIndex = action.payload
+        },
+        setLocation: (state,action) => {
+            state.city = action.payload
         }
     }
 })
-export const {setPortfolioIndex} = portfolioPageSlice.actions;
+export const {setPortfolioIndex,setLocation} = portfolioPageSlice.actions;
 export default portfolioPageSlice.reducer
