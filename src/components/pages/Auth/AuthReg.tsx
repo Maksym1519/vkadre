@@ -3,13 +3,10 @@ import { useState } from "react";
 import { TextField } from "@mui/material";
 import Eye from "@img/eyeClosed.svg";
 import Button from "components/ui/buttons/Button";
-import { useAppDispatch } from "store/hooks";
-import { setAuthApiData } from "store/slices/auth/authSliceApi";
-import { setAuthState } from "store/slices/auth/authSlice";
-import axios from "axios";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
+import { AuthRegFetch } from "store/slices/auth/authRegFetch";
+
 
 const AuthReg = () => {
   //hide/show-password-------------------------------------------------
@@ -17,51 +14,7 @@ const AuthReg = () => {
   const clickPassword = () => {
     setPassword(!password);
   };
-
-  //------------------------------------------------------------------
-  const initialUser = {
-    username: "",
-    email: "",
-    password: "",
-  };
-  const [user, setUser] = useState(initialUser);
-
-  //dispatch-formData-------------------------------------
-  const dispatch = useAppDispatch();
-  const dispatchFormData = () => {
-    dispatch(setAuthApiData(user));
-  };
-
-  //submit-data-------------------------------------------
-  type UserFetch = {
-    username: string;
-    email: string;
-    password: string;
-  };
-  const onSubmit = async (data: UserFetch) => {
-    const fetchUser = data;
-    setUser(fetchUser);
-
-    try {
-      const response = await axios.post(
-        "https://vkadrestrapi.onrender.com/api/auth/local/register",
-        fetchUser
-      );
-      if (response.status === 200) {
-        setUser(initialUser);
-        toast.info("Вы успешно зарегистрировались !");
-        setTimeout(() => {
-          dispatch(setAuthState(false));
-        }, 1000);
-      }
-      return response;
-    } catch (error: any) {
-      toast.error(error.message, {
-        hideProgressBar: true,
-      });
-    }
-  };
-
+  
   //check-input----------------------------------------------
   type FormValues = {
     username: string;
@@ -80,7 +33,7 @@ const AuthReg = () => {
   const { errors } = formState;
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(AuthRegFetch())}>
       <TextField
         id="standard-basic"
         placeholder="ИМЯ"
@@ -135,7 +88,7 @@ const AuthReg = () => {
         <Button
           type="submit"
           text="Зарегистрироваться"
-          onClick={() => dispatchFormData}
+          //onClick={() => dispatchFormData}
         />
       </div>
     </form>

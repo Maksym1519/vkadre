@@ -6,7 +6,7 @@ import { setAuthState, setAuthIndex } from "store/slices/auth/authSlice";
 import AuthEnter from "./AuthEnter";
 import AuthReg from "./AuthReg";
 import AuthForgotPassword from "./AuthForgotPassword";
-//import { ToastContainer } from "react-toastify";
+
 
 
 const Authentication = () => {
@@ -19,18 +19,15 @@ const Authentication = () => {
     dispatch(setAuthIndex(0))
   }
 
-  const renderAuthComponent = () => {
-    switch (authIndexRedux) {
-      case 0:
-        return <AuthEnter />;
-      case 1:
-        return <AuthReg />;
-      case 2:
-        return <AuthForgotPassword />;
-      default:
-        return null;
-    }
-  };
+  const authComponent: {[key: number]: JSX.Element} = {
+    0: <AuthEnter />,
+    1: <AuthReg />,
+    2: <AuthForgotPassword />
+   };
+
+   const renderAuthComponent = () => {
+    return authComponent[authIndexRedux]
+   }
   
   return (
     <div className="auth">

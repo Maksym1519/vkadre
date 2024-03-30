@@ -4,6 +4,7 @@ import Button from "components/ui/buttons/Button";
 import Blur from "@img/blur.webp";
 
 const OrderPhoto = () => {
+ 
   return (
     <div className="order-photo">
       <div className="order-photo__title">
