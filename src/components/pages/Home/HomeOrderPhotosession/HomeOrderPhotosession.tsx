@@ -14,6 +14,12 @@ useEffect(() => {
 
 const reduxData = useAppSelector((state) => state.orderPhotosession.orderPhotosession)
 
+//get-images-from-redux-for-slider--------------------------------------------
+const reduxSliderImages = useAppSelector(
+  (state) => state.orderPhotosession.orderPhotosession
+);
+const sliderImages =
+  reduxSliderImages && reduxSliderImages[0].attributes.orderPhotosessionSlider.data;
 
   return (
     <div className="home-order">
@@ -44,10 +50,9 @@ const reduxData = useAppSelector((state) => state.orderPhotosession.orderPhotose
           <Button maxWidth="366px" text="Заказать Экспресс-фотосессию" />
         </div>
 
-        <HomeOrderSlider />
+        <HomeOrderSlider sliderImages={sliderImages}/>
       </div>
       <img src={reduxData && reduxData[0].attributes.blur.data.attributes.url} alt="blur" className="home-order__blur"/>
-      {/* <div className="home-order__blur"></div> */}
       </div>
   );
 };

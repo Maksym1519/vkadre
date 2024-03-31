@@ -1,0 +1,58 @@
+@import "@vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+
+.our-team {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 0 95px;
+}
+
+.our-team-hero {
+  display: grid;
+  grid-template-columns: minmax(41.64%, 533px) minmax(47.65%, 610px);
+  column-gap: 105px;
+  padding-bottom: 100px;
+  border-bottom: 1px solid var(--colorLine);
+
+  &__image img {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    }
+
+  &__position {
+    color: var(--textColor);
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: uppercase;
+    margin: 2px 0 41px;
+  }
+
+  &__description {
+    color: var(--textColor);
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  &__description_margin {
+    margin-bottom: 32px;
+  }
+}
+
+.our-team-gallery {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+  padding: 100px 0 111px;
+  border-bottom: 1px solid var(--colorLine);
+}
+
+.our-team-order-photo {
+  margin-top: 211px;
+}

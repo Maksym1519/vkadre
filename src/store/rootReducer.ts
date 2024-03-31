@@ -12,6 +12,7 @@ import questionsReducer from "./slices/main/questionsSlice";
 import authReducer from "./slices/auth/authSlice";
 import authSliceReducer from "./slices/auth/authSliceApi";
 import portfolioPageReducer from "./slices/portfolio/portfolioPageSlice";
+import ourTeamReducer from "./slices/ourTeam/ourTeamSlice";
 
 
 const rootReducer = combineReducers({
@@ -27,7 +28,8 @@ const rootReducer = combineReducers({
    questions: questionsReducer,
    auth: authReducer,
    authApi: authSliceReducer,
-   portfolioPage: portfolioPageReducer
+   portfolioPage: portfolioPageReducer,
+   ourTeam: ourTeamReducer
  });
 
 export default rootReducer;

@@ -1,21 +1,17 @@
 import "./HomeOrderSlider.scss";
-import { useAppSelector } from "../../../../store/hooks";
-
 //my-Swiper-----------------------------------------------------
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 //----------------------------------------------------------------
+type PropsType = {
+  sliderImages: Array<object> | null
+   
+}
 
-
-const HomeOrderSlider = () => {
-  const reduxData = useAppSelector(
-    (state) => state.orderPhotosession.orderPhotosession
-  );
-  const sliderImages =
-    reduxData && reduxData[0].attributes.orderPhotosessionSlider.data;
-
+const HomeOrderSlider = (props: PropsType) => {
+ 
   return (
     <div className="homeOrderSlider">
 
@@ -46,8 +42,8 @@ const HomeOrderSlider = () => {
           }
         }}
         >
-        {sliderImages &&
-          sliderImages.map((item: any, index: number) => (
+        {props.sliderImages &&
+          props.sliderImages.map((item: any, index: number) => (
             <SwiperSlide key={index}>
               <img src={item.attributes.url} alt={`image`} />
             </SwiperSlide>

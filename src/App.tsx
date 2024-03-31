@@ -9,6 +9,7 @@ import {
 import RootLayout from "layouts/RootLayout";
 import Home from "./components/pages/Home/Home";
 import PortfolioPage from "components/pages/Portfolio/Portfolio";
+import OurTeam from "components/pages/OurTeam/OurTeam";
 
 const rootLayout = React.createElement(RootLayout);
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       <Route path="/" element={rootLayout}>
         <Route index element={<Home />} />
         <Route path="/Portfolio" index element={<PortfolioPage />} />
+        <Route path="/OurTeam" index element={<OurTeam />} />
         <Route path="/Auth" index element={<Home />} />
         </Route>
       </>
