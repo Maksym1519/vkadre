@@ -6,6 +6,71 @@
   display: flex;
   flex-direction: column;
   padding: 100px 0 95px;
+  position: relative;
+  
+  &__blur-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    max-width: 650px;
+    max-height: 650px;
+    object-fit: cover;
+    animation: ourTeamRight infinite alternate;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    z-index: -1;
+  }
+
+  @keyframes ourTeamRight {
+    0% {
+      transform: translateX(0%) translateY(0%);
+    }
+    25% {
+      transform: translateX(50%);
+    }
+    50% {
+      transform: translateX(0%) translateY(0%);
+    }
+    75% {
+      transform: translateX(-10%) translateY(-20%);
+    }
+    100% {
+      transform: translateX(15%) translateY(25%);
+    }
+  }
+
+  &__blur-left {
+    position: absolute;
+    left: -20%;
+    top: 35%;
+    max-width: 650px;
+    max-height: 650px;
+    object-fit: cover;
+    animation: ourTeamLeft infinite alternate;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    z-index: -1;
+  }
+
+  @keyframes ourTeamLeft {
+    0% {
+      transform: translateX(0%) translateY(0%);
+    }
+    25% {
+      transform: translateX(70%);
+    }
+    50% {
+      transform: translateX(0%) translateY(30%);
+    }
+    75% {
+      transform: translateX(-10%) translateY(-20%);
+    }
+    100% {
+      transform: translateX(15%) translateY(25%);
+    }
+  }
 }
 
 .our-team-hero {
@@ -24,7 +89,7 @@
   &__content {
     display: flex;
     flex-direction: column;
-    }
+  }
 
   &__position {
     color: var(--textColor);
@@ -43,6 +108,10 @@
   &__description_margin {
     margin-bottom: 32px;
   }
+
+  &__slider {
+    margin-top: auto;
+  }
 }
 
 .our-team-gallery {
@@ -54,5 +123,45 @@
 }
 
 .our-team-order-photo {
-  margin-top: 211px;
+  margin-top: 100px;
+}
+
+@include tablet {
+  .our-team-hero {
+    &__description_margin {
+      display: none;
+    }
+  }
+}
+
+@include mobile {
+  .our-team {
+  padding: 40px 0 28px;
+  }
+
+  .our-team-hero {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+
+    &__image {
+      z-index: 2;
+      margin-bottom: 24px;
+    }
+    &__image img{
+      height: 318px;
+      }
+    &__slider {
+      display: none;
+    }
+
+    &__description_margin {
+      display: block;
+    }
+  }
+
+  .our-team-gallery {
+    row-gap: 24px;
+    padding: 40px 0;
+  }
 }

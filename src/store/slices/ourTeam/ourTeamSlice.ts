@@ -67,6 +67,9 @@ const ourTeamSlice = createSlice({
   reducers: {
     setPhotographerIndex: (state,action) => {
       state.photographerIndex = action.payload
+    },
+    resetOurTeam: (state,action) => {
+      state.ourTeam = action.payload
     }
   },
 
@@ -84,5 +87,5 @@ const ourTeamSlice = createSlice({
   },
 });
 
-export const {setPhotographerIndex} = ourTeamSlice.actions;
+export const {setPhotographerIndex, resetOurTeam} = ourTeamSlice.actions;
 export default ourTeamSlice.reducer;

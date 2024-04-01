@@ -90,10 +90,9 @@
 
   &__item,
   &__item-active {
-    font-family: "Inter";
     font-weight: 500;
     color: var(--textColor);
-    line-height: 140%;
+    line-height: 1.4;
     text-decoration: none;
     text-transform: uppercase;
   }

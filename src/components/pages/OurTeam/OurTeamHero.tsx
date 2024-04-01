@@ -24,7 +24,9 @@ const OurTeamHero = () => {
         <p className="our-team-hero__description">
           {reduxData && reduxData.attributes.description2}
         </p>
+        <div className="our-team-hero__slider">
         <HomeOrderSlider sliderImages={sliderImages && sliderImages}/>
+        </div>
        </div>
     </>
   );

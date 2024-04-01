@@ -21,13 +21,13 @@ const MainOurTeam = () => {
   }, [dispatch]);
 
   const reduxData = useAppSelector((state) => state.mainTeam.mainTeam);
+ 
   const newArray = reduxData?.concat(reduxData);
   const imagesArray =
     newArray &&
     newArray.map((item) => item.attributes.image.data.attributes.url);
 
-  //dispatch-id-photographer-for-our-team-page--------------------------------
-
+  
   return (
     <div className="main-our-team">
       <Title text={"Наша команда"} />
@@ -62,7 +62,7 @@ const MainOurTeam = () => {
                 key={index}
                 onClick={() => {
                   dispatch(setPhotographerIndex(newArray[index].id));
-                  dispatch(ourTeamInfo(newArray[index].id))
+                  dispatch(ourTeamInfo(newArray[index].id))//вызов createAsync с нужным индексом
                  }}
               >
                 <NavLink to="/OurTeam">

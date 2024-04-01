@@ -20,11 +20,11 @@ interface HeaderNavigationProps {
           {navigationString && navigationString[0]}
         </NavLink>
 
-        <NavLink to="/Sevices" className={setActive}>
+        <NavLink to="/Services" className={setActive}>
           {navigationString && navigationString[1]}
         </NavLink>
         
-        <NavLink to="/locations" className={setActive}>
+        <NavLink to="/Locations" className={setActive}>
           {navigationString && navigationString[2]}
         </NavLink>
 

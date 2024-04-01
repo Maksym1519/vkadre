@@ -10,6 +10,7 @@ import RootLayout from "layouts/RootLayout";
 import Home from "./components/pages/Home/Home";
 import PortfolioPage from "components/pages/Portfolio/Portfolio";
 import OurTeam from "components/pages/OurTeam/OurTeam";
+import Services from "components/pages/Services/Services";
 
 const rootLayout = React.createElement(RootLayout);
 
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="/Portfolio" index element={<PortfolioPage />} />
         <Route path="/OurTeam" index element={<OurTeam />} />
+        <Route path="/Services" index element={<Services />} />
         <Route path="/Auth" index element={<Home />} />
         </Route>
       </>

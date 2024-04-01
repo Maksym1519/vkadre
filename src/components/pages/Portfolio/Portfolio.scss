@@ -7,7 +7,7 @@
   flex-direction: column;
   padding: 68px 0 88px;
   position: relative;
-
+ 
   &__subtitle {
     color: var(--textColor);
     font-size: 1.125rem;
@@ -58,6 +58,7 @@
   border-bottom: 1px solid var(--colorLine);
   position: relative;
   margin-bottom: 40px;
+  z-index: 2;
 
   &__items {
     display: flex;
@@ -99,6 +100,8 @@
   right: 0;
   background: var(--white);
   z-index: 29;
+  box-shadow: 0px 14px 40px 0px var(--boxShadow);
+  background: var(--white);
 
   &__items {
     display: flex;
@@ -116,7 +119,7 @@
 
   &__item:hover {
     color: var(--black);
-    background: var(--textColorLight);
+    background: var(--colorLine);
   }
 
   &__item-content {

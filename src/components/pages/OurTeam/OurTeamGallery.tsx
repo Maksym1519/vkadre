@@ -5,12 +5,13 @@ import { useAppSelector } from "store/hooks";
 
 const OurTeamGallery = () => {
   const reduxData = useAppSelector((state) => state.ourTeam.ourTeam);
+  
   const sliderImages = reduxData && reduxData.attributes.photo.data.map((item) => item.attributes.url);
 
 
   return (
     <>
-      <Title text="РАБОТЫ САШИ" />
+      <Title text={`Работы ${reduxData && reduxData.attributes.fullName}`} />
       <PortfolioItem images={sliderImages}/>
     </>
   );

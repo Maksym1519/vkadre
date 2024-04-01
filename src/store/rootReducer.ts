@@ -13,6 +13,7 @@ import authReducer from "./slices/auth/authSlice";
 import authSliceReducer from "./slices/auth/authSliceApi";
 import portfolioPageReducer from "./slices/portfolio/portfolioPageSlice";
 import ourTeamReducer from "./slices/ourTeam/ourTeamSlice";
+import servicesReducer from "./slices/services/servicesSlice";
 
 
 const rootReducer = combineReducers({
@@ -29,7 +30,8 @@ const rootReducer = combineReducers({
    auth: authReducer,
    authApi: authSliceReducer,
    portfolioPage: portfolioPageReducer,
-   ourTeam: ourTeamReducer
+   ourTeam: ourTeamReducer,
+   services: servicesReducer
  });
 
 export default rootReducer;
