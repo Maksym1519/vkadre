@@ -3,7 +3,10 @@ import CardItem from "components/common/Main/CardItem";
 import OrderPhoto from "components/common/Portfolio/OrderPhoto";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { servicesInfo } from "store/slices/services/servicesSlice";
+import { getServiceDetail } from "store/slices/services/serviceDetailSlice";
 import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import Blur from "@img/blur.webp";
 
 const Services = () => {
   const dispatch = useAppDispatch();
@@ -17,7 +20,7 @@ const Services = () => {
     reduxData
       .map((item) => item.attributes.image)
       .map((item) => item.data.attributes.url);
- 
+
   return (
     <div className="services">
       <div className="services__header">
@@ -30,19 +33,28 @@ const Services = () => {
         <section className="services-gallery">
           {reduxData &&
             reduxData.map((item, index) => (
-              <CardItem
+              <div
                 key={index}
-                img={arrayImages && arrayImages[index]}
-                title={item.attributes.title}
-                description={item.attributes.description}
-                location=""
-                />
+                onClick={(e) => dispatch(getServiceDetail(item.attributes.title))}
+              >
+                <NavLink to={"/ServiceDetail"}>
+                  <CardItem
+                    img={arrayImages && arrayImages[index]}
+                    title={item.attributes.title}
+                    description={item.attributes.description}
+                    location=""
+                  />
+                </NavLink>
+              </div>
             ))}
         </section>
         <section className="services-order-photo">
-         <OrderPhoto />
+          <OrderPhoto />
         </section>
       </main>
+      <img src={Blur} alt="blur" className="services__blur-top" />
+      <img src={Blur} alt="blur" className="services__blur-left" />
+      <img src={Blur} alt="blur" className="services__blur-bottom" />
     </div>
   );
 };
