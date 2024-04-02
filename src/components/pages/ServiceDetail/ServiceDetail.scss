@@ -30,12 +30,103 @@
     letter-spacing: 2px;
     text-transform: uppercase;
   }
+
+  &__blur-top {
+    position: absolute;
+    top: 0;
+    right: 20%;
+    width: 650px;
+    height: 650px;
+    filter: blur(40px);
+    animation: serviceDetailBlurTop infinite alternate;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    z-index: -1;
+  }
+
+  @keyframes serviceDetailBlurTop {
+    0% {
+      transform: translateX(0%) translateY(0%);
+    }
+    25% {
+      transform: translateX(-20%);
+    }
+    50% {
+      transform: translateX(0%) translateY(10%);
+    }
+    75% {
+      transform: translateX(0%) translateY(0%);
+    }
+    100% {
+      transform: translateX(25%) translateY(25%);
+    }
+  }
+}
+
+.service-detail-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 139px;
+  margin-top: 64px;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    color: var(--textColor);
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  &__price {
+    margin-top: -45px;
+  }
+
+  &__price-button {
+    margin-top: 40px;
+  }
+}
+
+.service-detail-calendar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  margin-bottom: 40px;
+  
+
+  &__title, &__info {
+    color: var(--textColor);
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  &__info img:hover {
+    transform: scale(120%);
+  }
+
+   .service-detail-calendar__calendar {
+    background: var(--white);
+    position: absolute;
+    top: 0;
+    right: -30%;
+    box-shadow: 3px 5px 15px var(--colorLine);
+    }
 }
 
 @include mobile {
   .service-detail {
     padding: 36px 0 60px;
     overflow: hidden;
+    position: relative;
 
     &__header {
       flex-direction: column;
@@ -44,6 +135,7 @@
       margin-bottom: 40px;
     }
   }
+
   .service-detail-slider {
     &__slide {
       max-width: 256px;

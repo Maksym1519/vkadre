@@ -21,6 +21,10 @@ const Services = () => {
       .map((item) => item.attributes.image)
       .map((item) => item.data.attributes.url);
 
+      useEffect(() => {
+        window.scrollTo(0, 0)
+        },[])
+
   return (
     <div className="services">
       <div className="services__header">
@@ -35,7 +39,7 @@ const Services = () => {
             reduxData.map((item, index) => (
               <div
                 key={index}
-                onClick={(e) => dispatch(getServiceDetail(item.attributes.title))}
+                onClick={() => dispatch(getServiceDetail(item.attributes.title))}
               >
                 <NavLink to={"/ServiceDetail"}>
                   <CardItem
