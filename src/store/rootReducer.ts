@@ -15,6 +15,7 @@ import portfolioPageReducer from "./slices/portfolio/portfolioPageSlice";
 import ourTeamReducer from "./slices/ourTeam/ourTeamSlice";
 import servicesReducer from "./slices/services/servicesSlice";
 import serviceDetailReducer from "./slices/services/serviceDetailSlice";
+import anotherServicesReducer from "./slices/services/anotherServicesSlice";
 
 
 const rootReducer = combineReducers({
@@ -33,7 +34,8 @@ const rootReducer = combineReducers({
    portfolioPage: portfolioPageReducer,
    ourTeam: ourTeamReducer,
    services: servicesReducer,
-   serviceDetail: serviceDetailReducer
+   serviceDetail: serviceDetailReducer,
+   anotherService: anotherServicesReducer
  });
 
 export default rootReducer;

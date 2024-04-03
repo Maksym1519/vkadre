@@ -6,8 +6,11 @@ import Arrow from "@img/leftArrow.svg";
 import PortfolioItem from "components/common/Main/PortfolioItem";
 import ServiceDetailSlider from "./ServiceDetailSlider";
 import ServiceDetailFooter from "./ServiceDetailFooter";
+import AnotherServices from "./AnotherServices";
+import OrderPhoto from "components/common/Portfolio/OrderPhoto";
 import { useMatchMedia } from "hooks/use-match-media";
 import Blur from "@img/blur.webp";
+
 
 const ServiceDetail = () => {
   const reduxData = useAppSelector((state) => state.serviceDetail.title);
@@ -17,12 +20,14 @@ const ServiceDetail = () => {
   const gallery =
     galleryData &&
     galleryData.map((item) => item.attributes.photo.data.attributes.url);
+
   const screenWidth = useMatchMedia();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  
   return (
     <div className="service-detail">
       <div className="service-detail__header">
@@ -46,6 +51,13 @@ const ServiceDetail = () => {
         <ServiceDetailFooter />
       </section>
       
+      <section className="service-detail-another-services">
+         <AnotherServices />
+      </section>
+
+      <section className="service-detail-order-photo">
+         <OrderPhoto />
+      </section>
       <img src={Blur} alt="blur" className="service-detail__blur-top" />
     </div>
   );

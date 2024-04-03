@@ -4,7 +4,9 @@ import OrderPhoto from "components/common/Portfolio/OrderPhoto";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { servicesInfo } from "store/slices/services/servicesSlice";
 import { getServiceDetail } from "store/slices/services/serviceDetailSlice";
-import { useEffect } from "react";
+import { useMatchMedia } from "hooks/use-match-media";
+import Button from "components/ui/buttons/Button";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Blur from "@img/blur.webp";
 
@@ -21,9 +23,15 @@ const Services = () => {
       .map((item) => item.attributes.image)
       .map((item) => item.data.attributes.url);
 
-      useEffect(() => {
-        window.scrollTo(0, 0)
-        },[])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  //matchmedia----------------------------------------------------------
+  const screenWidth = useMatchMedia();
+
+  //show-more-images---------------------------------------------------
+  const [showMore, setShowMore] = useState(false);
 
   return (
     <div className="services">
@@ -36,10 +44,12 @@ const Services = () => {
       <main>
         <section className="services-gallery">
           {reduxData &&
-            reduxData.map((item, index) => (
+            reduxData.slice(0, !showMore && screenWidth.isMobile ? 5 : reduxData.length).map((item, index) => (
               <div
                 key={index}
-                onClick={() => dispatch(getServiceDetail(item.attributes.title))}
+                onClick={() =>
+                  dispatch(getServiceDetail(item.attributes.title))
+                }
               >
                 <NavLink to={"/ServiceDetail"}>
                   <CardItem
@@ -51,6 +61,13 @@ const Services = () => {
                 </NavLink>
               </div>
             ))}
+          {screenWidth.isMobile ? (
+            <div className="services-gallery__button" onClick={() => setShowMore(!showMore)}>
+              <Button text={!showMore ? "Показать больше" : "Показать меньше"} />
+            </div>
+          ) : (
+            ""
+          )}
         </section>
         <section className="services-order-photo">
           <OrderPhoto />

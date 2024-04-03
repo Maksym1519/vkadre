@@ -15,6 +15,7 @@ body {
   font-weight: 600;
   background: var(--white);
   color: var(--textColor);
+  scroll-behavior: smooth;
   }
 
  input {
@@ -31,7 +32,7 @@ body {
   padding: 0 96px;
   margin: 0 auto;
   box-sizing: content-box;
-  }
+   }
 
   //transition----------------------------------------------------
   .my-node-enter {

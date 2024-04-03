@@ -4,6 +4,7 @@ import Button from "components/ui/buttons/Button";
 import ServiceDetailCalendar from "./ServiceDetailCalendar";
 import clickOutside from "hooks/clickOutside";
 import { useRef, useState, useEffect } from "react";
+import Blur from "@img/blur.webp";
 
 const ServiceDetailFooter = () => {
   const buttonWrapper = (
@@ -13,7 +14,7 @@ const ServiceDetailFooter = () => {
   );
 
   const [isActive, setIsActive] = useState(false);
-  console.log(isActive)
+  
   useEffect(() => {
     setIsActive(false);
   }, []);
@@ -38,6 +39,7 @@ const ServiceDetailFooter = () => {
       <div className="service-detail-footer__price" ref={menuRef}>
         <Price button={buttonWrapper} calendar={<ServiceDetailCalendar isActive={isActive} setIsActive={setIsActive}/>} />
       </div>
+      <img src={Blur} alt="blur" className="service-detail-footer__blur"/>
     </>
   );
 };

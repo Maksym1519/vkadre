@@ -1,0 +1,1 @@
+export const apiConst = "https://vkadrestrapi.onrender.com/api"

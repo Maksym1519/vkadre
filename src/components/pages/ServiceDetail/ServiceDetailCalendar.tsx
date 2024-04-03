@@ -18,6 +18,9 @@ const ServiceDetailCalendar = (props: PropsType) => {
     console.log(formatedDate);
   };
 
+  //click-by-calendar-------------------------------------------------
+  const [showCalendar, setShowCalendar] = useState(false)
+
   return (
     <div className="service-detail-calendar">
       <p className="service-detail-calendar__title">
@@ -27,9 +30,10 @@ const ServiceDetailCalendar = (props: PropsType) => {
         <img
           src={Calendar}
           alt="icon"
-          onClick={() => props.setIsActive(true)}
+          onClick={() => {props.setIsActive(true); setShowCalendar(!showCalendar)}}
         />
-        {props.isActive && (
+        
+        {props.isActive && showCalendar && (
           <Datetime
             input={false}
             timeFormat={false}
@@ -38,6 +42,7 @@ const ServiceDetailCalendar = (props: PropsType) => {
             className="service-detail-calendar__calendar"
           />
         )}
+        
         <p>{currentDate}</p>
       </div>
     </div>
