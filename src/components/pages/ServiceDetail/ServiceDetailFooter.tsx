@@ -9,7 +9,7 @@ import Blur from "@img/blur.webp";
 const ServiceDetailFooter = () => {
   const buttonWrapper = (
     <div className="service-detail-footer__price-button">
-      <Button text="Заказать экспресс-фотосессию" />
+      <Button text="Заказать фотосессию" />
     </div>
   );
 

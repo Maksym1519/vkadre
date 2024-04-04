@@ -99,6 +99,10 @@
       transform: rotate(180deg);
     }
   }
+
+  .swiper {
+    padding: 8px;
+  }
 }
 
 @include mobile {

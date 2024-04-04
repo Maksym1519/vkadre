@@ -23,20 +23,23 @@ type MainLocationsState = {
   mainLocations: MainLocationsData | null;  
   loading: boolean;
   error: string | null;
+  filterLocation: string;
 }
 
 const initialState: MainLocationsState = {
     mainLocations: null,
     loading: false,
-    error: null
+    error: null,
+    filterLocation: ""
 }
 
-export const mainLocationsInfo = createAsyncThunk<MainLocationsData, undefined, { rejectValue: string }>(
+
+export const mainLocationsInfo = createAsyncThunk<MainLocationsData, string, { rejectValue: string }>(
     "mainLocations/mainLocationsInfo",
 
     async function (_, { rejectWithValue }) {
-      const response = await axios.get(
-        "https://vkadrestrapi.onrender.com/api/main-locations?sort=id&populate=*"
+        const response = await axios.get(
+        `https://vkadrestrapi.onrender.com/api/main-locations?sort=id&populate=*`
         );
       
          if (response.status !== 200) {
@@ -51,7 +54,11 @@ export const mainLocationsInfo = createAsyncThunk<MainLocationsData, undefined, 
   const mainLocationsSlice = createSlice({
     name: "mainLocations",
     initialState,
-    reducers: {}, 
+    reducers: {
+      setFilterLocation: (state,action) => {
+        state.filterLocation = action.payload
+      }
+    }, 
   
     extraReducers: (builder) => {
       builder
@@ -67,6 +74,6 @@ export const mainLocationsInfo = createAsyncThunk<MainLocationsData, undefined, 
         },
   });
   
- 
+  export const {setFilterLocation} = mainLocationsSlice.actions;
   export default mainLocationsSlice.reducer;
   

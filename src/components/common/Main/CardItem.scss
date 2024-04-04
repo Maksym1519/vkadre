@@ -8,9 +8,10 @@
   flex-direction: column;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
+  
   &__info {
-    transition: all 0.3s ease-in-out;;
+    transition: all 0.3s ease-in-out;
+    padding: 0px 12px 8px 12px;
   }
   
   & img {
@@ -54,9 +55,6 @@
   box-shadow: 0 8px 15px var(--textColorLight);
   }
 
-.card-item:hover .card-item__info {
-  padding: 0 12px;
-}
 
 @include mobile {
   .card-item {

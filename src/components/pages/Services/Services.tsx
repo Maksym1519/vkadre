@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Blur from "@img/blur.webp";
 
-const Services = () => {
+const Services: React.FC = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(servicesInfo());

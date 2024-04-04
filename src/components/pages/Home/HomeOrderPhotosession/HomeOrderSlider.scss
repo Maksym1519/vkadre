@@ -23,6 +23,7 @@
         width: 100%;
         max-width: 100% !important;
         max-height: 140px !important;
+        min-height: 140px !important;
         object-fit: cover;
         transition: all 0.3s ease-in-out;
       }
@@ -72,6 +73,10 @@
         content: url("@img/left.svg") !important;
         transform: rotate(180deg);
       }
+    }
+
+    .swiper {
+      padding: 10px;
     }
   }
 

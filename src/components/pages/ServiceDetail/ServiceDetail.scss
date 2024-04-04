@@ -5,7 +5,7 @@
 .service-detail {
   display: flex;
   flex-direction: column;
-  padding: 100px 0 104px;
+  padding: 97px 0 104px;
 
   &__header {
     display: flex;
@@ -66,7 +66,7 @@
 
 .service-detail-footer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 1fr;
   column-gap: 139px;
   margin-top: 64px;
   position: relative;
@@ -82,10 +82,12 @@
 
   &__price {
     margin-top: -45px;
-  }
+    max-width: 501px;
+    }
 
   &__price-button {
     margin-top: 40px;
+    max-width: 276px;
   }
 
   &__blur {

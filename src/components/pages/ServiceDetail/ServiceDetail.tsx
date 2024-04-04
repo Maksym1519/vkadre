@@ -1,6 +1,6 @@
 import "./ServiceDetail.scss";
 import { useAppSelector } from "store/hooks";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import Title from "components/ui/forms/Title";
 import Arrow from "@img/leftArrow.svg";
 import PortfolioItem from "components/common/Main/PortfolioItem";
@@ -12,7 +12,7 @@ import { useMatchMedia } from "hooks/use-match-media";
 import Blur from "@img/blur.webp";
 
 
-const ServiceDetail = () => {
+const ServiceDetail: React.FC = () => {
   const reduxData = useAppSelector((state) => state.serviceDetail.title);
 
   const galleryData = useAppSelector((state) => state.portfolio.portfolio);

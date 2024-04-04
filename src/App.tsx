@@ -12,6 +12,7 @@ import PortfolioPage from "components/pages/Portfolio/Portfolio";
 import OurTeam from "components/pages/OurTeam/OurTeam";
 import Services from "components/pages/Services/Services";
 import ServiceDetail from "components/pages/ServiceDetail/ServiceDetail";
+import Locations from "components/pages/Locations/Locations";
 
 const rootLayout = React.createElement(RootLayout);
 
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
         <Route path="/OurTeam" index element={<OurTeam />} />
         <Route path="/Services" index element={<Services />} />
         <Route path="/ServiceDetail" index element={<ServiceDetail />} />
+        <Route path="/Locations" index element={<Locations />} />
         <Route path="/Auth" index element={<Home />} />
         </Route>
       </>
