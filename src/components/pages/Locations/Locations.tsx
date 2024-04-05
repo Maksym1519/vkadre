@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "store/hooks";
-import { mainLocationsInfo } from "store/slices/main/mainLocationsSlice";
+import { locationsPageInfo } from "store/slices/location/locationPageSlice";
 import "./Locations.scss";
 import LocationsHeader from "./LocationsHeader";
 import CardItem from "components/common/Main/CardItem";
@@ -14,33 +14,31 @@ const Locations = () => {
     "Фотостудии",
   ];
 
-  //get-name-location--------------------------------------------
-  const [nameLocation, setNameLocation] = useState("Все");
-  const getNameLocation = (e: any) => {
-    setNameLocation(e.target.textContent)
-  }
-  
+      
+  const dispatch = useAppDispatch();
 
+  const [nameLocation, setNameLocation] = useState("Все");
   const [activeIndex, setActiveIndex] = useState(0);
-  const clickIndex = (index: number) => {
+
+  useEffect(() => {
+    dispatch(locationsPageInfo(nameLocation));
+  }, [nameLocation, dispatch]);
+
+  const clickIndex = (index: number, e: any) => {
     setActiveIndex(index);
+    setNameLocation(e.target.textContent);
   };
 
-  //get-redux-data----------------------------------------------
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(mainLocationsInfo(nameLocation));
-  }, [dispatch]);
-
+ 
   const reduxData = useAppSelector(
-    (state) => state.mainLocations.mainLocations
+    (state) => state.locations.locations
   );
 
   const newArray = reduxData?.concat(reduxData);
   const imagesArray =
   newArray &&
-  newArray.map((item) => item.attributes.image.data.attributes.url);
-  
+  newArray.map((item) => item?.attributes?.image?.data?.attributes?.url);
+ 
 
   return (
     <div className="locations">
@@ -57,7 +55,7 @@ const Locations = () => {
                 : "locations-navigation__item_passive"
             }
             key={index}
-            onClick={(e) => {clickIndex(index); getNameLocation(e)}}
+            onClick={(e) => {clickIndex(index, e)}}
           >
             {item}
           </div>
@@ -70,7 +68,7 @@ const Locations = () => {
             <CardItem
               key={index}
               img={imagesArray ? imagesArray[index] : ""}
-              title="Одесса"
+              title={item.attributes.location}
               location={item.attributes.location}
               description={item.attributes.description}
             />

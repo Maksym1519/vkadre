@@ -17,7 +17,7 @@ import "swiper/css/navigation";
 const MainLocations = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(mainLocationsInfo(""));
+    dispatch(mainLocationsInfo());
   }, [dispatch]);
 
   const reduxData = useAppSelector(

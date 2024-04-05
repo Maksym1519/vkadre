@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 
   
-export type MainLocationsData = [{
+export type LocationsPageData = [{
  attributes: {
   title: string,
   location: string,
@@ -19,28 +19,30 @@ export type MainLocationsData = [{
    }]
   
 
-type MainLocationsState = {
-  mainLocations: MainLocationsData | null;  
+type LocationsPageState = {
+  locations: LocationsPageData | null;  
   loading: boolean;
   error: string | null;
   filterLocation: string;
 }
 
-const initialState: MainLocationsState = {
-    mainLocations: null,
+const initialState: LocationsPageState = {
+    locations: null,
     loading: false,
     error: null,
     filterLocation: ""
 }
 
 
-export const mainLocationsInfo = createAsyncThunk<MainLocationsData, undefined, { rejectValue: string }>(
-    "mainLocations/mainLocationsInfo",
+export const locationsPageInfo = createAsyncThunk<LocationsPageData, undefined | string, { rejectValue: string }>(
+    "locationsPage/locationsPageInfo",
 
-    async function (_, { rejectWithValue }) {
+    async function (location, { rejectWithValue }) {
+       
         const response = await axios.get(
-       `https://vkadrestrapi.onrender.com/api/main-locations?populate=*`
+          `https://vkadrestrapi.onrender.com/api/main-locations?populate=*&filters[location][$contains]=${location !== "Все" ? location : ""}`
         );
+        
       
          if (response.status !== 200) {
           return rejectWithValue("Server error !");
@@ -51,8 +53,8 @@ export const mainLocationsInfo = createAsyncThunk<MainLocationsData, undefined, 
       }
   );
 
-  const mainLocationsSlice = createSlice({
-    name: "mainLocations",
+  const locationsPageSlice = createSlice({
+    name: "locationsPage",
     initialState,
     reducers: {
       setFilterLocation: (state,action) => {
@@ -62,18 +64,18 @@ export const mainLocationsInfo = createAsyncThunk<MainLocationsData, undefined, 
   
     extraReducers: (builder) => {
       builder
-        .addCase(mainLocationsInfo.pending, (state) => {
+        .addCase(locationsPageInfo.pending, (state) => {
           state.loading = true;
           state.error = null;
         })
   
-        .addCase(mainLocationsInfo.fulfilled, (state, action) => {
-          state.mainLocations = action.payload;
+        .addCase(locationsPageInfo.fulfilled, (state, action) => {
+          state.locations = action.payload;
           state.loading = false;
         })
         },
   });
   
-  export const {setFilterLocation} = mainLocationsSlice.actions;
-  export default mainLocationsSlice.reducer;
+  export const {setFilterLocation} = locationsPageSlice.actions;
+  export default locationsPageSlice.reducer;
   
