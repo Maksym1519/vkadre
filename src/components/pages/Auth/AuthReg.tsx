@@ -88,8 +88,7 @@ const AuthReg = () => {
         <Button
           type="submit"
           text="Зарегистрироваться"
-          //onClick={() => dispatchFormData}
-        />
+          />
       </div>
     </form>
   );

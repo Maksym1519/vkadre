@@ -4,6 +4,7 @@ import { locationsPageInfo } from "store/slices/location/locationPageSlice";
 import "./Locations.scss";
 import LocationsHeader from "./LocationsHeader";
 import CardItem from "components/common/Main/CardItem";
+import Button from "components/ui/buttons/Button";
 
 const Locations = () => {
   const locations: Array<string> = [
@@ -29,7 +30,7 @@ const Locations = () => {
     setNameLocation(e.target.textContent);
   };
 
- 
+ //data-page--------------------------------------------------------------
   const reduxData = useAppSelector(
     (state) => state.locations.locations
   );
@@ -38,6 +39,9 @@ const Locations = () => {
   const imagesArray =
   newArray &&
   newArray.map((item) => item?.attributes?.image?.data?.attributes?.url);
+
+  //show-more/less-items-----------------------------------------------------
+  const [showMore, setShowMore] = useState<Boolean>(false)
  
 
   return (
@@ -63,17 +67,23 @@ const Locations = () => {
       </div>
 
       <section className="locations-gallery">
+        <div className="locations-gallery__items">
         {reduxData &&
-          reduxData.map((item, index) => (
+          reduxData.slice(0, showMore ? reduxData.length : 9).map((item, index) => (
             <CardItem
               key={index}
               img={imagesArray ? imagesArray[index] : ""}
-              title={item.attributes.location}
+              title={"Название локации"}
               location={item.attributes.location}
               description={item.attributes.description}
             />
           ))}
-      </section>
+          </div>
+
+          <div className="locations-gallery__button" onClick={() => setShowMore(!showMore)}>
+          <Button text={showMore ? "Показать меньше" : "Загрузить еще"}/>
+          </div>
+       </section>
     </div>
   );
 };
