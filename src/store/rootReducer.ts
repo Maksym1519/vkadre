@@ -17,6 +17,7 @@ import servicesReducer from "./slices/services/servicesSlice";
 import serviceDetailReducer from "./slices/services/serviceDetailSlice";
 import anotherServicesReducer from "./slices/services/anotherServicesSlice";
 import locationPageReducer from "./slices/location/locationPageSlice";
+import locationDetailReducer from "./slices/location/locationDetailSlice";
 
 
 const rootReducer = combineReducers({
@@ -37,7 +38,8 @@ const rootReducer = combineReducers({
    services: servicesReducer,
    serviceDetail: serviceDetailReducer,
    anotherService: anotherServicesReducer,
-   locations: locationPageReducer
+   locations: locationPageReducer,
+   locationDetail: locationDetailReducer
  });
 
 export default rootReducer;

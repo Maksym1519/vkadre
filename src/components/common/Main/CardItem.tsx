@@ -9,9 +9,10 @@ interface CardProps {
 }
 
 const CardItem = (props: CardProps) => {
+  
   return (
     <div className="card-item">
-      <img src={props.img} alt="image" />
+      <img src={props.img} alt="image" className="card-item__image"/>
       <div className="card-item__info">
         {props.title && <p className="card-item__title">{props.title}</p>}
         {props.location ? (

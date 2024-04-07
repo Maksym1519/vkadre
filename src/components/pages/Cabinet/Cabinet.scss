@@ -1,0 +1,66 @@
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+@import "@vars/colors.scss";
+
+.cabinet {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+  padding: 36px 0 100px;
+}
+
+.cabinet-content {
+  display: grid;
+  grid-template-columns: minmax(31.7%, 396px) minmax(40.14%, 1fr);
+  column-gap: 11%;
+}
+
+.cabinet-navigation {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  padding: 32px;
+  border: 1px solid var(--colorLine);
+
+  &__item,
+  &__item_passive {
+    display: flex;
+    align-items: center;
+    column-gap: 18px;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &__item_passive {
+    color: var(--menuItem);
+  }
+}
+
+.my-data {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    margin-bottom: 40px;
+  }
+ }
+
+.my-data-form {
+    .MuiInputBase-input {
+        padding: 15px 0 15px 0px !important;
+        font-size: 1rem !important;
+        font-weight: 600 !important;
+        line-height: 1.4 !important;
+        text-transform: uppercase;
+        position: relative;
+      }
+
+    &__input-wrapper {
+        display: flex;
+        align-items: center;
+       }
+
+       
+}

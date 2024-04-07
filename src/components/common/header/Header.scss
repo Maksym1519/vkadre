@@ -152,6 +152,19 @@
     cursor: pointer;
   }
 
+  &__cabinet {
+    cursor: pointer;
+    color: var(--textColor) !important;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__cabinet:hover {
+    transform: scale(103%);
+    padding: 10px;
+    box-shadow: 0 8px 15px var(--textColorLight);
+    border-radius: 8px;
+  }
+
   &__header {
     font-size: 2rem;
     color: var(--black);

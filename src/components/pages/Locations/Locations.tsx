@@ -1,10 +1,15 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/hooks";
+import { getLocationDetail } from "store/slices/location/locationDetailSlice";
 import { locationsPageInfo } from "store/slices/location/locationPageSlice";
 import "./Locations.scss";
 import LocationsHeader from "./LocationsHeader";
 import CardItem from "components/common/Main/CardItem";
+import OrderPhoto from "components/common/Portfolio/OrderPhoto";
 import Button from "components/ui/buttons/Button";
+import { motion, AnimatePresence } from "framer-motion";
+import Blur from "@img/blur.webp";
 
 const Locations = () => {
   const locations: Array<string> = [
@@ -15,7 +20,6 @@ const Locations = () => {
     "Фотостудии",
   ];
 
-      
   const dispatch = useAppDispatch();
 
   const [nameLocation, setNameLocation] = useState("Все");
@@ -30,19 +34,18 @@ const Locations = () => {
     setNameLocation(e.target.textContent);
   };
 
- //data-page--------------------------------------------------------------
-  const reduxData = useAppSelector(
-    (state) => state.locations.locations
-  );
+  //data-page--------------------------------------------------------------
+  const reduxData = useAppSelector((state) => state.locations.locations);
 
   const newArray = reduxData?.concat(reduxData);
   const imagesArray =
-  newArray &&
-  newArray.map((item) => item?.attributes?.image?.data?.attributes?.url);
+    newArray &&
+    newArray.map((item) => item?.attributes?.image?.data?.attributes?.url);
 
   //show-more/less-items-----------------------------------------------------
-  const [showMore, setShowMore] = useState<Boolean>(false)
- 
+  const [showMore, setShowMore] = useState(false);
+
+  //motion-animation------------------------------------------------------------
 
   return (
     <div className="locations">
@@ -59,7 +62,9 @@ const Locations = () => {
                 : "locations-navigation__item_passive"
             }
             key={index}
-            onClick={(e) => {clickIndex(index, e)}}
+            onClick={(e) => {
+              clickIndex(index, e);
+            }}
           >
             {item}
           </div>
@@ -67,23 +72,44 @@ const Locations = () => {
       </div>
 
       <section className="locations-gallery">
-        <div className="locations-gallery__items">
-        {reduxData &&
-          reduxData.slice(0, showMore ? reduxData.length : 9).map((item, index) => (
-            <CardItem
-              key={index}
-              img={imagesArray ? imagesArray[index] : ""}
-              title={"Название локации"}
-              location={item.attributes.location}
-              description={item.attributes.description}
-            />
-          ))}
-          </div>
+        <motion.div className="locations-gallery__items">
+          {reduxData &&
+            reduxData
+              .slice(0, showMore ? reduxData.length : 9)
+              .map((item, index) => (
+                <div
+                  onClick={() =>
+                    dispatch(getLocationDetail(item.attributes.location))
+                  }
+                >
+                  <NavLink to={"/LocationsDetail"}>
+                    <CardItem
+                      key={index}
+                      img={imagesArray ? imagesArray[index] : ""}
+                      title={"Название локации"}
+                      location={item.attributes.location}
+                      description={item.attributes.description}
+                    />
+                  </NavLink>
+                </div>
+              ))}
+        </motion.div>
 
-          <div className="locations-gallery__button" onClick={() => setShowMore(!showMore)}>
-          <Button text={showMore ? "Показать меньше" : "Загрузить еще"}/>
-          </div>
-       </section>
+        <div
+          className="locations-gallery__button"
+          onClick={() => setShowMore(!showMore)}
+        >
+          <Button text={showMore ? "Показать меньше" : "Загрузить еще"} />
+        </div>
+      </section>
+
+      <section className="locations-order-photo">
+        <OrderPhoto />
+      </section>
+
+      <img src={Blur} alt="blur" className="locations__blur-top" />
+      <img src={Blur} alt="blur" className="locations__blur-left" />
+      <img src={Blur} alt="blur" className="locations__blur-right" />
     </div>
   );
 };

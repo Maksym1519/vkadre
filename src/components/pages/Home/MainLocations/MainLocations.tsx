@@ -14,7 +14,11 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const MainLocations = () => {
+type PropsType = {
+  title: string
+}
+
+const MainLocations = (props: PropsType) => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(mainLocationsInfo());
@@ -32,7 +36,7 @@ const MainLocations = () => {
 
   return (
     <div className="main-locations">
-      <Title text={reduxData && reduxData[0].attributes.title} />
+      <Title text={props.title ? props.title : reduxData && reduxData[0].attributes.title} />
       <div className="locations-slider-wrapper">
         <Swiper
           navigation={{

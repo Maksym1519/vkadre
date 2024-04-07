@@ -19,6 +19,7 @@
     "@strapi/provider-upload-cloudinary": "^4.20.3",
     "axios": "^1.6.7",
     "emailjs": "^4.0.3",
+    "framer-motion": "^11.0.25",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-datetime": "^3.2.0",
