@@ -3,24 +3,18 @@ import { useState } from "react";
 import { TextField } from "@mui/material";
 import Eye from "@img/eyeClosed.svg";
 import Button from "components/ui/buttons/Button";
-import "react-toastify/dist/ReactToastify.css";
 import { useForm } from "react-hook-form";
 import { AuthRegFetch } from "store/slices/auth/authRegFetch";
+import { FormValues } from "types/FormTypes";
+
 
 
 const AuthReg = () => {
   //hide/show-password-------------------------------------------------
   const [password, setPassword] = useState(false);
-  const clickPassword = () => {
-    setPassword(!password);
-  };
-  
+    
   //check-input----------------------------------------------
-  type FormValues = {
-    username: string;
-    email: string;
-    password: string;
-  };
+  
   const form = useForm<FormValues>({
     defaultValues: {
       username: "",
@@ -80,7 +74,7 @@ const AuthReg = () => {
           src={Eye}
           alt="hidePassword"
           className="auth__eye"
-          onClick={() => clickPassword()}
+          onClick={() => setPassword(!password)}
         />
       </div>
 
@@ -95,3 +89,4 @@ const AuthReg = () => {
 };
 
 export default AuthReg;
+

@@ -8,21 +8,18 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useAppDispatch } from "store/hooks";
-import { setAuthState } from "store/slices/auth/authSlice";
-import { setUserData } from "store/slices/auth/authSlice";
+import { setAuthState, setUserData } from "store/slices/auth/authSlice";
 import { storeUser } from "hooks/localStorageData";
 
 const AuthEnter = () => {
+  
   //hide/show-password-------------------------------------------------
   const [password, setPassword] = useState(false);
-  const clickPassword = () => {
-    setPassword(!password);
-  };
-
+ 
   //dispatch----------------------------------------------------------
   const dispatch = useAppDispatch()
   //send=data-to-server-------------------------------------------------
-  const initialUser = {identifier: "", password: "" };
+  const initialUser = {identifier: "", password: ""};
 
   const [user, setUser] = useState(initialUser);
   
@@ -31,14 +28,14 @@ const AuthEnter = () => {
     setUser({ ...user, [name]: value });
   };
 
-  const handleSubmitLogin = async (e: any) => {
+  const handleSubmitLogin = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
         "https://vkadrestrapi.onrender.com/api/auth/local",
         user
       );
-            
+            console.log(data)
       if (data.jwt) {
         setUser(initialUser);
         storeUser(data)
@@ -85,7 +82,7 @@ const AuthEnter = () => {
           src={Eye}
           alt="hidePassword"
           className="auth__eye"
-          onClick={() => clickPassword()}
+          onClick={() => setPassword(!password)}
         />
       </div>
 

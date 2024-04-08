@@ -45,22 +45,38 @@
   &__title {
     margin-bottom: 40px;
   }
- }
+}
 
 .my-data-form {
-    .MuiInputBase-input {
-        padding: 15px 0 15px 0px !important;
-        font-size: 1rem !important;
-        font-weight: 600 !important;
-        line-height: 1.4 !important;
-        text-transform: uppercase;
-        position: relative;
-      }
+  .MuiInputBase-input {
+    padding: 15px 0 15px 0px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--colorLine) !important;
+    padding-left: 40px !important;
+  }
 
-    &__input-wrapper {
-        display: flex;
-        align-items: center;
-       }
+  .css-1eed5fa-MuiInputBase-root-MuiInput-root::after {
+    border-bottom: 1px solid var(--colorLine) !important;
+  }
 
-       
+  &__input-wrapper {
+    position: relative;
+  }
+
+  &__input-icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1001;
+  }
+
+  &__button {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 285px;
+  }
 }

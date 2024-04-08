@@ -18,6 +18,7 @@ import serviceDetailReducer from "./slices/services/serviceDetailSlice";
 import anotherServicesReducer from "./slices/services/anotherServicesSlice";
 import locationPageReducer from "./slices/location/locationPageSlice";
 import locationDetailReducer from "./slices/location/locationDetailSlice";
+import cabinetApiReducer from "./slices/cabinet/cabinetApiSlice";
 
 
 const rootReducer = combineReducers({
@@ -39,7 +40,8 @@ const rootReducer = combineReducers({
    serviceDetail: serviceDetailReducer,
    anotherService: anotherServicesReducer,
    locations: locationPageReducer,
-   locationDetail: locationDetailReducer
+   locationDetail: locationDetailReducer,
+   guests: cabinetApiReducer
  });
 
 export default rootReducer;

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useAppDispatch } from "store/hooks";
 import { setAuthApiData } from "./authSliceApi";
 import { setAuthState } from "./authSlice";
+import { FormValues } from "types/FormTypes";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -11,13 +12,8 @@ export const AuthRegFetch = () => {
   const dispatch = useAppDispatch();
   
   //submit-data-------------------------------------------
-  type UserFetch = {
-    username: string;
-    email: string;
-    password: string;
-  };
-
-  const onSubmit = async (data: UserFetch) => {
+  
+  const onSubmit = async (data: FormValues) => {
     const fetchUser = data;
    
     try {

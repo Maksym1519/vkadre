@@ -2,6 +2,7 @@ import "./Cabinet.scss";
 import Title from "components/ui/forms/Title";
 import CabinetNavigation from "./CabinetNavigation";
 import MyData from "./MyData/MyData";
+import { ToastContainer } from "react-toastify";
 
 const Cabinet = () => {
   return (
@@ -11,6 +12,7 @@ const Cabinet = () => {
          <CabinetNavigation />
         <MyData />
       </section>
+      <ToastContainer />
     </div>
   );
 };
