@@ -2,7 +2,7 @@
 export type UserDataTypes = {
   data: {
     username: string;
-    phone: number;
+    phone: string;
     password: number;
     email: string;
   };
@@ -11,12 +11,10 @@ export type UserDataTypes = {
 //GET-----------------------------------------------------------------------
 export type UserDataApi = [
   {
-    attributes: {
-      username: string;
-      password: number;
-      phone: number;
-      email: string;
-    };
+    username: string;
+    password: number;
+    phone: string;
+    email: string;
   }
 ];
 

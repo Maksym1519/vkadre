@@ -15,19 +15,20 @@ import { userData } from "hooks/localStorageData";
 import { getUserId } from "store/slices/cabinet/cabinetApiSlice";
 
 const MyData = () => {
-  const dispatch = useAppDispatch();
+   //get-user-data-localstorage&&pass-id-to-redux-------------------------------------------
+   const userInfo = userData();
+   
+   const dispatch = useAppDispatch();
+
   useEffect(() => {
-    dispatch(cabinetApiGet());
+    dispatch(cabinetApiGet(userInfo.id));
+    dispatch(getUserId(userInfo));
   }, [dispatch]);
 
   const reduxData = useAppSelector((state) => state.guests.guests);
+  console.log(reduxData && reduxData)
 
-  //get-user-data-localstorage&&pass-id-to-redux-------------------------------------------
-  const userInfo = userData();
-  useEffect(() => {
-    dispatch(getUserId(userInfo));
-  }, [userInfo]);
-
+ 
   const {
     register,
     handleSubmit,
@@ -44,7 +45,7 @@ const MyData = () => {
           <img src={User} alt="user" className="my-data-form__input-icon" />
           <TextField
             id="standard-basic"
-            placeholder="ИМЯ"
+            placeholder={reduxData?.length  ? reduxData[0]?.username : "ИМЯ"}
             variant="standard"
             className="my-data-form__input"
             style={{ minWidth: "100%", textTransform: "uppercase" }}
@@ -59,7 +60,7 @@ const MyData = () => {
           <img src={Phone} alt="phone" className="my-data-form__input-icon" />
           <TextField
             id="standard-basic"
-            placeholder="Телефон"
+            placeholder={reduxData ? reduxData[0]?.phone : "телефон"}
             variant="standard"
             className="my-data-form__input"
             style={{ minWidth: "100%", textTransform: "uppercase" }}
@@ -77,7 +78,7 @@ const MyData = () => {
           <img src={Email} alt="phone" className="my-data-form__input-icon" />
           <TextField
             id="standard-basic"
-            placeholder="Email"
+            placeholder={reduxData ? reduxData[0]?.email : "Email"}
             variant="standard"
             className="my-data-form__input"
             style={{ minWidth: "100%", textTransform: "uppercase" }}

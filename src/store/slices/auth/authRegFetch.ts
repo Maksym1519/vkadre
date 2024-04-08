@@ -7,12 +7,11 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const AuthRegFetch = () => {
- 
   //dispatch-formData-------------------------------------
   const dispatch = useAppDispatch();
-  
+
   //submit-data-------------------------------------------
-  
+
   const onSubmit = async (data: FormValues) => {
     const fetchUser = data;
    
@@ -24,9 +23,7 @@ export const AuthRegFetch = () => {
       if (response.status === 200) {
         dispatch(setAuthApiData(fetchUser));
         toast.info("Вы успешно зарегистрировались !");
-        setTimeout(() => {
-          dispatch(setAuthState(false));
-        }, 1000);
+        dispatch(setAuthState(false));
       }
       return response;
     } catch (error: any) {
@@ -35,5 +32,5 @@ export const AuthRegFetch = () => {
       });
     }
   };
-return onSubmit
-}
+  return onSubmit;
+};
