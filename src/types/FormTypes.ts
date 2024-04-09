@@ -1,8 +1,10 @@
 export type FormValues = {
+  data: {
     username: string;
     email: string;
     password: string;
-    phone: number
+    phone: string
+  }
   };
 
   export type FormGuestValues = {
@@ -10,6 +12,6 @@ export type FormValues = {
     username: string;
     email: string;
     password: string;
-    phone: number
+    phone: string
     }
   }

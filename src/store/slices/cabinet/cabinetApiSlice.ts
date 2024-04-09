@@ -16,16 +16,14 @@ export const cabinetApiGet = createAsyncThunk<
   { rejectValue: string }
 >("cabinetUser/cabinetApiGet", async function (id, { rejectWithValue }) {
   const response = await axios.get(
-    // `https://vkadrestrapi.onrender.com/api/guests?populate=*&filters[email][$contains]=${id}`
-    `https://vkadrestrapi.onrender.com/api/users?populate=*&filters[email][$contains]=${id}`
+    `https://vkadrestrapi.onrender.com/api/guests?populate=*&filters[email][$contains]=${id}`
   );
 
   if (response.status !== 200) {
     return rejectWithValue("Server error !");
   }
 
-  const responseData = response.data;
-  console.log(response.data)
+  const responseData = response.data.data[0];
   return responseData;
 });
 

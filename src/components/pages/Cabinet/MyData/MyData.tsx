@@ -19,33 +19,38 @@ const MyData = () => {
    const userInfo = userData();
    
    const dispatch = useAppDispatch();
-
+   const reduxData = useAppSelector((state) => state.guests.guests);
+   
   useEffect(() => {
     dispatch(cabinetApiGet(userInfo.id));
     dispatch(getUserId(userInfo));
   }, [dispatch]);
-
-  const reduxData = useAppSelector((state) => state.guests.guests);
-  console.log(reduxData && reduxData)
-
  
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormGuestValues>();
+  } = useForm<FormGuestValues>({
+    defaultValues: {
+      data: {
+        username: reduxData?.attributes?.username,
+        phone: reduxData?.attributes?.phone,
+        email: reduxData?.attributes?.email
+      }
+    }
+  });
 
   return (
     <div className="my-data">
       <div className="my-data__title">
         <SubTitle text="Мои данные" />
       </div>
-      <form onSubmit={handleSubmit(cabinetApiFetch())} className="my-data-form">
+      <form onSubmit={handleSubmit(cabinetApiFetch(reduxData && reduxData.id))} className="my-data-form">
         <div className="my-data-form__input-wrapper">
           <img src={User} alt="user" className="my-data-form__input-icon" />
           <TextField
             id="standard-basic"
-            placeholder={reduxData?.length  ? reduxData[0]?.username : "ИМЯ"}
+            placeholder={reduxData ? reduxData?.attributes?.username : "ИМЯ"}
             variant="standard"
             className="my-data-form__input"
             style={{ minWidth: "100%", textTransform: "uppercase" }}
@@ -60,7 +65,7 @@ const MyData = () => {
           <img src={Phone} alt="phone" className="my-data-form__input-icon" />
           <TextField
             id="standard-basic"
-            placeholder={reduxData ? reduxData[0]?.phone : "телефон"}
+            placeholder={reduxData ? reduxData.attributes.phone : "телефон"}
             variant="standard"
             className="my-data-form__input"
             style={{ minWidth: "100%", textTransform: "uppercase" }}
@@ -78,7 +83,7 @@ const MyData = () => {
           <img src={Email} alt="phone" className="my-data-form__input-icon" />
           <TextField
             id="standard-basic"
-            placeholder={reduxData ? reduxData[0]?.email : "Email"}
+            placeholder={reduxData ? reduxData.attributes.email : "Email"}
             variant="standard"
             className="my-data-form__input"
             style={{ minWidth: "100%", textTransform: "uppercase" }}

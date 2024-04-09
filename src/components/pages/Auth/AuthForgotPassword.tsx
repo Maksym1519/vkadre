@@ -13,11 +13,13 @@ import { useAppSelector, useAppDispatch } from "store/hooks";
 
 const AuthForgotPassword = () => {
   const [password, setPassword] = useState(false);
-  const clickPassword = () => {
-    setPassword(!password);
-  };
-
+  
   //get-users-from-redux------------------------------------------------
+  const [email, setEmail] = useState<string | undefined>();
+  const handleEmailOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value)
+  } 
+
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(authApiInfo());
@@ -25,46 +27,46 @@ const AuthForgotPassword = () => {
   const reduxUsers = useAppSelector((state) => state.authApi.authApi);
   console.log(reduxUsers);
 
-  //find-current-user--------------------------------------------------------
-   
-  //----------------------------------------------------------------------
-  // type EmailFetch = {
-  //   email: string;
-  //   password: string;
-  // };
-  // const [email, setEmail] = useState("");
-  // const sendEmail = async (data: EmailFetch) => {
-  //   const newEmail = data.email;
-  //   setEmail(newEmail);
-  //   const templateParams = {
-  //     to: newEmail,
-  //     to_email: email,
-  //     from_name: "Maksym",
-  //     to_name: "Guest",
-  //     message: `Ваш новый пароль: ${data.password}`,
-  //   };
-  //   try {
-  //     await emailjs.send(
-  //       "service_npekptm",
-  //       "template_kyh2hsb",
-  //       templateParams,
-  //       "MC7BRzxDCdfYOwX2U"
-  //     );
-  //   } catch (error: any) {
-  //     console.error("Ошибка при отправке письма:", error.text);
-  //   }
-  // };
+  const userId = reduxUsers?.filter(
+    (item) => item?.attributes?.email === email
+  );
+  console.log(userId);
+
+  //send-message---------------------------------------------------------
+    const sendEmail = async (data: UserFetch) => {
+    const newEmail = data.email;
+    setEmail(newEmail);
+    const templateParams = {
+      to: newEmail,
+      to_email: email,
+      from_name: "Administration",
+      to_name: "Guest",
+      message: `Ваш новый пароль: ${"123456"}`,
+    };
+    try {
+      await emailjs.send(
+        "service_npekptm",
+        "template_kyh2hsb",
+        templateParams,
+        "MC7BRzxDCdfYOwX2U"
+      );
+    } catch (error: any) {
+      console.error("Ошибка при отправке письма:", error.text);
+    }
+  };
+
   //submit-data-------------------------------------------
   type UserFetch = {
     email: string;
-    url: string;
+    password: string
   };
 
   const onSubmit = async (data: UserFetch) => {
     const fetchUser = data;
     const newPassword = {
-      password: "999999",
+      password: "123456",
     };
+    // sendEmail(fetchUser);
     try {
       const response = await axios.put(
         `https://vkadrestrapi.onrender.com/api/users/${9}`,
@@ -84,25 +86,25 @@ const AuthForgotPassword = () => {
   //validation------------------------------------------------------------
   type FormValues = {
     email: string;
-    url: string;
+    password: string
   };
 
-  const form = useForm<FormValues>({
-    defaultValues: {
-      email: "",
-      url: "https://vkadrestrapi.onrender.com/admin/plugins/users-permissions/auth/reset-password",
-    },
-  });
+  const form = useForm<FormValues>();
 
-  const { register, handleSubmit, formState } = form;
+  const { register, handleSubmit, watch, formState } = form;
   const { errors } = formState;
 
-  return (
+  //setEmail-for-send-message-----------------------------------------
+  useEffect(() => {
+    setEmail(watch("email"));
+  }, [watch]);
+ 
+   return (
     <>
       <form
         onSubmit={handleSubmit((data) => {
           onSubmit(data);
-          // sendEmail(data);
+          
         })}
       >
         <TextField
@@ -115,6 +117,8 @@ const AuthForgotPassword = () => {
           {...register("email", { required: "Email is required" })}
           error={!!errors.email}
           helperText={errors.email?.message}
+          value={email}
+          onChange={handleEmailOnChange}
         />
 
         {/* <div className="auth__input-password">
@@ -138,7 +142,7 @@ const AuthForgotPassword = () => {
             src={Eye}
             alt="hidePassword"
             className="auth__eye"
-            onClick={() => clickPassword()}
+            onClick={() => setPassword(!password)}
           />
         </div> */}
 

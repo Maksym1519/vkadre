@@ -9,14 +9,15 @@ export type UserDataTypes = {
 };
 
 //GET-----------------------------------------------------------------------
-export type UserDataApi = [
-  {
+export type UserDataApi = {
+  attributes: {
     username: string;
     password: number;
     phone: string;
     email: string;
-  }
-];
+  },
+  id: null | number
+};
 
 export type UserDataState = {
   guests: UserDataApi | null;

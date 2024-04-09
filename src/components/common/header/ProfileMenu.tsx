@@ -40,8 +40,13 @@ const ProfileMenu = ({ closeMenu }: any) => {
         {greetingInfo === "Гость" && (
           <>
             {" "}
+            <NavLink to="/">
             <p onClick={handleRegClick}>Зарегистрироваться</p>
+            </NavLink>
+            
+            <NavLink to={"/"}>
             <p onClick={handleRegClick}>Войти</p>
+            </NavLink>
           </>
         )}
       </div>

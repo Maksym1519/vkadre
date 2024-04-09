@@ -5,13 +5,13 @@ import { FormGuestValues } from "types/FormTypes";
 
 
 
-export const cabinetApiFetch = () => {
+export const cabinetApiFetch = (id: number | null) => {
     const onSubmit = async (data: FormGuestValues) => {
         const fetchUser = data;
                           
     try {
-      const response = await axios.post(
-        "https://vkadrestrapi.onrender.com/api/guests",
+      const response = await axios.put(
+        `https://vkadrestrapi.onrender.com/api/guests/${id}`,
         fetchUser
       );
       

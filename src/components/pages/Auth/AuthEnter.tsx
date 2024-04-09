@@ -31,16 +31,16 @@ const AuthEnter = () => {
   const handleSubmitLogin = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(
-        "https://vkadrestrapi.onrender.com/api/auth/local",
-        user
-      );
-            console.log(data)
-      if (data.jwt) {
+      const response = await axios.get(
+        `https://vkadrestrapi.onrender.com/api/guests?populate=*&filters[email][$contains]=${user.identifier}`
+         );
+            
+      if (response.status === 200) {
         setUser(initialUser);
-        storeUser(data)
-        dispatch(setUserData(data));
-        toast.info(`Привет ${data.user.username} ! Вы успешно вошли на сайт`, {hideProgressBar: true})
+        storeUser(response.data.data[0])
+        dispatch(setUserData(response.data.data[0]));
+        const guestName = response.data.data[0].attributes.username
+        toast.info(`Привет ${guestName} ! Вы успешно вошли на сайт`, {hideProgressBar: true})
       
         setTimeout(() => {
           dispatch(setAuthState(false))

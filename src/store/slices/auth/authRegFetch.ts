@@ -14,10 +14,11 @@ export const AuthRegFetch = () => {
 
   const onSubmit = async (data: FormValues) => {
     const fetchUser = data;
-   
+  
     try {
       const response = await axios.post(
-        "https://vkadrestrapi.onrender.com/api/auth/local/register",
+        // "https://vkadrestrapi.onrender.com/api/auth/local/register",
+        "https://vkadrestrapi.onrender.com/api/guests",
         fetchUser
       );
       if (response.status === 200) {

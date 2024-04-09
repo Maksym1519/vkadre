@@ -15,13 +15,7 @@ const AuthReg = () => {
     
   //check-input----------------------------------------------
   
-  const form = useForm<FormValues>({
-    defaultValues: {
-      username: "",
-      email: "",
-      password: "",
-    },
-  });
+  const form = useForm<FormValues>({});
 
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
@@ -35,9 +29,21 @@ const AuthReg = () => {
         className="auth__input-name"
         style={{ minWidth: "100%", textTransform: "uppercase" }}
         type="text"
-        {...register("username", { required: "Username is required" })}
-        error={!!errors.username}
-        helperText={errors.username?.message}
+        {...register("data.username", { required: "Username is required" })}
+        error={!!errors.data?.username}
+        helperText={errors.data?.username?.message}
+      />
+    
+      <TextField
+        id="standard-basic"
+        placeholder="Телефон"
+        variant="standard"
+        className="auth__input-name"
+        style={{ minWidth: "100%", textTransform: "uppercase" }}
+        type="text"
+        {...register("data.phone", { required: "Phone number is required" })}
+        error={!!errors.data?.phone}
+        helperText={errors.data?.phone?.message}
       />
 
       <TextField
@@ -47,9 +53,9 @@ const AuthReg = () => {
         className="auth__input-email"
         style={{ minWidth: "100%", textTransform: "uppercase" }}
         type="text"
-        {...register("email", { required: "Email is required" })}
-        error={!!errors.email}
-        helperText={errors.email?.message}
+        {...register("data.email", { required: "Email is required" })}
+        error={!!errors.data?.email}
+        helperText={errors.data?.email?.message}
       />
 
       <div className="auth__input-password">
@@ -59,15 +65,15 @@ const AuthReg = () => {
           variant="standard"
           type={password ? "text" : "password"}
           style={{ minWidth: "100%", textTransform: "uppercase" }}
-          {...register("password", {
+          {...register("data.password", {
             required: "Password is required",
             minLength: {
               value: 6,
               message: "Password is required at least 6 characters",
             },
           })}
-          error={!!errors.password}
-          helperText={errors.password?.message}
+          error={!!errors.data?.password}
+          helperText={errors.data?.password?.message}
         />
 
         <img

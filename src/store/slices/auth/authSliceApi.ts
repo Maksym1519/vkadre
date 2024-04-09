@@ -1,13 +1,13 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export type AuthApiData = [
-  {
-    authApi: {
-      password: string;
-    };
-  }
-];
+export type AuthApiData = [{
+ attributes: {
+  email: string,
+  username: string,
+  password: string
+ }
+}];
 
 type AuthApiState = {
   formData: null;
@@ -32,14 +32,14 @@ export const authApiInfo = createAsyncThunk<
 
   async function (_, { rejectWithValue }) {
     const response = await axios.get(
-      "https://vkadrestrapi.onrender.com/api/users?sort=id&populate=*"
+      "https://vkadrestrapi.onrender.com/api/guests?sort=id&populate=*"
     );
 
     if (response.status !== 200) {
       return rejectWithValue("Server error !");
     }
 
-    const responseData = response.data;
+    const responseData = response.data.data;
     return responseData;
   }
 );
