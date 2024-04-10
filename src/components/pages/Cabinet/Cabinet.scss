@@ -7,6 +7,16 @@
   flex-direction: column;
   row-gap: 60px;
   padding: 36px 0 100px;
+  position: relative;
+ 
+  &__blur {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 850px;
+    height: 550px;
+    z-index: -1;
+  }
 }
 
 .cabinet-content {
@@ -41,13 +51,14 @@
 .my-data {
   display: flex;
   flex-direction: column;
-
+   
   &__title {
     margin-bottom: 40px;
   }
 }
 
 .my-data-form {
+ 
   .MuiInputBase-input {
     padding: 15px 0 15px 0px !important;
     font-size: 1rem !important;
@@ -80,3 +91,100 @@
     max-width: 285px;
   }
 }
+
+.future-photo {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  }
+
+.future-photo-item-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.future-photo-item:first-child {
+  padding-top: 0;
+  border-bottom: 1px solid var(--colorLine);
+}
+
+.future-photo-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.future-photo-item {
+  display: grid;
+  grid-template-columns: minmax(auto, 396px) minmax(auto, 1fr);
+  column-gap: 132px;
+  padding: 16px 0;
+  align-items: flex-start;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    color: var(--black);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  &__location {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    margin-bottom: 4px;
+  }
+
+  &__time,
+  &__time-days,
+  &__time-hours {
+    display: flex;
+    align-items: center;
+    column-gap: 24px;
+  }
+
+  &__time-days,
+  &__time-hours {
+    column-gap: 12px;
+  }
+
+  p {
+    font-weight: 400;
+    line-height: 1.6;
+  }
+}
+
+
+.action-line {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+
+  p {
+    font-size: 0.75rem;
+    font-weight: 600 !important;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  p:hover {
+    text-decoration: underline;
+    color: var(--black);
+    transform: scale(101%);
+  }
+}
+
+.lasted-photo-item__actions {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+}
+
+

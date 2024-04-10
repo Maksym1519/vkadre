@@ -12,17 +12,16 @@ import { setAuthState, setUserData } from "store/slices/auth/authSlice";
 import { storeUser } from "hooks/localStorageData";
 
 const AuthEnter = () => {
-  
   //hide/show-password-------------------------------------------------
   const [password, setPassword] = useState(false);
- 
+
   //dispatch----------------------------------------------------------
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   //send=data-to-server-------------------------------------------------
-  const initialUser = {identifier: "", password: ""};
+  const initialUser = { identifier: "", password: "" };
 
   const [user, setUser] = useState(initialUser);
-  
+
   const handleChange = (e: React.SyntheticEvent) => {
     const { name, value } = e.target as HTMLInputElement;
     setUser({ ...user, [name]: value });
@@ -32,27 +31,29 @@ const AuthEnter = () => {
     e.preventDefault();
     try {
       const response = await axios.get(
-        `https://vkadrestrapi.onrender.com/api/guests?populate=*&filters[email][$contains]=${user.identifier}`
-         );
-            
+        `https://vkadrestrapi.onrender.com/api/guests?populate=*&filters[email][$contains]=${user.identifier}&filters[password][$eq]=${user.password}`
+      );
+
       if (response.status === 200) {
         setUser(initialUser);
-        storeUser(response.data.data[0])
+        storeUser(response.data.data[0]);
         dispatch(setUserData(response.data.data[0]));
-        const guestName = response.data.data[0].attributes.username
-        toast.info(`Привет ${guestName} ! Вы успешно вошли на сайт`, {hideProgressBar: true})
-      
+        const guestName = response.data.data[0].attributes.username;
+        toast.info(`Привет ${guestName} ! Вы успешно вошли на сайт`, {
+          hideProgressBar: true,
+        });
+
         setTimeout(() => {
-          dispatch(setAuthState(false))
-        },3000)
+          dispatch(setAuthState(false));
+        }, 3000);
       }
     } catch (error: any) {
       toast.error("Вы ввели неправильный логин или пароль", {
-        hideProgressBar: true
-      })
+        hideProgressBar: true,
+      });
     }
   };
-  
+
   return (
     <form onSubmit={handleSubmitLogin}>
       <TextField
@@ -86,9 +87,15 @@ const AuthEnter = () => {
         />
       </div>
 
-      <div className="auth__forgot-password" onClick={() => dispatch(setAuthIndex(2))}>Забыли пароль?</div>
-      <div className="auth__button"><Button text="Войти" type="submit"/></div>
-      
+      <div
+        className="auth__forgot-password"
+        onClick={() => dispatch(setAuthIndex(2))}
+      >
+        Забыли пароль?
+      </div>
+      <div className="auth__button">
+        <Button text="Войти" type="submit" />
+      </div>
     </form>
   );
 };

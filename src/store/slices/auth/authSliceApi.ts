@@ -6,7 +6,8 @@ export type AuthApiData = [{
   email: string,
   username: string,
   password: string
- }
+ },
+ id: number
 }];
 
 type AuthApiState = {
