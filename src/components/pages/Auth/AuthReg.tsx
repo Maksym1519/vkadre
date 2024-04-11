@@ -7,8 +7,6 @@ import { useForm } from "react-hook-form";
 import { AuthRegFetch } from "store/slices/auth/authRegFetch";
 import { FormValues } from "types/FormTypes";
 
-
-
 const AuthReg = () => {
   //hide/show-password-------------------------------------------------
   const [password, setPassword] = useState(false);

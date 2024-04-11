@@ -45,11 +45,13 @@ const MyData = () => {
       <div className="my-data__title">
         <SubTitle text="Мои данные" />
       </div>
+      {reduxData &&
       <form onSubmit={handleSubmit(cabinetApiFetch(reduxData && reduxData.id))} className="my-data-form">
         <div className="my-data-form__input-wrapper">
           <img src={User} alt="user" className="my-data-form__input-icon" />
           <TextField
             id="standard-basic"
+            defaultValue={reduxData?.attributes.username}
             placeholder={reduxData ? reduxData?.attributes?.username : "ИМЯ"}
             variant="standard"
             className="my-data-form__input"
@@ -65,6 +67,7 @@ const MyData = () => {
           <img src={Phone} alt="phone" className="my-data-form__input-icon" />
           <TextField
             id="standard-basic"
+            defaultValue={reduxData?.attributes.phone}
             placeholder={reduxData ? reduxData.attributes.phone : "телефон"}
             variant="standard"
             className="my-data-form__input"
@@ -83,6 +86,7 @@ const MyData = () => {
           <img src={Email} alt="phone" className="my-data-form__input-icon" />
           <TextField
             id="standard-basic"
+            defaultValue={reduxData?.attributes.email}
             placeholder={reduxData ? reduxData.attributes.email : "Email"}
             variant="standard"
             className="my-data-form__input"
@@ -98,6 +102,7 @@ const MyData = () => {
           <Button text="Сохранить" type="submit" />
         </div>
       </form>
+}
     </div>
   );
 };

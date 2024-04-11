@@ -15,10 +15,9 @@ const CabinetNavigation = () => {
     <NavLink to="/">Выйти</NavLink>,
   ];
   //activeIndex---------------------------------------------
-  const userInfo = userData();
-  console.log(userInfo);
   const dispatch = useAppDispatch();
   const [activeIndex, setActiveIndex] = useState(0);
+  console.log(activeIndex)
   const handleClickIndex = (index: number) => {
     setActiveIndex(index);
     dispatch(setIndex(index));
@@ -28,7 +27,7 @@ const CabinetNavigation = () => {
     }
   };
 
-   return (
+    return (
     <div className="cabinet-navigation">
       {navData.map((item, index) => (
            <div

@@ -10,7 +10,7 @@ export const cabinetApiFetch = (id: number | null) => {
         const fetchUser = data;
                           
     try {
-      const response = await axios.put(
+      const response = await axios.put<FormGuestValues>(
         `https://vkadrestrapi.onrender.com/api/guests/${id}`,
         fetchUser
       );

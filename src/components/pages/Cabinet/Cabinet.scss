@@ -46,6 +46,18 @@
   &__item_passive {
     color: var(--menuItem);
   }
+
+  a {
+    color: var(--menuItem) !important;
+  }
+
+  a:hover {
+    color: var(--textColor) !important;
+  }
+
+  &__item_passive:hover {
+   color: var(--textColor) !important;
+  }
 }
 
 .my-data {

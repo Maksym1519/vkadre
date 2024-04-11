@@ -1,14 +1,16 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export type AuthApiData = [{
- attributes: {
-  email: string,
-  username: string,
-  password: string
- },
- id: number
-}];
+export type AuthApiData = [
+  {
+    attributes: {
+      email: string;
+      username: string;
+      password: string;
+    };
+    id: number;
+  }
+];
 
 type AuthApiState = {
   formData: null;
@@ -24,6 +26,10 @@ const initialState: AuthApiState = {
   error: null,
 };
 
+type ApiResponse = {
+  data: AuthApiData;
+};
+
 export const authApiInfo = createAsyncThunk<
   AuthApiData,
   undefined,
@@ -32,7 +38,7 @@ export const authApiInfo = createAsyncThunk<
   "authApi/authApiInfo",
 
   async function (_, { rejectWithValue }) {
-    const response = await axios.get(
+    const response = await axios.get<ApiResponse>(
       "https://vkadrestrapi.onrender.com/api/guests?sort=id&populate=*"
     );
 
@@ -64,7 +70,12 @@ const authApiSlice = createSlice({
       .addCase(authApiInfo.fulfilled, (state, action) => {
         state.authApi = action.payload;
         state.loading = false;
-      });
+      })
+      .addCase(authApiInfo.rejected,(state,action) => {
+        state.loading = false;
+        state.error = action.payload ?? null
+      })
+      ;
   },
 });
 

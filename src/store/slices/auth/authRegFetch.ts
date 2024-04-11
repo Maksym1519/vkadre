@@ -6,18 +6,17 @@ import { FormValues } from "types/FormTypes";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 export const AuthRegFetch = () => {
   //dispatch-formData-------------------------------------
   const dispatch = useAppDispatch();
 
   //submit-data-------------------------------------------
-
   const onSubmit = async (data: FormValues) => {
     const fetchUser = data;
   
     try {
-      const response = await axios.post(
-        // "https://vkadrestrapi.onrender.com/api/auth/local/register",
+      const response = await axios.post<FormValues>(
         "https://vkadrestrapi.onrender.com/api/guests",
         fetchUser
       );
@@ -34,4 +33,5 @@ export const AuthRegFetch = () => {
     }
   };
   return onSubmit;
-};
+}
+  
