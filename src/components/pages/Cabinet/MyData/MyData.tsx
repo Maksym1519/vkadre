@@ -13,19 +13,22 @@ import { FormGuestValues } from "types/FormTypes";
 import { cabinetApiGet } from "store/slices/cabinet/cabinetApiSlice";
 import { userData } from "hooks/localStorageData";
 import { getUserId } from "store/slices/cabinet/cabinetApiSlice";
+import Plus from "@img/plus.svg";
+import Minus from "@img/minus.svg";
+import { useMatchMedia } from "hooks/use-match-media";
 
-const MyData = () => {
-   //get-user-data-localstorage&&pass-id-to-redux-------------------------------------------
-   const userInfo = userData();
-   
-   const dispatch = useAppDispatch();
-   const reduxData = useAppSelector((state) => state.guests.guests);
-   
+const MyData = ({showComponent ,toggleComponent}: any) => {
+  //get-user-data-localstorage&&pass-id-to-redux-------------------------------------------
+  const userInfo = userData();
+ 
+  const dispatch = useAppDispatch();
+  const reduxData = useAppSelector((state) => state.guests.guests);
+  
   useEffect(() => {
     dispatch(cabinetApiGet(userInfo.id));
     dispatch(getUserId(userInfo));
   }, [dispatch]);
- 
+
   const {
     register,
     handleSubmit,
@@ -33,20 +36,27 @@ const MyData = () => {
   } = useForm<FormGuestValues>({
     defaultValues: {
       data: {
-        username: reduxData?.attributes?.username,
-        phone: reduxData?.attributes?.phone,
-        email: reduxData?.attributes?.email
-      }
-    }
+        username: userInfo.username,
+        phone: userInfo.phone,
+        email: userInfo.id,
+      },
+    },
   });
 
+  //widthScreen-------------------------------------
+  const screenWidth = useMatchMedia()
+ 
   return (
     <div className="my-data">
-      <div className="my-data__title">
-        <SubTitle text="Мои данные" />
-      </div>
-      {reduxData &&
-      <form onSubmit={handleSubmit(cabinetApiFetch(reduxData && reduxData.id))} className="my-data-form">
+         <div className="my-data__title" onClick={toggleComponent}>
+          <SubTitle text="Мои данные" />
+          {screenWidth && <img src={showComponent ? Minus : Plus} alt="icon"/>}
+        </div>
+    {showComponent &&
+      <form
+        onSubmit={handleSubmit(cabinetApiFetch(reduxData && reduxData.id))}
+        className="my-data-form"
+      >
         <div className="my-data-form__input-wrapper">
           <img src={User} alt="user" className="my-data-form__input-icon" />
           <TextField

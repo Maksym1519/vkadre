@@ -1,7 +1,8 @@
 export const storeUser = (data: any) => {
     localStorage.setItem("user", JSON.stringify ({
         username: data.attributes.username,
-        id: data.attributes.email
+        id: data.attributes.email,
+        phone: data.attributes.phone
     }))
 }
 

@@ -34,6 +34,9 @@ const cabinetUsersSlice = createSlice({
     getUserId: (state, action) => {
       state.id = action.payload;
     },
+    setUserInfo: (state, action) => {
+      state.guests = action.payload
+    }
   },
 
   extraReducers: (builder) => {
