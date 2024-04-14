@@ -19,6 +19,7 @@ import anotherServicesReducer from "./slices/services/anotherServicesSlice";
 import locationPageReducer from "./slices/location/locationPageSlice";
 import locationDetailReducer from "./slices/location/locationDetailSlice";
 import cabinetApiReducer from "./slices/cabinet/cabinetApiSlice";
+import orderPhotosessionModalReducer from "./slices/modals/orderPhotosessionSlice";
 
 
 const rootReducer = combineReducers({
@@ -41,7 +42,8 @@ const rootReducer = combineReducers({
    anotherService: anotherServicesReducer,
    locations: locationPageReducer,
    locationDetail: locationDetailReducer,
-   guests: cabinetApiReducer
+   guests: cabinetApiReducer,
+   orderPhotosessionModal: orderPhotosessionModalReducer
  });
 
 export default rootReducer;

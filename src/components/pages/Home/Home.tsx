@@ -14,7 +14,7 @@ import { ToastContainer } from "react-toastify";
 import { useAppSelector } from "store/hooks";
 
 const Home = () => {
-  const authInfo = useAppSelector((state) => state.auth.authForm);
+  const authInfo = useAppSelector((state) => state.auth.overlay);
 
   return (
     <div className="home">

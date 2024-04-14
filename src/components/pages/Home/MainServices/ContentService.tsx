@@ -1,8 +1,9 @@
 import "./MainServices.scss";
-import { useAppSelector } from "store/hooks";
+import { useAppSelector, useAppDispatch } from "store/hooks";
 import SubTitle from "components/ui/forms/SubTitle";
 import Price from "components/common/Main/Price";
- import Button from "components/ui/buttons/Button";
+import Button from "components/ui/buttons/Button";
+import { setOrderphoto } from "store/slices/modals/orderPhotosessionSlice";
 
 const ContentService = () => {
   const reduxData = useAppSelector((state) => state.mainServices.mainServices);
@@ -22,6 +23,13 @@ const ContentService = () => {
       ?.flatMap((item) => item.attributes)
       ?.map((item) => item.url);
 
+  //set-modal-order-photo---------------------------
+  const dispatch = useAppDispatch();
+  const handleModalClick = () => {
+    dispatch(setOrderphoto(true));
+  };
+
+  
   return (
     <div className="content-service">
       {subTitle && <SubTitle text={subTitle} />}
@@ -41,12 +49,13 @@ const ContentService = () => {
         {reduxData && reduxData[0].attributes.text2}
       </div>
 
-      <Price />
-      
-      <div className="content-service-button">
+      <Price button="" calendar="" />
+
+      <div className="content-service-button" onClick={handleModalClick}>
         <Button text="Заказать фотосессию" />
       </div>
-    </div>
+
+   </div>
   );
 };
 export default ContentService;

@@ -25,17 +25,13 @@ const Cabinet = () => {
   const activeComponent = components[activeComponentIndex] || null;
 
   //----------------------------------------------------------------------
-  const [showComponent, setShowComponent] = useState<boolean>(false);
-  const toggleComponent = () => {
-    setShowComponent(!showComponent)
-  }
-  const activeMobileComponents: Array<JSX.Element> = [
-    <MyData toggleComponent={toggleComponent} showComponent={showComponent}/>,
-    <FuturePhoto toggleComponent={toggleComponent} showComponent={showComponent}/>,
+   const activeMobileComponents: Array<JSX.Element> = [
+    <MyData />,
+    <FuturePhoto />,
     <LastedPhoto />,
   ];
 
-  return (
+   return (
     <div className="cabinet">
       <Title text="Личный кабинет" />
       <section className="cabinet-content">
@@ -45,7 +41,7 @@ const Cabinet = () => {
           activeMobileComponents.map((item, index) => (
             <div key={index}>{item}</div>
           ))}
-      </section>
+        </section>
       <ToastContainer />
       <img src={Blur} alt="blur" className="cabinet__blur" />
     </div>

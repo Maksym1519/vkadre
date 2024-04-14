@@ -1,5 +1,5 @@
 import "../Cabinet.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import SubTitle from "components/ui/forms/SubTitle";
 import Button from "components/ui/buttons/Button";
@@ -17,7 +17,7 @@ import Plus from "@img/plus.svg";
 import Minus from "@img/minus.svg";
 import { useMatchMedia } from "hooks/use-match-media";
 
-const MyData = ({showComponent ,toggleComponent}: any) => {
+const MyData = () => {
   //get-user-data-localstorage&&pass-id-to-redux-------------------------------------------
   const userInfo = userData();
  
@@ -45,12 +45,19 @@ const MyData = ({showComponent ,toggleComponent}: any) => {
 
   //widthScreen-------------------------------------
   const screenWidth = useMatchMedia()
- 
+
+  //show/hide-content-mobile-screen------------------------------------
+  const [showComponent, setShowComponent] = useState<boolean>(false);
+  useEffect(() => {
+    if(!screenWidth.isMobile) {
+      setShowComponent(true)
+    }
+  },[])
   return (
     <div className="my-data">
-         <div className="my-data__title" onClick={toggleComponent}>
+         <div className="my-data__title" onClick={() => setShowComponent(!showComponent)}>
           <SubTitle text="Мои данные" />
-          {screenWidth && <img src={showComponent ? Minus : Plus} alt="icon"/>}
+          {screenWidth.isMobile && <img src={showComponent ? Minus : Plus} alt="icon"/>}
         </div>
     {showComponent &&
       <form

@@ -1,0 +1,94 @@
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+@import "@vars/colors.scss";
+
+
+.order-photosession {
+    width: 100%;
+    max-width: 552px;
+    height: 957px;
+    background: var(--white);
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3002;
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        padding: 40px 48px;
+        position: relative;
+    }
+
+    &__title {
+        margin-bottom: 41px;
+    }
+
+    &__close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        cursor: pointer;
+    }
+
+    &__close:hover {
+        transform: scale(120%);
+    }
+}
+
+.order-photo-form {
+    display: flex;
+    flex-direction: column;
+
+    &__type-wrapper {
+        position: relative;
+    }
+
+    &__type-wrapper img {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+}
+
+.order-photo-popup {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    width: 250px;
+    height: 300px;
+    padding: 24px;
+    background: var(--white);
+    box-shadow: 5px 5px 10px 10px var(--menuItem);
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    transition: all 0.2s ease-in-out;
+
+    &__row {
+        line-height: 1.4;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    &__row:hover {
+      text-decoration: underline;
+      transform: scale(102%);
+      margin-left: 12px;
+    }
+
+    &__row::before:hover {
+        content: ""; // Добавляем содержимое для псевдоэлемента
+        position: absolute;
+        top: 50%; // Выравниваем по вертикали
+        left: -20px; // Располагаем слева от текста
+        width: 16px;
+        height: 16px;
+        background-image: url(@img/cross.svg); // Вставляем изображение
+        background-size: cover;
+        transform: translateY(-50%); 
+    }
+}

@@ -8,7 +8,7 @@
   row-gap: 60px;
   padding: 36px 0 100px;
   position: relative;
- 
+
   &__blur {
     position: absolute;
     top: 10%;
@@ -56,21 +56,20 @@
   }
 
   &__item_passive:hover {
-   color: var(--textColor) !important;
+    color: var(--textColor) !important;
   }
 }
 
 .my-data {
   display: flex;
   flex-direction: column;
-   
+
   &__title {
     margin-bottom: 40px;
   }
 }
 
 .my-data-form {
- 
   .MuiInputBase-input {
     padding: 15px 0 15px 0px !important;
     font-size: 1rem !important;
@@ -108,7 +107,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 40px;
-  }
+}
 
 .future-photo-item-wrapper {
   display: flex;
@@ -170,7 +169,6 @@
   }
 }
 
-
 .action-line {
   display: flex;
   align-items: center;
@@ -199,6 +197,34 @@
   row-gap: 14px;
 }
 
+@include tablet {
+  .cabinet-content {
+    display: grid;
+    grid-template-columns: minmax(31.7%, 280px) minmax(40.14%, 400px);
+    column-gap: 48px;
+  }
+
+  .future-photo-item {
+    grid-template-columns: minmax(auto, 396px) minmax(auto, 1fr);
+    column-gap: 32px;
+
+    &__time-days,
+    &__time-hours {
+      white-space: nowrap;
+    }
+
+    &__location {
+      margin-bottom: 16px;
+    }
+
+    &__time {
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 12px;
+    }
+  }
+}
+
 @include mobile {
   .cabinet {
     padding: 40px 0 50px;
@@ -221,7 +247,7 @@
     row-gap: 24px;
     padding: 0;
     border: none;
-  
+
     &__item,
     &__item_passive {
       display: flex;
@@ -234,7 +260,7 @@
       cursor: pointer;
       transition: all 0.2s ease-in-out;
     }
-  
+
     &__item_passive {
       color: var(--menuItem);
     }
@@ -247,24 +273,25 @@
       font-weight: 700;
     }
 
-     a {
+    a {
       color: var(--menuItem) !important;
     }
-  
+
     a:hover {
       color: var(--textColor) !important;
     }
-  
+
     &__item_passive:hover {
-     color: var(--textColor) !important;
+      color: var(--textColor) !important;
     }
   }
 
-  .my-data, .future-photo {
+  .my-data,
+  .future-photo {
     border-bottom: 1px solid var(--colorLine);
     padding: 23px 0;
   }
-  
+
   .my-data {
     min-width: 100%;
     padding-top: 0;
@@ -276,25 +303,23 @@
       column-gap: 48px;
     }
 
-    &__title *{
+    &__title * {
       font-size: 1.5rem !important;
-      text-transform:none !important;
+      text-transform: none !important;
       font-weight: 700;
     }
   }
-  
+
   .future-photo-item {
     display: flex;
     flex-direction: column;
   }
-  
+
   .my-data-form {
     min-width: 100%;
-  
+
     &__button {
       max-width: 100%;
     }
   }
-   
 }
-

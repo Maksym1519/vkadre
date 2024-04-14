@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 type AuthState = {
-  authForm: boolean;
+  overlay: boolean;
   profileMenu: boolean;
   index: number;
   userData: {
@@ -14,7 +14,7 @@ type AuthState = {
 };
 
 const initialState: AuthState = {
-  authForm: false,
+  overlay: false,
   profileMenu: false,
   index: 0,
   userData: {
@@ -31,7 +31,7 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setAuthState: (state, action) => {
-      state.authForm = action.payload;
+      state.overlay = action.payload;
     },
     setAuthIndex: (state, action) => {
       state.index = action.payload;
