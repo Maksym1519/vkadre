@@ -29,8 +29,7 @@ const Profile = () => {
 
    //get-user-data-localstorage-------------------------------------------
     const userInfo = userData();
-    console.log(userInfo.username)
-   
+       
    //----------------------------------------------------------------------
    const closeMenu = () => {
      setIsActive(false);

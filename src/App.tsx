@@ -21,7 +21,7 @@ const rootLayout = React.createElement(RootLayout);
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={rootLayout}>
+        <Route path="/" element={rootLayout}>
         <Route index element={<Home />} />
         <Route path="/Portfolio" index element={<PortfolioPage />} />
         <Route path="/OurTeam" index element={<OurTeam />} />
@@ -32,7 +32,7 @@ const router = createBrowserRouter(
         <Route path="/Cabinet" index element={<Cabinet />} />
         <Route path="/Auth" index element={<Home />} />
         </Route>
-      </>
+        </>
   )
 );
 

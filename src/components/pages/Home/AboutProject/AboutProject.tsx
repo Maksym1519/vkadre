@@ -6,7 +6,6 @@ import AboutProjectFeatures from './AboutProjectFeatures';
 import AboutProjectStatistics from './AboutProjectStatistics';
 
 
-
 const AboutProject = () => {
 const dispatch = useAppDispatch();
 useEffect(() => {
@@ -18,7 +17,7 @@ const reduxInfo = useAppSelector((state) => state.aboutProject.aboutProject)
 
     return (
         <div className='about-project'>
-            <div className='about-project__header'>
+              <div className='about-project__header'>
                <h3 className='about-project__title'>{reduxInfo && reduxInfo[0].attributes.mainTitle}</h3>
                <p className='about-project__description'>{reduxInfo && reduxInfo[0].attributes.headerDescription}</p>
             </div>

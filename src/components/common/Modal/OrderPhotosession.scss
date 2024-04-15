@@ -2,93 +2,155 @@
 @import "@mixins/mediaBreakpoints.scss";
 @import "@vars/colors.scss";
 
-
 .order-photosession {
-    width: 100%;
-    max-width: 552px;
-    height: 957px;
-    background: var(--white);
+  width: 100%;
+  max-width: 552px;
+  height: 957px;
+  background: var(--white);
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 48px;
+    position: relative;
+  }
+
+  &__title {
+    margin-bottom: 41px;
+  }
+
+  &__close {
     position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3002;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+  }
 
-    &__body {
-        display: flex;
-        flex-direction: column;
-        padding: 40px 48px;
-        position: relative;
-    }
-
-    &__title {
-        margin-bottom: 41px;
-    }
-
-    &__close {
-        position: absolute;
-        top: 24px;
-        right: 24px;
-        cursor: pointer;
-    }
-
-    &__close:hover {
-        transform: scale(120%);
-    }
+  &__close:hover {
+    transform: scale(120%);
+  }
 }
 
 .order-photo-form {
+  display: flex;
+  flex-direction: column;
+
+  &__type-wrapper {
+    position: relative;
+  }
+
+  &__type-wrapper img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  &__date {
+    min-width: 100%;
     display: flex;
-    flex-direction: column;
+    column-gap: 24px;
 
-    &__type-wrapper {
-        position: relative;
+    .MuiInputBase-input {
+      padding-left: 37px !important;
+    }
+  }
+
+  &__date-date {
+    width: 50%;
+    max-width: 216px;
+    position: relative;
     }
 
-    &__type-wrapper img {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%);
-        cursor: pointer;
-    }
+  .order-photo-form__date-date-calendar {
+    position: absolute;
+    top: 110%;
+    left: 0%;
+    z-index: 1001;    
+  }
+
+  .order-photo-form__date-time-picker {
+    position: absolute;
+    top: 110%;
+    right: 0%;
+     }
+  
+  &__date-date img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  &__date-time {
+    width: 50%;
+    max-width: 216px;
+    position: relative;
+  }
+
+  &__date-time img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 2;
+  }
 }
 
 .order-photo-popup {
-    position: absolute;
-    top: 110%;
-    right: 0;
-    width: 250px;
-    height: 300px;
-    padding: 24px;
-    background: var(--white);
-    box-shadow: 5px 5px 10px 10px var(--menuItem);
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 250px;
+  height: 300px;
+  padding: 24px;
+  background: var(--white);
+  box-shadow: 5px 5px 10px 10px var(--menuItem);
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  transition: all 0.2s ease-in-out;
+  z-index: 3;
+
+  &__row {
     display: flex;
-    flex-direction: column;
-    row-gap: 12px;
+    align-items: center;
+    column-gap: 12px;
+    line-height: 1.4;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
 
-    &__row {
-        line-height: 1.4;
-        transition: all 0.2s ease-in-out;
-        cursor: pointer;
-    }
+  &__row:hover {
+    text-decoration: underline;
+    transform: scale(102%);
+    margin-left: 12px;
+    transition: all 0.25s ease-in;
+  }
 
-    &__row:hover {
-      text-decoration: underline;
-      transform: scale(102%);
-      margin-left: 12px;
-    }
-
-    &__row::before:hover {
-        content: ""; // Добавляем содержимое для псевдоэлемента
-        position: absolute;
-        top: 50%; // Выравниваем по вертикали
-        left: -20px; // Располагаем слева от текста
-        width: 16px;
-        height: 16px;
-        background-image: url(@img/cross.svg); // Вставляем изображение
-        background-size: cover;
-        transform: translateY(-50%); 
-    }
+  &__row:hover::before {
+    content: "";
+    position: absolute;
+    top: 50%; //
+    left: -20px;
+    width: 8px;
+    height: 8px;
+    background-image: url("@img/leftArrow.svg");
+    background-size: cover;
+    transform: translateY(-50%);
+    transform: rotate(135deg);
+  }
 }
