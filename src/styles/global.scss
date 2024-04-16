@@ -60,8 +60,10 @@ body {
   .MuiInputBase-input::placeholder {
     color: var(--menuItem) !important;
     text-transform: uppercase !important;
-  }
-
+    white-space: wrap !important;
+    padding-right: 30px !important;
+    }
+   
   .css-1eed5fa-MuiInputBase-root-MuiInput-root.Mui-error::before {
     border-bottom: 1px solid var(--menuItem) !important;
   }

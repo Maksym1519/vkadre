@@ -22,6 +22,7 @@ export const orderPhotoPost = () => {
       );
       if (response.status === 200) {
         toast.info("Вы успешно зарегистрировались !");
+        console.log(response)
         }
       return response;
     } catch (error: any) {
