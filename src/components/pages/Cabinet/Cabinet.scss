@@ -156,11 +156,12 @@
     display: flex;
     align-items: center;
     column-gap: 24px;
-  }
+   }
 
   &__time-days,
   &__time-hours {
     column-gap: 12px;
+    white-space: nowrap;
   }
 
   p {

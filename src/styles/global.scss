@@ -53,22 +53,25 @@ body {
 
   //useForm-------------------------------------------------------
   .MuiInputBase-input {
-    color: var(--textColorLight) !important;
-    padding: 24px 0 !important;
+      padding: 24px 0 !important;
      }
 
   .MuiInputBase-input::placeholder {
-    color: var(--menuItem) !important;
+    color: var(--textColorLight) !important;
     text-transform: uppercase !important;
     white-space: wrap !important;
     padding-right: 30px !important;
     }
-   
+
+      
   .css-1eed5fa-MuiInputBase-root-MuiInput-root.Mui-error::before {
     border-bottom: 1px solid var(--menuItem) !important;
   }
   .css-1eed5fa-MuiInputBase-root-MuiInput-root::after {
-   border-bottom: 1px solid var(--textColor) !important;
+    border-bottom: 1px solid var(--textColor) !important;
+  }
+  .css-1eed5fa-MuiInputBase-root-MuiInput-root input {
+    color: var(--textColor) !important;
   }
  //@media----------------------------------------------------------
 @include tablet {

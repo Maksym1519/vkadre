@@ -20,6 +20,7 @@ import locationPageReducer from "./slices/location/locationPageSlice";
 import locationDetailReducer from "./slices/location/locationDetailSlice";
 import cabinetApiReducer from "./slices/cabinet/cabinetApiSlice";
 import orderPhotosessionModalReducer from "./slices/modals/orderPhotosessionSlice";
+import futurePhotosessionReducer from "./slices/modals/futurePhotosessionSlice";
 
 
 const rootReducer = combineReducers({
@@ -43,7 +44,8 @@ const rootReducer = combineReducers({
    locations: locationPageReducer,
    locationDetail: locationDetailReducer,
    guests: cabinetApiReducer,
-   orderPhotosessionModal: orderPhotosessionModalReducer
+   orderPhotosessionModal: orderPhotosessionModalReducer,
+   futurePhotosession: futurePhotosessionReducer
  });
 
 export default rootReducer;

@@ -11,7 +11,7 @@
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3005;
+  z-index: 3010;
 
   &__body {
     display: flex;
@@ -80,12 +80,6 @@
     top: 110%;
     left: 0%;
     z-index: 3010;
-  }
-
-  .order-photo-form__input-free-text {
-    min-height: 150px !important;
-    max-height: 150px !important;
-    color: red !important;
   }
 
   .order-photo-form__input-free-text .MuiInputBase-input {

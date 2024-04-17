@@ -2,6 +2,8 @@ import "./OrderPhotosession.scss";
 import Button from "components/ui/buttons/Button";
 import coin from "@img/coin.svg";
 
+
+
 const Booking = ({ props}: any)=> {
   const handleClick = () => {
     props.handleSubmit();

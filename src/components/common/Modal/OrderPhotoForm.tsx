@@ -8,6 +8,7 @@ import "react-clock/dist/Clock.css";
 import clickOutside from "hooks/clickOutside";
 import { OrderPhotoData } from "types/modals/modals";
 import { orderPhotoPost } from "store/slices/modals/orderPhotoPost";
+import { userData } from "hooks/localStorageData";
 import OrderPhotoPopup from "./OrderPhotoPopup";
 import Booking from "./Booking";
 import InputArrow from "@img/inputArrow.svg";
@@ -17,9 +18,21 @@ import clock from "@img/clock.svg";
 
 
 const OrderPhotoForm = () => {
+
+  //get-userId-local-storage---------------------------
+  const userId = userData()
+
+  //useForm-------------------------------------------------
   const form = useForm<OrderPhotoData>({});
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
+
+  useEffect(() => {
+      if (userId) {
+      form.setValue("data.userId", userId.id);
+    }
+  }, [userId, form]);
+
 
   //popup-state------------------------------------------
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -58,8 +71,8 @@ const OrderPhotoForm = () => {
   const handleGetTypeValue = (e: string) => {
      setTypeValue(e);
   };
-  
-     
+
+       
   return (
     <form
       onSubmit={handleSubmit(orderPhotoPost())}
@@ -74,10 +87,8 @@ const OrderPhotoForm = () => {
         type="text"
         {...register("data.username", { required: "Username is required" })}
         error={!!errors.data?.username}
-        helperText={
-          typeof errors.data?.username === "string" ? errors.data?.username : ""
-        }
-      />
+        helperText={errors.data?.username?.message}
+         />
       <TextField
         id="standard-basic"
         placeholder="Почтовый ящик"
@@ -87,9 +98,7 @@ const OrderPhotoForm = () => {
         type="email"
         {...register("data.email", { required: "Email is required" })}
         error={!!errors.data?.email}
-        helperText={
-          typeof errors.data?.email === "string" ? errors.data?.email : ""
-        }
+        helperText={errors.data?.email?.message}
       />
       <TextField
         id="standard-basic"
@@ -97,12 +106,10 @@ const OrderPhotoForm = () => {
         variant="standard"
         className="order-photo-form__input"
         style={{ minWidth: "100%", textTransform: "uppercase" }}
-        type="text"
+        type="number"
         {...register("data.phone", { required: "Pnone number is required" })}
         error={!!errors.data?.phone}
-        helperText={
-          typeof errors.data?.phone === "number" ? errors.data?.phone : ""
-        }
+        helperText={errors.data?.phone?.message}
       />
       <div className="order-photo-form__type-wrapper" ref={popupRef}>
         <TextField
@@ -113,11 +120,9 @@ const OrderPhotoForm = () => {
           className="order-photo-form__input"
           style={{ minWidth: "100%", textTransform: "uppercase" }}
           type="text"
-          {...register("data.type", { required: "Type is required" })}
-          error={!!errors.data?.type}
-          helperText={
-            typeof errors.data?.type === "string" ? errors.data?.type : ""
-          }
+          {...register("data.kind", { required: "Type is required" })}
+          error={!!errors.data?.kind}
+          helperText={errors.data?.kind?.message}
         />
         <img
           src={InputArrow}
@@ -155,9 +160,7 @@ const OrderPhotoForm = () => {
             type="text"
             {...register("data.date", { required: "Date is required" })}
             error={!!errors.data?.date}
-            helperText={
-              typeof errors.data?.date === "number" ? errors.data?.date : ""
-            }
+            helperText={errors.data?.date?.message}
           />
         </div>
         <div className="order-photo-form__date-time">
@@ -171,10 +174,8 @@ const OrderPhotoForm = () => {
             style={{ minWidth: "100%", textTransform: "uppercase" }}
             type="text"
             {...register("data.time", { required: "Time is required" })}
-            error={!!errors.data?.phone}
-            helperText={
-              typeof errors.data?.time === "number" ? errors.data?.time : ""
-            }
+            error={!!errors.data?.time}
+            helperText={errors.data?.time?.message}
           />
           {timePicker &&  <TimePicker
             onChange={handleTimeChange}
@@ -194,9 +195,7 @@ const OrderPhotoForm = () => {
         type="text"
         {...register("data.length", { required: "Length information is required" })}
         error={!!errors.data?.length}
-        helperText={
-          typeof errors.data?.length === "string" ? errors.data?.length : ""
-        }
+        helperText={errors.data?.length?.message}
       />
       <TextField
         id="standard-basic"
@@ -206,12 +205,8 @@ const OrderPhotoForm = () => {
         style={{ minWidth: "100%", textTransform: "uppercase" }}
         type="text"
         multiline
-        {...register("data.text", { required: "Length information is required" })}
-        error={!!errors.data?.text}
-        helperText={
-          typeof errors.data?.text === "string" ? errors.data?.text : ""
-        }
-      />
+        {...register("data.text", {})}
+        />
       <Booking handleSubmit={handleSubmit} />
     </form>
   );
