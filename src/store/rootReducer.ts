@@ -22,6 +22,7 @@ import cabinetApiReducer from "./slices/cabinet/cabinetApiSlice";
 import orderPhotosessionModalReducer from "./slices/modals/orderPhotosession/orderPhotosessionSlice";
 import futurePhotosessionReducer from "./slices/modals/orderPhotosession/futurePhotosessionSlice";
 import feedbackModalReducer from "./slices/modals/feedback/feedbackModalSlice";
+import expressPhotosessionReducer from "./slices/modals/expressPhotosession/expressPhotosessionSlice";
 
 
 const rootReducer = combineReducers({
@@ -47,7 +48,8 @@ const rootReducer = combineReducers({
    guests: cabinetApiReducer,
    orderPhotosessionModal: orderPhotosessionModalReducer,
    futurePhotosession: futurePhotosessionReducer,
-   feedbackModal: feedbackModalReducer
+   feedbackModal: feedbackModalReducer,
+   expressPhoto: expressPhotosessionReducer
  });
 
 export default rootReducer;

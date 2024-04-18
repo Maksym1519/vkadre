@@ -1,0 +1,25 @@
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+@import "@vars/colors.scss";
+
+
+.express-photosession {
+    padding: 40px 0;
+    
+    &__body {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    &__close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      transition: all 0.2s ease-in;
+    }
+
+    &__close:hover {
+        transform: scale(120%);
+    }
+}

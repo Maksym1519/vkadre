@@ -15,6 +15,7 @@ import ServiceDetail from "components/pages/ServiceDetail/ServiceDetail";
 import Locations from "components/pages/Locations/Locations";
 import LocationDetail from "components/pages/LocationsDetail/LocationDetail";
 import Cabinet from "components/pages/Cabinet/Cabinet";
+import ExpressPhotosession from "components/pages/ExpressPhoto/ExpressPhotosession";
 
 const rootLayout = React.createElement(RootLayout);
 
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
         <Route path="/Locations" index element={<Locations />} />
         <Route path="/LocationsDetail" index element={<LocationDetail />} />
         <Route path="/Cabinet" index element={<Cabinet />} />
+        <Route path="/ExpressPhoto" index element={<ExpressPhotosession />} />
         <Route path="/Auth" index element={<Home />} />
         </Route>
         </>

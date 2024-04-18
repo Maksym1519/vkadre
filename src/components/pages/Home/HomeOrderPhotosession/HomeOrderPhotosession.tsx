@@ -1,34 +1,44 @@
 import "./HomeOrderPhotosession.scss";
+import { NavLink } from "react-router-dom";
 import Button from "../../../ui/buttons/Button";
 import HomeOrderSlider from "./HomeOrderSlider";
-import { orderPhotosessionInfo } from "../../../../store/slices/main/orderPhotosessionSlice";
+import { orderPhotosessionInfo } from "store/slices/main/orderPhotosessionSlice";
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
-
+import { useAppDispatch, useAppSelector } from "store/hooks";
 
 const HomeOrderPhotosession = () => {
-const dispatch = useAppDispatch();
-useEffect(() => {
-  dispatch(orderPhotosessionInfo())
-}, [dispatch]);
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(orderPhotosessionInfo());
+  }, [dispatch]);
 
-const reduxData = useAppSelector((state) => state.orderPhotosession.orderPhotosession)
+  const reduxData = useAppSelector(
+    (state) => state.orderPhotosession.orderPhotosession
+  );
 
-//get-images-from-redux-for-slider--------------------------------------------
-const reduxSliderImages = useAppSelector(
-  (state) => state.orderPhotosession.orderPhotosession
-);
-const sliderImages =
-  reduxSliderImages && reduxSliderImages[0].attributes.orderPhotosessionSlider.data;
+  //get-images-from-redux-for-slider--------------------------------------------
+  const reduxSliderImages = useAppSelector(
+    (state) => state.orderPhotosession.orderPhotosession
+  );
+  const sliderImages =
+    reduxSliderImages &&
+    reduxSliderImages[0].attributes.orderPhotosessionSlider.data;
 
   return (
     <div className="home-order">
       <div className="home-order__image">
-        <img src={reduxData && reduxData[0].attributes.mainImage.data.attributes.url} alt="mainImg" />
+        <img
+          src={
+            reduxData && reduxData[0].attributes.mainImage.data.attributes.url
+          }
+          alt="mainImg"
+        />
       </div>
 
       <div className="home-order__description">
-        <h2 className="home-order__title">{reduxData && reduxData[0].attributes.mainTitle}</h2>
+        <h2 className="home-order__title">
+          {reduxData && reduxData[0].attributes.mainTitle}
+        </h2>
 
         <div className="features">
           <div className="features__item">
@@ -42,18 +52,26 @@ const sliderImages =
           </div>
 
           <div className="features__item">
-            <span className="features__item-bottom">Готовые фото на следующий день</span>
+            <span className="features__item-bottom">
+              Готовые фото на следующий день
+            </span>
           </div>
         </div>
 
-        <div className="home-order__button-wrapper">
-          <Button maxWidth="366px" text="Заказать Экспресс-фотосессию" />
-        </div>
-
-        <HomeOrderSlider sliderImages={sliderImages}/>
+        <NavLink to={"/ExpressPhoto"}>
+          <div className="home-order__button-wrapper">
+            <Button maxWidth="366px" text="Заказать Экспресс-фотосессию" />
+          </div>
+        </NavLink>
+        
+        <HomeOrderSlider sliderImages={sliderImages} />
       </div>
-      <img src={reduxData && reduxData[0].attributes.blur.data.attributes.url} alt="blur" className="home-order__blur"/>
-      </div>
+      <img
+        src={reduxData && reduxData[0].attributes.blur.data.attributes.url}
+        alt="blur"
+        className="home-order__blur"
+      />
+    </div>
   );
 };
 export default HomeOrderPhotosession;

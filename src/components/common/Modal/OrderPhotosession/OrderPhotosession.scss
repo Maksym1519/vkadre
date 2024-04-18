@@ -202,3 +202,37 @@
 .booking-button {
   max-width: 100%;
 }
+
+@include mobile {
+   .order-photosession {
+    min-width: 100vw;
+    max-width: 100%;
+
+    &__body {
+      padding: 64px 24px 24px;
+    }
+
+    &__title {
+      max-width: 60%;
+      margin-bottom: 24px;
+    }
+  }
+  }
+
+  .order-photo-form {
+    &__date {
+      flex-direction: column;
+    }
+    &__date-date {
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+    }
+
+    &__date-time {
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+    }
+ }
+  
