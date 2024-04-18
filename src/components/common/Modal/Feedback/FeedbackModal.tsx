@@ -34,8 +34,9 @@ const FeedbackModal = () => {
   clickOutside(placesRef, () => setPlacesActive(false));
 
   //get-value-from-input-------------------------------------
-  const [locationValue, setLocationValue] = useState<string | null>();
-  const [placesValue, setPlacesValue] = useState<string | null>();
+  const [locationValue, setLocationValue] = useState<string | undefined>();
+  const [placesValue, setPlacesValue] = useState<string | undefined>();
+  
 
   const getLocationValue = (e: string) => {
    setLocationValue(e)
@@ -44,6 +45,7 @@ const FeedbackModal = () => {
    setPlacesValue(e)
   }
 
+ 
   return (
     <div className="feedback-modal">
       <div className="feedback-modal__body">
@@ -123,7 +125,7 @@ const FeedbackModal = () => {
           </div>
 
           <div className="feedback-form__button">
-            <Button text="Оставить отзыв"/>
+            <Button text="Оставить отзыв" type="submit"/>
           </div>
         </form>
 

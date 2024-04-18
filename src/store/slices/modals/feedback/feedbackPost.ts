@@ -12,7 +12,7 @@ export const feedbackPost = () => {
   
     try {
       const response = await axios.post<FeedbackPostType>(
-        "https://vkadrestrapi.onrender.com/api/photosessions",
+        "https://vkadrestrapi.onrender.com/api/feedbacks",
         fetchUser
       );
       if (response.status === 200) {
