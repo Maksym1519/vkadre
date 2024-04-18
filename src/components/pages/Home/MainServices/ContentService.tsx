@@ -3,7 +3,7 @@ import { useAppSelector, useAppDispatch } from "store/hooks";
 import SubTitle from "components/ui/forms/SubTitle";
 import Price from "components/common/Main/Price";
 import Button from "components/ui/buttons/Button";
-import { setOrderphoto } from "store/slices/modals/orderPhotosessionSlice";
+import { setOrderphoto } from "store/slices/modals/orderPhotosession/orderPhotosessionSlice";
 
 const ContentService = () => {
   const reduxData = useAppSelector((state) => state.mainServices.mainServices);

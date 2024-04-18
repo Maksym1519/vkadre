@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from "store/hooks";
 import { feedBackInfo } from "store/slices/main/feedBackSlice";
 import FeedbackSlide from "./FeedbackSlide";
 import Button from "components/ui/buttons/Button";
+import FeedbackModal from "components/common/Modal/Feedback/FeedbackModal";
+import { setFeedbackModal } from "store/slices/modals/feedback/feedbackModalSlice";
 
 //my-Swiper-----------------------------------------------------
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,6 +21,12 @@ const Feedback = () => {
   }, [dispatch]);
 
   const reduxData = useAppSelector((state) => state.feedback.feedback);
+
+  //feedback-modal---------------------------------
+  const feedbackModalWindow = useAppSelector((state) => state.feedbackModal.overlay)
+  const showModal = () => {
+    dispatch(setFeedbackModal(true))
+  }
 
   return (
     <section className="feedback">
@@ -65,10 +73,11 @@ const Feedback = () => {
           <div className="swiper-button-prev"></div>
           <div className="swiper-button-next"></div>
         </div>
-        <div className="buttons-navigation__button-wrapper">
+        <div className="buttons-navigation__button-wrapper" onClick={showModal}>
           <Button text="Оставить  отзыв" />
         </div>
       </div>
+      {feedbackModalWindow && <FeedbackModal />}
     </section>
   );
 };

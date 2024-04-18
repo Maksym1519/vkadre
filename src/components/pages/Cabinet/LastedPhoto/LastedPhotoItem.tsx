@@ -25,7 +25,7 @@ const LastedPhotoItem = () => {
   const currentUserId = userData();
 
   //Filtration
-  const filteredData = reduxData?.filter((item) => {
+  const filteredData = reduxData && reduxData.length > 0 && reduxData?.filter((item) => {
     //Compare-dates
     const comparisonResult = compareDates(item?.attributes?.date, formatedDate);
     return comparisonResult < 0 && item?.attributes?.email === currentUserId.id;

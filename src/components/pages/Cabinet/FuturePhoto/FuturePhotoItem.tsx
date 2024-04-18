@@ -1,13 +1,14 @@
 import "../Cabinet.scss";
 import { useAppSelector, useAppDispatch } from "store/hooks";
-import { setOrderId } from "store/slices/modals/futurePhotosessionSlice";
-import { futurePhotoDelete } from "store/slices/modals/orderPhotoDelete";
+import { setOrderId } from "store/slices/modals/orderPhotosession/futurePhotosessionSlice";
+import { futurePhotoDelete } from "store/slices/modals/orderPhotosession/orderPhotoDelete";
 import { userData } from "hooks/localStorageData";
 import ActionLine from "../Common/ActionLine";
 import Location from "@img/locationIcon.svg";
 import Calendar from "@img/calendar.svg";
 import Close from "@img/closeCircle.svg";
 import Clock from "@img/clock.svg";
+import nothing from "@img/nothing.webp";
 
 const FuturePhotoItem = () => {
   const reduxData = useAppSelector(
@@ -23,7 +24,7 @@ const FuturePhotoItem = () => {
 
   //check-data-for-fitting-current-user-id----------
   const currentUserId = userData();
-  
+
   //curent-data-----------------------------------
   const currentDate = new Date();
   const day = currentDate.getDate();
@@ -32,11 +33,19 @@ const FuturePhotoItem = () => {
   const formatedDate = `${day}.${month}.${fullYear}`;
 
   //Filtration
-  const filteredData = reduxData?.filter((item) => {
-    //Compare-dates
-    const comparisonResult = compareDates(item?.attributes?.date, formatedDate);
-    return comparisonResult < 0 && item?.attributes?.email === currentUserId.id;
-  });
+  const filteredData =
+    reduxData &&
+    reduxData?.length > 0 &&
+    reduxData?.filter((item) => {
+      //Compare-dates
+      const comparisonResult = compareDates(
+        item?.attributes?.date,
+        formatedDate
+      );
+      return (
+        comparisonResult < 0 && item?.attributes?.email === currentUserId.id
+      );
+    });
 
   //filter-data-by-comparing-date---------------------------------
   function compareDates(dateString1: string, dateString2: string) {
@@ -58,7 +67,7 @@ const FuturePhotoItem = () => {
     const date2 = `${year2}.${month2}.${day2}`;
 
     // Сравниваем даты
-    if (date1 > date2) {
+    if (date1 >= date2) {
       return -1;
     } else if (date1 > date2) {
       return 1;
@@ -103,7 +112,13 @@ const FuturePhotoItem = () => {
           </div>
         ))
       ) : (
-        <div>Будущих фотосессий у Вас нет </div>
+        <div>
+          Будущих фотосессий у Вас нет{" "}
+          <img
+            src={nothing}
+            style={{ width: "48px", height: "48px", marginLeft: "32px" }}
+          />
+        </div>
       )}
     </div>
   );

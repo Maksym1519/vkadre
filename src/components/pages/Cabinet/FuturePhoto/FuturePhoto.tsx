@@ -5,7 +5,7 @@ import FuturePhotoItem from "./FuturePhotoItem";
 import Plus from "@img/plus.svg";
 import Minus from "@img/minus.svg";
 import { useMatchMedia } from "hooks/use-match-media";
-import { futurePhotoGet } from "store/slices/modals/futurePhotosessionSlice";
+import { futurePhotoGet } from "store/slices/modals/orderPhotosession/futurePhotosessionSlice";
 import { useAppDispatch } from "store/hooks";
 
 const FuturePhoto = () => {

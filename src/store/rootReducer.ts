@@ -19,8 +19,9 @@ import anotherServicesReducer from "./slices/services/anotherServicesSlice";
 import locationPageReducer from "./slices/location/locationPageSlice";
 import locationDetailReducer from "./slices/location/locationDetailSlice";
 import cabinetApiReducer from "./slices/cabinet/cabinetApiSlice";
-import orderPhotosessionModalReducer from "./slices/modals/orderPhotosessionSlice";
-import futurePhotosessionReducer from "./slices/modals/futurePhotosessionSlice";
+import orderPhotosessionModalReducer from "./slices/modals/orderPhotosession/orderPhotosessionSlice";
+import futurePhotosessionReducer from "./slices/modals/orderPhotosession/futurePhotosessionSlice";
+import feedbackModalReducer from "./slices/modals/feedback/feedbackModalSlice";
 
 
 const rootReducer = combineReducers({
@@ -45,7 +46,8 @@ const rootReducer = combineReducers({
    locationDetail: locationDetailReducer,
    guests: cabinetApiReducer,
    orderPhotosessionModal: orderPhotosessionModalReducer,
-   futurePhotosession: futurePhotosessionReducer
+   futurePhotosession: futurePhotosessionReducer,
+   feedbackModal: feedbackModalReducer
  });
 
 export default rootReducer;

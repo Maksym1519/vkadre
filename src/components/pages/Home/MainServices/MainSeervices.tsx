@@ -4,7 +4,7 @@ import ContentService from "./ContentService";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { mainServicesInfo } from "store/slices/main/mainServicesSlice";
 import { useEffect } from "react";
-import OrderPhotosession from "components/common/Modal/OrderPhotosession";
+import OrderPhotosession from "components/common/Modal/OrderPhotosession/OrderPhotosession";
 
 const MainServices = () => {
   const dispatch = useAppDispatch();

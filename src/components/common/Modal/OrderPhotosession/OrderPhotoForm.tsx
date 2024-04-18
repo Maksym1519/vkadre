@@ -6,8 +6,8 @@ import TimePicker from "react-time-picker";
 import "react-time-picker/dist/TimePicker.css";
 import "react-clock/dist/Clock.css";
 import clickOutside from "hooks/clickOutside";
-import { OrderPhotoData } from "types/modals/modals";
-import { orderPhotoPost } from "store/slices/modals/orderPhotoPost";
+import { FuturePhotoPostType } from "types/modals/modals";
+import { orderPhotoPost } from "store/slices/modals/orderPhotosession/orderPhotoPost";
 import { userData } from "hooks/localStorageData";
 import OrderPhotoPopup from "./OrderPhotoPopup";
 import Booking from "./Booking";
@@ -18,12 +18,11 @@ import clock from "@img/clock.svg";
 
 
 const OrderPhotoForm = () => {
-
   //get-userId-local-storage---------------------------
   const userId = userData()
 
   //useForm-------------------------------------------------
-  const form = useForm<OrderPhotoData>({});
+  const form = useForm<FuturePhotoPostType>({});
   const { register, handleSubmit, formState } = form;
   const { errors } = formState;
 
@@ -32,7 +31,6 @@ const OrderPhotoForm = () => {
       form.setValue("data.userId", userId.id);
     }
   }, [userId, form]);
-
 
   //popup-state------------------------------------------
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -89,6 +87,7 @@ const OrderPhotoForm = () => {
         error={!!errors.data?.username}
         helperText={errors.data?.username?.message}
          />
+
       <TextField
         id="standard-basic"
         placeholder="Почтовый ящик"
@@ -100,6 +99,7 @@ const OrderPhotoForm = () => {
         error={!!errors.data?.email}
         helperText={errors.data?.email?.message}
       />
+
       <TextField
         id="standard-basic"
         placeholder="Телефон"
@@ -111,6 +111,7 @@ const OrderPhotoForm = () => {
         error={!!errors.data?.phone}
         helperText={errors.data?.phone?.message}
       />
+
       <div className="order-photo-form__type-wrapper" ref={popupRef}>
         <TextField
           id="standard-basic"
@@ -186,6 +187,7 @@ const OrderPhotoForm = () => {
          
         </div>
       </div>
+
       <TextField
         id="standard-basic"
         placeholder="Продолжительность фотосессии"

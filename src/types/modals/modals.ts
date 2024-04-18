@@ -37,3 +37,11 @@ export type FuturePhotoStateType = {
     error: string | null;
 }
 //---------------------------------------------------------------
+export type FeedbackPostType = {
+  data: {
+    username: string;
+    city: string;
+    location: string;
+    text: string;
+  };
+};

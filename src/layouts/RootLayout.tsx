@@ -9,7 +9,8 @@ import { useAppSelector } from "store/hooks";
 
 export default function RootLayout() {
   const authInfo = useAppSelector((state) => state.auth.overlay);
-  const orderPhotosession = useAppSelector((state) => state.orderPhotosessionModal.overlay)
+  const orderPhotosession = useAppSelector((state) => state.orderPhotosessionModal.overlay);
+  const feedback = useAppSelector((state) => state.feedbackModal.overlay)
  
   return (
 <>
@@ -19,7 +20,7 @@ export default function RootLayout() {
          <Outlet />
       </main>
       <Footer />
-      <div className={authInfo || orderPhotosession ? "root-layout__overlay" : ""}></div>
+      <div className={authInfo || orderPhotosession || feedback ? "root-layout__overlay" : ""}></div>
     </div>
 </>
   );

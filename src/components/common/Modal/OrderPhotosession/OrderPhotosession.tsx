@@ -2,7 +2,7 @@ import "./OrderPhotosession.scss";
 import Title from "components/ui/forms/Title";
 import Close from "@img/cross.svg";
 import { useAppDispatch } from "store/hooks";
-import { setOrderphoto } from "store/slices/modals/orderPhotosessionSlice";
+import { setOrderphoto } from "store/slices/modals/orderPhotosession/orderPhotosessionSlice";
 import OrderPhotoForm from "./OrderPhotoForm";
 
 const OrderPhotosession = () => {
