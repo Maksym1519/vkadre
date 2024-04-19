@@ -30,27 +30,33 @@
     width: 592px;
     height: 554px;
     animation: expressPhoto infinite alternate;
-    animation-duration: 8s;
+    animation-duration: 4s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
   }
 
   @keyframes expressPhoto {
     0% {
-      transform: translateX(50%) translateY(50%);
+      transform: translateX(0%) translateY(0%);
     }
     25% {
-      transform: translateX(-50%);
+      transform: translateX(-30%);
     }
     50% {
-      transform: translateX(0%) translateY(0%); 
+      transform: translateX(0%) translateY(0%);
     }
     75% {
-      transform: translateX(-50%) translateY(-50%); 
+      transform: translateX(20%) translateY(20%);
     }
     100% {
-      transform: translateX(25%) translateY(25%); 
+      transform: translateX(-10%) translateY(-10%);
     }
+  }
+
+  &__button {
+    width: 130px;
+    align-self: flex-end;
+    margin-top: 35px;
   }
 }
 
@@ -79,7 +85,8 @@
     border-bottom: 2px solid var(--colorLine);
   }
 
-  &__column-text, &__column-text_passive {
+  &__column-text,
+  &__column-text_passive {
     color: var(--black);
     font-weight: 500;
     line-height: 1.4;
@@ -87,7 +94,7 @@
   }
 
   &__column-text_passive {
-   color: var(--textColorLight)
+    color: var(--textColorLight);
   }
 }
 
@@ -123,7 +130,7 @@
     flex-wrap: wrap;
     column-gap: 16px;
     row-gap: 19px;
-    }
+  }
 
   &__option,
   &__option_active,
@@ -134,7 +141,7 @@
     cursor: pointer;
     padding: 6px;
     transition: all 0.2s ease-in;
-    }
+  }
 
   &__option_active {
     background: var(--black);
@@ -237,7 +244,8 @@
     margin-bottom: 16px;
   }
 
-  &__row-title, &__row-value {
+  &__row-title,
+  &__row-value {
     font-weight: 600;
     line-height: 1.4;
     text-transform: uppercase;
@@ -245,5 +253,42 @@
 
   &__row-value {
     font-weight: 700;
+  }
+}
+
+.express-requisites {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  &__row_gap {
+    column-gap: 24px;
+    margin-top: 10px;
+  }
+
+  &__row-location {
+    margin-right: 10px;
+  }
+
+  &__row-text {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    text-transform: capitalize;
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
   }
 }
