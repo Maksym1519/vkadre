@@ -3,10 +3,12 @@ import { useAppSelector } from "store/hooks";
 import SubTitle from "components/ui/forms/SubTitle";
 import location from "@img/locationIcon.svg";
 import calendar from "@img/calendar.svg";
-import clock from "@img/clock.svg"
+import clock from "@img/clock.svg";
 
 const ExpressRequisites = () => {
-    const selectedTime = useAppSelector((state) => state.expressPhoto.data.time)
+  const selectedTime = useAppSelector((state) => state.expressPhoto.data.time);
+ 
+   
   return (
     <div className="express-requisites">
       <div className="express-requisites__title">
@@ -23,12 +25,14 @@ const ExpressRequisites = () => {
       </div>
       <div className="express-requisites__row express-requisites__row_gap">
         <div className="express-requisites__date ">
-            <img src={calendar} alt="calendar" />
-            <p className="express-requisites__row-text">22.04.2024</p>
+          <img src={calendar} alt="calendar" />
+          <p className="express-requisites__row-text">22.04.2024</p>
         </div>
         <div className="express-requisites__date">
-        <img src={clock} alt="calendar" />
-        <p className="express-requisites__row-text">{selectedTime ? selectedTime : "01.01.2024"}</p>
+          <img src={clock} alt="calendar" />
+          <p className="express-requisites__row-text">
+            {selectedTime !=="" ? selectedTime : "12:00"}
+          </p>
         </div>
       </div>
     </div>

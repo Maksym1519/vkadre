@@ -292,3 +292,37 @@
     column-gap: 4px;
   }
 }
+
+.express-form {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--colorLine);
+  border-left: 1px solid var(--colorLine);
+  padding: 0 75px 0 67px;
+
+  .MuiInputBase-input {
+    padding-left: 37px !important;
+    }
+ .css-1eed5fa-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error) {
+    border-bottom-color: 1px solid var(--white) !important;
+  }
+  }
+
+.express-summary {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  background: var(--white);
+  border: 1px solid var(--colorLine);
+
+  &__certificate {
+    display: grid;
+    grid-template-columns: minmax(205px, 205px) minmax(120px, 120px);
+    column-gap: 19px;
+    align-items: flex-end;
+  }
+
+  &__button *{
+    max-height: 38px;
+  }
+}
