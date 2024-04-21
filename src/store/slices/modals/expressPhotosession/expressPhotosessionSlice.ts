@@ -4,11 +4,18 @@ import { ExpressPhotoType } from "types/expressPhoto/expressPhotoType";
 const initialState: ExpressPhotoType = {
   data: {
     time: "",
+    date: "",
     length: "",
     origin: false,
     sum: "",
+    username: "",
+    phone: "",
+    email: "",
+    userId: "",
+    certificate: ""
   },
   page: 1,
+  handleSubmit: null
 };
 
 const expressPhotoSlice = createSlice({
@@ -30,6 +37,9 @@ const expressPhotoSlice = createSlice({
     setPage: (state, action) => {
       state.page = action.payload;
     },
+    setHandleSubmit: (state, action) => {
+      state.handleSubmit = action.payload
+    }
   },
 });
 export const {
@@ -38,5 +48,6 @@ export const {
   setExpressPhotoOrigin,
   setExpressPhotoSum,
   setPage,
+  setHandleSubmit
 } = expressPhotoSlice.actions;
 export default expressPhotoSlice.reducer;

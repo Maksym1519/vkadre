@@ -53,10 +53,26 @@
     }
   }
 
-  &__button {
+  &__button-next {
     width: 130px;
     align-self: flex-end;
     margin-top: 35px;
+  }
+
+  &__button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 83px;
+  }
+
+  &__button-back {
+    width: 200px;
+  }
+
+  &__button-order {
+    width: 366px;
+    align-self: flex-end;
   }
 }
 
@@ -220,6 +236,15 @@
     line-height: 1.6;
   }
 
+  &__text_underline {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &__text_underline:hover {
+    transform: scale(103%);
+    }
+
   &__text_light {
     color: var(--menuItem);
     margin-left: 4px;
@@ -302,11 +327,14 @@
 
   .MuiInputBase-input {
     padding-left: 37px !important;
-    }
- .css-1eed5fa-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error) {
+  }
+  .css-1eed5fa-MuiInputBase-root-MuiInput-root:hover:not(
+      .Mui-disabled,
+      .Mui-error
+    ) {
     border-bottom-color: 1px solid var(--white) !important;
   }
-  }
+}
 
 .express-summary {
   display: flex;
@@ -322,7 +350,29 @@
     align-items: flex-end;
   }
 
-  &__button *{
+  &__button * {
     max-height: 38px;
+  }
+
+  &__sum {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    flex-wrap: nowrap;
+    margin-top: 40px;
+  }
+
+  &__sum-text {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-right: 5px;
+  }
+
+  &__sum-numbers {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-transform: uppercase;
   }
 }

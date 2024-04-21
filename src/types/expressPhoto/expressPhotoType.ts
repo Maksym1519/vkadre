@@ -1,6 +1,7 @@
 export type ExpressPhotoType = {
     data: {
         time: string,
+        date: string,
         length: string,
         origin: boolean,
         sum: string,
@@ -10,5 +11,6 @@ export type ExpressPhotoType = {
         userId: string,
         certificate: string
     },
-    page: number
+    page: number,
+    handleSubmit: any
 }
