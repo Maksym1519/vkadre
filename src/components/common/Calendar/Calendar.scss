@@ -12,7 +12,8 @@
   justify-content: space-between;
   margin-bottom: 60px;
 
-  &__title, &__date {
+  &__title,
+  &__date {
     display: flex;
     align-items: center;
     column-gap: 16px;
@@ -22,50 +23,91 @@
     font-size: 2rem;
     line-height: 1.4;
     text-transform: uppercase;
-    }
+  }
 
-    &__date_light {
-        color: var(--menuItem)
-    }
+  &__date_light {
+    color: var(--menuItem);
+  }
 
-    &__arrows {
-        display: flex;
-        align-items: center;
-        column-gap: 16px;
-    }
+  &__arrows {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+    position: relative;
+  }
 
-    &__arrows img {
-        cursor: pointer;
-    }
+  &__arrows img {
+    cursor: pointer;
+  }
 
-    &__arrows_disabled {
-        transform: rotate(180deg);
-    }
+  &__arrows_disabled {
+    transform: rotate(180deg);
+  }
 }
 
 .calendar-header-period {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+
+  &__item,
+  &__item_passive {
+    font-weight: 600;
+    line-height: 1.4;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__item_passive {
+    color: var(--menuItem);
+  }
+
+  &__icones {
+    display: flex;
+    column-gap: 16px;
+  }
+
+  &__icones img {
+    cursor: pointer;
+  }
+}
+
+.calendar-days {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 45px 40px;
+  border: 1px solid var(--colorLine);
+  max-width: 607px;
+}
+
+.days-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  &__location {
     display: flex;
     align-items: center;
-    column-gap: 30px;
-
-    &__item,
-    &__item_passive {
-      font-weight: 600;
-      line-height: 1.4;
-      text-transform: uppercase;
-      cursor: pointer;
-    }
-
-    &__item_passive {
-      color: var(--menuItem);
-    }
-
-    &__icones {
-      display: flex;
-      column-gap: 16px;
-    }
-
-    &__icones img {
-      cursor: pointer;
-    }
+    column-gap: 8px;
   }
+
+  &__city {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+  }
+}
+
+.calendar-days-grid {
+ display: grid;
+ grid-template-columns: repeat(3,minmax(152px, auto)); 
+ column-gap: 32px;
+
+ &__header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+ }
+}
