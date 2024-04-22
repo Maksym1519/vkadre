@@ -11,6 +11,8 @@ const ExpressSummary = (props: any) => {
 
   //--------------------------------------------------------
   const [checked, setChecked] = useState<boolean>(false);
+  const [clicked, setClicked] = useState<boolean>(false);
+
   return (
     <div className="express-summary">
          <div className="express-summary__certificate">
@@ -27,8 +29,8 @@ const ExpressSummary = (props: any) => {
             error={!!props.errors.data?.certificate}
             helperText={props.errors.data?.certificate?.message}
           />
-          <div className="express-summary__button">
-            <Button text="Применить" />
+          <div className="express-summary__button" onClick={() => setClicked(!clicked)}>
+            <Button text="Применить" clicked={clicked}/>
           </div>
         </div>
 

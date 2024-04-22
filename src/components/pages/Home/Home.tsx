@@ -2,6 +2,7 @@ import "./Home.scss";
 import HomeOrderPhotosession from "./HomeOrderPhotosession/HomeOrderPhotosession";
 import AboutProject from "./AboutProject/AboutProject";
 import OurWorks from "./OurWorks/OurWorks";
+import Calendar from "components/common/Calendar/Calendar";
 import MainServices from "./MainServices/MainSeervices";
 import MainLocations from "./MainLocations/MainLocations";
 import MainOurTeam from "./MainOurTeam/MainOurTeam";
@@ -21,6 +22,7 @@ const Home = () => {
       <HomeOrderPhotosession />
       <AboutProject />
       <OurWorks />
+      <Calendar />
       <MainServices />
       <MainLocations title=""/>
       <MainOurTeam />

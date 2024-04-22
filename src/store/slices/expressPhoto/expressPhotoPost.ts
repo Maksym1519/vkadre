@@ -7,7 +7,7 @@ export const expressPhotoPost = () => {
   //submit-data-------------------------------------------
   const onSubmit = async (data: ExpressPhotoType) => {
     const fetchUser = data;
-    console.log(fetchUser);
+    
     try {
       const response = await axios.post<ExpressPhotoType>(
         "https://vkadrestrapi.onrender.com/api/photosessions",

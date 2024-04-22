@@ -11,6 +11,8 @@ import ExpressPayment from "./step2/ExpressPayment";
 import { useAppSelector, useAppDispatch } from "store/hooks";
 import { useEffect } from "react";
 import { setPage } from "store/slices/modals/expressPhotosession/expressPhotosessionSlice";
+import { useMatchMedia } from "hooks/use-match-media";
+import { ToastContainer } from "react-toastify";
 import blur from "@img/blur.webp";
 
 const ExpressPhotosession = () => {
@@ -22,8 +24,12 @@ const ExpressPhotosession = () => {
 
   //useForm-------------------------------------------------
   const form = useForm<ExpressPhotoType>({});
-  const { register, handleSubmit, formState } = form;
+  const { register, handleSubmit, formState, reset } = form;
   const { errors } = formState;
+
+  useEffect(() => {
+    reset();
+  }, []);
 
   //curent-data-----------------------------------
   const currentDate = new Date();
@@ -40,9 +46,12 @@ const ExpressPhotosession = () => {
     if (userId) {
       form.setValue("data.userId", userId.id);
       form.setValue("data.sum", totalSum);
-      form.setValue("data.date", formatedDate)
+      form.setValue("data.date", formatedDate);
     }
   }, [userId, form]);
+
+  //useMatchMedia---------------------------------------------
+  const screenWidth = useMatchMedia();
 
   return (
     <form onSubmit={handleSubmit(expressPhotoPost())}>
@@ -81,10 +90,10 @@ const ExpressPhotosession = () => {
                 className="express-photosession__button-back"
                 onClick={() => dispatch(setPage(1))}
               >
-                <Button text="Вернуться назад" />
+                <Button text={!screenWidth.isMobile ? "Вернуться назад" : "Назад"} />
               </div>
               <div className="express-photosession__button-order">
-                <Button text="Заказать Экспресс-фотосессию" type="submit" />
+                <Button text={!screenWidth.isMobile ? "Заказать Экспресс-фотосессию" : "Заказать"} type="submit" />
               </div>
             </div>
           )}
@@ -92,7 +101,7 @@ const ExpressPhotosession = () => {
           <img src={blur} alt="blur" className="express-photosession__blur" />
         </div>
       </div>
-      <button type="submit">send</button>
+      <ToastContainer />
     </form>
   );
 };

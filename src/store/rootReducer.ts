@@ -23,6 +23,7 @@ import orderPhotosessionModalReducer from "./slices/modals/orderPhotosession/ord
 import futurePhotosessionReducer from "./slices/modals/orderPhotosession/futurePhotosessionSlice";
 import feedbackModalReducer from "./slices/modals/feedback/feedbackModalSlice";
 import expressPhotosessionReducer from "./slices/modals/expressPhotosession/expressPhotosessionSlice";
+import calendarReducer from "./slices/calendar/calendarSlice";
 
 
 const rootReducer = combineReducers({
@@ -49,7 +50,8 @@ const rootReducer = combineReducers({
    orderPhotosessionModal: orderPhotosessionModalReducer,
    futurePhotosession: futurePhotosessionReducer,
    feedbackModal: feedbackModalReducer,
-   expressPhoto: expressPhotosessionReducer
+   expressPhoto: expressPhotosessionReducer,
+   calendar: calendarReducer
  });
 
 export default rootReducer;

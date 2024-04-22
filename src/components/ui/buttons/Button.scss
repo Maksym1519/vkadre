@@ -2,7 +2,7 @@
 @import "@vars/variables.scss";
 @import "@mixins/mediaBreakpoints.scss";
 
-.button {
+.button, .button-clicked {
   width: 100%;
   min-height: 52px;
   display: flex;
@@ -21,6 +21,11 @@
 
 .button:hover {
   border: 1px solid transparent;
+}
+
+.button-clicked {
+  background: var(--black);
+  color: var(--white);
 }
 
 @mixin tablet() {

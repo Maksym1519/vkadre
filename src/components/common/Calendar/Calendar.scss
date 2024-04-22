@@ -1,0 +1,71 @@
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+@import "@vars/colors.scss";
+
+.calendar {
+  padding: 80px 0;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+
+  &__title, &__date {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+  }
+
+  &__date {
+    font-size: 2rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    }
+
+    &__date_light {
+        color: var(--menuItem)
+    }
+
+    &__arrows {
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+    }
+
+    &__arrows img {
+        cursor: pointer;
+    }
+
+    &__arrows_disabled {
+        transform: rotate(180deg);
+    }
+}
+
+.calendar-header-period {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+
+    &__item,
+    &__item_passive {
+      font-weight: 600;
+      line-height: 1.4;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    &__item_passive {
+      color: var(--menuItem);
+    }
+
+    &__icones {
+      display: flex;
+      column-gap: 16px;
+    }
+
+    &__icones img {
+      cursor: pointer;
+    }
+  }

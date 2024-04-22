@@ -3,7 +3,7 @@
 @import "@mixins/mediaBreakpoints.scss";
 
 .main-services {
-  margin-top: 212px;
+  //margin-top: 212px;
   padding: 100px 0;
   border-bottom: 1px solid var(--colorLine);
   border-top: 1px solid var(--colorLine);
@@ -182,7 +182,7 @@
 
 @include mobile {
   .main-services {
-    margin-top: 152px;
+    //margin-top: 152px;
     padding: 40px 0;
     border-bottom: 1px solid var(--colorLine);
     border-top: 1px solid var(--colorLine);

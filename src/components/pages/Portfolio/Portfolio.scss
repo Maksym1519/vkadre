@@ -5,8 +5,9 @@
 .portfolio {
   display: flex;
   flex-direction: column;
-  padding: 68px 0 88px;
+  padding: 68px 0 150px;
   position: relative;
+  border-bottom: 1px solid var(--colorLine);
  
   &__subtitle {
     color: var(--textColor);
