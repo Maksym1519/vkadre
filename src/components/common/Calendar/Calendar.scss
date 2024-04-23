@@ -101,7 +101,7 @@
   }
 }
 
-.calendar-days-grid {
+.calendar-days-column {
   display: grid;
   grid-template-columns: repeat(3, minmax(152px, auto));
   column-gap: 32px;
@@ -119,11 +119,12 @@
     border-top: 2px solid var(--textColor);
   }
 
-  &__column {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(152px, auto));
-    column-gap: 32px;
-  }
+  
+  // &__column {
+  //   display: grid;
+  //   grid-template-columns: repeat(3, minmax(152px, auto));
+  //   column-gap: 32px;
+  // }
 
   &__header-date {
     font-size: 1.5rem;
@@ -183,7 +184,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 4px;
-
+  
   &__place,
   &__date,
   &__length {
@@ -200,8 +201,13 @@
   &__length {
     margin-top: -10px;
   }
+
+  &:first-of-type {
+    margin-top: 32px; 
+  }
 }
 
 .calendar-info:not(:last-child) {
   margin-bottom: 12px;
 }
+

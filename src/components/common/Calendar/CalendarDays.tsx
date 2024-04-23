@@ -51,7 +51,6 @@ const CalendarDays = () => {
   const photosessionInfo = useAppSelector(
     (state) => state.futurePhotosession.futurePhotosession
   );
-  console.log(photosessionInfo);
 
   return (
     <div className="calendar-days">
@@ -59,32 +58,51 @@ const CalendarDays = () => {
         handleNextPeriod={handleNextPeriod}
         handlePrevPeriod={handlePrevPeriod}
       />
+
       {dates.slice(periodIndex, periodIndex + 1).map((dayObj, index) => (
-        <div className="calendar-days-grid">
-          <div className={"calendar-days-grid__column"} key={index}>
-            {Object.entries(dayObj).map(([date, day], idx) => (
-              <div
-                className={`calendar-days-grid__header ${
-                  periodIndex === idx ? "calendar-days-grid__header_active" : ""
-                }`}
-              >
-                <p className="calendar-days-grid__header-date">{date}</p>
-                <p className="calendar-days-grid__header-day">{day}</p>
-              </div>
-            ))}
-            <>
-              {photosessionInfo?.map((item, index) => (
-                <CalendarInfo
-                  key={index}
-                  place={"Парк Шевченко"}
-                  date={item.attributes.date}
-                  length={item.attributes.length}
-                />
-              ))}
-            </>
+          <div className={"calendar-days-column"} key={index}>
+            {Object.entries(dayObj).map(([date, day], idx) => {
+              // Извлекаем числовую дату из ключа объекта dates
+              const dayNumber = parseInt(date.split(" ")[0], 10);
+
+              // Фильтруем элементы photosessionInfo, которые имеют совпадающую дату
+              const matchingPhotosessions =
+                photosessionInfo &&
+                photosessionInfo.filter((item) => {
+                  // Извлекаем числовую дату из item.attributes.date
+                  const photoDayNumber = parseInt(
+                    item.attributes.date.split(".")[0],
+                    10
+                  );
+                  // Сравниваем числовые даты
+                  return photoDayNumber === dayNumber;
+                });
+
+              return (
+                <div
+                  className={`calendar-days-column__header ${
+                    periodIndex === idx
+                      ? "calendar-days-column__header_active"
+                      : ""
+                  }`}
+                >
+                  <p className="calendar-days-column__header-date">{date}</p>
+                  <p className="calendar-days-column__header-day">{day}</p>
+                  {/* Вывод информации о фотосессиях для совпадающих дат */}
+                  {matchingPhotosessions &&
+                    matchingPhotosessions.map((item, index) => (
+                      <CalendarInfo
+                        key={index}
+                        place={"Парк Шевченко"}
+                        date={item.attributes.date}
+                        length={item.attributes.length}
+                      />
+                    ))}
+                </div>
+              );
+            })}
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };
