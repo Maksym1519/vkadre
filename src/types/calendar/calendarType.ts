@@ -1,3 +1,4 @@
 export type CalendarType = {
-    period: number
+    period: number,
+    weekIndex: number
 }

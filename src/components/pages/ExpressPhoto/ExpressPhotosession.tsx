@@ -36,10 +36,11 @@ const ExpressPhotosession = () => {
   const day = currentDate.getDate();
   const month = currentDate.getMonth() + 1;
   const fullYear = currentDate.getFullYear();
-  const formatedDate = `${day}.${month}.${fullYear}`;
+  const formatedDate = `${day}.${"0" + month}.${fullYear}`;
 
   //get-userId-local-storage---------------------------
   const totalSum = useAppSelector((state) => state.expressPhoto.data.sum);
+  const photoLength = useAppSelector((state) => state.expressPhoto.data.length);
   const userId = userData();
 
   useEffect(() => {
@@ -47,6 +48,7 @@ const ExpressPhotosession = () => {
       form.setValue("data.userId", userId.id);
       form.setValue("data.sum", totalSum);
       form.setValue("data.date", formatedDate);
+      form.setValue("data.length", photoLength);
     }
   }, [userId, form]);
 

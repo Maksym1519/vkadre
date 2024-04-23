@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { setPeriod } from "store/slices/calendar/calendarSlice";
+import { setWeek } from "store/slices/calendar/calendarSlice";
 import "./Calendar.scss";
 import Title from "components/ui/forms/Title";
 import { useMatchMedia } from "hooks/use-match-media";
@@ -34,6 +35,7 @@ const CalendarHeader = () => {
   const handleNextWeek = () => {
     if (weekIndex < week1.length - 1) {
       setWeekIndex(weekIndex + 1);
+      dispatch(setWeek(weekIndex + 1));
     } else {
       return;
     }
@@ -42,6 +44,7 @@ const CalendarHeader = () => {
   const handlePrevWeek = () => {
     if (weekIndex > 0) {
       setWeekIndex(weekIndex - 1);
+      dispatch(setWeek(weekIndex - 1));
     } else {
       return;
     }
@@ -54,42 +57,7 @@ const CalendarHeader = () => {
     "22-28 апреля",
   ];
 
-  const dateWeek1: Array<string> = [
-    "01 апреля",
-    "02 апреля",
-    "03 апреля",
-    "04 апреля",
-    "05 апреля",
-    "06 апреля",
-    "07 апреля",
-  ];
-  const dateWeek2: Array<string> = [
-    "08 апреля",
-    "09 апреля",
-    "10 апреля",
-    "11 апреля",
-    "12 апреля",
-    "13 апреля",
-    "14 апреля",
-  ];
-  const dateWeek3: Array<string> = [
-    "15 апреля",
-    "16 апреля",
-    "17 апреля",
-    "18 апреля",
-    "19 апреля",
-    "20 апреля",
-    "21 апреля",
-  ];
-  const dateWeek4: Array<string> = [
-    "22 апреля",
-    "23 апреля",
-    "24 апреля",
-    "25 апреля",
-    "26 апреля",
-    "27 апреля",
-    "28 апреля",
-  ];
+  const month: Array<string> = ["апрель", "май", "июнь", "июль"];
 
   return (
     <div className="calendar-header">
@@ -100,7 +68,7 @@ const CalendarHeader = () => {
             на
             {
               <div className="calendar-header__date_light">
-                {week1[weekIndex]}
+                {periodIndex === 1 && week1[weekIndex] || periodIndex === 2 && month[weekIndex]}
               </div>
             }
           </div>

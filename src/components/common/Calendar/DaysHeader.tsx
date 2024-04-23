@@ -4,7 +4,12 @@ import location from "@img/location.svg";
 import arrowLeft from "@img/calendarArrowLeft.svg";
 import arrowRight from "@img/calendarArrowRight.svg";
 
-const DaysHeader = () => {
+interface CalendarDaysProps {
+  handleNextPeriod: () => void;
+  handlePrevPeriod: () => void;
+}
+
+const DaysHeader: React.FC<CalendarDaysProps> = ({ handleNextPeriod, handlePrevPeriod }) => {
   //----------------------------------------------------------
   const week1: Array<string> = [
     "1","2","3"
@@ -35,13 +40,13 @@ const DaysHeader = () => {
         <img
           src={periodIndex === 0 ? arrowLeft : arrowRight}
           alt="arrow"
-          onClick={() => handlePrevWeek()}
+          onClick={() => {handlePrevWeek();handlePrevPeriod()}}
           className={periodIndex === 0 ? "" : "calendar-header__arrows_disabled"}
         />
         <img
           src={periodIndex === week1.length - 1 ? arrowLeft : arrowRight}
           alt="arrow"
-          onClick={() => handleNextWeek()}
+          onClick={() => {handleNextWeek();handleNextPeriod()}}
           className={
             periodIndex === week1.length - 1
               ? "calendar-header__arrows_disabled"
