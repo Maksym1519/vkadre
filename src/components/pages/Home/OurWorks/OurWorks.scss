@@ -60,3 +60,15 @@
       }
     }
 }
+
+@include mobile {
+  .our-works {
+    padding: 40px 0 60px;
+    border-top: 1px solid var(--colorLine);
+    border-bottom: 1px solid var(--colorLine);
+
+    &__title {
+      margin: 0;
+    }
+  }
+}

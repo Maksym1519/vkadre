@@ -4,6 +4,7 @@ import { setPeriod } from "store/slices/calendar/calendarSlice";
 import { setWeek } from "store/slices/calendar/calendarSlice";
 import "./Calendar.scss";
 import Title from "components/ui/forms/Title";
+import CalendarCity from "./CalendarCity";
 import { useMatchMedia } from "hooks/use-match-media";
 import calendarLight from "@img/calendarLight.svg";
 import listLight from "@img/listLight.svg";
@@ -68,11 +69,13 @@ const CalendarHeader = () => {
             на
             {
               <div className="calendar-header__date_light">
-                {periodIndex === 1 && week1[weekIndex] || periodIndex === 2 && month[weekIndex]}
+                {(periodIndex === 1 && week1[weekIndex]) ||
+                  (periodIndex === 2 && month[weekIndex])}
               </div>
             }
           </div>
         )}
+
         {periodIndex !== 0 && (
           <div className="calendar-header__arrows">
             <img
@@ -95,7 +98,10 @@ const CalendarHeader = () => {
             />
           </div>
         )}
+         <CalendarCity />
       </div>
+
+     
 
       {!screenWidth.isMobile && (
         <div className="calendar-header-period">
@@ -114,6 +120,7 @@ const CalendarHeader = () => {
           ))}
         </div>
       )}
+
       {screenWidth.isMobile && (
         <div className="calendar-header-period__icones">
           <img src={listLight} alt="list" />

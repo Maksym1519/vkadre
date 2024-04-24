@@ -60,49 +60,46 @@ const CalendarDays = () => {
       />
 
       {dates.slice(periodIndex, periodIndex + 1).map((dayObj, index) => (
-          <div className={"calendar-days-column"} key={index}>
-            {Object.entries(dayObj).map(([date, day], idx) => {
-              // Извлекаем числовую дату из ключа объекта dates
-              const dayNumber = parseInt(date.split(" ")[0], 10);
+        <div className={"calendar-days-column"} key={index}>
+          {Object.entries(dayObj).map(([date, day], idx) => {
+            const dayNumber = parseInt(date.split(" ")[0], 10);
 
-              // Фильтруем элементы photosessionInfo, которые имеют совпадающую дату
-              const matchingPhotosessions =
-                photosessionInfo &&
-                photosessionInfo.filter((item) => {
-                  // Извлекаем числовую дату из item.attributes.date
-                  const photoDayNumber = parseInt(
-                    item.attributes.date.split(".")[0],
-                    10
-                  );
-                  // Сравниваем числовые даты
-                  return photoDayNumber === dayNumber;
-                });
+            const matchingPhotosessions =
+              photosessionInfo &&
+              photosessionInfo.filter((item) => {
+                const photoDayNumber = parseInt(
+                  item.attributes.date.split(".")[0],
+                  10
+                );
+                return photoDayNumber === dayNumber;
+              });
 
-              return (
-                <div
-                  className={`calendar-days-column__header ${
-                    periodIndex === idx
-                      ? "calendar-days-column__header_active"
-                      : ""
-                  }`}
-                >
-                  <p className="calendar-days-column__header-date">{date}</p>
-                  <p className="calendar-days-column__header-day">{day}</p>
-                  {/* Вывод информации о фотосессиях для совпадающих дат */}
-                  {matchingPhotosessions &&
-                    matchingPhotosessions.map((item, index) => (
-                      <CalendarInfo
-                        key={index}
-                        place={"Парк Шевченко"}
-                        date={item.attributes.date}
-                        length={item.attributes.length}
-                      />
-                    ))}
-                </div>
-              );
-            })}
-          </div>
-        ))}
+            return (
+              <div
+                key={idx}
+                className={`calendar-days-column__header ${
+                  periodIndex === idx
+                    ? "calendar-days-column__header_active"
+                    : ""
+                }`}
+              >
+                <p className="calendar-days-column__header-date">{date}</p>
+                <p className="calendar-days-column__header-day">{day}</p>
+
+                {matchingPhotosessions &&
+                  matchingPhotosessions.map((item, index) => (
+                    <CalendarInfo
+                      key={index}
+                      place={"Парк Шевченко"}
+                      date={item.attributes.date}
+                      length={item.attributes.length}
+                    />
+                  ))}
+              </div>
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 };

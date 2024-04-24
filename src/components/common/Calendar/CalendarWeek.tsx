@@ -1,6 +1,6 @@
 import "./Calendar.scss";
 import { useAppSelector } from "store/hooks";
-
+import CalendarInfo from "./CalendarInfo";
 
 const CalendarWeek = () => {
   const dates = [
@@ -43,20 +43,55 @@ const CalendarWeek = () => {
   ];
 
   //get-week-index-from-redux----------------------------------
-  const currentWeek = useAppSelector((state) => state.calendar.weekIndex)
+  const currentWeek = useAppSelector((state) => state.calendar.weekIndex);
+
+  //get-photosessionInfo--------------------------------------
+  const photosessionInfo = useAppSelector(
+    (state) => state.futurePhotosession.futurePhotosession
+  );
+
   
-    return (
+  return (
     <div className="calendar-week">
       {dates.slice(currentWeek, currentWeek + 1).map((dayObj, index) => (
-        <div className="calendar-week-grid" key={index}>
-          <div className={"calendar-week-grid__column"} >
-            {Object.entries(dayObj).map(([date, day]) => (
-              <div className="calendar-days-grid__header" key={date}>
-                <p className="calendar-days-grid__header-date">{date}</p>
-                <p className="calendar-days-grid__header-day">{day}</p>
+        <div className={"calendar-week-column"} key={index}>
+          {Object.entries(dayObj).map(([date, day], idx) => {
+            const dayNumber = parseInt(date.split(" ")[0], 10);
+
+            const matchingPhotosessions =
+              photosessionInfo &&
+              photosessionInfo.filter((item) => {
+                const photoDayNumber = parseInt(
+                  item.attributes.date.split(".")[0],
+                  10
+                );
+                return photoDayNumber === dayNumber;
+              });
+
+            return (
+              <div
+                key={idx}
+                className={`calendar-week-column__header ${
+                  currentWeek === idx
+                    ? "calendar-week-column__header_active"
+                    : ""
+                }`}
+              >
+                <p className="calendar-days-column__header-date">{date}</p>
+                <p className="calendar-days-column__header-day">{day}</p>
+
+                {matchingPhotosessions &&
+                  matchingPhotosessions.map((item, index) => (
+                    <CalendarInfo
+                      key={index}
+                      place={"Парк Шевченко"}
+                      date={item.attributes.date}
+                      length={item.attributes.length}
+                    />
+                  ))}
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       ))}
     </div>
