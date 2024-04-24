@@ -1,7 +1,9 @@
 import "./Calendar.scss";
 import { useAppSelector } from "store/hooks";
 import CalendarPopup from "./CalendarPopup";
-import { FC, useState } from "react";
+import { useState } from "react";
+import { useMatchMedia } from "hooks/use-match-media";
+import dot from "@img/dot.svg";
 
 const CalendarMonth = () => {
   const dates: Array<string> = [
@@ -57,39 +59,45 @@ const CalendarMonth = () => {
   //popup-state-------------------------------------------------
   const [calendarPopup, setCalendarPopup] = useState<boolean>(false);
   const showPopup = () => {
-    setCalendarPopup(true)
-  }
+    setCalendarPopup(true);
+  };
   const closePopup = () => {
-    setCalendarPopup(false)
-  }
+    setCalendarPopup(false);
+  };
   //----------------------------------------------------------------
   const [selectedEvents, setSelectedEvents] = useState<any[]>([]);
-  console.log(selectedEvents)
-  const handleCellClick = (date: string) => {
-      const matchingEvents = photosessionInfo && photosessionInfo.filter((event) =>
-      event.attributes.date.startsWith(`${date}.`)
-     );
 
-     if (matchingEvents && matchingEvents.length > 0) {
+  const handleCellClick = (date: string) => {
+    const matchingEvents =
+      photosessionInfo &&
+      photosessionInfo.filter((event) =>
+        event.attributes.date.startsWith(`${date}.`)
+      );
+
+    if (matchingEvents && matchingEvents.length > 0) {
       setSelectedEvents(matchingEvents);
     } else {
       setSelectedEvents([]);
     }
   };
 
+  //matchMedia------------------------------------------
+  const screenWidth = useMatchMedia();
+
   return (
     <div className="calendar-month">
-       {days.map((item, index) => (
+      {days.map((item, index) => (
         <div className="calendar-month__header" key={index}>
           {item}
         </div>
       ))}
 
-     
       {dates.map((date, index) => {
-         const matchingEvents = photosessionInfo && photosessionInfo.filter((event) =>
-          event.attributes.date.startsWith(`${date}.`)
-        );
+        const matchingEvents =
+          photosessionInfo &&
+          photosessionInfo.filter((event) =>
+            event.attributes.date.startsWith(`${date}.`)
+          );
 
         return (
           <div
@@ -99,25 +107,38 @@ const CalendarMonth = () => {
                 : "calendar-month__cell_nonactive"
             }
             key={index}
-            onClick={() => {handleCellClick(date); showPopup()}}
+            onClick={() => {
+              handleCellClick(date);
+              showPopup();
+            }}
           >
-           
             <span>{date}</span>
-            <span className="calendar-month__cell-events">
-              {matchingEvents && matchingEvents.length > 0 && `${matchingEvents.length} ${
-                matchingEvents.length === 1 ? "фотосессия" : "фотосессий"
-              }`}
-            </span>
+            {!screenWidth.isMobile && (
+              <span className="calendar-month__cell-events">
+                {matchingEvents &&
+                  matchingEvents.length > 0 &&
+                  `${matchingEvents.length} ${
+                    matchingEvents.length === 1 ? "фотосессия" : "фотосессий"
+                  }`}
+              </span>
+            )}
+
+            {screenWidth.isMobile && (
+              <div className="calendar-month__cell-dots">
+                {matchingEvents &&
+                  matchingEvents.map((_, index) => (
+                    <img key={index} src={dot} alt="dot" />
+                  ))}
+              </div>
+            )}
           </div>
         );
       })}
-      {calendarPopup && <CalendarPopup closePopup={closePopup} photoInfo={selectedEvents}/>}
-  </div>
+      {calendarPopup && (
+        <CalendarPopup closePopup={closePopup} photoInfo={selectedEvents} />
+      )}
+    </div>
   );
-     
-  
-      
-  
 };
 
 export default CalendarMonth;

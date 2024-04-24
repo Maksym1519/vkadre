@@ -373,4 +373,30 @@
       margin-top: 24px;
     }
   }
+
+  .calendar-month {
+    grid-template-columns: repeat(7, 39px);
+    grid-template-rows: repeat(7, 39px);
+
+    &__header {
+      display: none;
+    }
+
+    &__cell,
+    &__cell_nonactive {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0;
+      padding-top: 8px;
+      height: 39px;
+      margin-top: 24px;
+      font-size: 0.75rem;
+    }
+
+    &__cell-dots {
+      display: flex;
+      column-gap: 3px;
+    }
+  }
 }
