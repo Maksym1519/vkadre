@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { setPeriod } from "store/slices/calendar/calendarSlice";
 import { setWeek } from "store/slices/calendar/calendarSlice";
+import { showCalendarMobile } from "store/slices/calendar/calendarSlice";
+import { setPopup } from "store/slices/calendar/calendarSlice";
+import { setPhotosessionInfo } from "store/slices/calendar/calendarSlice";
 import "./Calendar.scss";
 import Title from "components/ui/forms/Title";
 import CalendarCity from "./CalendarCity";
@@ -60,6 +63,36 @@ const CalendarHeader = () => {
 
   const month: Array<string> = ["апрель", "май", "июнь", "июль"];
 
+  //dispatch-calendar-mobile------------------------------------
+  const calendarMobile = useAppSelector(
+    (state) => state.calendar.calendarMobile
+  );
+  const handleCalendarMobile = () => {
+    if (calendarMobile === false) {
+      dispatch(showCalendarMobile(true));
+    } else {
+      dispatch(showCalendarMobile(false));
+    }
+  };
+
+  //dispatch-popup-list-events----------------------------------------
+  const popupList = useAppSelector((state) => state.calendar.popup);
+  const handlePopupList = () => {
+    if (popupList === false) {
+      dispatch(setPopup(true));
+    } else {
+      dispatch(setPopup(false));
+    }
+  };
+
+  //----------------------------------------------------------------
+  const photosessionInfo = useAppSelector(
+    (state) => state.futurePhotosession.futurePhotosession
+  );
+  useEffect(() => {
+    dispatch(setPhotosessionInfo(photosessionInfo));
+  }, []);
+
   return (
     <div className="calendar-header">
       <div className="calendar-header__title">
@@ -98,10 +131,8 @@ const CalendarHeader = () => {
             />
           </div>
         )}
-         <CalendarCity />
+        <CalendarCity />
       </div>
-
-     
 
       {!screenWidth.isMobile && (
         <div className="calendar-header-period">
@@ -123,8 +154,19 @@ const CalendarHeader = () => {
 
       {screenWidth.isMobile && (
         <div className="calendar-header-period__icones">
-          <img src={listLight} alt="list" />
-          <img src={calendarLight} alt="calendar" />
+          <img
+            src={popupList ? listDark : listLight}
+            alt="list"
+            onClick={() => {
+              handlePopupList();
+              dispatch(setPhotosessionInfo(photosessionInfo));
+            }}
+          />
+          <img
+            src={calendarMobile ? calendarDark : calendarLight}
+            alt="calendar"
+            onClick={handleCalendarMobile}
+          />
         </div>
       )}
     </div>

@@ -1,10 +1,12 @@
 import "./Header.scss";
-import { useState } from "react";
-import { useAppDispatch } from "../../../store/hooks";
+import { useState, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { getBurgerInfo } from "../../../store/slices/headerSlice";
 
 const Burger = () => {
 const dispatch = useAppDispatch();
+
+const burgerRedux = useAppSelector((state) => state.header.burger)
 
 const [stateBurger, setStateBurger] = useState(false);
 const clickBurger = () => {
@@ -12,6 +14,9 @@ setStateBurger(!stateBurger)
 dispatch(getBurgerInfo(!stateBurger))
 }
 
+useEffect(() => {
+setStateBurger(burgerRedux)
+},[burgerRedux])
 
 
 

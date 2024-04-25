@@ -1,6 +1,8 @@
 import "./Header.scss";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import { useAppSelector } from "../../../store/hooks";
+import { useAppSelector, useAppDispatch } from "../../../store/hooks";
+import { getBurgerInfo } from "store/slices/headerSlice";
 import arrow from "@img/mobileMenuArrow.svg";
 import Profile from "./Profile";
 
@@ -18,6 +20,12 @@ const MobileMenu = () => {
   const contactsString =
     reduxData && reduxData[0].attributes.contact.split(",");
 
+    const dispatch = useAppDispatch()
+    const clickBurger = () => {
+       dispatch(getBurgerInfo(false))
+      }
+      
+
   return (
     <>
       {mobileMenuState && (
@@ -26,55 +34,55 @@ const MobileMenu = () => {
          <Profile />
             <div
               className="navigation-mobile__item"
-              onClick={() => clickActiveIndex(0)}
+              onClick={() => {clickActiveIndex(0); clickBurger()}}
             >
               {activeIndex === 0 && <img src={arrow}></img>}
-              <a href="#" className="navigation-mobile__link">
+              <NavLink to="/" className="navigation-mobile__link">
                 Главная
-              </a>
+              </NavLink>
             </div>
 
             <div
               className="navigation-mobile__item"
-              onClick={() => clickActiveIndex(1)}
+              onClick={() => {clickActiveIndex(1); clickBurger()}}
             >
               {activeIndex === 1 && <img src={arrow}></img>}
-              <a href="#" className="navigation-mobile__link">
+              <NavLink to="/Portfolio" className="navigation-mobile__link">
                 {navigationString && navigationString[0]}
-              </a>
+              </NavLink>
             </div>
 
             <div
               className="navigation-mobile__item"
-              onClick={() => clickActiveIndex(2)}
+              onClick={() => {clickActiveIndex(2); clickBurger()}}
             >
               {activeIndex === 2 && <img src={arrow}></img>}
-              <a href="#" className="navigation-mobile__link">
+              <NavLink to="/Services" className="navigation-mobile__link">
                 {navigationString && navigationString[1]}
-              </a>
+              </NavLink>
             </div>
 
             <div
               className="navigation-mobile__item"
-              onClick={() => clickActiveIndex(3)}
+              onClick={() => {clickActiveIndex(3); clickBurger()}}
             >
               {activeIndex === 3 && <img src={arrow}></img>}
-              <a href="#" className="navigation-mobile__link">
+              <NavLink to="/Locations" className="navigation-mobile__link">
                 {navigationString && navigationString[2]}
-              </a>
+              </NavLink>
             </div>
           </nav>
 
           <div className="mobile-menu-contacts">
-            <a href="#" className="mobile-menu-contacts__link">
+            <p className="mobile-menu-contacts__link">
               {contactsString && contactsString[0]}
-            </a>
-            <a href="#" className="mobile-menu-contacts__link">
+            </p>
+            <p className="mobile-menu-contacts__link">
               FB.com/vkadre
-            </a>
-            <a href="#" className="mobile-menu-contacts__link">
+            </p>
+            <p className="mobile-menu-contacts__link">
               {contactsString && contactsString[2]}
-            </a>
+            </p>
           </div>
         </div>
       )}

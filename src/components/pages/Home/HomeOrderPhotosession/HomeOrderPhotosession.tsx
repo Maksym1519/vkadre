@@ -5,6 +5,7 @@ import HomeOrderSlider from "./HomeOrderSlider";
 import { orderPhotosessionInfo } from "store/slices/main/orderPhotosessionSlice";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "store/hooks";
+import { useMatchMedia } from "hooks/use-match-media";
 
 const HomeOrderPhotosession = () => {
   const dispatch = useAppDispatch();
@@ -23,6 +24,9 @@ const HomeOrderPhotosession = () => {
   const sliderImages =
     reduxSliderImages &&
     reduxSliderImages[0].attributes.orderPhotosessionSlider.data;
+
+  //matchmedia---------------------------------------------
+  const screenWidth = useMatchMedia();
 
   return (
     <div className="home-order">
@@ -58,12 +62,19 @@ const HomeOrderPhotosession = () => {
           </div>
         </div>
 
-        <NavLink to={"/ExpressPhoto"}>
+        <NavLink to={"/ExpressPhoto"} style={{ order: 4 }}>
           <div className="home-order__button-wrapper">
-            <Button maxWidth="366px" text="Заказать Экспресс-фотосессию" />
+            <Button
+              maxWidth="366px"
+              text={
+                screenWidth.isMobile
+                  ? "Заказать фотосессию"
+                  : "Заказать Экспресс-фотосессию"
+              }
+            />
           </div>
         </NavLink>
-        
+
         <HomeOrderSlider sliderImages={sliderImages} />
       </div>
       <img

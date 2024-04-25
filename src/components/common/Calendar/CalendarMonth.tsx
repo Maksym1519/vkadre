@@ -1,7 +1,9 @@
 import "./Calendar.scss";
-import { useAppSelector } from "store/hooks";
+import { useAppSelector, useAppDispatch } from "store/hooks";
+import { setPopup } from "store/slices/calendar/calendarSlice";
+import { setPhotosessionInfo } from "store/slices/calendar/calendarSlice";
 import CalendarPopup from "./CalendarPopup";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMatchMedia } from "hooks/use-match-media";
 import dot from "@img/dot.svg";
 
@@ -48,22 +50,19 @@ const CalendarMonth = () => {
     "суббота",
     "воскресенье",
   ];
-  //------------------------------------------------------------
-  const monthIndex = useAppSelector((state) => state.calendar.weekIndex);
-
+  
   //get-photosessionInfo--------------------------------------
   const photosessionInfo = useAppSelector(
     (state) => state.futurePhotosession.futurePhotosession
   );
 
   //popup-state-------------------------------------------------
-  const [calendarPopup, setCalendarPopup] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
+  const calendarPopup = useAppSelector((state) => state.calendar.popup);
   const showPopup = () => {
-    setCalendarPopup(true);
+    dispatch(setPopup(true));
   };
-  const closePopup = () => {
-    setCalendarPopup(false);
-  };
+
   //----------------------------------------------------------------
   const [selectedEvents, setSelectedEvents] = useState<any[]>([]);
 
@@ -73,7 +72,6 @@ const CalendarMonth = () => {
       photosessionInfo.filter((event) =>
         event.attributes.date.startsWith(`${date}.`)
       );
-
     if (matchingEvents && matchingEvents.length > 0) {
       setSelectedEvents(matchingEvents);
     } else {
@@ -83,6 +81,11 @@ const CalendarMonth = () => {
 
   //matchMedia------------------------------------------
   const screenWidth = useMatchMedia();
+
+  // //set-photosessionInfo-to-popup----------------------
+  useEffect(() => {
+    dispatch(setPhotosessionInfo(selectedEvents));
+  }, [handleCellClick]);
 
   return (
     <div className="calendar-month">
@@ -134,9 +137,7 @@ const CalendarMonth = () => {
           </div>
         );
       })}
-      {calendarPopup && (
-        <CalendarPopup closePopup={closePopup} photoInfo={selectedEvents} />
-      )}
+      {calendarPopup && selectedEvents.length > 0 && <CalendarPopup />}
     </div>
   );
 };

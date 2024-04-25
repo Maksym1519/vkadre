@@ -1,9 +1,9 @@
-import { useAppSelector, useAppDispatch } from "store/hooks";
+import { useAppSelector } from "store/hooks";
 import "./Calendar.scss";
 import DaysHeader from "./DaysHeader";
 import CalendarInfo from "./CalendarInfo";
-import { useState, useEffect } from "react";
-import { futurePhotoGet } from "store/slices/modals/orderPhotosession/futurePhotosessionSlice";
+import { useState } from "react";
+
 
 const CalendarDays = () => {
   const dates = [
@@ -43,11 +43,7 @@ const CalendarDays = () => {
     }
   };
 
-  //get-photosession-info--------------------------
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(futurePhotoGet());
-  }, []);
+  //----------------------------------------------------------
   const photosessionInfo = useAppSelector(
     (state) => state.futurePhotosession.futurePhotosession
   );
