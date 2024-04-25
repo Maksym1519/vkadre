@@ -1,12 +1,16 @@
 import "./Header.scss";
-import { useAppDispatch, useAppSelector } from "store/hooks";
+import { useAppDispatch } from "store/hooks";
 import { getBurgerInfo } from "store/slices/headerSlice";
-import { setAuthState, setProfileMenu } from "store/slices/auth/authSlice";
+import { setAuthState } from "store/slices/auth/authSlice";
 import { userData } from "hooks/localStorageData";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-const ProfileMenu = ({ closeMenu }: any) => {
+interface PropsType {
+  closeMenu: () => void
+}
+
+const ProfileMenu = ({ closeMenu }: PropsType) => {
   const dispatch = useAppDispatch();
 
   const handleRegClick = () => {
@@ -30,54 +34,52 @@ const ProfileMenu = ({ closeMenu }: any) => {
 
   const greetingInfo = greeting ? greeting : "Гость";
 
-  //---------------------------------------------------------
-  const menuState = useAppSelector((state) => state.auth.profileMenu)
-  console.log(menuState)
-
-  const hideMenu = () => {
-    if (menuState === true) {
-      dispatch(setProfileMenu(false))
-    }
-  }
-
-  // useEffect(() => {
-  //   dispatch(setProfileMenu(false))
-  // },[menuState])
-
+  
   return (
-<>
-    <div className="profile-menu">
-      <div className="profile-menu__header" onClick={hideMenu}>
-        Привет
-        <br />
-        {`${greetingInfo}`} !
-      </div>
-      <div className="profile-menu__body">
-        {greetingInfo === "Гость" && (
+    <>
+      <div className="profile-menu">
+        <div className="profile-menu__header">
+          Привет
+          <br />
+          {`${greetingInfo}`} !
+        </div>
+        <div className="profile-menu__body">
+          {greetingInfo === "Гость" && (
+            <>
+              {" "}
+              <NavLink to="/">
+                <p onClick={() => {handleRegClick(); closeMenu()}}>Зарегистрироваться</p>
+              </NavLink>
+              <NavLink to={"/"}>
+                <p onClick={() => {handleRegClick(); closeMenu()}}>Войти</p>
+              </NavLink>
+            </>
+          )}
+        </div>
+        {greetingInfo !== "Гость" && (
           <>
-            {" "}
-            <NavLink to="/">
-            <p onClick={handleRegClick}>Зарегистрироваться</p>
+            <NavLink to="/Cabinet">
+              <div
+                className="profile-menu__cabinet"
+                onClick={() => {dispatch(getBurgerInfo(false)); closeMenu()}}
+              >
+                Личный кабинет
+              </div>
             </NavLink>
-            
-            <NavLink to={"/"}>
-            <p onClick={handleRegClick}>Войти</p>
-            </NavLink>
+            <div
+              className="profile-menu__logout"
+              onClick={(event) => {
+                clickLogout(event);
+                handleRegClick();
+                closeMenu()
+              }}
+            >
+              Выйти
+            </div>
           </>
         )}
       </div>
-      {greetingInfo !== "Гость" && (
-        <>
-          <NavLink to="/Cabinet">
-            <div className="profile-menu__cabinet" onClick={() => dispatch(getBurgerInfo(false))}>Личный кабинет</div>
-          </NavLink>
-          <div className="profile-menu__logout" onClick={(event) => {clickLogout(event); handleRegClick()}}>
-            Выйти
-          </div>
-        </>
-      )}
-    </div>
-</>
+    </>
   );
 };
 

@@ -13,7 +13,7 @@ const Profile = () => {
 
   //close-popup-outside----------------------------------
   const [isActive, setIsActive] = useState(false);
-
+  
   useEffect(() => {
     setIsActive(false);
   }, []);
@@ -21,35 +21,31 @@ const Profile = () => {
 
   clickOutside(menuRef, () => setIsActive(false));
 
-   //show-profile-menu--------------------------------------------------
-   const showProfileMenu = () => {
+  //show-profile-menu--------------------------------------------------
+  const showProfileMenu = () => {
     setIsActive(true);
     dispatch(setProfileMenu(true));
   };
 
-   //get-user-data-localstorage-------------------------------------------
-    const userInfo = userData();
-       
-   //----------------------------------------------------------------------
-   const closeMenu = () => {
-     setIsActive(false);
-   };
+  //get-user-data-localstorage-------------------------------------------
+  const userInfo = userData();
+
+  //----------------------------------------------------------------------
+  const closeMenu = () => {
+    setIsActive(false);
+  };
 
   return (
-    <div
-      className="profile"
-      onClick={showProfileMenu}
-      ref={menuRef}
-    >
+    <div className="profile" ref={menuRef}>
       <img
         src={
-          reduxData &&
-          reduxData[0].attributes.avatarIcon.data.attributes.url
+          reduxData && reduxData[0].attributes.avatarIcon.data.attributes.url
         }
         alt="avatar"
         className="profile__avatar"
+        onClick={showProfileMenu}
       />
-      <p className="profile__text">
+      <p className="profile__text" onClick={showProfileMenu}>
         {userInfo.username ? userInfo.username : "Личный кабинет"}
       </p>
       {isActive && <ProfileMenu closeMenu={closeMenu} />}

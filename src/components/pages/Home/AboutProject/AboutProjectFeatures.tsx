@@ -22,17 +22,17 @@ const AboutProjectFeatures = () => {
       <div className="features__body">
         {reduxInfo &&
           reduxInfo.map((item: any, index: number) => (
-            <div className="features-item" key={index}>
+            <div className="feature-item" key={index}>
               <img
                 src={icones && icones[index]}
-                className="features-item__icon"
+                className="feature-item__icon"
                 alt="icon"
               />
-              <div className="features-item__info">
-                <p className="features-item__title">
+              <div className="feature-item__info">
+                <p className="feature-item__title">
                   {item.attributes.featuresTitle}
                 </p>
-                <p className="features-item__text">
+                <p className="feature-item__text">
                   {item.attributes.featuresInfo}
                 </p>
               </div>

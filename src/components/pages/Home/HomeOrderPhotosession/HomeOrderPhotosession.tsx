@@ -62,8 +62,9 @@ const HomeOrderPhotosession = () => {
           </div>
         </div>
 
-        <NavLink to={"/ExpressPhoto"} style={{ order: 4 }}>
+       
           <div className="home-order__button-wrapper">
+          <NavLink to={"/ExpressPhoto"} style={{ order: 4 }}>
             <Button
               maxWidth="366px"
               text={
@@ -72,8 +73,9 @@ const HomeOrderPhotosession = () => {
                   : "Заказать Экспресс-фотосессию"
               }
             />
+             </NavLink>
           </div>
-        </NavLink>
+       
 
         <HomeOrderSlider sliderImages={sliderImages} />
       </div>

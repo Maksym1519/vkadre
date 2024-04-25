@@ -9,6 +9,7 @@ import Calendar from "@img/calendar.svg";
 import Close from "@img/closeCircle.svg";
 import Clock from "@img/clock.svg";
 import nothing from "@img/nothing.webp";
+import { useEffect } from "react";
 
 const FuturePhotoItem = () => {
   const reduxData = useAppSelector(
@@ -30,8 +31,8 @@ const FuturePhotoItem = () => {
   const day = currentDate.getDate();
   const month = currentDate.getMonth() + 1;
   const fullYear = currentDate.getFullYear();
-  const formatedDate = `${day}.${month}.${fullYear}`;
-
+  const formatedDate = `${day}.${"0" + month}.${fullYear}`;
+  
   //Filtration
   const filteredData =
     reduxData &&
@@ -77,6 +78,10 @@ const FuturePhotoItem = () => {
   }
 
   const hasData = filteredData && filteredData.length > 0;
+
+  useEffect(() => {
+    filteredData
+  },[getOrderId])
   return (
     <div className="future-photo-item-wrapper">
       {hasData ? (
