@@ -23,7 +23,7 @@ const OrderPhotoForm = () => {
 
   //useForm-------------------------------------------------
   const form = useForm<FuturePhotoPostType>({});
-  const { register, handleSubmit, formState } = form;
+  const { register, handleSubmit, formState, control } = form;
   const { errors } = formState;
 
   useEffect(() => {
@@ -66,8 +66,9 @@ const OrderPhotoForm = () => {
   //get-value-from-booking--------------------------------------
   const [typeValue, setTypeValue] = useState<string | null>(null); 
 
-  const handleGetTypeValue = (e: string) => {
-     setTypeValue(e);
+  const handleGetTypeValue = (selectedValue: any) => {
+    setTypeValue(selectedValue); // Обновляем локальное состояние
+    form.setValue('data.kind', selectedValue); // Обновляем значение в react-hook-form
   };
 
        

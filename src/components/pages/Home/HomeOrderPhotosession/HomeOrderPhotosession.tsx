@@ -2,17 +2,11 @@ import "./HomeOrderPhotosession.scss";
 import { NavLink } from "react-router-dom";
 import Button from "../../../ui/buttons/Button";
 import HomeOrderSlider from "./HomeOrderSlider";
-import { orderPhotosessionInfo } from "store/slices/main/orderPhotosessionSlice";
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "store/hooks";
+import { useAppSelector } from "store/hooks";
 import { useMatchMedia } from "hooks/use-match-media";
 
 const HomeOrderPhotosession = () => {
-  const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(orderPhotosessionInfo());
-  }, [dispatch]);
-
+  
   const reduxData = useAppSelector(
     (state) => state.orderPhotosession.orderPhotosession
   );

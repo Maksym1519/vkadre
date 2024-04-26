@@ -1,4 +1,5 @@
 import "./Portfolio.scss";
+import { NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { useEffect } from "react";
 import { portfolioInfo } from "store/slices/main/portfolioSlice";
@@ -17,12 +18,12 @@ const Portfolio = () => {
     dispatch(portfolioInfo());
   }, [dispatch]);
 
-   const sliderIndex = [1, 2, 3];
+  const sliderIndex = [1, 2, 3];
 
-   const reduxData = useAppSelector((state) => state.portfolio.portfolio);
-   const gallery =
-     reduxData &&
-     reduxData.map((item) => item.attributes.photo.data.attributes.url);
+  const reduxData = useAppSelector((state) => state.portfolio.portfolio);
+  const gallery =
+    reduxData &&
+    reduxData.map((item) => item.attributes.photo.data.attributes.url);
 
   return (
     <div className="portfolio-wrapper">
@@ -50,14 +51,16 @@ const Portfolio = () => {
       >
         {sliderIndex.map((index) => (
           <SwiperSlide className="portfolio-slider__slide" key={index}>
-            <PortfolioItem images={gallery}/>
+            <PortfolioItem images={gallery} />
           </SwiperSlide>
         ))}
       </Swiper>
 
       <div className="buttons-navigation">
         <div className="portfolio-button-wrapper">
-          <Button text="Смотреть все Портфолио" width="100%" />
+          <NavLink to="/Portfolio">
+            <Button text="Смотреть все Портфолио" width="100%" />
+          </NavLink>
         </div>
         <div className="button-swiper">
           <div className="swiper-button-prev"></div>

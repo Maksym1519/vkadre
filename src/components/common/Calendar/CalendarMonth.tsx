@@ -87,6 +87,10 @@ const CalendarMonth = () => {
     dispatch(setPhotosessionInfo(selectedEvents));
   }, [handleCellClick]);
 
+  //get-period----------------------------------------
+  const currentPeriod = useAppSelector((state) => state.calendar.monthIndex)
+  console.log(currentPeriod)
+
   return (
     <div className="calendar-month">
       {days.map((item, index) => (
@@ -118,7 +122,7 @@ const CalendarMonth = () => {
             <span>{date}</span>
             {!screenWidth.isMobile && (
               <span className="calendar-month__cell-events">
-                {matchingEvents &&
+                {matchingEvents && currentPeriod === 0 && 
                   matchingEvents.length > 0 &&
                   `${matchingEvents.length} ${
                     matchingEvents.length === 1 ? "фотосессия" : "фотосессий"

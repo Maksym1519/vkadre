@@ -1,12 +1,18 @@
 import "./Portfolio.scss";
+import { useEffect, useState } from "react";
 import Title from "components/ui/forms/Title";
 import PortfolioNavigation from "./PortfolioNavigation";
 import PortfolioItem from "components/common/Main/PortfolioItem";
 import OrderPhoto from "components/common/Portfolio/OrderPhoto";
 import Blur from "@img/blur.webp";
 import { useAppSelector } from "store/hooks";
+import Loading from "components/common/Loading/Loading";
 
 const PortfolioPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const reduxData = useAppSelector((state) => state.portfolio.portfolio);
   const gallery: Array<string> | null =
     reduxData &&
@@ -61,22 +67,34 @@ const PortfolioPage = () => {
   ];
   const activeContent = contentArray[portfolioIndex];
 
+  //-----------------------------------------------------------
+  const [loading, setLoading] = useState<boolean>(false);
+  useEffect(() => {
+    if (reduxData && reduxData !== null) {
+      setLoading(true);
+    }
+  }, [reduxData]);
+
   return (
-    <div className="portfolio">
+    <>
+      {!loading && <Loading />}
+      {loading && (
+        <div className="portfolio">
+          <Title text="Портфолио" />
 
-      <Title text="Портфолио" />
-      
-      <h4 className="portfolio__subtitle">
-        За 3 года работы мы организовали более 10 000 фотосессий в Одессе
-      </h4>
+          <h4 className="portfolio__subtitle">
+            За 3 года работы мы организовали более 10 000 фотосессий в Одессе
+          </h4>
 
-      <PortfolioNavigation />
-      {activeContent}
-      <div className="portfolio-order-photo"></div>
-      <OrderPhoto />
+          <PortfolioNavigation />
+          {activeContent}
+          <div className="portfolio-order-photo"></div>
+          <OrderPhoto />
 
-      <img src={Blur} alt="blur" className="portfolio__blur"/>
-    </div>
+          <img src={Blur} alt="blur" className="portfolio__blur" />
+        </div>
+      )}
+    </>
   );
 };
 export default PortfolioPage;

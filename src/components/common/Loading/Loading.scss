@@ -1,0 +1,22 @@
+@import "@vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+
+
+
+.loading {
+    position: absolute;
+    top: -130px;
+    left: 0;
+    width: 100%;
+    min-height: 130vh;
+    margin: auto !important;
+    display: flex;
+    flex-direction: column;
+    row-gap: 48px;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    z-index: 5000;
+    background-color: var(--white);
+}

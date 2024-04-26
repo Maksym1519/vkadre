@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { setPeriod } from "store/slices/calendar/calendarSlice";
 import { setWeek } from "store/slices/calendar/calendarSlice";
+import { setMonth } from "store/slices/calendar/calendarSlice";
 import { showCalendarMobile } from "store/slices/calendar/calendarSlice";
 import { setPopup } from "store/slices/calendar/calendarSlice";
 import { setPhotosessionInfo } from "store/slices/calendar/calendarSlice";
@@ -40,6 +41,7 @@ const CalendarHeader = () => {
     if (weekIndex < week1.length - 1) {
       setWeekIndex(weekIndex + 1);
       dispatch(setWeek(weekIndex + 1));
+      dispatch(setMonth(weekIndex + 1));
     } else {
       return;
     }
@@ -49,6 +51,7 @@ const CalendarHeader = () => {
     if (weekIndex > 0) {
       setWeekIndex(weekIndex - 1);
       dispatch(setWeek(weekIndex - 1));
+      dispatch(setMonth(weekIndex - 1));
     } else {
       return;
     }

@@ -3,44 +3,31 @@ import OurTeamHero from "./OurTeamHero";
 import OrderPhoto from "components/common/Portfolio/OrderPhoto";
 import OurTeamGallery from "./OurTeamGallery";
 import Blur from "@img/blur.webp";
-import { useEffect, useState, CSSProperties } from "react";
+import { useEffect, useState } from "react";
 import { useAppSelector } from "store/hooks";
-import GridLoader from "react-spinners/ClipLoader";
+import Loading from "components/common/Loading/Loading";
 
 const OurTeam = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-    const override: CSSProperties = {
-    display: "block",
-    margin: "0 auto",
-    borderColor: "rgb 23 26 32",
-    width: "1OOvw",
-    height: "100vh",
-    background: "#fff",
-  };
-
+  
   const reduxData = useAppSelector((state) => state.ourTeam.ourTeam);
-  let [loading, setLoading] = useState(true);
+  
+  let [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
     if (reduxData && reduxData !== null) {
-      setLoading(false);
+      setLoading(true);
     }
   }, [reduxData]);
 
   return (
     <>
-      {loading && (
-        <GridLoader
-          loading={loading}
-          cssOverride={override}
-          size={50}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
-      )}
       {!loading && (
+      <Loading />
+      )}
+      {loading && (
         <div className="our-team">
           <main>
             <section className="our-team-hero">

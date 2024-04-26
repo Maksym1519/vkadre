@@ -1,12 +1,12 @@
 import "./MainLocations.scss";
+import { NavLink } from "react-router-dom";
 import Title from "components/ui/forms/Title";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { mainLocationsInfo } from "store/slices/main/mainLocationsSlice";
 import Button from "components/ui/buttons/Button";
 import CardItem from "components/common/Main/CardItem";
-import Blur from "@img/blurLocation.webp"
-
+import Blur from "@img/blurLocation.webp";
 
 //my-Swiper-----------------------------------------------------
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,11 +15,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 type PropsType = {
-  title: string
-}
+  title: string;
+};
 
 const MainLocations = (props: PropsType) => {
-  const dispatch = useAppDispatch();
+ const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(mainLocationsInfo());
   }, [dispatch]);
@@ -28,15 +28,18 @@ const MainLocations = (props: PropsType) => {
     (state) => state.mainLocations.mainLocations
   );
 
- 
   const newArray = reduxData?.concat(reduxData);
   const imagesArray =
-  newArray &&
-  newArray.map((item) => item.attributes.image.data.attributes.url);
+    newArray &&
+    newArray.map((item) => item.attributes.image.data.attributes.url);
 
   return (
     <div className="main-locations">
-      <Title text={props.title ? props.title : reduxData && reduxData[0].attributes.title} />
+      <Title
+        text={
+          props.title ? props.title : reduxData && reduxData[0].attributes.title
+        }
+      />
       <div className="locations-slider-wrapper">
         <Swiper
           navigation={{
@@ -75,7 +78,9 @@ const MainLocations = (props: PropsType) => {
 
         <div className="buttons-navigation">
           <div className="portfolio-button-wrapper">
-            <Button text="Смотреть все локации" width="100%" />
+            <NavLink to="/Locations">
+              <Button text="Смотреть все локации" width="100%" />
+            </NavLink>
           </div>
           <div className="button-swiper">
             <div className="swiper-button-prev"></div>
@@ -83,7 +88,7 @@ const MainLocations = (props: PropsType) => {
           </div>
         </div>
       </div>
-       <img src={Blur} alt="blur" className="location-blur"/>
+      <img src={Blur} alt="blur" className="location-blur" />
     </div>
   );
 };

@@ -12,6 +12,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import Blur from "@img/blur.webp";
 
 const Locations = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const locations: Array<string> = [
     "Все",
     "Одесса",
