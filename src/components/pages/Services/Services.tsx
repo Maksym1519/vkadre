@@ -1,6 +1,7 @@
 import "./Services.scss";
 import CardItem from "components/common/Main/CardItem";
 import OrderPhoto from "components/common/Portfolio/OrderPhoto";
+import OrderPhotosession from "components/common/Modal/OrderPhotosession/OrderPhotosession";
 import Loading from "components/common/Loading/Loading";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { servicesInfo } from "store/slices/services/servicesSlice";
@@ -41,6 +42,10 @@ const Services: React.FC = () => {
       setLoading(true);
     }
   }, [reduxData]);
+
+  const modalState = useAppSelector(
+    (state) => state.orderPhotosessionModal.overlay
+  );
 
   return (
     <>
@@ -98,6 +103,8 @@ const Services: React.FC = () => {
           <img src={Blur} alt="blur" className="services__blur-top" />
           <img src={Blur} alt="blur" className="services__blur-left" />
           <img src={Blur} alt="blur" className="services__blur-bottom" />
+
+          {modalState && <OrderPhotosession />}
         </div>
       )}
     </>

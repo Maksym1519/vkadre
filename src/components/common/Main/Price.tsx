@@ -1,4 +1,5 @@
 import "./Price.scss";
+import { NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/hooks";
 import { pricesInfo } from "store/slices/main/priceSlice";
 import { useEffect } from "react";
@@ -27,7 +28,7 @@ const Price = (props: PropsType) => {
             <span className="price-item__price">{item.attributes.price}</span>
           </div>
         ))}
-      {props.button ? props.button : ""}
+      <NavLink to="/ExpressPhoto">{props.button ? props.button : ""}</NavLink>
     </div>
   );
 };

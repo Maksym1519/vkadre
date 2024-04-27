@@ -8,7 +8,7 @@ import { setPopup } from "store/slices/calendar/calendarSlice";
 import { setPhotosessionInfo } from "store/slices/calendar/calendarSlice";
 import "./Calendar.scss";
 import Title from "components/ui/forms/Title";
-import CalendarCity from "./CalendarCity";
+//import CalendarCity from "./CalendarCity";
 import { useMatchMedia } from "hooks/use-match-media";
 import calendarLight from "@img/calendarLight.svg";
 import listLight from "@img/listLight.svg";
@@ -134,7 +134,7 @@ const CalendarHeader = () => {
             />
           </div>
         )}
-        <CalendarCity />
+        {/* <CalendarCity /> */}
       </div>
 
       {!screenWidth.isMobile && (

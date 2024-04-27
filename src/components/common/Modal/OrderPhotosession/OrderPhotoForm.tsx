@@ -23,7 +23,7 @@ const OrderPhotoForm = () => {
 
   //useForm-------------------------------------------------
   const form = useForm<FuturePhotoPostType>({});
-  const { register, handleSubmit, formState, control } = form;
+  const { register, handleSubmit, formState } = form;
   const { errors } = formState;
 
   useEffect(() => {
@@ -48,6 +48,7 @@ const OrderPhotoForm = () => {
   const handleDateChange = (newDate: any) => {
     const formatedDate = newDate.toDate().toLocaleDateString();
     setCurrentDate(formatedDate);
+    form.setValue('data.date', newDate)
   };
 
   const calendarRef = useRef<HTMLDivElement>(null);
@@ -57,8 +58,9 @@ const OrderPhotoForm = () => {
   const [selectedTime, setSelectedTime] = useState<string | null>("");
   const [timePicker, showTimePicker] = useState<boolean>(false)
 
-  const handleTimeChange = (time:string|null) => {
+  const handleTimeChange = (time: string | null) => {
     setSelectedTime(time);
+    form.setValue('data.time', time)
   };
   //free-order-----------------------------------
   const freeOrderTextPlaceholder: string = `поле текстовое в несколько строк для свободной заявки`;

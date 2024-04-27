@@ -8,6 +8,7 @@ import PortfolioItem from "components/common/Main/PortfolioItem";
 import LocationDetailSlider from "./LocationDetailSlider";
 import LocationDetailFooter from "./LocationDetailFooter";
 import OrderPhoto from "components/common/Portfolio/OrderPhoto";
+import OrderPhotosession from "components/common/Modal/OrderPhotosession/OrderPhotosession";
 import { useMatchMedia } from "hooks/use-match-media";
 import Blur from "@img/blur.webp";
 
@@ -22,6 +23,10 @@ const LocationDetail: React.FC = () => {
     galleryData.map((item) => item.attributes.photo.data.attributes.url);
 
   const screenWidth = useMatchMedia();
+
+  const modalState = useAppSelector(
+    (state) => state.orderPhotosessionModal.overlay
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -59,6 +64,8 @@ const LocationDetail: React.FC = () => {
          <OrderPhoto />
       </section>
       <img src={Blur} alt="blur" className="location-detail__blur-top" />
+
+      {modalState && <OrderPhotosession />}
     </div>
   );
 };

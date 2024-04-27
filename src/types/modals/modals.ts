@@ -5,7 +5,7 @@ export type FuturePhotoPostType = {
     phone: number;
     kind: string;
     date: string;
-    time: string;
+    time: string | null;
     length: string;
     text: string;
     userId: string;

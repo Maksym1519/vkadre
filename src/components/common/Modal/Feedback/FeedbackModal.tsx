@@ -39,11 +39,12 @@ const FeedbackModal = () => {
   
 
   const getLocationValue = (e: string) => {
-   setLocationValue(e)
+   setLocationValue(e);
+   form.setValue('data.city', e)
   }
   const getPlacesValue = (e: string) => {
-   setPlacesValue(e)
-  }
+   setPlacesValue(e);
+   }
 
  
   return (

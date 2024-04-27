@@ -8,6 +8,7 @@ import ServiceDetailSlider from "./ServiceDetailSlider";
 import ServiceDetailFooter from "./ServiceDetailFooter";
 import AnotherServices from "./AnotherServices";
 import OrderPhoto from "components/common/Portfolio/OrderPhoto";
+import OrderPhotosession from "components/common/Modal/OrderPhotosession/OrderPhotosession";
 import { useMatchMedia } from "hooks/use-match-media";
 import Blur from "@img/blur.webp";
 
@@ -26,6 +27,11 @@ const ServiceDetail: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const modalState = useAppSelector(
+    (state) => state.orderPhotosessionModal.overlay
+  );
+
 
   
   return (
@@ -59,6 +65,8 @@ const ServiceDetail: React.FC = () => {
          <OrderPhoto />
       </section>
       <img src={Blur} alt="blur" className="service-detail__blur-top" />
+
+      {modalState && <OrderPhotosession />}
     </div>
   );
 };

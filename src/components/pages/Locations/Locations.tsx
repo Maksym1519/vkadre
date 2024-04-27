@@ -5,6 +5,7 @@ import { getLocationDetail } from "store/slices/location/locationDetailSlice";
 import { locationsPageInfo } from "store/slices/location/locationPageSlice";
 import "./Locations.scss";
 import LocationsHeader from "./LocationsHeader";
+import OrderPhotosession from "components/common/Modal/OrderPhotosession/OrderPhotosession";
 import CardItem from "components/common/Main/CardItem";
 import OrderPhoto from "components/common/Portfolio/OrderPhoto";
 import Button from "components/ui/buttons/Button";
@@ -48,7 +49,9 @@ const Locations = () => {
   //show-more/less-items-----------------------------------------------------
   const [showMore, setShowMore] = useState(false);
 
-  //motion-animation------------------------------------------------------------
+  const modalState = useAppSelector(
+    (state) => state.orderPhotosessionModal.overlay
+  );
 
   return (
     <div className="locations">
@@ -113,6 +116,8 @@ const Locations = () => {
       <img src={Blur} alt="blur" className="locations__blur-top" />
       <img src={Blur} alt="blur" className="locations__blur-left" />
       <img src={Blur} alt="blur" className="locations__blur-right" />
+
+      {modalState && <OrderPhotosession />}
     </div>
   );
 };

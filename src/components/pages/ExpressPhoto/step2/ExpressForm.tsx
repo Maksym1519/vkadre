@@ -1,13 +1,21 @@
 import "../ExpressPhotosession.scss";
+import { ExpressPhotoType } from "types/expressPhoto/expressPhotoType";
 import { TextField } from "@mui/material";
 import user from "@img/user.svg";
 import phone from "@img/phone.svg";
 import email from "@img/email.svg";
+import { UseFormRegister, FieldValues, SubmitHandler } from "react-hook-form";
 
 const ExpressForm = (props: {
-  register: any;
-  errors: any;
-  handleSubmit: any;
+  register: UseFormRegister<ExpressPhotoType>;
+  errors: {
+    data?: {
+      username?: { message: string };
+      phone?: { message: string };
+      email?: { message: string };
+    };
+  };
+  handleSubmit: SubmitHandler<ExpressPhotoType>;
 }) => {
 
  
