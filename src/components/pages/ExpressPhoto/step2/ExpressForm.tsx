@@ -4,7 +4,7 @@ import { TextField } from "@mui/material";
 import user from "@img/user.svg";
 import phone from "@img/phone.svg";
 import email from "@img/email.svg";
-import { UseFormRegister, FieldValues, SubmitHandler } from "react-hook-form";
+import { UseFormRegister, SubmitHandler } from "react-hook-form";
 
 const ExpressForm = (props: {
   register: UseFormRegister<ExpressPhotoType>;

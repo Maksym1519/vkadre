@@ -12,5 +12,6 @@ export type ExpressPhotoType = {
         certificate: string
     },
     page: number,
-    handleSubmit: any
+    handleSubmit: any,
+    overlay: boolean
 }

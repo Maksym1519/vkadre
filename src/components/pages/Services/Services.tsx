@@ -75,7 +75,7 @@ const Services: React.FC = () => {
                     >
                       <NavLink to={"/ServiceDetail"}>
                         <CardItem
-                          img={arrayImages && arrayImages[index]}
+                          img={arrayImages ? arrayImages[index] : ""}
                           title={item.attributes.title}
                           description={item.attributes.description}
                           location=""
