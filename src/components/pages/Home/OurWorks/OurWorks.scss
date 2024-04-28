@@ -1,0 +1,74 @@
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+@import "@vars/colors.scss";
+
+.our-works {
+  position: relative;
+  width: 100%;
+  z-index: 5;
+
+  &__title {
+    color: var(--textColor);
+    font-size: 2rem;
+    line-height: 140%;
+    text-transform: uppercase;
+    margin: 100px 0 60px 0;
+    }
+
+    &__blur-right {
+      position: absolute;
+      top: -30%;
+      right: 200px;
+      width: 692px;
+      height: 654px;
+      object-fit: cover;
+      z-index: -1;
+      animation: blur infinite alternate;
+      animation-duration: 3s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+    &__blur-left {
+      position: absolute;
+      bottom: -10%;
+      left: 0;
+      max-width: 692px;
+      max-height: 1274px;
+      object-fit: cover;
+      z-index: -1;
+      animation: blur infinite alternate;
+      animation-duration: 3s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes blur {
+      0% {
+        transform: translateX(50%) translateY(50%);
+      }
+      25% {
+        transform: translateX(-50%);
+      }
+      50% {
+        transform: translateX(0%) translateY(0%); 
+      }
+      75% {
+        transform: translateX(-50%) translateY(-50%); 
+      }
+      100% {
+        transform: translateX(25%) translateY(25%); 
+      }
+    }
+}
+
+@include mobile {
+  .our-works {
+    padding: 40px 0 60px;
+    border-top: 1px solid var(--colorLine);
+    border-bottom: 1px solid var(--colorLine);
+
+    &__title {
+      margin: 0;
+    }
+  }
+}

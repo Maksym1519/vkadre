@@ -1,38 +1,43 @@
 import axios from "axios";
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-//определяем типы данных для всех полей хедера
+
   export type HeaderData = [{
-  logo: string;
-  avataricon: string;
-  logoDescription: string;
-  portfolio: string;
-  services: string;
-  location: string;
-  phone: string;
-  facebook: string;
-  email: string;
-  attributes: any;
-   }]
+    attributes: {
+      logo: {
+        data: {
+          attributes: {
+            url: string 
+          }
+        }
+      };
+      avataricon: string;
+      logoDescription: string;
+      navigation: string;
+      contact: string;
+      }
+  }]
 
 //определяем типы данных для состояния хедера и ассинхронного редакса
   type HeaderState = {
   header: HeaderData | null;
   loading: boolean;
   error: string | null;
+  burger: boolean;
 }
 
 const initialState: HeaderState = {
   header: null,
   loading: false,
-  error: null
+  error: null,
+  burger: false
   };
 
   export const headerInfo = createAsyncThunk<HeaderData, undefined, { rejectValue: string }>(
     "header/headerInfo",
 
     async function (_, { rejectWithValue }) {
-        const response = await axios.get("http://localhost:1337/api/headers?populate=*");
+        const response = await axios.get("https://vkadrestrapi.onrender.com/api/headers?populate=*");
          if (response.status !== 200) {
           return rejectWithValue("Server error !");
         } 
@@ -48,8 +53,8 @@ const headerSlice = createSlice({
   name: "header",
   initialState,
   reducers: {
-    getHeaderInfo: (state,action: PayloadAction<HeaderData>) => {
-      state.header = action.payload
+    getBurgerInfo: (state,action) => {
+      state.burger = action.payload
     }
   }, 
 
@@ -67,5 +72,5 @@ const headerSlice = createSlice({
       },
 });
 
-
+export const {getBurgerInfo} = headerSlice.actions;
 export default headerSlice.reducer;

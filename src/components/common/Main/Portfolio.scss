@@ -1,0 +1,288 @@
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+@import "@vars/colors.scss";
+
+.portfolio-wrapper {
+  position: relative;
+
+  .buttons-navigation {
+    position: absolute;
+    transform: translateY(0px);
+    right: 0;
+    z-index: 1002;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 32px;
+  }
+
+  .button-swiper {
+    width: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: unset !important;
+      left: unset !important;
+      right: unset !important;
+      bottom: unset !important;
+      position: unset !important;
+      width: auto !important;
+      z-index: 1003 !important;
+    }
+
+    .swiper-button-prev {
+      width: 100%;
+      max-width: 83px;
+      content: url("@img/left.svg") !important;
+    }
+
+    .swiper-button-next {
+      width: 100%;
+      max-width: 83px;
+      content: url("@img/left.svg") !important;
+      transform: rotate(180deg);
+    }
+  }
+
+  .swiper{
+    padding: 10px;
+    max-width: 100% !important;
+  }
+}
+
+.portfolio-slider {
+  width: 100%;
+  margin-bottom: 60px;
+    
+  &__slide {
+    min-width: 100% !important;
+    }
+
+  &__item {
+     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(228px, 1fr));
+    grid-auto-rows: 172px;
+    grid-auto-flow: dense;
+    column-gap: 22px;
+    row-gap: 22px;
+    }
+
+  &__item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    }
+
+  &__item-image:hover {
+    box-shadow: 0 8px 15px #000;
+  }
+
+  &__item-image:nth-child(2),
+  &__item-image:nth-child(4),
+  &__item-image:nth-child(5),
+  &__item-image:nth-child(6),
+  &__item-image:nth-child(7) {
+    grid-row: span 2;
+  }
+
+}
+
+.portfolio-button-wrapper {
+  width: 100%;
+  max-width: 300px;
+}
+
+
+@include tablet {
+  .portfolio-wrapper {
+    position: relative;
+
+    .buttons-navigation {
+      position: absolute;
+      transform: translateY(0px);
+      right: 0;
+      z-index: 1002;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 32px;
+    }
+
+    .button-swiper {
+      width: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        top: unset !important;
+        left: unset !important;
+        right: unset !important;
+        bottom: unset !important;
+        position: unset !important;
+        width: auto !important;
+        z-index: 1003 !important;
+      }
+
+      .swiper-button-prev {
+        width: 100%;
+        max-width: 83px;
+        content: url("@img/left.svg") !important;
+      }
+
+      .swiper-button-next {
+        width: 100%;
+        max-width: 83px;
+        content: url("@img/left.svg") !important;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .portfolio-slider {
+    width: 100%;
+    margin-bottom: 60px;
+
+    &__slide {
+      min-width: 100% !important;
+    }
+
+    &__item {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+      grid-auto-rows: 172px;
+      grid-auto-flow: dense;
+      column-gap: 22px;
+      row-gap: 22px;
+    }
+
+    &__item-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    &__item-image:hover {
+      box-shadow: 0 8px 15px #000;
+    }
+
+    &__item-image:nth-child(2),
+    &__item-image:nth-child(4),
+    &__item-image:nth-child(5),
+    &__item-image:nth-child(6),
+    &__item-image:nth-child(7) {
+      grid-row: span 2;
+    }
+  }
+
+  .portfolio-button-wrapper {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@include mobile {
+  .portfolio-wrapper {
+    position: relative;
+
+    .buttons-navigation {
+      position: absolute;
+      transform: translateY(0px);
+      right: 0;
+      z-index: 1002;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 32px;
+    }
+
+    .button-swiper {
+      width: 190px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        top: unset !important;
+        left: unset !important;
+        right: unset !important;
+        bottom: unset !important;
+        position: unset !important;
+        width: auto !important;
+        z-index: 1003 !important;
+      }
+
+      .swiper-button-prev {
+        width: 100%;
+        max-width: 83px;
+        content: url("@img/left.svg") !important;
+      }
+
+      .swiper-button-next {
+        width: 100%;
+        max-width: 83px;
+        content: url("@img/left.svg") !important;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .portfolio-slider {
+    width: 100%;
+    margin-bottom: 40px;
+
+    &__slide {
+      min-width: 100% !important;
+    }
+
+    &__item {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(auto, 1fr));
+      grid-auto-rows: 172px;
+      grid-auto-flow: dense;
+      column-gap: 8px;
+      row-gap: 16px;
+    }
+
+    &__item-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    &__item-image:hover {
+      box-shadow: 0 4px 8px #000;
+    }
+
+  
+    &__item-image:nth-child(2),
+    &__item-image:nth-child(4),
+    &__item-image:nth-child(5),
+    &__item-image:nth-child(6),
+    &__item-image:nth-child(7) {
+      grid-row: span 2;
+    }
+
+  }
+
+  .portfolio-button-wrapper {
+    max-width: 100%;
+  }
+}

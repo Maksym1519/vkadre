@@ -1,0 +1,75 @@
+@import "@vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+
+.button, .button-clicked {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 0;
+  color: var(--textColor);
+  font-size: 0.75rem;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid var(--textColor);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.button:hover {
+  border: 1px solid transparent;
+}
+
+.button-clicked {
+  background: var(--black);
+  color: var(--white);
+}
+
+@mixin tablet() {
+  .button {
+    width: 100%;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 0;
+    color: var(--textColor);
+    font-size: 0.75rem;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--textColor);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .button:hover {
+    border: 1px solid transparent;
+  }
+}
+
+@mixin mobile() {
+  .button {
+    width: 100%;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 0;
+    color: var(--textColor);
+    font-size: 0.75rem;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid var(--textColor);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .button:hover {
+    border: 1px solid transparent;
+  }
+}

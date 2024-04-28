@@ -1,0 +1,160 @@
+@import "@vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+
+.main-locations {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+  padding: 100px 0 212px;
+  border-bottom: 1px solid var(--colorLine);
+  position: relative;
+  z-index: 16;
+
+  .location-blur {
+    width: 692px;
+    height: 800px;
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    z-index: -1;
+    animation: blur infinite alternate;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes blur {
+    0% {
+      transform: translateX(0%) translateY(50%);
+    }
+    25% {
+      transform: translateX(-10%);
+    }
+    50% {
+      transform: translateX(0%) translateY(0%); 
+    }
+    75% {
+      transform: translateX(-10%) translateY(-50%); 
+    }
+    100% {
+      transform: translateX(15%) translateY(25%); 
+    }
+  }    
+}
+
+.locations-slider-wrapper {
+  max-width: 100%;
+
+  &__slide {
+    max-width: 395px;
+  }
+
+  .buttons-navigation {
+    position: absolute;
+    transform: translateY(0px);
+    right: 0;
+    z-index: 1002;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 32px;
+    max-width: 100%;
+    margin-top: 60px;
+
+    .portfolio-button-wrapper {
+      width: 100%;
+      max-width: 276px;
+    }
+  }
+
+  .button-swiper {
+    width: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: unset !important;
+      left: unset !important;
+      right: unset !important;
+      bottom: unset !important;
+      position: unset !important;
+      width: auto !important;
+      z-index: 1003 !important;
+    }
+
+    .swiper-button-prev {
+      width: 100%;
+      max-width: 83px;
+      content: url("@img/left.svg") !important;
+    }
+
+    .swiper-button-next {
+      width: 100%;
+      max-width: 83px;
+      content: url("@img/left.svg") !important;
+      transform: rotate(180deg);
+    }
+  }
+
+  .swiper {
+    padding: 8px;
+  }
+}
+
+
+@include mobile {
+  .main-locations {
+    row-gap: 24px;
+    padding: 40px 0 140px;
+
+    .location-blur {
+      width: 500px;
+      height: 800px;
+      position: absolute;
+      top: -60%;
+      left: -500px;
+      z-index: -1;
+      animation: blur infinite alternate;
+      animation-duration: 5s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes blur {
+      0% {
+        transform: translateX(0%) translateY(50%);
+      }
+      25% {
+        transform: translateX(-10%);
+      }
+      50% {
+        transform: translateX(0%) translateY(0%); 
+      }
+      75% {
+        transform: translateX(-10%) translateY(-50%); 
+      }
+      100% {
+        transform: translateX(15%) translateY(25%); 
+      }
+    }    
+  }
+
+  .locations-slider-wrapper {
+    .buttons-navigation {
+      margin-top: 32px;
+
+      .portfolio-button-wrapper {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .button-swiper {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+@import "@/vars/colors.scss";
+@import "@/vars/variables.scss";
+@import "@/mixins/mediaBreakpoints.scss";
+
+.footer {
+  width: 100%;
+  padding: 80px 0 62px;
+  margin-top: auto;
+    
+ 
+  &__body,
+  &__navigation {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__navigation {
+    column-gap: 8.75rem;
+  }
+
+  &__date {
+    color: var(--textColor);
+    font-weight: 500;
+    line-height: 140%;
+    text-transform: uppercase;
+  }
+}
+
+@include tablet() {
+  .footer {
+    width: 100vw;
+    padding: 80px 0 62px;
+
+       
+    &__body,
+    &__navigation {
+      max-width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    &__navigation {
+      column-gap: 8.75rem;
+    }
+
+    &__date {
+      color: var(--textColor);
+      font-weight: 500;
+      line-height: 140%;
+      text-transform: uppercase;
+      margin-right: 50px;
+    }
+  }
+}
+@include mobile() {
+  .footer {
+    padding: 40px 0;
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__navigation {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 40px;
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--colorLine);
+    }
+
+    &__date {
+      color: var(--textColor);
+      font-weight: 500;
+      line-height: 140%;
+      text-transform: uppercase;
+    }
+  }
+}

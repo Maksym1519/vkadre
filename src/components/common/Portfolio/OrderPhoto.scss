@@ -1,0 +1,68 @@
+@import "@vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+
+.order-photo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  &__title {
+    max-width: 50%;
+  }
+
+  &__button {
+    width: 100%;
+    max-width: 276px;
+  }
+
+  &__blur {
+    position: absolute;
+    top: -200%;
+    right: 0;
+    z-index: -1;
+    width: 692px;
+    height: 454px;
+    filter: blur(50px);
+    animation: blurOrderPhoto infinite alternate;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes blurOrderPhoto {
+    0% {
+      transform: translateX(0%) translateY(0%);
+    }
+    25% {
+      transform: translateX(-50%);
+    }
+    50% {
+      transform: translateX(0%) translateY(-50%); 
+    }
+    75% {
+      transform: translateX(30%) translateY(0%); 
+    }
+    100% {
+      transform: translateX(25%) translateY(25%); 
+    }
+  }
+}
+
+@include mobile {
+  .order-photo {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 40px;
+
+    &__title {
+      text-align: center;
+      max-width: 100%;
+    }
+
+    &__button {
+      max-width: 100%;
+    }
+  }
+}

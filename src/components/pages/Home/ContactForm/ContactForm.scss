@@ -1,0 +1,208 @@
+@import "@vars/colors.scss";
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+
+.contact-form {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 84px;
+  padding: 100px 0 100px;
+  border-top: 1px solid var(--colorLine);
+  border-bottom: 1px solid var(--colorLine);
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    row-gap: 46px;
+  }
+
+  &__title {
+    color: var(--textColor);
+    font-size: 3rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  &__blur {
+    position: absolute;
+    bottom: 0%;
+    right: 0;
+    width: 1050px;
+    height: 992px;
+    filter: blur(5px);
+    opacity: 0.3;
+    z-index: -1;
+  }
+}
+
+.media-contacts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+
+  &__item {
+    color: var(--textColor);
+    font-size: 1.125rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__item:hover {
+    text-decoration: underline;
+    transform: scale(101%);
+  }
+}
+
+.contact-inputs {
+  width: 100%;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 48px;
+  border: 1px solid var(--colorLine);
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      border: none;
+      padding: 24px 0 24px;
+      color: var(--textColor);
+      font-size: 1.125rem;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+  }
+
+  &__wrapper input::placeholder {
+    color: var(--menuItem);
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  &__wrapper input:first-child {
+    margin-top: 40px;
+  }
+
+  &__wrapper input:nth-child(2) {
+    border-top: 1px solid var(--colorLine);
+    border-bottom: 1px solid var(--colorLine);
+  }
+
+  &__service-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--colorLine);
+    margin-bottom: 60px;
+
+    input {
+      width: 100%;
+      margin-top: 0 !important;
+      user-select: none;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  &__dropdown {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    transform: translateY(100%);
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    padding: 24px;
+    background: var(--white);
+    box-shadow: 10px 5px 5px var(--colorLine);
+
+    & p {
+      color: var(--menuItem);
+      font-size: 1.125rem;
+      line-height: 1.4;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    & p:hover {
+      color: var(--textColor);
+      transform: scale(102%);
+    }
+  }
+}
+
+.contact-button-wrapper {
+  width: 100%;
+  max-width: 285px;
+}
+
+@include tablet {
+  .contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr) minmax(400px, 1fr));
+    column-gap: 32px;
+
+    &__title {
+      font-size: 3em;
+    }
+  }
+}
+
+.contact-inputs {
+  padding: 24px;
+}
+
+@include mobile {
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 40px 0;
+
+    &__contacts {
+      display: none;
+    }
+  }
+
+  .contact-inputs {
+    padding: 0;
+    border: none;
+
+    &__wrapper input {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-transform: uppercase;
+      padding: 24px 0 8px;
+    }
+
+    &__wrapper input::placeholder {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    &__wrapper input:first-child {
+      margin-top: 24px;
+    }
+  }
+}
+
+.contact-button-wrapper {
+  width: 100%;
+  max-width: 100%;
+}

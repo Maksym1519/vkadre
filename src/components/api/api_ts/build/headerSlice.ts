@@ -12,7 +12,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
   phone: string;
   facebook: string;
   email: string;
-  attributes: any;
+  attributes: string;
    }
 
 //определяем типы данных для состояния хедера и ассинхронного редакса

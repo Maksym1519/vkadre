@@ -1,0 +1,92 @@
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+@import "@vars/colors.scss";
+
+.feedback-modal {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 552px;
+  height: auto;
+  background: var(--white);
+  z-index: 3011;
+  cursor: auto;
+
+  &__body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 48px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+  }
+
+  &__close:hover {
+    transform: scale(120%);
+  }
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 41px;
+
+  &__location, &__places {
+    position: relative;
+  }
+
+  &__text .MuiInputBase-input {
+    height: 126px !important;
+    box-sizing: border-box;
+    padding-bottom: 85px !important;
+  }
+
+  &__location img, &__places img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateX(-50%);
+    cursor: pointer;
+  }
+
+  &__button {
+    margin-top: 40px;
+    width: 100%;
+  }
+}
+
+.location-popup {
+  width: 100%;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 0 28px;
+  box-shadow: 0px 14px 40px 0px rgba(0, 0, 0, 0.15);
+  background: var(--white);
+  z-index: 2;
+
+  &__item {
+    padding: 9px 28px;
+    color: var(--black);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &__item:hover {
+    background: var(--colorLine);
+    font-weight: 600;
+  }
+}
+

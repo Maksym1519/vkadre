@@ -1,16 +1,103 @@
 @import "./vars/colors.scss";
+@import "./mixins/mediaBreakpoints.scss";
+@import "./fonts.scss";
+@import "./reset.scss";
+
+//tags----------------------------------------------------------
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: "Inter-400";
+  font-family: "Inter";
   font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--textColor);
   background: var(--white);
+  color: var(--textColor);
+  scroll-behavior: smooth;
 }
+
+input {
+  caret-color: var(--textColor);
+}
+
+button:hover {
+  background: var(--black);
+  color: var(--white);
+}
+//layout-------------------------------------------------------
 .container {
-    max-width: 1250px;
-    padding: 0 15px;
+  max-width: 1248px;
+  padding: 0 96px;
+  margin: 0 auto;
+  box-sizing: content-box;
+}
+
+//transition----------------------------------------------------
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+//useForm-------------------------------------------------------
+.MuiInputBase-input {
+  padding: 24px 0 !important;
+ }
+
+.MuiInputBase-input::placeholder {
+  color: var(--textColorLight) !important;
+  text-transform: uppercase !important;
+  white-space: wrap !important;
+  padding-right: 30px !important;
+}
+
+.css-1eed5fa-MuiInputBase-root-MuiInput-root.Mui-error::before {
+  border-bottom: 1px solid var(--menuItem) !important;
+}
+.css-1eed5fa-MuiInputBase-root-MuiInput-root::after {
+  border-bottom: 1px solid var(--textColor) !important;
+ }
+.css-1eed5fa-MuiInputBase-root-MuiInput-root input {
+  color: var(--textColor) !important;
+}
+//@media----------------------------------------------------------
+@include tablet {
+  .container {
+    max-width: 100%;
+    padding: 0 25px;
     margin: 0 auto;
-    box-sizing: content-box;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+}
+@include mobile {
+  .container {
+    max-width: 100%;
+    padding: 0 25px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+
+  .MuiInputBase-input {
+    padding: 24px 0 8px !important;
+  }
+
+  .order-photo-form {
+    &__input .MuiInputBase-input::placeholder {
+      white-space: nowrap !important;
+      font-size: 14px;
+    }
+  }
 }

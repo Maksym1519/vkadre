@@ -1,0 +1,238 @@
+@import "@vars/variables.scss";
+@import "@mixins/mediaBreakpoints.scss";
+@import "@vars/colors.scss";
+
+.order-photosession {
+  width: 100%;
+  max-width: 552px;
+  height: auto;
+  background: var(--white);
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3010;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 48px;
+    position: relative;
+  }
+
+  &__title {
+    margin-bottom: 41px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+  }
+
+  &__close:hover {
+    transform: scale(120%);
+  }
+}
+
+.order-photo-form {
+  display: flex;
+  flex-direction: column;
+
+  &__type-wrapper {
+    position: relative;
+  }
+
+  &__type-wrapper img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  &__date {
+    min-width: 100%;
+    display: flex;
+    column-gap: 24px;
+
+    .MuiInputBase-input {
+      padding-left: 37px !important;
+    }
+  }
+
+  &__date-date {
+    width: 50%;
+    max-width: 216px;
+    position: relative;
+  }
+
+  .order-photo-form__date-date-calendar {
+    position: absolute;
+    top: 110%;
+    left: 0%;
+    z-index: 1001;
+  }
+
+  .order-photo-form__date-time-picker {
+    position: absolute;
+    top: 110%;
+    left: 0%;
+    z-index: 3010;
+  }
+
+  .order-photo-form__input-free-text .MuiInputBase-input {
+    height: 150px !important;
+    max-height: 150px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    vertical-align: text-top !important;
+    padding-bottom: 100px !important;
+  }
+
+  &__date-date img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  &__date-time {
+    width: 50%;
+    max-width: 216px;
+    position: relative;
+  }
+
+  &__date-time img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 2;
+  }
+}
+
+.order-photo-popup {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 250px;
+  height: 300px;
+  padding: 24px;
+  background: var(--white);
+  box-shadow: 5px 5px 10px 10px var(--menuItem);
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  transition: all 0.2s ease-in-out;
+  z-index: 3;
+
+  &__row {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    line-height: 1.4;
+    color: var(--textColorLight);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  &__row:hover {
+    text-decoration: underline;
+    transform: scale(102%);
+    margin-left: 12px;
+    transition: all 0.25s ease-in;
+    color: var(--textColor)
+  }
+
+  &__row:hover::before {
+    content: "";
+    position: absolute;
+    top: 50%; //
+    left: -20px;
+    width: 8px;
+    height: 8px;
+    background-image: url("@img/leftArrow.svg");
+    background-size: cover;
+    transform: translateY(-50%);
+    transform: rotate(135deg);
+  }
+}
+
+.booking {
+  display: flex;
+  flex-direction: column;
+  padding-top: 41px;
+
+  &__price {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  &__price-text,
+  &__price-sum {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  &__price-sum {
+    font-weight: 600;
+  }
+
+  &__text {
+    color: var(--textColorLight);
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+}
+
+.booking-button {
+  max-width: 100%;
+}
+
+@include mobile {
+   .order-photosession {
+    min-width: 100vw;
+    max-width: 100%;
+
+    &__body {
+      padding: 64px 24px 24px;
+    }
+
+    &__title {
+      max-width: 60%;
+      margin-bottom: 24px;
+    }
+  }
+  }
+
+  .order-photo-form {
+    &__date {
+      flex-direction: column;
+    }
+    &__date-date {
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+    }
+
+    &__date-time {
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+    }
+ }
+  
