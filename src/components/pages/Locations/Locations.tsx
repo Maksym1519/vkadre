@@ -9,7 +9,7 @@ import OrderPhotosession from "components/common/Modal/OrderPhotosession/OrderPh
 import CardItem from "components/common/Main/CardItem";
 import OrderPhoto from "components/common/Portfolio/OrderPhoto";
 import Button from "components/ui/buttons/Button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Blur from "@img/blur.webp";
 
 const Locations = () => {
