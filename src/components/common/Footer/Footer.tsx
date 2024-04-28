@@ -1,6 +1,6 @@
 import "./Footer.scss";
-import HeaderNavigation from "../Header/HeaderNavigation";
-import HeaderContacts from "../Header/HeaderContacts";
+import HeaderNavigation from "../header/HeaderNavigation";
+import HeaderContacts from "../header/HeaderContacts";
 import { useAppSelector } from "store/hooks";
 
 const Footer = () => {
