@@ -64,7 +64,7 @@ const CalendarMonth = () => {
   };
 
   //----------------------------------------------------------------
-  const [selectedEvents, setSelectedEvents] = useState<any[]>([]);
+  const [selectedEvents, setSelectedEvents] = useState<object[]>([]);
 
   const handleCellClick = (date: string) => {
     const matchingEvents =

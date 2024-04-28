@@ -24,8 +24,8 @@ const Header = () => {
   const contactsString =
     reduxData && reduxData[0].attributes.contact.split(",");
 
-//isMobile----------------------------------------------------------
-const isDesctop = useMatchMedia()  
+  //isMobile----------------------------------------------------------
+  const isDesctop = useMatchMedia();
 
   return (
     <header className="header">
@@ -34,11 +34,14 @@ const isDesctop = useMatchMedia()
           <div className="logo">
             <img
               src={
-                reduxData && reduxData[0].attributes.logo.data.attributes.url
+                (reduxData &&
+                  reduxData[0].attributes.logo.data.attributes.url) ||
+                ""
               }
               alt="logo"
               className="header-image"
             />
+
             <div className="logo__description">
               {reduxData && reduxData[0].attributes.logoDescription}
             </div>

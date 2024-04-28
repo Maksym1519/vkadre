@@ -17,6 +17,7 @@ import calendar from "@img/calendar.svg";
 import clock from "@img/clock.svg";
 
 
+
 const OrderPhotoForm = () => {
   //get-userId-local-storage---------------------------
   const userId = userData()
@@ -42,11 +43,11 @@ const OrderPhotoForm = () => {
   clickOutside(popupRef, () => setIsActive(false));
 
   //date&time--------------------------------------------
-  const [currentDate, setCurrentDate] = useState<number | null>(null);
+  const [currentDate, setCurrentDate] = useState<string | null | undefined>(null);
   const [dateCalendar, showDateCalendar] = useState<boolean>(false);
 
   const handleDateChange = (newDate: any) => {
-    const formatedDate = newDate.toDate().toLocaleDateString();
+    const formatedDate = newDate && newDate.toDate().toLocaleDateString();
     setCurrentDate(formatedDate);
     form.setValue('data.date', newDate)
   };
@@ -68,9 +69,9 @@ const OrderPhotoForm = () => {
   //get-value-from-booking--------------------------------------
   const [typeValue, setTypeValue] = useState<string | null>(null); 
 
-  const handleGetTypeValue = (selectedValue: any) => {
-    setTypeValue(selectedValue); // Обновляем локальное состояние
-    form.setValue('data.kind', selectedValue); // Обновляем значение в react-hook-form
+  const handleGetTypeValue = (selectedValue: string) => {
+    setTypeValue(selectedValue); 
+    form.setValue('data.kind', selectedValue); 
   };
 
        

@@ -6,22 +6,31 @@ import { useMatchMedia } from "hooks/use-match-media";
 import close from "@img/cross.svg";
 import location from "@img/location.svg";
 
-
 const CalendarPopup = () => {
   const dispatch = useAppDispatch();
   const closeWindow = () => {
     dispatch(setPopup(false));
   };
-  
-  const eventsInfo = useAppSelector((state) => state.calendar.photosessionInfo);
-  
+
+  const eventsInfo = useAppSelector(
+    (state) => state.calendar.photosessionInfo
+  ) as EventInfo[];
+ 
+
   //matchmedia-------------------------------------
   const screenWidth = useMatchMedia();
+
+  interface EventInfo {
+    attributes: {
+      time?: string;
+    };
+  }
+
   return (
     <div className="calendar-popup">
       <div className="calendar-popup__body">
         {eventsInfo &&
-          eventsInfo.map((item: any, index: number) => (
+          eventsInfo.map((item: EventInfo, index: number) => (
             <div className="calendar-popup__item" key={index}>
               <p className="calendar-popup__time">
                 {item.attributes.time ? item.attributes.time : "12:00"}
@@ -42,7 +51,10 @@ const CalendarPopup = () => {
             ? "calendar-popup__close"
             : "calendar-popup__close_mobile"
         }
-        onClick={() => {closeWindow(); dispatch(setPhotosessionInfo(null))}}
+        onClick={() => {
+          closeWindow();
+          dispatch(setPhotosessionInfo(null));
+        }}
       />
     </div>
   );

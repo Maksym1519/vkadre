@@ -4,5 +4,5 @@ export type CalendarType = {
     monthIndex: number,
     calendarMobile: boolean,
     popup: boolean,
-    photosessionInfo: any,
+    photosessionInfo: Array<object> | null,
 }

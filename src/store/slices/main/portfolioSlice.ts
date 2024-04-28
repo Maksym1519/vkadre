@@ -15,14 +15,14 @@ export type PortfolioData = [{
     blur1: {
       data: {
         attributes: {
-          url: any
+          url: string
         }
       }
     },
     blur2: {
       data: {
         attributes: {
-          url: any
+          url: string
         }
       }
     }

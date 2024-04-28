@@ -3,11 +3,11 @@ import Button from "components/ui/buttons/Button";
 import coin from "@img/coin.svg";
 
 
-
 const Booking = ({ props}: any)=> {
   const handleClick = () => {
     props.handleSubmit();
   };
+
   return (
     <div className="booking">
       <div className="booking__price">

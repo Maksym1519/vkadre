@@ -1,15 +1,22 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-//определяем типы данных для всех полей хедера
+
   export type HeaderData = [{
-  logo: string;
-  avataricon: string;
-  logoDescription: string;
-  navigation: string;
-  contact: string;
-  attributes: any;
-   }]
+    attributes: {
+      logo: {
+        data: {
+          attributes: {
+            url: string 
+          }
+        }
+      };
+      avataricon: string;
+      logoDescription: string;
+      navigation: string;
+      contact: string;
+      }
+  }]
 
 //определяем типы данных для состояния хедера и ассинхронного редакса
   type HeaderState = {

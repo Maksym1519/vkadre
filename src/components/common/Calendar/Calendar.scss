@@ -322,6 +322,7 @@
 @include tablet {
   .calendar-header {
     align-items: flex-end;
+    column-gap: 32px;
     &__title {
       flex-wrap: wrap;
       row-gap: 32px;
@@ -331,7 +332,13 @@
   .calendar-header-city {
     margin-left: 0;
   }
-}
+
+  .calendar-week-column {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    }
+  }
 
 @include mobile {
   .calendar {

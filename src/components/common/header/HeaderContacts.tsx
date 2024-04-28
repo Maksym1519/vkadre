@@ -3,7 +3,7 @@ import "./Header.scss";
 
 
 interface HeaderContactsString {
-    contactsString: string[]
+    contactsString: string[] | null
 }
 const HeaderContacts: React.FC<HeaderContactsString> = ({contactsString}) => {
     return (

@@ -2,7 +2,7 @@ import "./CardItem.scss";
 import LocationIcon from "@img/locationIcon.svg";
 
 interface CardProps {
-  img: any;
+  img: string;
   title: string;
   location: string;
   description: string;

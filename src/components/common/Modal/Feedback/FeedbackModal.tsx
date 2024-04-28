@@ -40,10 +40,11 @@ const FeedbackModal = () => {
 
   const getLocationValue = (e: string) => {
    setLocationValue(e);
-   form.setValue('data.city', e)
+   form.setValue('data.location', e)
   }
   const getPlacesValue = (e: string) => {
    setPlacesValue(e);
+   form.setValue('data.city', e)
    }
 
  
@@ -68,12 +69,12 @@ const FeedbackModal = () => {
             <TextField
               id="standard-basic"
               placeholder="Откуда вы ?"
-              value={locationValue}
+              value={placesValue}
               variant="standard"
               className="order-photo-form__input"
               style={{ minWidth: "100%", textTransform: "uppercase" }}
               type="text"
-              {...register("data.location", {
+              {...register("data.city", {
                 required: "City is required",
               })}
               error={!!errors.data?.location}
@@ -84,18 +85,18 @@ const FeedbackModal = () => {
               alt="arrow"
               onClick={() => setLocationsActive(!locationsActive)}
             />
-            {locationsActive && <LocationPopup getLocationValue = {getLocationValue}/>}
+            {locationsActive && <LocationPopup getPlacesValue = {getPlacesValue}/>}
           </div>
           <div className="feedback-form__places" ref={placesRef}>
             <TextField
               id="standard-basic"
               placeholder="Локация"
-              value={placesValue}
+              value={locationValue}
               variant="standard"
               className="order-photo-form__input"
               style={{ minWidth: "100%", textTransform: "uppercase" }}
               type="text"
-              {...register("data.city", {
+              {...register("data.location", {
                 required: "Location is required",
               })}
               error={!!errors.data?.city}
@@ -106,7 +107,7 @@ const FeedbackModal = () => {
               alt="arrow"
               onClick={() => setPlacesActive(!placesActive)}
             />
-            {placesActive && <PlacesPopup getPlacesValue = {getPlacesValue}/>}
+            {placesActive && <PlacesPopup getLocationValue = {getLocationValue}/>}
           </div>
           <div className="feedback-form__text">
             <TextField

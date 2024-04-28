@@ -1,6 +1,11 @@
 import "./OrderPhotosession.scss";
 
-const OrderPhotoPopup = (props: any) => {
+
+interface OrderPhotoPopupProps {
+  handlChange: (selectedValue: string) => void;
+}
+
+const OrderPhotoPopup = (props: OrderPhotoPopupProps) => {
   const photoTypes: Array<string> = [
     "Экспресс-фото",
     "Индивидуальные фотосессии",
@@ -12,7 +17,7 @@ const OrderPhotoPopup = (props: any) => {
   return (
     <div className="order-photo-popup">
       {photoTypes.map((item, index) => (
-        <p key={index} className="order-photo-popup__row" onClick={(e) => props.handlChange(item)}>{item}</p>
+        <p key={index} className="order-photo-popup__row" onClick={() => props.handlChange(item)}>{item}</p>
       ))}
     </div>
   );

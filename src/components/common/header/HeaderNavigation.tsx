@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 
 interface HeaderNavigationProps {
-    navigationString: string[];
+    navigationString: string[] | null;
   }
 
   interface LinkState {

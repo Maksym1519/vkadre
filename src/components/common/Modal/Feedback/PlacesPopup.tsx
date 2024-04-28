@@ -1,6 +1,11 @@
 import "./FeedbackModal.scss";
 
-const PlacesPopup = (props: any) => {
+
+type PropsType = {
+  getLocationValue: (e: string) => void
+} 
+
+const PlacesPopup = (props: PropsType) => {
   const placesArray: Array<string> = [
     "Оперный театр",
     "Ботанический сад",
@@ -17,7 +22,7 @@ const PlacesPopup = (props: any) => {
     <div className="location-popup">
       {placesArray &&
         placesArray.map((item, index) => (
-          <div className="location-popup__item" key={index} onClick={() => props.getPlacesValue(item)}>{item}</div>
+          <div className="location-popup__item" key={index} onClick={() => props.getLocationValue(item)}>{item}</div>
         ))}
     </div>
   );

@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
 import { aboutProjectInfo } from "../../../../store/slices/main/aboutProjectSlice";
 import { useEffect } from "react";
 
+
 const AboutProjectFeatures = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -17,11 +18,26 @@ const AboutProjectFeatures = () => {
     reduxInfo &&
     reduxInfo.map((item) => item.attributes.featuresIcon?.data?.attributes.url);
 
+    
+    interface AboutProjectItem {
+      attributes: {
+        featuresIcon: {
+          data: {
+            attributes: {
+              url: string;
+            };
+          };
+        };
+        featuresTitle: string;
+        featuresInfo: string;
+       };
+     }
+
   return (
     <div className="features">
       <div className="features__body">
         {reduxInfo &&
-          reduxInfo.map((item: any, index: number) => (
+          reduxInfo.map((item: AboutProjectItem, index: number) => (
             <div className="feature-item" key={index}>
               <img
                 src={icones && icones[index]}
