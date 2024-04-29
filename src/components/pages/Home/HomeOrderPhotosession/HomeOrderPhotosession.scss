@@ -28,6 +28,7 @@
 
   &__description {
     width: 100%;
+    max-width: 610px;
     min-height: 100%;
     height: auto;
     display: flex;
@@ -67,16 +68,16 @@
       transform: translateX(0%) translateY(0%);
     }
     25% {
-      transform: translateX(-50%);
+      transform: translateX(-20%);
     }
     50% {
       transform: translateX(0%) translateY(0%);
     }
     75% {
-      transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-20%) translateY(-50%);
     }
     100% {
-      transform: translateX(25%) translateY(25%);
+      transform: translateX(10%) translateY(25%);
     }
   }
 

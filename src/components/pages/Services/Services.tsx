@@ -58,7 +58,7 @@ const Services: React.FC = () => {
               За 3 года работы мы организовали более 10 000 фотосессий в Одессе
             </h3>
           </div>
-          <main>
+          
             <section className="services-gallery">
               {reduxData &&
                 reduxData
@@ -99,7 +99,7 @@ const Services: React.FC = () => {
             <section className="services-order-photo">
               <OrderPhoto />
             </section>
-          </main>
+      
           <img src={Blur} loading="lazy" alt="blur" className="services__blur-top" />
           <img src={Blur} loading="lazy" alt="blur" className="services__blur-left" />
           <img src={Blur} loading="lazy" alt="blur" className="services__blur-bottom" />

@@ -50,6 +50,10 @@
     .swiper {
       max-width: 100% !important;
     }
+
+    .swiper-wrapper {
+      padding: 12px !important;
+    }
     
     .buttons-navigation {
       position: absolute;
@@ -103,6 +107,11 @@
   
   .our-team-slider__slide {
     max-width: 288px;
+    transition: all 0.3s ease;
+  }
+
+  .our-team-slider__slide:hover {
+    box-shadow: 0 8px 15px var(--textColorLight);
   }
 
   .blur-wrapper {

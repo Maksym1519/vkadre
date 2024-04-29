@@ -1,4 +1,5 @@
 import "./Header.scss";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -9,15 +10,15 @@ const HeaderContacts: React.FC<HeaderContactsString> = ({contactsString}) => {
     return (
         <div className="contacts contacts--margin">
 
-        <span className="contacts__item">
+        <NavLink to="#" className="contacts__item">
           {contactsString && contactsString[0]}
-        </span>
+        </NavLink>
 
-        <span className="contacts__item">FB.com/vkadre</span>
+        <NavLink to="#" className="contacts__item">FB.com/vkadre</NavLink>
 
-        <span className="contacts__item">
+        <NavLink to="#" className="contacts__item">
           {contactsString && contactsString[2]}
-        </span>
+        </NavLink>
         
       </div>
     )
