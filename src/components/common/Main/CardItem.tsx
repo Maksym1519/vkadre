@@ -17,7 +17,7 @@ const CardItem = (props: CardProps) => {
         {props.title && <p className="card-item__title">{props.title}</p>}
         {props.location ? (
           <div className="card-item__location">
-            {<img src={LocationIcon} alt="location" />}
+            {<img src={LocationIcon} loading="lazy" alt="location" />}
             {props.location}
           </div>
         ) : (

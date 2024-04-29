@@ -23,7 +23,7 @@ const reduxInfo = useAppSelector((state) => state.aboutProject.aboutProject)
             </div>
             <AboutProjectFeatures />
             <AboutProjectStatistics />
-            <img src={reduxInfo && reduxInfo[0].attributes?.blur?.data?.attributes.url} alt="blur" className='about-project__blur'/>
+            <img src={reduxInfo && reduxInfo[0].attributes?.blur?.data?.attributes.url} loading="lazy" alt="blur" className='about-project__blur'/>
         </div>
     )
 }

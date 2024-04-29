@@ -37,6 +37,7 @@ const ContentService = () => {
       {arrayImages && subTitle && (
         <img
           src={arrayImages[reduxIndex]}
+          loading="lazy"
           alt="image"
           className="content-service__image"
         />

@@ -75,6 +75,7 @@ const HomeOrderPhotosession = () => {
       </div>
       <img
         src={reduxData && reduxData[0].attributes.blur.data.attributes.url}
+        loading="lazy"
         alt="blur"
         className="home-order__blur"
       />

@@ -40,8 +40,8 @@ const OurTeam = () => {
               <OrderPhoto />
             </section>
           </main>
-          <img src={Blur} alt="blur" className="our-team__blur-right" />
-          <img src={Blur} alt="blur" className="our-team__blur-left" />
+          <img src={Blur} loading="lazy" alt="blur" className="our-team__blur-right" />
+          <img src={Blur} loading="lazy" alt="blur" className="our-team__blur-left" />
         </div>
       )}
     </>

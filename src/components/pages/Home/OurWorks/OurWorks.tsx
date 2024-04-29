@@ -14,8 +14,8 @@ const blur2: string | null = reduxData && reduxData[0].attributes.blur2.data.att
            <div className="portfolio">
                <Portfolio />
            </div>
-           <img src={blur1? blur1 : ""} alt="blur-right" className="our-works__blur-right"/>
-           <img src={blur2? blur2 : ""} alt="blur-right"  className="our-works__blur-left"/>
+           <img src={blur1? blur1 : ""} loading="lazy" alt="blur-right" className="our-works__blur-right"/>
+           <img src={blur2? blur2 : ""} loading="lazy" alt="blur-right"  className="our-works__blur-left"/>
         </div>
     )
 }

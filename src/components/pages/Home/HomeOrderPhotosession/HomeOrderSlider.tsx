@@ -45,7 +45,7 @@ const HomeOrderSlider = (props: PropsType) => {
         {props.sliderImages &&
           props.sliderImages.map((item: any, index: number) => (
             <SwiperSlide key={index}>
-              <img src={item.attributes.url} alt={`image`} />
+              <img src={item.attributes.url} loading="lazy" alt={`image`} />
             </SwiperSlide>
           ))}
       </Swiper>

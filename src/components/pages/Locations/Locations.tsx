@@ -113,9 +113,9 @@ const Locations = () => {
         <OrderPhoto />
       </section>
 
-      <img src={Blur} alt="blur" className="locations__blur-top" />
-      <img src={Blur} alt="blur" className="locations__blur-left" />
-      <img src={Blur} alt="blur" className="locations__blur-right" />
+      <img src={Blur} loading="lazy" alt="blur" className="locations__blur-top" />
+      <img src={Blur} loading="lazy" alt="blur" className="locations__blur-left" />
+      <img src={Blur} loading="lazy" alt="blur" className="locations__blur-right" />
 
       {modalState && <OrderPhotosession />}
     </div>

@@ -100,9 +100,9 @@ const Services: React.FC = () => {
               <OrderPhoto />
             </section>
           </main>
-          <img src={Blur} alt="blur" className="services__blur-top" />
-          <img src={Blur} alt="blur" className="services__blur-left" />
-          <img src={Blur} alt="blur" className="services__blur-bottom" />
+          <img src={Blur} loading="lazy" alt="blur" className="services__blur-top" />
+          <img src={Blur} loading="lazy" alt="blur" className="services__blur-left" />
+          <img src={Blur} loading="lazy" alt="blur" className="services__blur-bottom" />
 
           {modalState && <OrderPhotosession />}
         </div>

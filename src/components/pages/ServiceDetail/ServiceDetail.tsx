@@ -64,7 +64,7 @@ const ServiceDetail: React.FC = () => {
       <section className="service-detail-order-photo">
          <OrderPhoto />
       </section>
-      <img src={Blur} alt="blur" className="service-detail__blur-top" />
+      <img src={Blur} loading="lazy" alt="blur" className="service-detail__blur-top" />
 
       {modalState && <OrderPhotosession />}
     </div>

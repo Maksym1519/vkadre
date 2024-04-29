@@ -62,6 +62,7 @@ const AnotherServices = () => {
 
       <img
         src={Blur}
+        loading="lazy"
         alt="blur"
         className="service-detail-another-services__blur"
       />

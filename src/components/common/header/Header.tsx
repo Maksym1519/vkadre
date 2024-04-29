@@ -38,6 +38,7 @@ const Header = () => {
                   reduxData[0].attributes.logo.data.attributes.url) ||
                 ""
               }
+              loading="lazy"
               alt="logo"
               className="header-image"
             />

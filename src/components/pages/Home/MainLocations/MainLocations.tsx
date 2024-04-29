@@ -88,7 +88,7 @@ const MainLocations = (props: PropsType) => {
           </div>
         </div>
       </div>
-      <img src={Blur} alt="blur" className="location-blur" />
+      <img src={Blur} loading="lazy" alt="blur" className="location-blur" />
     </div>
   );
 };

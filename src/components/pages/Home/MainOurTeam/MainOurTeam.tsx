@@ -83,7 +83,7 @@ const MainOurTeam = () => {
           <div className="swiper-button-next"></div>
         </div>
       </div>
-      <img src={Blur} alt="blur" className="main-our-team__blur" />
+      <img src={Blur} loading="lazy" alt="blur" className="main-our-team__blur" />
     </div>
   );
 };

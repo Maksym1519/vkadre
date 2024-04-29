@@ -91,7 +91,7 @@ const PortfolioPage = () => {
           <div className="portfolio-order-photo"></div>
           <OrderPhoto />
 
-          <img src={Blur} alt="blur" className="portfolio__blur" />
+          <img src={Blur} loading="lazy" alt="blur" className="portfolio__blur" />
         </div>
       )}
     </>

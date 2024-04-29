@@ -11,7 +11,7 @@ const Questions = () => {
         <Title text="Вопросы \ ответы" />
       </div>
       <QuestionsItem />
-      <img src={Blur} alt="blur" className="questions__blur"/>
+      <img src={Blur} loading="lazy" alt="blur" className="questions__blur"/>
     </section>
   );
 };

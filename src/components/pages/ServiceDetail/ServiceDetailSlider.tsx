@@ -30,7 +30,7 @@ const ServiceDetailSlider = (props: PropsType) => {
           {props.images &&
             props.images.map((item, index) => (
               <SwiperSlide className="service-detail-slider__slide" key={index}>
-                <img src={item} alt="img" />
+                <img src={item} alt="img" loading="lazy"/>
               </SwiperSlide>
             ))}
         </Swiper>

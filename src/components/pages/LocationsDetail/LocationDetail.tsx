@@ -63,7 +63,7 @@ const LocationDetail: React.FC = () => {
       <section className="location-detail-order-photo">
          <OrderPhoto />
       </section>
-      <img src={Blur} alt="blur" className="location-detail__blur-top" />
+      <img src={Blur} loading="lazy" alt="blur" className="location-detail__blur-top" />
 
       {modalState && <OrderPhotosession />}
     </div>
