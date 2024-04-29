@@ -89,8 +89,7 @@ const CalendarMonth = () => {
 
   //get-period----------------------------------------
   const currentPeriod = useAppSelector((state) => state.calendar.monthIndex)
-  console.log(currentPeriod)
-
+  
   return (
     <div className="calendar-month">
       {days.map((item, index) => (
@@ -141,7 +140,7 @@ const CalendarMonth = () => {
           </div>
         );
       })}
-      {calendarPopup && selectedEvents.length > 0 && <CalendarPopup />}
+      {/* {calendarPopup && selectedEvents.length > 0 && <CalendarPopup />} */}
     </div>
   );
 };

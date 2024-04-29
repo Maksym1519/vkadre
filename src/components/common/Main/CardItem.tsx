@@ -12,7 +12,7 @@ const CardItem = (props: CardProps) => {
   
   return (
     <div className="card-item">
-      <img src={props.img} alt="image" className="card-item__image"/>
+      <img src={props.img} loading="lazy" alt="image" className="card-item__image"/>
       <div className="card-item__info">
         {props.title && <p className="card-item__title">{props.title}</p>}
         {props.location ? (

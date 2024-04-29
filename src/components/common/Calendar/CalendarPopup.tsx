@@ -16,7 +16,7 @@ const CalendarPopup = () => {
     (state) => state.calendar.photosessionInfo
   ) as EventInfo[];
  
-
+console.log(eventsInfo)
   //matchmedia-------------------------------------
   const screenWidth = useMatchMedia();
 

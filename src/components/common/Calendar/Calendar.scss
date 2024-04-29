@@ -4,7 +4,7 @@
 
 .calendar {
   padding: 80px 0;
-  z-index: 55;
+  z-index: 60;
   position: relative;
 
   &__blur {
@@ -263,17 +263,17 @@
   right: 0;
   width: 100%;
   max-width: 400px;
-  min-height: 100%;
+  height: auto;
   background: var(--white);
   box-shadow: 0px 14px 40px 0px rgba(0, 0, 0, 0.15);
   padding: 111px 24px 24px;
-
-  &__body,
-  &__item {
+   
+  &__body {
     display: flex;
     flex-direction: column;
     row-gap: 65px;
     position: relative;
+    background: var(--white);
   }
 
   &__item {
@@ -410,7 +410,7 @@
 
   .calendar-popup {
     padding: 37px 24px;
-
+       
     &__close_mobile {
       position: absolute;
       top: 37px;
@@ -421,7 +421,6 @@
       row-gap: 25px;
     }
   }
-
   .profile-menu {
     z-index: 3020;
   }
