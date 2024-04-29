@@ -112,8 +112,7 @@
     width: 100%;
     margin-top: 98px;
     display: grid;
-    grid-template-columns: minmax(auto, 350px) 1fr;
-    column-gap: 32px;
+    grid-template-columns: 1fr;
     padding-bottom: 100px;
     border-bottom: 1px solid var(--colorLine);
     position: relative;
@@ -122,6 +121,7 @@
       width: 100%;
       height: 100%;
       padding: 0;
+      display: none;
     }
 
     &__image img {
@@ -136,6 +136,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      row-gap: 32px;
     }
 
     &__title {

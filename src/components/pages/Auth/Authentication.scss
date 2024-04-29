@@ -116,7 +116,8 @@
 @include mobile {
   .auth {
     max-width: 90%;
-    min-height: 400px;
+    min-height: 450px;
+    height: auto;
     position: fixed;
     top: 40%;
     left: 50%;

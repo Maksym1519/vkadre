@@ -6,15 +6,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 //----------------------------------------------------------------
 type PropsType = {
-  sliderImages: Array<object> | null
-   
-}
+  sliderImages: Array<object> | null;
+};
 
 const HomeOrderSlider = (props: PropsType) => {
- 
   return (
     <div className="homeOrderSlider">
-
       <Swiper
         navigation={{
           nextEl: ".swiper-button-next",
@@ -24,11 +21,11 @@ const HomeOrderSlider = (props: PropsType) => {
         className="mySwiper"
         breakpoints={{
           280: {
-            slidesPerView: 1,
+            slidesPerView: 1.2,
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
           1430: {
@@ -38,25 +35,24 @@ const HomeOrderSlider = (props: PropsType) => {
 
           1240: {
             slidesPerView: 2,
-            spaceBetween: 20
-          }
+            spaceBetween: 20,
+          },
         }}
-        >
+      >
         {props.sliderImages &&
           props.sliderImages.map((item: any, index: number) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className="homeOrderSlider__slide">
               <img src={item.attributes.url} loading="lazy" alt={`image`} />
             </SwiperSlide>
           ))}
       </Swiper>
-      
+
       <div className="buttons-navigation">
         <div className="button-swiper">
           <div className="swiper-button-prev"></div>
           <div className="swiper-button-next"></div>
         </div>
       </div>
-      
     </div>
   );
 };

@@ -5,33 +5,46 @@
 
 
   .homeOrderSlider {
-    max-width: 100%;
+    width: 100%;
+    max-width: 610px;
     margin-top: 98px;
     position: relative;
     margin-top: auto;
     z-index: 1003;
 
-    & .mySwiper {
-      max-width: 610px !important;
-
-      & .swiper-slide {
-        max-width: 190px !important;
-        cursor: pointer;
-      }
-
-      & .swiper-slide img {
-        width: 100%;
-        max-width: 100% !important;
-        max-height: 140px !important;
-        min-height: 140px !important;
-        object-fit: cover;
-        transition: all 0.3s ease-in-out;
-      }
-      & .swiper-slide img:hover {
-        box-shadow: 0 0 10px #000;
-      }
-      
+    &__slide {
+      max-width: 97.4%;
     }
+
+    &__slide img {
+      height: 140px !important;
+      max-height: 140px !important;
+      max-width: 100% !important;
+      object-fit: cover;
+    }
+
+
+    // & .mySwiper {
+    //   max-width: 610px !important;
+
+    //   & .swiper-slide {
+    //     max-width: 190px !important;
+    //     cursor: pointer;
+    //   }
+
+    //   & .swiper-slide img {
+    //     width: 100%;
+    //     max-width: 100% !important;
+    //     max-height: 140px !important;
+    //     min-height: 140px !important;
+    //     object-fit: cover;
+    //     transition: all 0.3s ease-in-out;
+    //   }
+    //   & .swiper-slide img:hover {
+    //     box-shadow: 0 0 10px #000;
+    //   }
+      
+    // }
 
     & .button-swiper {
       width: 190px;
@@ -82,27 +95,43 @@
 
 @include sliderAdaptive {
   .homeOrderSlider {
-    max-width: 400px;
+    width: 100%;
+    max-width: 100% !important;
     margin-top: auto;
     position: relative;
     margin-top: auto;
     z-index: 1003;
 
-    .mySwiper {
+    .swiper {
       max-width: 100% !important;
-
-      .swiper-slide {
-        max-width: 190px !important;
-        cursor: pointer;
-
-        .swiper-slide img {
-          min-width: 100%;
-          max-width: 100% !important;
-          height: 140px !important;
-          object-fit: cover;
-        }
-      }
     }
+
+    &__slide {
+      max-width: 190px;
+    }
+
+    &__slide img {
+      height: 140px !important;
+      max-height: 140px !important;
+      max-width: 100% !important;
+      object-fit: cover;
+    }
+
+    // .mySwiper {
+    //   max-width: 100% !important;
+
+    //   .swiper-slide {
+    //     max-width: 190px !important;
+    //     cursor: pointer;
+
+    //     .swiper-slide img {
+    //       min-width: 100%;
+    //       max-width: 100% !important;
+    //       height: 140px !important;
+    //       object-fit: cover;
+    //     }
+    //   }
+    // }
   }
 }
 
@@ -115,22 +144,22 @@
     align-items: flex-end;
     z-index: 5;
 
-    & .mySwiper {
-      max-width: 100% !important;
+    // & .mySwiper {
+    //   max-width: 100% !important;
 
-      & .swiper-slide {
-        max-width: 100%;
-        width: 100% !important;
-        cursor: pointer;
-      }
+    //   & .swiper-slide {
+    //     max-width: 100%;
+    //     width: 100% !important;
+    //     cursor: pointer;
+    //   }
 
-      & .swiper-slide img {
-        width: 100%;
-        max-width: 254px !important;
-        height: 140px !important;
-        object-fit: cover;
-      }
-    }
+    //   & .swiper-slide img {
+    //     width: 100%;
+    //     max-width: 254px !important;
+    //     height: 140px !important;
+    //     object-fit: cover;
+    //   }
+    // }
 
     & .button-swiper {
       width: 190px;
@@ -186,22 +215,30 @@
     align-items: flex-end;
     z-index: 10;
 
-    & .mySwiper {
-      max-width: 100% !important;
-
-      & .swiper-slide {
-        width: 90.37% !important;
-        max-width: 100% !important;
-        cursor: pointer;
-      }
-
-      & .swiper-slide img {
-        width: 100%;
-        max-width: 100% !important;
-        height: 186px !important;
-        object-fit: cover;
-      }
+    &__slide {
+      max-width: 97.4%;
     }
+
+    &__slide img {
+      min-width: 100% !important;
+    }
+
+    // & .mySwiper {
+    //   max-width: 100% !important;
+
+    //   & .swiper-slide {
+    //     width: 90.37% !important;
+    //     max-width: 100% !important;
+    //     cursor: pointer;
+    //   }
+
+    //   & .swiper-slide img {
+    //     width: 100%;
+    //     max-width: 100% !important;
+    //     height: 186px !important;
+    //     object-fit: cover;
+    //   }
+    // }
 
     & .button-swiper {
       width: 190px;
