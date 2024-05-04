@@ -11,6 +11,11 @@ const Questions = () => {
         <Title text="Вопросы \ ответы" />
       </div>
       <QuestionsItem />
+      <link
+        rel="preload"
+        as="image"
+        href={Blur}
+       />
       <img src={Blur} loading="lazy" alt="blur" className="questions__blur"/>
     </section>
   );

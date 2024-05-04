@@ -72,6 +72,11 @@ const HomeOrderPhotosession = () => {
 
         <HomeOrderSlider sliderImages={sliderImages} />
       </div>
+      <link
+        rel="preload"
+        as="image"
+        href={blur}
+       />
       <img
         src={blur}
         loading="lazy"

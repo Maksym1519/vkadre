@@ -12,9 +12,8 @@ const OurTeam = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  
   const reduxData = useAppSelector((state) => state.ourTeam.ourTeam);
-  
+
   let [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
     if (reduxData && reduxData !== null) {
@@ -24,9 +23,7 @@ const OurTeam = () => {
 
   return (
     <>
-      {!loading && (
-      <Loading />
-      )}
+      {!loading && <Loading />}
       {loading && (
         <div className="our-team">
           <main>
@@ -40,8 +37,19 @@ const OurTeam = () => {
               <OrderPhoto />
             </section>
           </main>
-          <img src={Blur} loading="lazy" alt="blur" className="our-team__blur-right" />
-          <img src={Blur} loading="lazy" alt="blur" className="our-team__blur-left" />
+          <link rel="preload" as="image" href={Blur} />
+          <img
+            src={Blur}
+            loading="lazy"
+            alt="blur"
+            className="our-team__blur-right"
+          />
+          <img
+            src={Blur}
+            loading="lazy"
+            alt="blur"
+            className="our-team__blur-left"
+          />
         </div>
       )}
     </>

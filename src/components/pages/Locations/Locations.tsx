@@ -113,6 +113,11 @@ const Locations = () => {
         <OrderPhoto />
       </section>
 
+      <link
+        rel="preload"
+        as="image"
+        href={Blur}
+       />
       <img src={Blur} loading="lazy" alt="blur" className="locations__blur-top" />
       <img src={Blur} loading="lazy" alt="blur" className="locations__blur-left" />
       <img src={Blur} loading="lazy" alt="blur" className="locations__blur-right" />

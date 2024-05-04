@@ -88,6 +88,11 @@ const MainLocations = (props: PropsType) => {
           </div>
         </div>
       </div>
+      <link
+        rel="preload"
+        as="image"
+        href={Blur}
+       />
       <img src={Blur} loading="lazy" alt="blur" className="location-blur" />
     </div>
   );

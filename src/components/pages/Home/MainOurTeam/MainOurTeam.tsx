@@ -83,6 +83,11 @@ const MainOurTeam = () => {
           <div className="swiper-button-next"></div>
         </div>
       </div>
+      <link
+        rel="preload"
+        as="image"
+        href={Blur}
+       />
       <img src={Blur} loading="lazy" alt="blur" className="main-our-team__blur" />
     </div>
   );
