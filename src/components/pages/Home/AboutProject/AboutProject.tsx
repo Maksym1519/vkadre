@@ -4,6 +4,7 @@ import { aboutProjectInfo } from 'store/slices/main/aboutProjectSlice';
 import { useEffect } from 'react';
 import AboutProjectFeatures from './AboutProjectFeatures';
 import AboutProjectStatistics from './AboutProjectStatistics';
+import blur from "@img/blur.webp"
 
 
 const AboutProject = () => {
@@ -14,7 +15,6 @@ dispatch(aboutProjectInfo())
 
 const reduxInfo = useAppSelector((state) => state.aboutProject.aboutProject)
 
-
     return (
         <div className='about-project'>
               <div className='about-project__header'>
@@ -23,7 +23,7 @@ const reduxInfo = useAppSelector((state) => state.aboutProject.aboutProject)
             </div>
             <AboutProjectFeatures />
             <AboutProjectStatistics />
-            <img src={reduxInfo && reduxInfo[0].attributes?.blur?.data?.attributes.url} loading="lazy" alt="blur" className='about-project__blur'/>
+            <img src={blur} loading="lazy" alt="blur" className='about-project__blur'/>
         </div>
     )
 }

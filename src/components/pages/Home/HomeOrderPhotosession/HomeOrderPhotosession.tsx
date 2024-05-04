@@ -3,6 +3,7 @@ import Button from "../../../ui/buttons/Button";
 import HomeOrderSlider from "./HomeOrderSlider";
 import { useAppSelector } from "store/hooks";
 import { useMatchMedia } from "hooks/use-match-media";
+import blur from "@img/blur.webp"
 
 const HomeOrderPhotosession = () => {
   const reduxData = useAppSelector(
@@ -72,7 +73,7 @@ const HomeOrderPhotosession = () => {
         <HomeOrderSlider sliderImages={sliderImages} />
       </div>
       <img
-        src={reduxData && reduxData[0].attributes.blur.data.attributes.url}
+        src={blur}
         loading="lazy"
         alt="blur"
         className="home-order__blur"
