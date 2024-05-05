@@ -22,6 +22,7 @@
     "@mui/x-date-pickers": "^7.2.0",
     "@reduxjs/toolkit": "^1.9.7",
     "@strapi/provider-upload-cloudinary": "^4.20.3",
+    "@vercel/speed-insights": "^1.0.10",
     "axios": "^1.6.7",
     "date-fns": "^3.6.0",
     "dayjs": "^1.11.10",

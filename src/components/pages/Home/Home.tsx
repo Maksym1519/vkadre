@@ -39,7 +39,7 @@ const Home = () => {
 
   return (
     <>
-      {!loading && <Loading />}
+     {!loading && <Loading />}
       {loading && (
         <div className="home">
           <HomeOrderPhotosession />
