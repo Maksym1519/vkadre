@@ -13,7 +13,7 @@ const ServicesItem = () => {
     ?.flatMap((item) => item.children)
     .map((item) => item.text);
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
   const clickIndex = (index: number) => {
     setActiveIndex(index);
   };

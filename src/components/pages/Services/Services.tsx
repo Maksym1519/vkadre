@@ -58,51 +58,67 @@ const Services: React.FC = () => {
               За 3 года работы мы организовали более 10 000 фотосессий в Одессе
             </h3>
           </div>
-          <main>
-            <section className="services-gallery">
-              {reduxData &&
-                reduxData
-                  .slice(
-                    0,
-                    !showMore && screenWidth.isMobile ? 5 : reduxData.length
-                  )
-                  .map((item, index) => (
-                    <div
-                      key={index}
-                      onClick={() =>
-                        dispatch(getServiceDetail(item.attributes.title))
-                      }
-                    >
-                      <NavLink to={"/ServiceDetail"}>
-                        <CardItem
-                          img={arrayImages && arrayImages[index]}
-                          title={item.attributes.title}
-                          description={item.attributes.description}
-                          location=""
-                        />
-                      </NavLink>
-                    </div>
-                  ))}
-              {screenWidth.isMobile ? (
-                <div
-                  className="services-gallery__button"
-                  onClick={() => setShowMore(!showMore)}
-                >
-                  <Button
-                    text={!showMore ? "Показать больше" : "Показать меньше"}
-                  />
-                </div>
-              ) : (
-                ""
-              )}
-            </section>
-            <section className="services-order-photo">
-              <OrderPhoto />
-            </section>
-          </main>
-          <img src={Blur} alt="blur" className="services__blur-top" />
-          <img src={Blur} alt="blur" className="services__blur-left" />
-          <img src={Blur} alt="blur" className="services__blur-bottom" />
+
+          <section className="services-gallery">
+            {reduxData &&
+              reduxData
+                .slice(
+                  0,
+                  !showMore && screenWidth.isMobile ? 5 : reduxData.length
+                )
+                .map((item, index) => (
+                  <div
+                    key={index}
+                    onClick={() =>
+                      dispatch(getServiceDetail(item.attributes.title))
+                    }
+                  >
+                    <NavLink to={"/ServiceDetail"}>
+                      <CardItem
+                        img={arrayImages ? arrayImages[index] : ""}
+                        title={item.attributes.title}
+                        description={item.attributes.description}
+                        location=""
+                      />
+                    </NavLink>
+                  </div>
+                ))}
+            {screenWidth.isMobile ? (
+              <div
+                className="services-gallery__button"
+                onClick={() => setShowMore(!showMore)}
+              >
+                <Button
+                  text={!showMore ? "Показать больше" : "Показать меньше"}
+                />
+              </div>
+            ) : (
+              ""
+            )}
+          </section>
+          <section className="services-order-photo">
+            <OrderPhoto />
+          </section>
+
+          <link rel="preload" as="image" href={Blur} />
+          <img
+            src={Blur}
+            loading="lazy"
+            alt="blur"
+            className="services__blur-top"
+          />
+          <img
+            src={Blur}
+            loading="lazy"
+            alt="blur"
+            className="services__blur-left"
+          />
+          <img
+            src={Blur}
+            loading="lazy"
+            alt="blur"
+            className="services__blur-bottom"
+          />
 
           {modalState && <OrderPhotosession />}
         </div>

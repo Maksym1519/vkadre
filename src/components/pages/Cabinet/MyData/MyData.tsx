@@ -67,7 +67,7 @@ const MyData = () => {
         <div className="my-data-form__input-wrapper">
           <img src={User} alt="user" className="my-data-form__input-icon" />
           <TextField
-            id="standard-basic"
+            id="input-username"
             defaultValue={reduxData?.attributes.username}
             placeholder={reduxData ? reduxData?.attributes?.username : "ИМЯ"}
             variant="standard"
@@ -83,7 +83,7 @@ const MyData = () => {
         <div className="my-data-form__input-wrapper">
           <img src={Phone} alt="phone" className="my-data-form__input-icon" />
           <TextField
-            id="standard-basic"
+            id="input-phone"
             defaultValue={reduxData?.attributes.phone}
             placeholder={reduxData ? reduxData.attributes.phone : "телефон"}
             variant="standard"
@@ -102,7 +102,7 @@ const MyData = () => {
         <div className="my-data-form__input-wrapper">
           <img src={Email} alt="phone" className="my-data-form__input-icon" />
           <TextField
-            id="standard-basic"
+            id="input-email"
             defaultValue={reduxData?.attributes.email}
             placeholder={reduxData ? reduxData.attributes.email : "Email"}
             variant="standard"

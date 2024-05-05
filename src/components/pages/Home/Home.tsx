@@ -1,4 +1,4 @@
-import "./Home.scss";
+import "./home.scss";
 import HomeOrderPhotosession from "./HomeOrderPhotosession/HomeOrderPhotosession";
 import AboutProject from "./AboutProject/AboutProject";
 import OurWorks from "./OurWorks/OurWorks";

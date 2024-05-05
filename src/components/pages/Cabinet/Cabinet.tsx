@@ -8,7 +8,7 @@ import LastedPhoto from "./LastedPhoto/LastedPhoto";
 import { ToastContainer } from "react-toastify";
 import Blur from "@img/blur.webp";
 import { useMatchMedia } from "hooks/use-match-media";
-import { useState } from "react";
+
 
 const Cabinet = () => {
   const widthScreen = useMatchMedia();

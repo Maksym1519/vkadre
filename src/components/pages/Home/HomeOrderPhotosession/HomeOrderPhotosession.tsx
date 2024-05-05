@@ -1,12 +1,11 @@
 import "./HomeOrderPhotosession.scss";
-import { NavLink } from "react-router-dom";
 import Button from "../../../ui/buttons/Button";
 import HomeOrderSlider from "./HomeOrderSlider";
 import { useAppSelector } from "store/hooks";
 import { useMatchMedia } from "hooks/use-match-media";
+import blur from "@img/blur.webp"
 
 const HomeOrderPhotosession = () => {
-  
   const reduxData = useAppSelector(
     (state) => state.orderPhotosession.orderPhotosession
   );
@@ -22,6 +21,10 @@ const HomeOrderPhotosession = () => {
   //matchmedia---------------------------------------------
   const screenWidth = useMatchMedia();
 
+  const handleClick = () => {
+    window.location.href = '/ExpressPhoto';
+  };
+  
   return (
     <div className="home-order">
       <div className="home-order__image">
@@ -56,25 +59,27 @@ const HomeOrderPhotosession = () => {
           </div>
         </div>
 
-       
-          <div className="home-order__button-wrapper">
-          <NavLink to={"/ExpressPhoto"} style={{ order: 4 }}>
-            <Button
-              maxWidth="366px"
-              text={
-                screenWidth.isMobile
-                  ? "Заказать фотосессию"
-                  : "Заказать Экспресс-фотосессию"
-              }
-            />
-             </NavLink>
-          </div>
-       
+        <div className="home-order__button-wrapper" onClick={() => handleClick()}>
+          <Button
+            maxWidth="366px"
+            text={
+              screenWidth.isMobile
+                ? "Заказать фотосессию"
+                : "Заказать Экспресс-фотосессию"
+            }
+          />
+        </div>
 
         <HomeOrderSlider sliderImages={sliderImages} />
       </div>
+      <link
+        rel="preload"
+        as="image"
+        href={blur}
+       />
       <img
-        src={reduxData && reduxData[0].attributes.blur.data.attributes.url}
+        src={blur}
+        loading="lazy"
         alt="blur"
         className="home-order__blur"
       />

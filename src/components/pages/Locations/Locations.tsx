@@ -9,7 +9,7 @@ import OrderPhotosession from "components/common/Modal/OrderPhotosession/OrderPh
 import CardItem from "components/common/Main/CardItem";
 import OrderPhoto from "components/common/Portfolio/OrderPhoto";
 import Button from "components/ui/buttons/Button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Blur from "@img/blur.webp";
 
 const Locations = () => {
@@ -113,9 +113,14 @@ const Locations = () => {
         <OrderPhoto />
       </section>
 
-      <img src={Blur} alt="blur" className="locations__blur-top" />
-      <img src={Blur} alt="blur" className="locations__blur-left" />
-      <img src={Blur} alt="blur" className="locations__blur-right" />
+      <link
+        rel="preload"
+        as="image"
+        href={Blur}
+       />
+      <img src={Blur} loading="lazy" alt="blur" className="locations__blur-top" />
+      <img src={Blur} loading="lazy" alt="blur" className="locations__blur-left" />
+      <img src={Blur} loading="lazy" alt="blur" className="locations__blur-right" />
 
       {modalState && <OrderPhotosession />}
     </div>

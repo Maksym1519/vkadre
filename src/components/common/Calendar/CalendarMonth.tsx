@@ -2,7 +2,6 @@ import "./Calendar.scss";
 import { useAppSelector, useAppDispatch } from "store/hooks";
 import { setPopup } from "store/slices/calendar/calendarSlice";
 import { setPhotosessionInfo } from "store/slices/calendar/calendarSlice";
-import CalendarPopup from "./CalendarPopup";
 import { useState, useEffect } from "react";
 import { useMatchMedia } from "hooks/use-match-media";
 import dot from "@img/dot.svg";
@@ -58,7 +57,6 @@ const CalendarMonth = () => {
 
   //popup-state-------------------------------------------------
   const dispatch = useAppDispatch();
-  const calendarPopup = useAppSelector((state) => state.calendar.popup);
   const showPopup = () => {
     dispatch(setPopup(true));
   };
@@ -89,8 +87,7 @@ const CalendarMonth = () => {
 
   //get-period----------------------------------------
   const currentPeriod = useAppSelector((state) => state.calendar.monthIndex)
-  console.log(currentPeriod)
-
+  
   return (
     <div className="calendar-month">
       {days.map((item, index) => (
@@ -141,7 +138,7 @@ const CalendarMonth = () => {
           </div>
         );
       })}
-      {calendarPopup && selectedEvents.length > 0 && <CalendarPopup />}
+      {/* {calendarPopup && selectedEvents.length > 0 && <CalendarPopup />} */}
     </div>
   );
 };

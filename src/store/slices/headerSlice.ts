@@ -11,7 +11,13 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
           }
         }
       };
-      avataricon: string;
+      avatarIcon: {
+        data: {
+          attributes: {
+            url: string
+          }
+        }
+      };
       logoDescription: string;
       navigation: string;
       contact: string;

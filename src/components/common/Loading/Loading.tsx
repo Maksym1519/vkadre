@@ -9,8 +9,8 @@ const Loading = () => {
     borderColor: "black",
   };
 
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#000");
+  let [loading] = useState(true);
+  let [color] = useState("#000");
   return (
     <div className="loading">
       <FadeLoader

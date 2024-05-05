@@ -3,7 +3,7 @@ import { ExpressPhotoType } from "types/expressPhoto/expressPhotoType";
 import ExpressRequisites from "./ExpressRequisites";
 import ExpressForm from "./ExpressForm";
 import ExpressSummary from "./ExpressSummary";
-import { UseFormRegister,SubmitHandler } from "react-hook-form";
+import { UseFormRegister } from "react-hook-form";
 
 
 const ExpressPayment = (props: {
@@ -11,7 +11,7 @@ const ExpressPayment = (props: {
   errors: {
     
   };
-  handleSubmit: SubmitHandler<ExpressPhotoType>;
+  handleSubmit: any;
 }) => {
   
   return (

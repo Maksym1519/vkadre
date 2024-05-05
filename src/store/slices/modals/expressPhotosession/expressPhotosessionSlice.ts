@@ -15,7 +15,8 @@ const initialState: ExpressPhotoType = {
     certificate: ""
   },
   page: 1,
-  handleSubmit: null
+  handleSubmit: null,
+  overlay: false
 };
 
 const expressPhotoSlice = createSlice({

@@ -33,10 +33,15 @@ const ContentService = () => {
   return (
     <div className="content-service">
       {subTitle && <SubTitle text={subTitle} />}
-
+      <link
+        rel="preload"
+        as="image"
+        href={arrayImages ? arrayImages[reduxIndex] : ""}
+       />
       {arrayImages && subTitle && (
         <img
           src={arrayImages[reduxIndex]}
+          loading="lazy"
           alt="image"
           className="content-service__image"
         />

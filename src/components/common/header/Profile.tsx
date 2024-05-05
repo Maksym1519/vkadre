@@ -39,7 +39,7 @@ const Profile = () => {
     <div className="profile" ref={menuRef}>
       <img
         src={
-          reduxData && reduxData[0].attributes.avatarIcon.data.attributes.url
+          reduxData && reduxData[0]?.attributes?.avatarIcon?.data?.attributes?.url || ""
         }
         alt="avatar"
         className="profile__avatar"

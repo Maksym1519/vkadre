@@ -12,6 +12,7 @@ const PortfolioItem = (props: PropsImages) => {
         props.images.map((item, index) => (
           <img
             src={item}
+            loading="lazy"
             alt="photo"
             key={index}
             className="portfolio-slider__item-image"
